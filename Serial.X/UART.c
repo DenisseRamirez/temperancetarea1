@@ -3,9 +3,6 @@
 #include <stdlib.h>
 #include "configuration.h"
 #include "UART.h"
-char C[7]="000,000";
-int CX;
-int CY;
 void USART_Init(long BAUD){
       OSCCON= 0x72;// Defines el valor del oscilador interno
     TRISCbits.RC6 = 0;      
@@ -43,9 +40,10 @@ void USART_SPrint(char Str[]){
     Strindex++;
 }
 
-char* Coordenada (char lenght){
+char Coordenada (char lenght,int *pointerCX, int *pointerCY){
     char coordenadaX[3] = "000"; //
     char coordenadaY[3] = "000";
+    char C[7]="000,000";
      for (int i = 0; i < lenght; i++) //funcion pa leer string
         {
             while (!RCIF);
@@ -53,8 +51,8 @@ char* Coordenada (char lenght){
             while (RCIF);
         }
     strncpy(coordenadaX, &C[0], 3);//Copia el valor de la coordenada x en otro arreglo, dejando solo los 3 numeros
-    strncpy(coordenaday, &C[4], 3);//Copia el valor de la coordenada y en otro arreglo, dejando solo los 3 numeros
-    CX = atoi(coordenadaX);//Cambia el valor de string a una variable int, por lo que se deja el valor de la coordenada x
-    CY = atoi(coordenaday);//Cambia el valor de string a una variable int, por lo que se deja el valor de la coordenada y
-     return CX,CY;
+    strncpy(coordenadaY, &C[4], 3);//Copia el valor de la coordenada y en otro arreglo, dejando solo los 3 numeros
+    *pointerCX = atoi(coordenadaX);//Cambia el valor de string a una variable int, por lo que se deja el valor de la coordenada x
+    *pointerCY = atoi(coordenadaY);//Cambia el valor de string a una variable int, por lo que se deja el valor de la coordenada y
+     return 0;
 }

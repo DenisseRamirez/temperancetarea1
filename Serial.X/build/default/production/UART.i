@@ -5677,8 +5677,9 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 2 "UART.c" 2
 
+
 # 1 "./configuration.h" 1
-# 3 "UART.c" 2
+# 4 "UART.c" 2
 
 # 1 "./UART.h" 1
 
@@ -5693,10 +5694,9 @@ void USART_Tx(char data);
 char USART_Rx();
 void USARTStr(char *Output, unsigned int size);
 void USART_SPrint(char Str[]);
-char Coordenada (char lenght);
-# 4 "UART.c" 2
+char Coordenada (char lenght,int *pointerCX, int *pointerCY);
+# 5 "UART.c" 2
 
-char C[7]="000,000";
 void USART_Init(long BAUD){
       OSCCON= 0x72;
     TRISCbits.RC6 = 0;
@@ -5734,12 +5734,19 @@ void USART_SPrint(char Str[]){
     Strindex++;
 }
 
-char Coordenada (char lenght){
+char Coordenada (char lenght,int *pointerCX, int *pointerCY){
+    char coordenadaX[3] = "000";
+    char coordenadaY[3] = "000";
+    char C[7]="000,000";
      for (int i = 0; i < lenght; i++)
         {
             while (!RCIF);
             C[i] = RCREG;
             while (RCIF);
         }
-     return C;
+    strncpy(coordenadaX, &C[0], 3);
+    strncpy(coordenadaY, &C[4], 3);
+    *pointerCX = atoi(coordenadaX);
+    *pointerCY = atoi(coordenadaY);
+     return 0;
 }

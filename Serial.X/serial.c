@@ -12,22 +12,18 @@
 #include "configuration.h"
 #include "UART.h"
 
-
-/*
- * 
- */
+int CX;//Coordenada en x, global ya que sera usada en varias funciones
+int CY;//Cooordenada en y
+ 
 void main() {
     USART_Init(9600);
     char Oupcode = 'N';
     switch (Oupcode) { // Checa el Opcode que llega para saber a que funcion del serial llamar para decodificar lo que llega
         case 'F':
-            C = Coordenada(7); // LLamar a serial de decodificacion Coordenada, 7 digitos recibira
-            //Decodificacion de coordenadas
-            decodificacion(C); //Decodificacion de coordenadaS
+            Coordenada(7,&CX,&CY); // LLamar a serial de decodificacion Coordenada, 7 digitos recibira, LAS VARIABLES CX Y CY YA SE ENCUENTRAN CON VALORES
             break;
         case 'S':
-            C = Coordenada(7); // LLamar a serial de decodificacion Coordenada, 7 digitos recibira          
-            decodificacion(C); //Decodificacion de coordenadas
+             Coordenada(7,&CX,&CY); // LLamar a serial de decodificacion Coordenada, 7 digitos recibira,LAS VARIABLES CX Y CY YA SE ENCUENTRAN CON VALORES       
             break;
         case 'T':
             // LLamar a la funcion touch
@@ -43,15 +39,5 @@ void main() {
             break;
     }
     //Decodificacion de coordenadas
-}
-
-int decodificacion(char coordenada[]) {
-    char coordenadaX[3] = "000"; //
-    char coordenadaY[3] = "000";
-    strncpy(coordenadaX, &coordenada[0], 3);//Copia el valor de la coordenada x en otro arreglo, dejando solo los 3 numeros
-    strncpy(coordenaday, &coordenada[4], 3);//Copia el valor de la coordenada y en otro arreglo, dejando solo los 3 numeros
-    CX = atoi(coordenadaX);//Cambia el valor de string a una variable int, por lo que se deja el valor de la coordenada x
-    CY = atoi(coordenaday);//Cambia el valor de string a una variable int, por lo que se deja el valor de la coordenada y
-    return(CX,CY);
 }
 

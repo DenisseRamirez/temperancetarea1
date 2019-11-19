@@ -5831,28 +5831,22 @@ void USART_Tx(char data);
 char USART_Rx();
 void USARTStr(char *Output, unsigned int size);
 void USART_SPrint(char Str[]);
-char Coordenada (char lenght);
+char Coordenada (char lenght,int *pointerCX, int *pointerCY);
 # 13 "serial.c" 2
 
-int decodificacion(char coordenada[]);
+
 int CX;
 int CY;
-
-
-
 
 void main() {
     USART_Init(9600);
     char Oupcode = 'N';
     switch (Oupcode) {
         case 'F':
-            C = Coordenada(7);
-
-            decodificacion(C);
+            Coordenada(7,&CX,&CY);
             break;
         case 'S':
-            C = Coordenada(7);
-            decodificacion(C);
+             Coordenada(7,&CX,&CY);
             break;
         case 'T':
 
@@ -5868,14 +5862,4 @@ void main() {
             break;
     }
 
-}
-
-int decodificacion(char coordenada[]) {
-    char coordenadaX[3] = "000";
-    char coordenadaY[3] = "000";
-    strncpy(coordenadaX, &coordenada[0], 3);
-    strncpy(coordenaday, &coordenada[4], 3);
-    CX = atoi(coordenadaX);
-    CY = atoi(coordenaday);
-    return(CX,CY);
 }

@@ -98,6 +98,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "10443
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 10443: extern volatile __bit RCIF __attribute__((address(0x7CF5)));
 [v _RCIF `Vb ~T0 @X0 0 e@31989 ]
+"34 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\string.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\string.h: 34: char *strncpy (char *restrict, const char *restrict, size_t);
+[v _strncpy `(*uc ~T0 @X0 0 ef3`*uc`*Cuc`ui ]
+"23 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\stdlib.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\stdlib.h: 23: int atoi (const char *);
+[v _atoi `(i ~T0 @X0 0 ef1`*Cuc ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -608,21 +614,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8893
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"5 UART.c
-[; ;UART.c: 5: char C[7]="000,000";
-[v _C `uc ~T0 @X0 -> 7 `i e ]
-[i _C
-:U ..
--> 48 `c
--> 48 `c
--> 48 `c
--> 44 `c
--> 48 `c
--> 48 `c
--> 48 `c
-..
-]
-"6
+"6 UART.c
 [; ;UART.c: 6: void USART_Init(long BAUD){
 [v _USART_Init `(v ~T0 @X0 1 ef1`l ]
 {
@@ -737,52 +729,106 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 377 ]
 }
 "43
-[; ;UART.c: 43: char Coordenada (char lenght){
-[v _Coordenada `(uc ~T0 @X0 1 ef1`uc ]
+[; ;UART.c: 43: char Coordenada (char lenght,int *pointerCX, int *pointerCY){
+[v _Coordenada `(uc ~T0 @X0 1 ef3`uc`*i`*i ]
 {
 [e :U _Coordenada ]
 [v _lenght `uc ~T0 @X0 1 r1 ]
+[v _pointerCX `*i ~T0 @X0 1 r2 ]
+[v _pointerCY `*i ~T0 @X0 1 r3 ]
 [f ]
+[v F3353 `uc ~T0 @X0 -> 3 `i s ]
+[i F3353
+:U ..
 "44
-[; ;UART.c: 44:      for (int i = 0; i < lenght; i++)
+[; ;UART.c: 44:     char coordenadaX[3] = "000";
+-> 48 `c
+-> 48 `c
+-> 48 `c
+..
+]
+[v _coordenadaX `uc ~T0 @X0 -> 3 `i a ]
+[e = _coordenadaX F3353 ]
+[v F3355 `uc ~T0 @X0 -> 3 `i s ]
+[i F3355
+:U ..
+"45
+[; ;UART.c: 45:     char coordenadaY[3] = "000";
+-> 48 `c
+-> 48 `c
+-> 48 `c
+..
+]
+[v _coordenadaY `uc ~T0 @X0 -> 3 `i a ]
+[e = _coordenadaY F3355 ]
+[v F3357 `uc ~T0 @X0 -> 7 `i s ]
+[i F3357
+:U ..
+"46
+[; ;UART.c: 46:     char C[7]="000,000";
+-> 48 `c
+-> 48 `c
+-> 48 `c
+-> 44 `c
+-> 48 `c
+-> 48 `c
+-> 48 `c
+..
+]
+[v _C `uc ~T0 @X0 -> 7 `i a ]
+[e = _C F3357 ]
+"47
+[; ;UART.c: 47:      for (int i = 0; i < lenght; i++)
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [e $U 385  ]
 [e :U 382 ]
-"45
-[; ;UART.c: 45:         {
+"48
+[; ;UART.c: 48:         {
 {
-"46
-[; ;UART.c: 46:             while (!RCIF);
+"49
+[; ;UART.c: 49:             while (!RCIF);
 [e $U 386  ]
 [e :U 387 ]
 [e :U 386 ]
 [e $ ! _RCIF 387  ]
 [e :U 388 ]
-"47
-[; ;UART.c: 47:             C[i] = RCREG;
+"50
+[; ;UART.c: 50:             C[i] = RCREG;
 [e = *U + &U _C * -> -> _i `ui `ux -> -> # *U &U _C `ui `ux -> _RCREG `uc ]
-"48
-[; ;UART.c: 48:             while (RCIF);
+"51
+[; ;UART.c: 51:             while (RCIF);
 [e $U 389  ]
 [e :U 390 ]
 [e :U 389 ]
 [e $ _RCIF 390  ]
 [e :U 391 ]
-"49
-[; ;UART.c: 49:         }
+"52
+[; ;UART.c: 52:         }
 }
 [e ++ _i -> 1 `i ]
 [e :U 385 ]
 [e $ < _i -> _lenght `i 382  ]
 [e :U 383 ]
 }
-"50
-[; ;UART.c: 50:      return C;
-[e ) -> &U _C `uc ]
+"53
+[; ;UART.c: 53:     strncpy(coordenadaX, &C[0], 3);
+[e ( _strncpy (3 , , &U _coordenadaX -> &U *U + &U _C * -> -> -> 0 `i `ui `ux -> -> # *U &U _C `ui `ux `*Cuc -> -> 3 `i `ui ]
+"54
+[; ;UART.c: 54:     strncpy(coordenadaY, &C[4], 3);
+[e ( _strncpy (3 , , &U _coordenadaY -> &U *U + &U _C * -> -> -> 4 `i `ui `ux -> -> # *U &U _C `ui `ux `*Cuc -> -> 3 `i `ui ]
+"55
+[; ;UART.c: 55:     *pointerCX = atoi(coordenadaX);
+[e = *U _pointerCX ( _atoi (1 -> &U _coordenadaX `*Cuc ]
+"56
+[; ;UART.c: 56:     *pointerCY = atoi(coordenadaY);
+[e = *U _pointerCY ( _atoi (1 -> &U _coordenadaY `*Cuc ]
+"57
+[; ;UART.c: 57:      return 0;
+[e ) -> -> 0 `i `uc ]
 [e $UE 381  ]
-"51
-[; ;UART.c: 51: }
+"58
+[; ;UART.c: 58: }
 [e :UE 381 ]
 }
