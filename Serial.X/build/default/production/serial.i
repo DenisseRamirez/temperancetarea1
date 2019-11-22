@@ -5861,7 +5861,7 @@ char oneshotX=0;
 char oneshotY=0;
 int pulsosX=0;
 int pulsosY=0;
-void PWM_GeneratePulsos(int pulsosX,int pulsosY);
+void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
 int PWM_OneshotX ();
 int PWM_OneshotY ();
 void PWM_InitF();
@@ -5879,20 +5879,20 @@ int pasos_convertidos=0;
 int pasosX=0;
 int pasosY=0;
 int Motor_Conversion(int CoordenadaX);
-void Motor_Movimiento(int CoordenadaX,int CoordenadaY);
+void Motor_Movimiento(char Oupcode,int CoordenadaX,int CoordenadaY);
 # 16 "serial.c" 2
 
 
 void main() {
     USART_Init(9600);
     while (1) {
-        char Oupcode = USART_Rx();
+         char Oupcode = USART_Rx();
         switch (Oupcode) {
             case 'F':
                 USART_RxS(7, coordenada_array);
                 Serial_DecodificacionX(coordenada_array, &CX);
                 Serial_DecodificacionY(coordenada_array, &CY);
-                Motor_Movimiento(CX,CY);
+                Motor_Movimiento(Oupcode,CX,CY);
                 break;
             case 'S':
                 USART_RxS(7, coordenada_array);

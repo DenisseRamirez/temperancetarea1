@@ -18,13 +18,13 @@
 void main() {
     USART_Init(9600);
     while (1) {
-        char Oupcode = USART_Rx();
+         char Oupcode = USART_Rx();
         switch (Oupcode) { // Checa el Opcode que llega para saber a que funcion del serial llamar para decodificar lo que llega
             case 'F':
                 USART_RxS(7, coordenada_array); //Lectura de las coordenadas
                 Serial_DecodificacionX(coordenada_array, &CX); // LLamar a serial de decodificacion Coordenada LAS VARIABLES CX Y CY YA SE ENCUENTRAN CON VALORES
                 Serial_DecodificacionY(coordenada_array, &CY); // LLamar a serial de decodificacion Coordenada LAS VARIABLES CX Y CY YA SE ENCUENTRAN CON VALORES
-                Motor_Movimiento(CX,CY);
+                Motor_Movimiento(Oupcode,CX,CY);
                 break;
             case 'S':
                 USART_RxS(7, coordenada_array); //Lectura de las coordenadas

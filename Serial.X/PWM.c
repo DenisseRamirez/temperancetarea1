@@ -3,8 +3,12 @@
 #include "configuration.h"
 #include "PWM.h"
 
-void PWM_GeneratePulsos(int pulsosX, int pulsosY) {
-    PWM_InitF();
+void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY) {
+    if (Oupcode == 'S') {
+        PWM_InitS();
+    } else {
+        PWM_InitF();
+    }
     Enable_DriverX = 0;
     Enable_DriverY = 0;
     T2CONbits.TMR2ON = 1; // Timer ON
@@ -50,8 +54,9 @@ void PWM_InitF() {
     CCP2CON = 0X0C;
     T2CONbits.TMR2ON = 0; // Timer ON
     Enable_DriverX = 1;
-     Enable_DriverY = 1;
+    Enable_DriverY = 1;
 }
+
 void PWM_InitS() {
 
     PR2 = 0XFF;
@@ -65,8 +70,9 @@ void PWM_InitS() {
     CCP2CON = 0X0C;
     T2CONbits.TMR2ON = 0; // Timer ON
     Enable_DriverX = 1;
-     Enable_DriverY = 1;
+    Enable_DriverY = 1;
 }
+
 int PWM_OneshotX(int pasosX) {
     if (PORTCbits.RC2 == 1 & oneshotX == 0) {
         pasosX++;

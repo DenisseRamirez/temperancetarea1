@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "11 ./PWM.h
-[; ;./PWM.h: 11: void PWM_GeneratePulsos(int pulsosX,int pulsosY);
-[v _PWM_GeneratePulsos `(v ~T0 @X0 0 ef2`i`i ]
+[; ;./PWM.h: 11: void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
+[v _PWM_GeneratePulsos `(v ~T0 @X0 0 ef3`uc`i`i ]
 "7 ./PWM.h
 [; ;./PWM.h: 7: char oneshotX=0;
 [v _oneshotX `uc ~T0 @X0 1 e ]
@@ -67,12 +67,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 8 ]
 }
 "21
-[; ;Motor.c: 21: void Motor_Movimiento(int CoordenadaX,int CoordenadaY){
-[v _Motor_Movimiento `(v ~T0 @X0 1 ef2`i`i ]
+[; ;Motor.c: 21: void Motor_Movimiento(char Oupcode,int CoordenadaX,int CoordenadaY){
+[v _Motor_Movimiento `(v ~T0 @X0 1 ef3`uc`i`i ]
 {
 [e :U _Motor_Movimiento ]
-[v _CoordenadaX `i ~T0 @X0 1 r1 ]
-[v _CoordenadaY `i ~T0 @X0 1 r2 ]
+[v _Oupcode `uc ~T0 @X0 1 r1 ]
+[v _CoordenadaX `i ~T0 @X0 1 r2 ]
+[v _CoordenadaY `i ~T0 @X0 1 r3 ]
 [f ]
 "22
 [; ;Motor.c: 22:     pasosX=Motor_Conversion(CoordenadaX);
@@ -81,8 +82,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Motor.c: 23:     pasosY=Motor_Conversion(CoordenadaY);
 [e = _pasosY ( _Motor_Conversion (1 _CoordenadaY ]
 "24
-[; ;Motor.c: 24:     PWM_GeneratePulsos(pasosX,pasosY);
-[e ( _PWM_GeneratePulsos (2 , _pasosX _pasosY ]
+[; ;Motor.c: 24:     PWM_GeneratePulsos(Oupcode,pasosX,pasosY);
+[e ( _PWM_GeneratePulsos (3 , , _Oupcode _pasosX _pasosY ]
 "25
 [; ;Motor.c: 25: }
 [e :UE 9 ]

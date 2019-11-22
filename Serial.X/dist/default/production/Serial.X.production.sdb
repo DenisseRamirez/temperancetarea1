@@ -47,11 +47,13 @@
 [v _Motor_Movimiento Motor_Movimiento `(v  1 e 1 0 ]
 "6 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
 [v _PWM_GeneratePulsos PWM_GeneratePulsos `(v  1 e 1 0 ]
-"40
+"44
 [v _PWM_InitF PWM_InitF `(v  1 e 1 0 ]
-"70
+"60
+[v _PWM_InitS PWM_InitS `(v  1 e 1 0 ]
+"76
 [v _PWM_OneshotX PWM_OneshotX `(i  1 e 2 0 ]
-"78
+"84
 [v _PWM_OneshotY PWM_OneshotY `(i  1 e 2 0 ]
 "18 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
 [v _main main `(v  1 e 1 0 ]
@@ -83,7 +85,7 @@
 [v _CY CY `i  1 e 2 0 ]
 "12
 [v _coordenada_array coordenada_array `[7]uc  1 e 7 0 ]
-[s S308 . 1 `uc 1 RC0 1 0 :1:0 
+[s S313 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -93,29 +95,29 @@
 `uc 1 RC7 1 0 :1:7 
 ]
 "2605 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-[s S317 . 1 `uc 1 T1OSO 1 0 :1:0 
+[s S322 . 1 `uc 1 T1OSO 1 0 :1:0 
 `uc 1 T1OSI 1 0 :1:1 
 `uc 1 CCP1 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 TX 1 0 :1:6 
 `uc 1 RX 1 0 :1:7 
 ]
-[s S324 . 1 `uc 1 T13CKI 1 0 :1:0 
+[s S329 . 1 `uc 1 T13CKI 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 P1A 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 CK 1 0 :1:6 
 `uc 1 DT 1 0 :1:7 
 ]
-[s S331 . 1 `uc 1 . 1 0 :1:0 
+[s S336 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 CCP2 1 0 :1:1 
 `uc 1 PA1 1 0 :1:2 
 ]
-[s S335 . 1 `uc 1 . 1 0 :1:0 
+[s S340 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 PA2 1 0 :1:1 
 ]
-[u S338 . 1 `S308 1 . 1 0 `S317 1 . 1 0 `S324 1 . 1 0 `S331 1 . 1 0 `S335 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES338  1 e 1 @3970 ]
+[u S343 . 1 `S313 1 . 1 0 `S322 1 . 1 0 `S329 1 . 1 0 `S336 1 . 1 0 `S340 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES343  1 e 1 @3970 ]
 [s S25 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
@@ -219,12 +221,12 @@
 [v _CCPR1L CCPR1L `VEuc  1 e 1 @4030 ]
 "7200
 [v _T2CON T2CON `VEuc  1 e 1 @4042 ]
-[s S375 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S380 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 TOUTPS 1 0 :4:3 
 ]
 "7228
-[s S379 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S384 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -232,14 +234,14 @@
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[s S387 . 1 `uc 1 . 1 0 :3:0 
+[s S392 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 TOUTPS0 1 0 :1:3 
 `uc 1 TOUTPS1 1 0 :1:4 
 `uc 1 TOUTPS2 1 0 :1:5 
 `uc 1 TOUTPS3 1 0 :1:6 
 ]
-[u S393 . 1 `S375 1 . 1 0 `S379 1 . 1 0 `S387 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES393  1 e 1 @4042 ]
+[u S398 . 1 `S380 1 . 1 0 `S384 1 . 1 0 `S392 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES398  1 e 1 @4042 ]
 "7298
 [v _PR2 PR2 `VEuc  1 e 1 @4043 ]
 "7986
@@ -250,7 +252,7 @@
 [v _main main `(v  1 e 1 0 ]
 {
 "21
-[v main@Oupcode Oupcode `uc  1 a 1 61 ]
+[v main@Oupcode Oupcode `uc  1 a 1 62 ]
 "49
 } 0
 "48 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
@@ -348,38 +350,49 @@
 "21 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
 [v _Motor_Movimiento Motor_Movimiento `(v  1 e 1 0 ]
 {
+[v Motor_Movimiento@Oupcode Oupcode `uc  1 a 1 wreg ]
+[v Motor_Movimiento@Oupcode Oupcode `uc  1 a 1 wreg ]
 [v Motor_Movimiento@CoordenadaX CoordenadaX `i  1 p 2 55 ]
 [v Motor_Movimiento@CoordenadaY CoordenadaY `i  1 p 2 57 ]
+[v Motor_Movimiento@Oupcode Oupcode `uc  1 a 1 59 ]
 "25
 } 0
 "6 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
 [v _PWM_GeneratePulsos PWM_GeneratePulsos `(v  1 e 1 0 ]
 {
-"12
-[v PWM_GeneratePulsos@pasosY pasosY `i  1 a 2 9 ]
-"11
-[v PWM_GeneratePulsos@pasosX pasosX `i  1 a 2 7 ]
+[v PWM_GeneratePulsos@Oupcode Oupcode `uc  1 a 1 wreg ]
+"16
+[v PWM_GeneratePulsos@pasosY pasosY `i  1 a 2 10 ]
+"15
+[v PWM_GeneratePulsos@pasosX pasosX `i  1 a 2 8 ]
 "6
+[v PWM_GeneratePulsos@Oupcode Oupcode `uc  1 a 1 wreg ]
 [v PWM_GeneratePulsos@pulsosX pulsosX `i  1 p 2 2 ]
 [v PWM_GeneratePulsos@pulsosY pulsosY `i  1 p 2 4 ]
-"38
+[v PWM_GeneratePulsos@Oupcode Oupcode `uc  1 a 1 7 ]
+"42
 } 0
-"78
+"84
 [v _PWM_OneshotY PWM_OneshotY `(i  1 e 2 0 ]
 {
 [v PWM_OneshotY@pasosY pasosY `i  1 p 2 0 ]
-"84
+"90
 } 0
-"70
+"76
 [v _PWM_OneshotX PWM_OneshotX `(i  1 e 2 0 ]
 {
 [v PWM_OneshotX@pasosX pasosX `i  1 p 2 0 ]
-"76
+"82
 } 0
-"40
+"60
+[v _PWM_InitS PWM_InitS `(v  1 e 1 0 ]
+{
+"74
+} 0
+"44
 [v _PWM_InitF PWM_InitF `(v  1 e 1 0 ]
 {
-"54
+"58
 } 0
 "15 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
 [v _Motor_Conversion Motor_Conversion `(i  1 e 2 0 ]

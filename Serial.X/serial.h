@@ -10,7 +10,6 @@ void Serial_DecodificacionY (char string_coordenada[], int *pointerCY);
 int CX; //Coordenada en x, global ya que sera usada en varias funciones
 int CY; //Cooordenada en y
 char coordenada_array[7];
-
 #ifdef	__cplusplus
 }
 #endif

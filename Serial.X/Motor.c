@@ -18,8 +18,8 @@ int Motor_Conversion(int Coordenada){
     return pasos_convertidos;
 }
 
-void Motor_Movimiento(int CoordenadaX,int CoordenadaY){
+void Motor_Movimiento(char Oupcode,int CoordenadaX,int CoordenadaY){
     pasosX=Motor_Conversion(CoordenadaX);
     pasosY=Motor_Conversion(CoordenadaY);
-    PWM_GeneratePulsos(pasosX,pasosY);
+    PWM_GeneratePulsos(Oupcode,pasosX,pasosY);
 }

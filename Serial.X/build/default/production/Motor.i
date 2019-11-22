@@ -244,7 +244,7 @@ char oneshotX=0;
 char oneshotY=0;
 int pulsosX=0;
 int pulsosY=0;
-void PWM_GeneratePulsos(int pulsosX,int pulsosY);
+void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
 int PWM_OneshotX ();
 int PWM_OneshotY ();
 void PWM_InitF();
@@ -262,7 +262,7 @@ int pasos_convertidos=0;
 int pasosX=0;
 int pasosY=0;
 int Motor_Conversion(int CoordenadaX);
-void Motor_Movimiento(int CoordenadaX,int CoordenadaY);
+void Motor_Movimiento(char Oupcode,int CoordenadaX,int CoordenadaY);
 # 11 "Motor.c" 2
 
 
@@ -274,8 +274,8 @@ int Motor_Conversion(int Coordenada){
     return pasos_convertidos;
 }
 
-void Motor_Movimiento(int CoordenadaX,int CoordenadaY){
+void Motor_Movimiento(char Oupcode,int CoordenadaX,int CoordenadaY){
     pasosX=Motor_Conversion(CoordenadaX);
     pasosY=Motor_Conversion(CoordenadaY);
-    PWM_GeneratePulsos(pasosX,pasosY);
+    PWM_GeneratePulsos(Oupcode,pasosX,pasosY);
 }
