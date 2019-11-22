@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\saenz\AppData\Local\Temp\s944.o
+$C:\Users\saenz\AppData\Local\Temp\s8pg.o
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 0 0 4 1
 config CONFIG 0 300000 300000 E 1
@@ -389,20 +389,20 @@ $dist/default/production\Serial.X.production.o
 758A text0 CODE >32:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
 759E text0 CODE >33:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
 75A2 text0 CODE >46:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-713C cinit CODE >1211:C:\Users\saenz\AppData\Local\Temp\s944.s
-713C cinit CODE >1213:C:\Users\saenz\AppData\Local\Temp\s944.s
-713C cinit CODE >1216:C:\Users\saenz\AppData\Local\Temp\s944.s
-713C cinit CODE >1257:C:\Users\saenz\AppData\Local\Temp\s944.s
-7140 cinit CODE >1258:C:\Users\saenz\AppData\Local\Temp\s944.s
-7142 cinit CODE >1259:C:\Users\saenz\AppData\Local\Temp\s944.s
-7142 cinit CODE >1260:C:\Users\saenz\AppData\Local\Temp\s944.s
-7144 cinit CODE >1261:C:\Users\saenz\AppData\Local\Temp\s944.s
-7146 cinit CODE >1262:C:\Users\saenz\AppData\Local\Temp\s944.s
-7148 cinit CODE >1268:C:\Users\saenz\AppData\Local\Temp\s944.s
-7148 cinit CODE >1271:C:\Users\saenz\AppData\Local\Temp\s944.s
-714A cinit CODE >1272:C:\Users\saenz\AppData\Local\Temp\s944.s
-714C cinit CODE >1273:C:\Users\saenz\AppData\Local\Temp\s944.s
-714E cinit CODE >1274:C:\Users\saenz\AppData\Local\Temp\s944.s
+713C cinit CODE >1919:C:\Users\saenz\AppData\Local\Temp\s8pg.s
+713C cinit CODE >1921:C:\Users\saenz\AppData\Local\Temp\s8pg.s
+713C cinit CODE >1924:C:\Users\saenz\AppData\Local\Temp\s8pg.s
+713C cinit CODE >1965:C:\Users\saenz\AppData\Local\Temp\s8pg.s
+7140 cinit CODE >1966:C:\Users\saenz\AppData\Local\Temp\s8pg.s
+7142 cinit CODE >1967:C:\Users\saenz\AppData\Local\Temp\s8pg.s
+7142 cinit CODE >1968:C:\Users\saenz\AppData\Local\Temp\s8pg.s
+7144 cinit CODE >1969:C:\Users\saenz\AppData\Local\Temp\s8pg.s
+7146 cinit CODE >1970:C:\Users\saenz\AppData\Local\Temp\s8pg.s
+7148 cinit CODE >1976:C:\Users\saenz\AppData\Local\Temp\s8pg.s
+7148 cinit CODE >1979:C:\Users\saenz\AppData\Local\Temp\s8pg.s
+714A cinit CODE >1980:C:\Users\saenz\AppData\Local\Temp\s8pg.s
+714C cinit CODE >1981:C:\Users\saenz\AppData\Local\Temp\s8pg.s
+714E cinit CODE >1982:C:\Users\saenz\AppData\Local\Temp\s8pg.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -420,7 +420,7 @@ __Hspace_0 30000E 0 ABS 0 - dist/default/production\Serial.X.production.o
 __Hspace_1 57 0 ABS 0 - dist/default/production\Serial.X.production.o
 __Hspace_2 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\Serial.X.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\saenz\AppData\Local\Temp\s944.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\saenz\AppData\Local\Temp\s8pg.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\Serial.X.production.o
 __end_of_PWM_OneshotX 71F2 0 CODE 0 text14 dist/default/production\Serial.X.production.o
 __end_of_PWM_OneshotY 7222 0 CODE 0 text13 dist/default/production\Serial.X.production.o
@@ -428,11 +428,14 @@ __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 _CX 55 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
 _CY 53 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\Serial.X.production.o
+_LATB F8A 0 ABS 0 - dist/default/production\Serial.X.production.o
+_LATC F8B 0 ABS 0 - dist/default/production\Serial.X.production.o
+_LATD F8C 0 ABS 0 - dist/default/production\Serial.X.production.o
 _RCIF 7CF5 0 ABS 0 - dist/default/production\Serial.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\saenz\AppData\Local\Temp\s944.o
+___sp 0 0 STACK 2 stack C:\Users\saenz\AppData\Local\Temp\s8pg.o
 _atoi 7928 0 CODE 0 text7 dist/default/production\Serial.X.production.o
 _main 74FA 0 CODE 0 text0 dist/default/production\Serial.X.production.o
-start 0 0 CODE 0 init C:\Users\saenz\AppData\Local\Temp\s944.o
+start 0 0 CODE 0 init C:\Users\saenz\AppData\Local\Temp\s8pg.o
 __size_of___aldiv 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __size_of___fldiv 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __size_of___fltol 0 0 ABS 0 - dist/default/production\Serial.X.production.o
@@ -445,11 +448,11 @@ __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\Serial.X.production.o
 ?___wmul 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __end_of_USART_Init 74FA 0 CODE 0 text3 dist/default/production\Serial.X.production.o
 __Hpowerup 0 0 CODE 0 powerup dist/default/production\Serial.X.production.o
-__accesstop 60 0 ABS 0 - C:\Users\saenz\AppData\Local\Temp\s944.o
-intlevel0 0 0 CODE 0 text C:\Users\saenz\AppData\Local\Temp\s944.o
-intlevel1 0 0 CODE 0 text C:\Users\saenz\AppData\Local\Temp\s944.o
-intlevel2 0 0 CODE 0 text C:\Users\saenz\AppData\Local\Temp\s944.o
-intlevel3 0 0 CODE 0 text C:\Users\saenz\AppData\Local\Temp\s944.o
+__accesstop 60 0 ABS 0 - C:\Users\saenz\AppData\Local\Temp\s8pg.o
+intlevel0 0 0 CODE 0 text C:\Users\saenz\AppData\Local\Temp\s8pg.o
+intlevel1 0 0 CODE 0 text C:\Users\saenz\AppData\Local\Temp\s8pg.o
+intlevel2 0 0 CODE 0 text C:\Users\saenz\AppData\Local\Temp\s8pg.o
+intlevel3 0 0 CODE 0 text C:\Users\saenz\AppData\Local\Temp\s8pg.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\Serial.X.production.o
 ___aldiv@divisor 5 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\Serial.X.production.o
@@ -457,15 +460,17 @@ PWM_GeneratePulsos@pasosX 9 0 COMRAM 1 cstackCOMRAM dist/default/production\Seri
 PWM_GeneratePulsos@pasosY B 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 Serial_DecodificacionX@pointerCX 19 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\Serial.X.production.o
-_USART_Init$1163 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+_USART_Init$1493 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 ___aldiv@sign A 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\Serial.X.production.o
 _pasos_convertidos 44 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
 ___wmul@multiplicand 3 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 _USART_Rx 712A 0 CODE 0 text2 dist/default/production\Serial.X.production.o
+_ADCON0 FC2 0 ABS 0 - dist/default/production\Serial.X.production.o
+_ADCON1 FC1 0 ABS 0 - dist/default/production\Serial.X.production.o
 _Motor_Movimiento 725A 0 CODE 0 text11 dist/default/production\Serial.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\saenz\AppData\Local\Temp\s944.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\saenz\AppData\Local\Temp\s944.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\saenz\AppData\Local\Temp\s8pg.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\saenz\AppData\Local\Temp\s8pg.o
 _Serial_DecodificacionX 7344 0 CODE 0 text6 dist/default/production\Serial.X.production.o
 _Serial_DecodificacionY 73A6 0 CODE 0 text5 dist/default/production\Serial.X.production.o
 _CCPR1L FBE 0 ABS 0 - dist/default/production\Serial.X.production.o
@@ -480,6 +485,9 @@ ___fldiv@aexp 27 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.produc
 ___fldiv@bexp 26 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 ___fldiv@sign 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\Serial.X.production.o
+_atoi$1266 10 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+_atoi$1267 14 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+_atoi$1268 12 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __end_of_USART_RxS 7344 0 CODE 0 text1 dist/default/production\Serial.X.production.o
 __Hintcodelo 0 0 CODE 0 intcodelo dist/default/production\Serial.X.production.o
 __end_of___aldiv 7802 0 CODE 0 text4 dist/default/production\Serial.X.production.o
@@ -499,7 +507,10 @@ __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 start_initialization 713C 0 CODE 0 cinit dist/default/production\Serial.X.production.o
 _OSCCON FD3 0 ABS 0 - dist/default/production\Serial.X.production.o
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\Serial.X.production.o
+_TRISAbits F92 0 ABS 0 - dist/default/production\Serial.X.production.o
+_TRISBbits F93 0 ABS 0 - dist/default/production\Serial.X.production.o
 _TRISCbits F94 0 ABS 0 - dist/default/production\Serial.X.production.o
+_TRISDbits F95 0 ABS 0 - dist/default/production\Serial.X.production.o
 ___aldiv@quotient B 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 ___rparam_used 1 0 ABS 0 - dist/default/production\Serial.X.production.o
 main@Oupcode 3F 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
@@ -543,7 +554,7 @@ __Htext9 0 0 ABS 0 text9 dist/default/production\Serial.X.production.o
 __size_of___xxtofl 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\Serial.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\Serial.X.production.o
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\saenz\AppData\Local\Temp\s944.o
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\saenz\AppData\Local\Temp\s8pg.o
 ___xxtofl@arg B 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 ___xxtofl@exp A 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 ___xxtofl@val 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
@@ -648,9 +659,6 @@ __ptext17 7414 0 CODE 0 text17 dist/default/production\Serial.X.production.o
 __ptext18 7AB2 0 CODE 0 text18 dist/default/production\Serial.X.production.o
 __ptext19 75F0 0 CODE 0 text19 dist/default/production\Serial.X.production.o
 __ptext20 7C66 0 CODE 0 text20 dist/default/production\Serial.X.production.o
-_atoi$948 10 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
-_atoi$949 14 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
-_atoi$950 12 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 ___aldiv 76F6 0 CODE 0 text4 dist/default/production\Serial.X.production.o
 ___fldiv 7C66 0 CODE 0 text20 dist/default/production\Serial.X.production.o
 ___fltol 75F0 0 CODE 0 text19 dist/default/production\Serial.X.production.o
@@ -671,11 +679,14 @@ __Lfardata 0 0 FARRAM 0 fardata dist/default/production\Serial.X.production.o
 ___fldiv@new_exp 20 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __end_of_Motor_Conversion 7486 0 CODE 0 text17 dist/default/production\Serial.X.production.o
 Serial_DecodificacionY@pointerCY 19 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
-stackhi 7FF 0 ABS 0 - C:\Users\saenz\AppData\Local\Temp\s944.o
-stacklo 60 0 ABS 0 - C:\Users\saenz\AppData\Local\Temp\s944.o
+stackhi 7FF 0 ABS 0 - C:\Users\saenz\AppData\Local\Temp\s8pg.o
+stacklo 60 0 ABS 0 - C:\Users\saenz\AppData\Local\Temp\s8pg.o
 __Lintcode 0 0 CODE 0 intcode dist/default/production\Serial.X.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\Serial.X.production.o
 __Lirdata 0 0 CODE 0 irdata dist/default/production\Serial.X.production.o
+_ADCON0bits FC2 0 ABS 0 - dist/default/production\Serial.X.production.o
+_ADCON1bits FC1 0 ABS 0 - dist/default/production\Serial.X.production.o
+_ADCON2bits FC0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __size_of_Motor_Conversion 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __Lspace_0 0 0 ABS 0 - dist/default/production\Serial.X.production.o
@@ -717,7 +728,7 @@ __Ltext17 0 0 ABS 0 text17 dist/default/production\Serial.X.production.o
 __Ltext18 0 0 ABS 0 text18 dist/default/production\Serial.X.production.o
 __Ltext19 0 0 ABS 0 text19 dist/default/production\Serial.X.production.o
 __Ltext20 0 0 ABS 0 text20 dist/default/production\Serial.X.production.o
-__ramtop 800 0 RAM 0 ramtop C:\Users\saenz\AppData\Local\Temp\s944.o
+__ramtop 800 0 RAM 0 ramtop C:\Users\saenz\AppData\Local\Temp\s8pg.o
 ___aldiv@dividend 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __Lpowerup 0 0 CODE 0 powerup dist/default/production\Serial.X.production.o
 ?___xxtofl 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
@@ -725,7 +736,6 @@ __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\Serial.X.product
 _isdigit 7222 0 CODE 0 text9 dist/default/production\Serial.X.production.o
 ___fltol@sign1 30 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 _isspace 729C 0 CODE 0 text8 dist/default/production\Serial.X.production.o
-_isspace$966 7 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\Serial.X.production.o
 __size_of_Serial_DecodificacionX 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __size_of_Serial_DecodificacionY 0 0 ABS 0 - dist/default/production\Serial.X.production.o
@@ -738,6 +748,7 @@ __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\Serial.X.production.o
 __end_of__initialization 7148 0 CODE 0 cinit dist/default/production\Serial.X.production.o
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production\Serial.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\Serial.X.production.o
+_isspace$1284 7 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 Serial_DecodificacionY@coordenadaY 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 _PWM_OneshotX 71C2 0 CODE 0 text14 dist/default/production\Serial.X.production.o
 _PWM_OneshotY 71F2 0 CODE 0 text13 dist/default/production\Serial.X.production.o
@@ -750,6 +761,9 @@ isdigit@c 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.
 USART_RxS@i 7 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 Serial_DecodificacionX@i 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 Serial_DecodificacionY@i 20 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+_PORTB F81 0 ABS 0 - dist/default/production\Serial.X.production.o
+_PORTC F82 0 ABS 0 - dist/default/production\Serial.X.production.o
+_PORTD F83 0 ABS 0 - dist/default/production\Serial.X.production.o
 _RCREG FAE 0 ABS 0 - dist/default/production\Serial.X.production.o
 _SPBRG FAF 0 ABS 0 - dist/default/production\Serial.X.production.o
 _T2CON FCA 0 ABS 0 - dist/default/production\Serial.X.production.o

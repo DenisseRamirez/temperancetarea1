@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.10\pic\dat\en_msgs.txt \
   -cs -h+dist/default/production\Serial.X.production.sym \
   --cmf=dist/default/production\Serial.X.production.cmf -z -Q18F4550 \
-  -oC:\Users\saenz\AppData\Local\Temp\s944.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\saenz\AppData\Local\Temp\s8pg.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Serial.X.production.map -E1 -ver=XC8 \
   --acfsm=1493 -ASTACK=060h-07FFh -pstack=STACK -ACODE=00h-07FFFh \
   -ACONST=00h-07FFFh -ASMALLCONST=0800h-08FFhx120 \
@@ -23,7 +23,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\saenz\AppData\Local\Temp\s944.o \
+  C:\Users\saenz\AppData\Local\Temp\s8pg.o \
   dist/default/production\Serial.X.production.o 
 
 Object code version is 3.11
@@ -36,7 +36,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\saenz\AppData\Local\Temp\s944.o
+C:\Users\saenz\AppData\Local\Temp\s8pg.o
                 init                                  0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
                 config                           300000   300000        E   300000       0
@@ -229,17 +229,28 @@ USART_Init@BAUD                          cstackCOMRAM 00000F
 USART_RxS@i                              cstackCOMRAM 000007
 USART_RxS@lenght                         cstackCOMRAM 000006
 USART_RxS@pointer                        cstackCOMRAM 000001
+_ADCON0                                  (abs)        000FC2
+_ADCON0bits                              (abs)        000FC2
+_ADCON1                                  (abs)        000FC1
+_ADCON1bits                              (abs)        000FC1
+_ADCON2bits                              (abs)        000FC0
 _CCP1CON                                 (abs)        000FBD
 _CCP2CON                                 (abs)        000FBA
 _CCPR1L                                  (abs)        000FBE
 _CCPR2L                                  (abs)        000FBB
 _CX                                      bssCOMRAM    000055
 _CY                                      bssCOMRAM    000053
+_LATB                                    (abs)        000F8A
+_LATC                                    (abs)        000F8B
+_LATD                                    (abs)        000F8C
 _Motor_Conversion                        text17       007414
 _Motor_Movimiento                        text11       00725A
 _OSCCON                                  (abs)        000FD3
 _PIR1bits                                (abs)        000F9E
+_PORTB                                   (abs)        000F81
+_PORTC                                   (abs)        000F82
 _PORTCbits                               (abs)        000F82
+_PORTD                                   (abs)        000F83
 _PR2                                     (abs)        000FCB
 _PWM_GeneratePulsos                      text12       007802
 _PWM_InitF                               text16       007176
@@ -254,11 +265,14 @@ _Serial_DecodificacionX                  text6        007344
 _Serial_DecodificacionY                  text5        0073A6
 _T2CON                                   (abs)        000FCA
 _T2CONbits                               (abs)        000FCA
+_TRISAbits                               (abs)        000F92
+_TRISBbits                               (abs)        000F93
 _TRISCbits                               (abs)        000F94
+_TRISDbits                               (abs)        000F95
 _TXREG                                   (abs)        000FAD
 _TXSTAbits                               (abs)        000FAC
 _USART_Init                              text3        007486
-_USART_Init$1163                         cstackCOMRAM 000013
+_USART_Init$1493                         cstackCOMRAM 000013
 _USART_Rx                                text2        00712A
 _USART_RxS                               text1        0072EE
 __CFG_CPB$OFF                            (abs)        000000
@@ -538,13 +552,13 @@ __size_of_isspace                        (abs)        000000
 __size_of_main                           (abs)        000000
 __smallconst                             smallconst   000000
 _atoi                                    text7        007928
-_atoi$948                                cstackCOMRAM 000010
-_atoi$949                                cstackCOMRAM 000014
-_atoi$950                                cstackCOMRAM 000012
+_atoi$1266                               cstackCOMRAM 000010
+_atoi$1267                               cstackCOMRAM 000014
+_atoi$1268                               cstackCOMRAM 000012
 _coordenada_array                        bssCOMRAM    00004C
 _isdigit                                 text9        007222
 _isspace                                 text8        00729C
-_isspace$966                             cstackCOMRAM 000007
+_isspace$1284                            cstackCOMRAM 000007
 _main                                    text0        0074FA
 _oneshotX                                bssCOMRAM    00004B
 _oneshotY                                bssCOMRAM    00004A
