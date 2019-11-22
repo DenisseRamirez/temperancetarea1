@@ -10,7 +10,8 @@ void USART_Tx(char data);
 char USART_Rx();
 void USARTStr(char *Output, unsigned int size);
 void USART_SPrint(char Str[]);
-char Coordenada (char lenght,int *pointerCX, int *pointerCY);
+void USART_RxS (char lenght, char* pointer );
+char USART_TxS(char str[]);
 
 #ifdef	__cplusplus
 }

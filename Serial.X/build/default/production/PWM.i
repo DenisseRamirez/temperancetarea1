@@ -1,4 +1,4 @@
-# 1 "UART.c"
+# 1 "PWM.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "UART.c" 2
+# 1 "PWM.c" 2
+
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5618,132 +5619,106 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 1 "UART.c" 2
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\string.h" 1 3
-# 25 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\string.h" 3
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 411 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct __locale_struct * locale_t;
-# 25 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\string.h" 2 3
-
-
-void *memcpy (void *restrict, const void *restrict, size_t);
-void *memmove (void *, const void *, size_t);
-void *memset (void *, int, size_t);
-int memcmp (const void *, const void *, size_t);
-void *memchr (const void *, int, size_t);
-
-char *strcpy (char *restrict, const char *restrict);
-char *strncpy (char *restrict, const char *restrict, size_t);
-
-char *strcat (char *restrict, const char *restrict);
-char *strncat (char *restrict, const char *restrict, size_t);
-
-int strcmp (const char *, const char *);
-int strncmp (const char *, const char *, size_t);
-
-int strcoll (const char *, const char *);
-size_t strxfrm (char *restrict, const char *restrict, size_t);
-
-char *strchr (const char *, int);
-char *strrchr (const char *, int);
-
-size_t strcspn (const char *, const char *);
-size_t strspn (const char *, const char *);
-char *strpbrk (const char *, const char *);
-char *strstr (const char *, const char *);
-char *strtok (char *restrict, const char *restrict);
-
-size_t strlen (const char *);
-
-char *strerror (int);
-# 65 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\string.h" 3
-char *strtok_r (char *restrict, const char *restrict, char **restrict);
-int strerror_r (int, char *, size_t);
-char *stpcpy(char *restrict, const char *restrict);
-char *stpncpy(char *restrict, const char *restrict, size_t);
-size_t strnlen (const char *, size_t);
-char *strdup (const char *);
-char *strndup (const char *, size_t);
-char *strsignal(int);
-char *strerror_l (int, locale_t);
-int strcoll_l (const char *, const char *, locale_t);
-size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
-
-
-
-
-void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 2 "UART.c" 2
-
+# 2 "PWM.c" 2
 
 # 1 "./configuration.h" 1
-# 4 "UART.c" 2
+# 3 "PWM.c" 2
 
-# 1 "./UART.h" 1
-
-
+# 1 "./PWM.h" 1
 
 
 
 
 
-void USART_Init(long BAUD);
-void USART_Tx(char data);
-char USART_Rx();
-void USARTStr(char *Output, unsigned int size);
-void USART_SPrint(char Str[]);
-void USART_RxS (char lenght, char* pointer );
-char USART_TxS(char str[]);
-# 5 "UART.c" 2
 
-void USART_Init(long BAUD){
-      OSCCON= 0x72;
-    TRISCbits.RC6 = 0;
-    TRISCbits.RC7 = 1;
+char oneshotX=0;
+char oneshotY=0;
+int pulsosX=0;
+int pulsosY=0;
+void PWM_GeneratePulsos(int pulsosX,int pulsosY);
+int PWM_OneshotX ();
+int PWM_OneshotY ();
+void PWM_InitF();
+void PWM_InitS();
+# 4 "PWM.c" 2
 
 
-    SPBRG = (unsigned char)(((8000000/BAUD)/64)-1);
-
-    TXSTAbits.BRGH = 0;
-    TXSTAbits.SYNC = 0;
-    RCSTAbits.SPEN = 1;
-
-    TXSTAbits.TX9 = 0;
-    TXSTAbits.TXEN = 1;
-
-    RCSTAbits.RC9 = 0;
-    RCSTAbits.CREN = 1;
-}
-
-void USART_Tx(char data){
-    while(!PIR1bits.TXIF);
-    TXREG = data;
-}
-
-char USART_Rx(){
-    while(!PIR1bits.RCIF);
-    return RCREG;
-}
-char USART_TxS(char str[]){
-    for (int i=0;i<=(sizeof(str));i++){
-    while(!PIR1bits.TXIF)
-    TXREG = str[i];
-    }
-}
-
-void USART_SPrint(char Str[]){
-    int Strindex = 0;
-    while(Str[Strindex] != 0);
-    USART_Tx(Str[Strindex]);
-    Strindex++;
-}
-
-void USART_RxS (char lenght, char* pointer ){
-    for (int i = 0; i < lenght; i++)
-        {
-            while (!RCIF);
-            pointer[i] = RCREG;
+void PWM_GeneratePulsos(int pulsosX, int pulsosY) {
+    PWM_InitF();
+    PORTCbits.RC0 = 0;
+    PORTCbits.RC4 = 0;
+    T2CONbits.TMR2ON = 1;
+    int pasosX = 0;
+    int pasosY = 0;
+    while (pasosX < pulsosX && pasosY < pulsosY) {
+        if (pasosX < pulsosX) {
+            if (PORTCbits.RC2 == 1) {
+                pasosX = PWM_OneshotX(pasosX);
+            } else {
+                oneshotX = 0;
+            }
+        } else {
+            PORTCbits.RC0 = 1;
         }
+        if (pasosY < pulsosY) {
+            if (PORTCbits.RC1 == 1) {
+                pasosY = PWM_OneshotY(pasosY);
+            } else {
+                oneshotY = 0;
+            }
+        } else {
+            PORTCbits.RC4 = 1;
+        }
+    }
+    pasosX = 0;
+    oneshotX = 0;
+    pasosY = 0;
+    oneshotY = 0;
+    T2CONbits.TMR2ON = 0;
+}
+
+void PWM_InitF() {
+
+    PR2 = 0X7C;
+    CCPR1L = 0X3E;
+    CCPR2L = 0X3E;
+    TRISCbits.RC1 = 0;
+    TRISCbits.RC0 = 0;
+    TRISCbits.RC2 = 0;
+    T2CON = 0X03;
+    CCP1CON = 0X0C;
+    CCP2CON = 0X0C;
+    T2CONbits.TMR2ON = 0;
+    PORTCbits.RC0 = 1;
+     PORTCbits.RC4 = 1;
+}
+void PWM_InitS() {
+
+    PR2 = 0XFF;
+    CCPR1L = 0X3E;
+    CCPR2L = 0X3E;
+    TRISCbits.RC1 = 0;
+    TRISCbits.RC0 = 0;
+    TRISCbits.RC2 = 0;
+    T2CON = 0X03;
+    CCP1CON = 0X0C;
+    CCP2CON = 0X0C;
+    T2CONbits.TMR2ON = 0;
+    PORTCbits.RC0 = 1;
+     PORTCbits.RC4 = 1;
+}
+int PWM_OneshotX(int pasosX) {
+    if (PORTCbits.RC2 == 1 & oneshotX == 0) {
+        pasosX++;
+        oneshotX = 1;
+    }
+    return pasosX;
+}
+
+int PWM_OneshotY(int pasosY) {
+    if (PORTCbits.RC1 == 1 & oneshotY == 0) {
+        pasosY++;
+        oneshotY = 1;
+    }
+    return pasosY;
 }

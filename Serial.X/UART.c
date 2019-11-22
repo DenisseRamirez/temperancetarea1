@@ -31,7 +31,12 @@ char USART_Rx(){
     while(!PIR1bits.RCIF);
     return RCREG; 
 }
-
+char USART_TxS(char str[]){
+    for (int i=0;i<=(sizeof(str));i++){
+    while(!PIR1bits.TXIF)   
+    TXREG = str[i];
+    }
+}
 
 void USART_SPrint(char Str[]){
     int Strindex = 0;
@@ -40,19 +45,10 @@ void USART_SPrint(char Str[]){
     Strindex++;
 }
 
-char Coordenada (char lenght,int *pointerCX, int *pointerCY){
-    char coordenadaX[3] = "000"; //
-    char coordenadaY[3] = "000";
-    char C[7]="000,000";
-     for (int i = 0; i < lenght; i++) //funcion pa leer string
+void USART_RxS (char lenght, char* pointer ){//funcion pa leer string
+    for (int i = 0; i < lenght; i++) 
         {
             while (!RCIF);
-            C[i] = RCREG;
-            while (RCIF);
+            pointer[i] = RCREG;
         }
-    strncpy(coordenadaX, &C[0], 3);//Copia el valor de la coordenada x en otro arreglo, dejando solo los 3 numeros
-    strncpy(coordenadaY, &C[4], 3);//Copia el valor de la coordenada y en otro arreglo, dejando solo los 3 numeros
-    *pointerCX = atoi(coordenadaX);//Cambia el valor de string a una variable int, por lo que se deja el valor de la coordenada x
-    *pointerCY = atoi(coordenadaY);//Cambia el valor de string a una variable int, por lo que se deja el valor de la coordenada y
-     return 0;
 }

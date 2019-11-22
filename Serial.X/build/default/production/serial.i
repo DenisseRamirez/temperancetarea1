@@ -5831,35 +5831,104 @@ void USART_Tx(char data);
 char USART_Rx();
 void USARTStr(char *Output, unsigned int size);
 void USART_SPrint(char Str[]);
-char Coordenada (char lenght,int *pointerCX, int *pointerCY);
+void USART_RxS (char lenght, char* pointer );
+char USART_TxS(char str[]);
 # 13 "serial.c" 2
 
+# 1 "./serial.h" 1
 
+
+
+
+
+
+
+void Serial_DecodificacionX (char string_coordenada[], int *pointerCX);
+void Serial_DecodificacionY (char string_coordenada[], int *pointerCY);
 int CX;
 int CY;
+char coordenada_array[7];
+# 14 "serial.c" 2
+
+# 1 "./PWM.h" 1
+
+
+
+
+
+
+char oneshotX=0;
+char oneshotY=0;
+int pulsosX=0;
+int pulsosY=0;
+void PWM_GeneratePulsos(int pulsosX,int pulsosY);
+int PWM_OneshotX ();
+int PWM_OneshotY ();
+void PWM_InitF();
+void PWM_InitS();
+# 15 "serial.c" 2
+
+# 1 "./motor.h" 1
+
+
+
+
+
+
+int pasos_convertidos=0;
+int pasosX=0;
+int pasosY=0;
+int Motor_Conversion(int CoordenadaX);
+void Motor_Movimiento(int CoordenadaX,int CoordenadaY);
+# 16 "serial.c" 2
+
 
 void main() {
     USART_Init(9600);
-    char Oupcode = 'N';
-    switch (Oupcode) {
-        case 'F':
-            Coordenada(7,&CX,&CY);
-            break;
-        case 'S':
-             Coordenada(7,&CX,&CY);
-            break;
-        case 'T':
+    while (1) {
+        char Oupcode = USART_Rx();
+        switch (Oupcode) {
+            case 'F':
+                USART_RxS(7, coordenada_array);
+                Serial_DecodificacionX(coordenada_array, &CX);
+                Serial_DecodificacionY(coordenada_array, &CY);
+                Motor_Movimiento(CX,CY);
+                break;
+            case 'S':
+                USART_RxS(7, coordenada_array);
+                Serial_DecodificacionX(coordenada_array, &CX);
+                Serial_DecodificacionY(coordenada_array, &CY);
+                break;
+            case 'T':
 
-            break;
-        case 'H':
+                break;
+            case 'H':
 
-            break;
-        case 'R':
+                break;
+            case 'R':
 
-            break;
-        case 'O':
+                break;
+            case 'O':
 
-            break;
+                break;
+        }
     }
 
+}
+
+void Serial_DecodificacionX(char string_coordenada[], int *pointerCX) {
+    char coordenadaX[3];
+    for (int i = 0; i < 3; i++) {
+        coordenadaX[i] = string_coordenada[i];
+    }
+    *pointerCX = atoi(coordenadaX);
+
+}
+
+void Serial_DecodificacionY(char string_coordenada[], int *pointerCY) {
+    char coordenadaY[3];
+    for (int i = 0; i < 3; i++) {
+        coordenadaY[i] = string_coordenada[4 + i];
+    }
+    *pointerCY = atoi(coordenadaY);
 }

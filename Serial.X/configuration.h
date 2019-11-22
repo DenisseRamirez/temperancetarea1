@@ -6,7 +6,7 @@
 extern "C" {
 #endif
 
-
+#define _XTAL_FREQ 8000000
 
 
 #ifdef	__cplusplus

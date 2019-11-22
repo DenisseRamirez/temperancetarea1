@@ -6,7 +6,9 @@
                    projectFiles="true">
       <itemPath>configuration.h</itemPath>
       <itemPath>UART.h</itemPath>
+      <itemPath>serial.h</itemPath>
       <itemPath>PWM.h</itemPath>
+      <itemPath>motor.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -19,6 +21,7 @@
       <itemPath>UART.c</itemPath>
       <itemPath>serial.c</itemPath>
       <itemPath>PWM.c</itemPath>
+      <itemPath>Motor.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -145,6 +148,9 @@
         <property key="program-the-device-with-default-config-words" value="true"/>
         <property key="remove-unused-sections" value="true"/>
       </HI-TECH-LINK>
+      <PICkit3PlatformTool>
+        <property key="firmware.download.all" value="false"/>
+      </PICkit3PlatformTool>
       <XC8-CO>
         <property key="coverage-enable" value=""/>
       </XC8-CO>

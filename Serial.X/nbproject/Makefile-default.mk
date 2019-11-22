@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=configuration.c UART.c serial.c PWM.c
+SOURCEFILES_QUOTED_IF_SPACED=configuration.c UART.c serial.c PWM.c Motor.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/configuration.p1 ${OBJECTDIR}/UART.p1 ${OBJECTDIR}/serial.p1 ${OBJECTDIR}/PWM.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/configuration.p1.d ${OBJECTDIR}/UART.p1.d ${OBJECTDIR}/serial.p1.d ${OBJECTDIR}/PWM.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/configuration.p1 ${OBJECTDIR}/UART.p1 ${OBJECTDIR}/serial.p1 ${OBJECTDIR}/PWM.p1 ${OBJECTDIR}/Motor.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/configuration.p1.d ${OBJECTDIR}/UART.p1.d ${OBJECTDIR}/serial.p1.d ${OBJECTDIR}/PWM.p1.d ${OBJECTDIR}/Motor.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/configuration.p1 ${OBJECTDIR}/UART.p1 ${OBJECTDIR}/serial.p1 ${OBJECTDIR}/PWM.p1
+OBJECTFILES=${OBJECTDIR}/configuration.p1 ${OBJECTDIR}/UART.p1 ${OBJECTDIR}/serial.p1 ${OBJECTDIR}/PWM.p1 ${OBJECTDIR}/Motor.p1
 
 # Source Files
-SOURCEFILES=configuration.c UART.c serial.c PWM.c
+SOURCEFILES=configuration.c UART.c serial.c PWM.c Motor.c
 
 
 
@@ -126,6 +126,14 @@ ${OBJECTDIR}/PWM.p1: PWM.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/PWM.d ${OBJECTDIR}/PWM.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/PWM.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/Motor.p1: Motor.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Motor.p1.d 
+	@${RM} ${OBJECTDIR}/Motor.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/Motor.p1 Motor.c 
+	@-${MV} ${OBJECTDIR}/Motor.d ${OBJECTDIR}/Motor.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Motor.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/configuration.p1: configuration.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -158,6 +166,14 @@ ${OBJECTDIR}/PWM.p1: PWM.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/PWM.p1 PWM.c 
 	@-${MV} ${OBJECTDIR}/PWM.d ${OBJECTDIR}/PWM.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/PWM.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/Motor.p1: Motor.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Motor.p1.d 
+	@${RM} ${OBJECTDIR}/Motor.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/Motor.p1 Motor.c 
+	@-${MV} ${OBJECTDIR}/Motor.d ${OBJECTDIR}/Motor.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/Motor.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
