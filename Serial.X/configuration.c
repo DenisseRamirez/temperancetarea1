@@ -5,5 +5,4 @@
 #pragma config LVP = OFF        // Single-Supply ICSP Enable bit (Single-Supply ICSP disabled)
 #pragma config CPB = OFF
 #pragma config CPD = OFF
-
-
+#define XTAL_FREQ 8000000

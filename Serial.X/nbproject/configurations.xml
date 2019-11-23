@@ -11,6 +11,7 @@
       <itemPath>motor.h</itemPath>
       <itemPath>GPIOsparcA1.h</itemPath>
       <itemPath>ADC.h</itemPath>
+      <itemPath>Actuator.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -26,6 +27,7 @@
       <itemPath>Motor.c</itemPath>
       <itemPath>GPIOsparcA1.c</itemPath>
       <itemPath>ADC.c</itemPath>
+      <itemPath>Actuator.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

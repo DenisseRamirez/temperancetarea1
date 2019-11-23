@@ -5880,7 +5880,20 @@ int pasosX=0;
 int pasosY=0;
 int Motor_Conversion(int CoordenadaX);
 void Motor_Movimiento(char Oupcode,int CoordenadaX,int CoordenadaY);
+void Motor_MovimientoZ(char direccion);
+void Motor_MovimientoZ_Init(char direccion);
 # 16 "serial.c" 2
+
+# 1 "./Actuator.h" 1
+void Actuator_Init(){
+# 11 "./Actuator.h"
+void Actuator_Ini();
+void Actuator_Touch();
+void Actuator_Hold();
+void Actuator_Retrain();
+# 23 "./Actuator.h"
+}
+# 17 "serial.c" 2
 
 
 void main() {
@@ -5900,13 +5913,13 @@ void main() {
                 Serial_DecodificacionY(coordenada_array, &CY);
                 break;
             case 'T':
-
+                Actuator_Touch();
                 break;
             case 'H':
-
+                Actuator_Hold();
                 break;
             case 'R':
-
+                Actuator_Retrain();
                 break;
             case 'O':
 

@@ -10,26 +10,30 @@ Serial_DecodificacionX@pointerCX 19 0 COMRAM 1
 __CFG_FOSC$INTOSCIO_EC 0 0 ABS 0
 __Hintentry 0 0 ABS 0
 __Lintentry 0 0 ABS 0
+__end_of_Actuator_Hold 70F0 0 CODE 0
+_Actuator_Hold 70EC 0 CODE 0
 Serial_DecodificacionX@i 1E 0 COMRAM 1
+__end_of_Actuator_Retrain 70F4 0 CODE 0
 Serial_DecodificacionY@i 20 0 COMRAM 1
-_USART_Init$1493 13 0 COMRAM 1
 _RCIF 7CF5 0 ABS 0
 _LATB F8A 0 ABS 0
 _LATC F8B 0 ABS 0
 _LATD F8C 0 ABS 0
-_PWM_InitS 7152 0 CODE 0
+_PWM_InitS 713A 0 CODE 0
 Serial_DecodificacionX@string_coordenada 17 0 COMRAM 1
 Serial_DecodificacionY@string_coordenada 17 0 COMRAM 1
 Motor_Movimiento@CoordenadaX 38 0 COMRAM 1
-_main 74FA 0 CODE 0
+_main 76F4 0 CODE 0
 _atoi 7928 0 CODE 0
 ___sp 0 0 STACK 2
 start 0 0 CODE 0
 _oneshotX 4B 0 COMRAM 1
 ___fltol@f1 28 0 COMRAM 1
 _oneshotY 4A 0 COMRAM 1
+_atoi$1420 14 0 COMRAM 1
 ?_isspace 1 0 COMRAM 1
-__end_of___aldiv 7802 0 CODE 0
+__end_of___aldiv 76F4 0 CODE 0
+_atoi$1421 12 0 COMRAM 1
 _RCREG FAE 0 ABS 0
 _TXREG FAD 0 ABS 0
 _PORTB F81 0 ABS 0
@@ -41,20 +45,20 @@ __HRAM 0 0 ABS 0
 _PORTD F83 0 ABS 0
 __LRAM 1 0 ABS 0
 _T2CON FCA 0 ABS 0
-_USART_Rx 712A 0 CODE 0
+_USART_Rx 70F4 0 CODE 0
 USART_RxS@lenght 6 0 COMRAM 1
-__end_of_Serial_DecodificacionY 7414 0 CODE 0
+__end_of_Serial_DecodificacionY 73FC 0 CODE 0
 Motor_Movimiento@CoordenadaY 3A 0 COMRAM 1
 __Hconfig 30000E 0 CONFIG 0
 __Lconfig 300000 0 CONFIG 0
 atoi@n 15 0 COMRAM 1
 atoi@s 8 0 COMRAM 1
 __Hbigram 0 0 ABS 0
-_Serial_DecodificacionX 7344 0 CODE 0
+_Serial_DecodificacionX 732C 0 CODE 0
 __Lbigram 0 0 ABS 0
 __Hrparam 0 0 COMRAM 1
 __Lrparam 0 0 COMRAM 1
-_Serial_DecodificacionY 73A6 0 CODE 0
+_Serial_DecodificacionY 738E 0 CODE 0
 USART_Init@BAUD F 0 COMRAM 1
 __Hram 0 0 ABS 0
 __Lram 0 0 ABS 0
@@ -68,24 +72,25 @@ __Lbss 0 0 RAM 1
 ___param_bank 0 0 ABS 0
 __Hnvrram 0 0 COMRAM 1
 __Lnvrram 0 0 COMRAM 1
-__end_of_USART_Rx 713C 0 CODE 0
+__end_of_USART_Rx 7106 0 CODE 0
 ___xxtofl 7AB2 0 CODE 0
-__end_of_USART_RxS 7344 0 CODE 0
-_atoi$1266 10 0 COMRAM 1
+__end_of_USART_RxS 732C 0 CODE 0
 _ADCON0 FC2 0 ABS 0
 _ADCON1 FC1 0 ABS 0
 ?___fltol 28 0 COMRAM 1
-_atoi$1267 14 0 COMRAM 1
+__end_of_Actuator_Touch 713A 0 CODE 0
+_atoi$1419 10 0 COMRAM 1
 __Heeprom_data 0 0 EEDATA 0
 __Leeprom_data 0 0 EEDATA 0
 _PIR1bits F9E 0 ABS 0
 __size_of_PWM_GeneratePulsos 0 0 ABS 0
 ?_isdigit 1 0 COMRAM 1
+_LATCbits F8B 0 ABS 0
+_LATDbits F8C 0 ABS 0
 __Hintsave_regs 0 0 BIGRAM 1
 __Lintsave_regs 0 0 BIGRAM 1
 ?___aldiv 1 0 COMRAM 1
-_Motor_Conversion 7414 0 CODE 0
-_atoi$1268 12 0 COMRAM 1
+_Motor_Conversion 73FC 0 CODE 0
 _CCPR1L FBE 0 ABS 0
 ?___fldiv F 0 COMRAM 1
 _CCPR2L FBB 0 ABS 0
@@ -111,17 +116,16 @@ _OSCCON FD3 0 ABS 0
 __Habs1 0 0 ABS 0
 __Labs1 0 0 ABS 0
 USART_RxS@pointer 1 0 COMRAM 1
-_PWM_OneshotX 71C2 0 CODE 0
-_isspace$1284 7 0 COMRAM 1
+_PWM_OneshotX 71AA 0 CODE 0
 __HnvFARRAM 0 0 FARRAM 0
 __LnvFARRAM 0 0 FARRAM 0
-__end_of___fltol 76F6 0 CODE 0
+__end_of___fltol 75E8 0 CODE 0
 _coordenada_array 4C 0 COMRAM 1
 __size_of___fldiv 0 0 ABS 0
-__end_of_PWM_OneshotX 71F2 0 CODE 0
-__end_of_PWM_OneshotY 7222 0 CODE 0
+__end_of_PWM_OneshotX 71DA 0 CODE 0
+__end_of_PWM_OneshotY 720A 0 CODE 0
 _pasosX 42 0 COMRAM 1
-__end_of_Motor_Movimiento 729C 0 CODE 0
+__end_of_Motor_Movimiento 7284 0 CODE 0
 _pasosY 40 0 COMRAM 1
 __Hdata 0 0 ABS 0
 __Ldata 0 0 ABS 0
@@ -135,26 +139,29 @@ __Lrbit 0 0 COMRAM 1
 __Hinit 4 0 CODE 0
 __Linit 0 0 CODE 0
 __Hintcodelo 0 0 CODE 0
-_PWM_OneshotY 71F2 0 CODE 0
+_PWM_OneshotY 71DA 0 CODE 0
 __Lintcodelo 0 0 CODE 0
-___wmul 719C 0 CODE 0
+___wmul 7184 0 CODE 0
 __Hrbss 0 0 COMRAM 1
-__end_of_main 75F0 0 CODE 0
+__end_of_main 7802 0 CODE 0
 __Lrbss 0 0 COMRAM 1
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 __end_of___fldiv 8000 0 CODE 0
+_isspace$1437 7 0 COMRAM 1
 ___wmul@multiplier 1 0 COMRAM 1
 ?___xxtofl 1 0 COMRAM 1
-end_of_initialization 7148 0 CODE 0
+end_of_initialization 7112 0 CODE 0
 ___aldiv@sign A 0 COMRAM 1
 ___fldiv@sign 1F 0 COMRAM 1
 ___wmul@multiplicand 3 0 COMRAM 1
-_Motor_Movimiento 725A 0 CODE 0
+__size_of_Actuator_Hold 0 0 ABS 0
+_Motor_Movimiento 7242 0 CODE 0
 Serial_DecodificacionX@coordenadaX 1B 0 COMRAM 1
 Serial_DecodificacionY@coordenadaY 1D 0 COMRAM 1
 __size_of_PWM_InitF 0 0 ABS 0
 __size_of_PWM_InitS 0 0 ABS 0
+__size_of_Actuator_Retrain 0 0 ABS 0
 _TRISAbits F92 0 ABS 0
 _RCSTAbits FAB 0 ABS 0
 _TRISBbits F93 0 ABS 0
@@ -163,7 +170,7 @@ _TRISDbits F95 0 ABS 0
 _TXSTAbits FAC 0 ABS 0
 _PORTCbits F82 0 ABS 0
 _T2CONbits FCA 0 ABS 0
-__end_of_Motor_Conversion 7486 0 CODE 0
+__end_of_Motor_Conversion 746E 0 CODE 0
 PWM_GeneratePulsos@pasosX 9 0 COMRAM 1
 PWM_GeneratePulsos@pasosY B 0 COMRAM 1
 _PWM_GeneratePulsos 7802 0 CODE 0
@@ -197,54 +204,56 @@ __Htext0 0 0 ABS 0
 __Ltext0 0 0 ABS 0
 __Htext1 0 0 ABS 0
 __Ltext1 0 0 ABS 0
-__ptext0 74FA 0 CODE 0
+__ptext0 76F4 0 CODE 0
 __Htext2 0 0 ABS 0
 __Ltext2 0 0 ABS 0
-__ptext1 72EE 0 CODE 0
+__ptext1 72D6 0 CODE 0
 __Htext3 0 0 ABS 0
 __Ltext3 0 0 ABS 0
-__ptext2 712A 0 CODE 0
+__ptext2 70F4 0 CODE 0
 ___fldiv@grs 22 0 COMRAM 1
 __Htext4 0 0 ABS 0
 __Ltext4 0 0 ABS 0
-__ptext3 7486 0 CODE 0
+__ptext3 746E 0 CODE 0
 __Htext5 0 0 ABS 0
 __Ltext5 0 0 ABS 0
-__ptext4 76F6 0 CODE 0
+__ptext4 75E8 0 CODE 0
 __Htext6 0 0 ABS 0
 __Ltext6 0 0 ABS 0
-__ptext5 73A6 0 CODE 0
+__ptext5 738E 0 CODE 0
 __Htext7 0 0 ABS 0
 __Ltext7 0 0 ABS 0
-__ptext6 7344 0 CODE 0
+__ptext6 732C 0 CODE 0
 __HbssCOMRAM 0 0 ABS 0
 __LbssCOMRAM 0 0 ABS 0
 __Htext8 0 0 ABS 0
 __Ltext8 0 0 ABS 0
 __ptext7 7928 0 CODE 0
+_USART_Init$1658 13 0 COMRAM 1
 __pbssCOMRAM 40 0 COMRAM 1
 __Htext9 0 0 ABS 0
 __Ltext9 0 0 ABS 0
-__ptext8 729C 0 CODE 0
-__ptext9 7222 0 CODE 0
+__ptext8 7284 0 CODE 0
+__ptext9 720A 0 CODE 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
 PWM_GeneratePulsos@pulsosX 3 0 COMRAM 1
-__end_of_isspace 72EE 0 CODE 0
+__end_of_isspace 72D6 0 CODE 0
 PWM_GeneratePulsos@pulsosY 5 0 COMRAM 1
 __size_of_USART_Rx 0 0 ABS 0
 __size_of_USART_RxS 0 0 ABS 0
-__end_of__initialization 7148 0 CODE 0
+__end_of__initialization 7112 0 CODE 0
 PWM_GeneratePulsos@Oupcode 8 0 COMRAM 1
 __size_of___xxtofl 0 0 ABS 0
 ___rparam_used 1 0 ABS 0
 __size_of_Serial_DecodificacionY 0 0 ABS 0
 __size_of_USART_Init 0 0 ABS 0
 Motor_Conversion@Coordenada 32 0 COMRAM 1
+_Actuator_Retrain 70F0 0 CODE 0
 _pulsosX 48 0 COMRAM 1
 _pulsosY 46 0 COMRAM 1
 atoi@neg E 0 COMRAM 1
-_isspace 729C 0 CODE 0
+_isspace 7284 0 CODE 0
 __Hidata 0 0 CODE 0
 __Lidata 0 0 CODE 0
 __size_of_PWM_OneshotX 0 0 ABS 0
@@ -268,19 +277,19 @@ __Lspace_1 0 0 ABS 0
 __Hsmallconst 0 0 SMALLCONST 0
 __Lsmallconst 0 0 SMALLCONST 0
 Motor_Movimiento@Oupcode 3C 0 COMRAM 1
-___fltol 75F0 0 CODE 0
+___fltol 74E2 0 CODE 0
 __Hspace_2 0 0 ABS 0
 __Lspace_2 0 0 ABS 0
 __Hnvbit 0 0 COMRAM 1
 __Lnvbit 0 0 COMRAM 1
 ?_PWM_OneshotY 1 0 COMRAM 1
 ?___wmul 1 0 COMRAM 1
-_isdigit 7222 0 CODE 0
+_isdigit 720A 0 CODE 0
 __Hcinit 0 0 ABS 0
 __Lcinit 0 0 ABS 0
-___aldiv 76F6 0 CODE 0
+___aldiv 75E8 0 CODE 0
 ___fldiv 7C66 0 CODE 0
-__pcinit 713C 0 CODE 0
+__pcinit 7106 0 CODE 0
 __size_of_Motor_Movimiento 0 0 ABS 0
 __ramtop 800 0 RAM 0
 __mediumconst 0 0 MEDIUMCONST 0
@@ -288,10 +297,12 @@ __size_of_main 0 0 ABS 0
 __Hconst 0 0 CONST 0
 __Lconst 0 0 CONST 0
 ___xxtofl@sign 9 0 COMRAM 1
+__size_of_Actuator_Touch 0 0 ABS 0
 ___fltol@exp1 31 0 COMRAM 1
-__end_of_isdigit 725A 0 CODE 0
+__end_of_isdigit 7242 0 CODE 0
 ?_Motor_Conversion 32 0 COMRAM 1
-_USART_Init 7486 0 CODE 0
+_USART_Init 746E 0 CODE 0
+_Actuator_Touch 711C 0 CODE 0
 __size_of_isdigit 0 0 ABS 0
 __CFG_FCMEN$OFF 0 0 ABS 0
 ___xxtofl@arg B 0 COMRAM 1
@@ -299,44 +310,53 @@ __Htext10 0 0 ABS 0
 __Ltext10 0 0 ABS 0
 __Htext20 0 0 ABS 0
 __Ltext20 0 0 ABS 0
-__ptext10 719C 0 CODE 0
+__ptext10 7184 0 CODE 0
 __Htext11 0 0 ABS 0
 __Ltext11 0 0 ABS 0
 __ptext20 7C66 0 CODE 0
-__ptext11 725A 0 CODE 0
+__Htext21 0 0 ABS 0
+__Ltext21 0 0 ABS 0
+__ptext11 7242 0 CODE 0
 __Htext12 0 0 ABS 0
 __Ltext12 0 0 ABS 0
+__ptext21 711C 0 CODE 0
+__Htext22 0 0 ABS 0
+__Ltext22 0 0 ABS 0
 __ptext12 7802 0 CODE 0
 __Htext13 0 0 ABS 0
 __Ltext13 0 0 ABS 0
-__ptext13 71F2 0 CODE 0
+__ptext22 70F0 0 CODE 0
+__Htext23 0 0 ABS 0
+__Ltext23 0 0 ABS 0
+__ptext13 71DA 0 CODE 0
 Serial_DecodificacionY@pointerCY 19 0 COMRAM 1
 _ADCON0bits FC2 0 ABS 0
 __Htext14 0 0 ABS 0
 __Ltext14 0 0 ABS 0
 _ADCON1bits FC1 0 ABS 0
+__ptext23 70EC 0 CODE 0
 _ADCON2bits FC0 0 ABS 0
-__ptext14 71C2 0 CODE 0
+__ptext14 71AA 0 CODE 0
 __Htext15 0 0 ABS 0
 __Ltext15 0 0 ABS 0
-__ptext15 7152 0 CODE 0
+__ptext15 713A 0 CODE 0
 ___inthi_sp 0 0 STACK 2
 __Htext16 0 0 ABS 0
 __Ltext16 0 0 ABS 0
-__ptext16 7176 0 CODE 0
+__ptext16 715E 0 CODE 0
 __Htext17 0 0 ABS 0
 __Ltext17 0 0 ABS 0
-__ptext17 7414 0 CODE 0
+__ptext17 73FC 0 CODE 0
 __Htext18 0 0 ABS 0
 __Ltext18 0 0 ABS 0
 __ptext18 7AB2 0 CODE 0
 ___fltol@sign1 30 0 COMRAM 1
 __Htext19 0 0 ABS 0
 __Ltext19 0 0 ABS 0
-__ptext19 75F0 0 CODE 0
+__ptext19 74E2 0 CODE 0
 ___intlo_sp 0 0 STACK 2
 __end_of_PWM_GeneratePulsos 7928 0 CODE 0
-__end_of_Serial_DecodificacionX 73A6 0 CODE 0
+__end_of_Serial_DecodificacionX 738E 0 CODE 0
 ___aldiv@divisor 5 0 COMRAM 1
 main@Oupcode 3F 0 COMRAM 1
 __smallconst 0 0 SMALLCONST 0
@@ -359,30 +379,30 @@ PWM_OneshotX@pasosX 1 0 COMRAM 1
 _pasos_convertidos 44 0 COMRAM 1
 __size_of___fltol 0 0 ABS 0
 __CFG_CPB$OFF 0 0 ABS 0
-__end_of___wmul 71C2 0 CODE 0
+__end_of___wmul 71AA 0 CODE 0
 __CFG_CPD$OFF 0 0 ABS 0
-start_initialization 713C 0 CODE 0
+start_initialization 7106 0 CODE 0
 ___aldiv@quotient B 0 COMRAM 1
-_PWM_InitF 7176 0 CODE 0
+_PWM_InitF 715E 0 CODE 0
 PWM_OneshotY@pasosY 1 0 COMRAM 1
-__end_of_PWM_InitF 719C 0 CODE 0
-__end_of_PWM_InitS 7176 0 CODE 0
+__end_of_PWM_InitF 7184 0 CODE 0
+__end_of_PWM_InitS 715E 0 CODE 0
 __end_of___xxtofl 7C66 0 CODE 0
 __CFG_MCLRE$ON 0 0 ABS 0
 USART_RxS@i 7 0 COMRAM 1
 ___fldiv@aexp 27 0 COMRAM 1
-__initialization 713C 0 CODE 0
+__initialization 7106 0 CODE 0
 ___fldiv@bexp 26 0 COMRAM 1
 __activetblptr 2 0 ABS 0
 ___wmul@product 5 0 COMRAM 1
 __size_of_isspace 0 0 ABS 0
 isspace@c 1 0 COMRAM 1
-__end_of_USART_Init 74FA 0 CODE 0
+__end_of_USART_Init 74E2 0 CODE 0
 __CFG_WDT$OFF 0 0 ABS 0
 ___fldiv@a 13 0 COMRAM 1
 __CFG_LVP$OFF 0 0 ABS 0
 ___fldiv@b F 0 COMRAM 1
-_USART_RxS 72EE 0 CODE 0
+_USART_RxS 72D6 0 CODE 0
 Motor_Conversion@conversion 34 0 COMRAM 1
 ___aldiv@dividend 1 0 COMRAM 1
 isdigit@c 1 0 COMRAM 1
@@ -395,123 +415,132 @@ text20 7C66 7FFF CODE 7C66 0
 text18 7AB2 7C65 CODE 7AB2 0
 text7 7928 7AB1 CODE 7928 0
 text12 7802 7927 CODE 7802 0
-text4 76F6 7801 CODE 76F6 0
-text19 75F0 76F5 CODE 75F0 0
-text0 74FA 75EF CODE 74FA 0
-text3 7486 74F9 CODE 7486 0
-text17 7414 7485 CODE 7414 0
-text5 73A6 7413 CODE 73A6 0
-text6 7344 73A5 CODE 7344 0
-text1 72EE 7343 CODE 72EE 0
-text8 729C 72ED CODE 729C 0
-text11 725A 729B CODE 725A 0
-text9 7222 7259 CODE 7222 0
-text13 71F2 7221 CODE 71F2 0
-text14 71C2 71F1 CODE 71C2 0
-text10 719C 71C1 CODE 719C 0
-text16 7176 719B CODE 7176 0
-text15 7152 7175 CODE 7152 0
-cinit 713C 7151 CODE 713C 0
-text2 712A 713B CODE 712A 0
+text0 76F4 7801 CODE 76F4 0
+text4 75E8 76F3 CODE 75E8 0
+text19 74E2 75E7 CODE 74E2 0
+text3 746E 74E1 CODE 746E 0
+text17 73FC 746D CODE 73FC 0
+text5 738E 73FB CODE 738E 0
+text6 732C 738D CODE 732C 0
+text1 72D6 732B CODE 72D6 0
+text8 7284 72D5 CODE 7284 0
+text11 7242 7283 CODE 7242 0
+text9 720A 7241 CODE 720A 0
+text13 71DA 7209 CODE 71DA 0
+text14 71AA 71D9 CODE 71AA 0
+text10 7184 71A9 CODE 7184 0
+text16 715E 7183 CODE 715E 0
+text15 713A 715D CODE 713A 0
+text21 711C 7139 CODE 711C 0
+cinit 7106 711B CODE 7106 0
+text2 70F4 7105 CODE 70F4 0
+text22 70F0 70F3 CODE 70F0 0
+text23 70EC 70EF CODE 70EC 0
 %locals
 dist/default/production\Serial.X.production.o
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-C:\Users\saenz\AppData\Local\Temp\s8pg.s
-1919 713C 0 CODE 0
-1921 713C 0 CODE 0
-1924 713C 0 CODE 0
-1965 713C 0 CODE 0
-1966 7140 0 CODE 0
-1967 7142 0 CODE 0
-1968 7142 0 CODE 0
-1969 7144 0 CODE 0
-1970 7146 0 CODE 0
-1976 7148 0 CODE 0
-1979 7148 0 CODE 0
-1980 714A 0 CODE 0
-1981 714C 0 CODE 0
-1982 714E 0 CODE 0
+C:\Users\saenz\AppData\Local\Temp\sa2o.s
+2606 7106 0 CODE 0
+2608 7106 0 CODE 0
+2611 7106 0 CODE 0
+2652 7106 0 CODE 0
+2653 710A 0 CODE 0
+2654 710C 0 CODE 0
+2655 710C 0 CODE 0
+2656 710E 0 CODE 0
+2657 7110 0 CODE 0
+2663 7112 0 CODE 0
+2666 7112 0 CODE 0
+2667 7114 0 CODE 0
+2668 7116 0 CODE 0
+2669 7118 0 CODE 0
 serial.c
-18 74FA 0 CODE 0
-19 74FA 0 CODE 0
-21 750E 0 CODE 0
-22 7514 0 CODE 0
-24 7518 0 CODE 0
-25 7526 0 CODE 0
-26 753A 0 CODE 0
-27 754E 0 CODE 0
-28 7564 0 CODE 0
-30 7568 0 CODE 0
-31 7576 0 CODE 0
-32 758A 0 CODE 0
-33 759E 0 CODE 0
-46 75A2 0 CODE 0
+19 76F4 0 CODE 0
+20 76F4 0 CODE 0
+22 7708 0 CODE 0
+23 770E 0 CODE 0
+25 7712 0 CODE 0
+26 7720 0 CODE 0
+27 7734 0 CODE 0
+28 7748 0 CODE 0
+29 775E 0 CODE 0
+31 7762 0 CODE 0
+32 7770 0 CODE 0
+33 7784 0 CODE 0
+34 7798 0 CODE 0
+36 779C 0 CODE 0
+37 77A0 0 CODE 0
+39 77A4 0 CODE 0
+40 77A8 0 CODE 0
+42 77AC 0 CODE 0
+43 77B0 0 CODE 0
+47 77B4 0 CODE 0
 UART.c
-48 72EE 0 CODE 0
-49 72F0 0 CODE 0
-51 72FC 0 CODE 0
-52 730A 0 CODE 0
-53 731A 0 CODE 0
-54 7342 0 CODE 0
+48 72D6 0 CODE 0
+49 72D8 0 CODE 0
+51 72E4 0 CODE 0
+52 72F2 0 CODE 0
+53 7302 0 CODE 0
+54 732A 0 CODE 0
 UART.c
-30 712A 0 CODE 0
-31 712A 0 CODE 0
-32 7138 0 CODE 0
-33 713A 0 CODE 0
+30 70F4 0 CODE 0
+31 70F4 0 CODE 0
+32 7102 0 CODE 0
+33 7104 0 CODE 0
 UART.c
-6 7486 0 CODE 0
-7 7486 0 CODE 0
-8 748A 0 CODE 0
-9 748C 0 CODE 0
-12 748E 0 CODE 0
-14 74EA 0 CODE 0
-15 74EC 0 CODE 0
-16 74EE 0 CODE 0
-18 74F0 0 CODE 0
-19 74F2 0 CODE 0
-21 74F4 0 CODE 0
-22 74F6 0 CODE 0
-23 74F8 0 CODE 0
+6 746E 0 CODE 0
+7 746E 0 CODE 0
+8 7472 0 CODE 0
+9 7474 0 CODE 0
+12 7476 0 CODE 0
+14 74D2 0 CODE 0
+15 74D4 0 CODE 0
+16 74D6 0 CODE 0
+18 74D8 0 CODE 0
+19 74DA 0 CODE 0
+21 74DC 0 CODE 0
+22 74DE 0 CODE 0
+23 74E0 0 CODE 0
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-7 76F6 0 CODE 0
-13 76F6 0 CODE 0
-14 76FA 0 CODE 0
-15 7708 0 CODE 0
-16 7718 0 CODE 0
-18 771C 0 CODE 0
-19 772A 0 CODE 0
-20 773A 0 CODE 0
-22 773E 0 CODE 0
-23 774E 0 CODE 0
-24 7764 0 CODE 0
-25 7768 0 CODE 0
-26 776C 0 CODE 0
-27 7776 0 CODE 0
-25 7778 0 CODE 0
-30 7786 0 CODE 0
-31 7790 0 CODE 0
-32 77AE 0 CODE 0
-33 77BE 0 CODE 0
-35 77C0 0 CODE 0
-36 77CA 0 CODE 0
-38 77D0 0 CODE 0
-39 77E0 0 CODE 0
-40 77F0 0 CODE 0
-41 7800 0 CODE 0
+7 75E8 0 CODE 0
+13 75E8 0 CODE 0
+14 75EC 0 CODE 0
+15 75FA 0 CODE 0
+16 760A 0 CODE 0
+18 760E 0 CODE 0
+19 761C 0 CODE 0
+20 762C 0 CODE 0
+22 7630 0 CODE 0
+23 7640 0 CODE 0
+24 7656 0 CODE 0
+25 765A 0 CODE 0
+26 765E 0 CODE 0
+27 7668 0 CODE 0
+25 766A 0 CODE 0
+30 7678 0 CODE 0
+31 7682 0 CODE 0
+32 76A0 0 CODE 0
+33 76B0 0 CODE 0
+35 76B2 0 CODE 0
+36 76BC 0 CODE 0
+38 76C2 0 CODE 0
+39 76D2 0 CODE 0
+40 76E2 0 CODE 0
+41 76F2 0 CODE 0
 serial.c
-60 73A6 0 CODE 0
-62 73A6 0 CODE 0
-63 73AE 0 CODE 0
-64 73D6 0 CODE 0
-65 73F6 0 CODE 0
-66 7412 0 CODE 0
+61 738E 0 CODE 0
+63 738E 0 CODE 0
+64 7396 0 CODE 0
+65 73BE 0 CODE 0
+66 73DE 0 CODE 0
+67 73FA 0 CODE 0
 serial.c
-51 7344 0 CODE 0
-53 7344 0 CODE 0
-54 734C 0 CODE 0
-55 7368 0 CODE 0
-56 7388 0 CODE 0
-58 73A4 0 CODE 0
+52 732C 0 CODE 0
+54 732C 0 CODE 0
+55 7334 0 CODE 0
+56 7350 0 CODE 0
+57 7370 0 CODE 0
+59 738C 0 CODE 0
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
 4 7928 0 CODE 0
 6 7928 0 CODE 0
@@ -524,26 +553,26 @@ C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
 15 7A7A 0 CODE 0
 16 7AB0 0 CODE 0
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\isspace.c
-5 729C 0 CODE 0
-7 729C 0 CODE 0
-8 72EC 0 CODE 0
+5 7284 0 CODE 0
+7 7284 0 CODE 0
+8 72D4 0 CODE 0
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\isdigit.c
-5 7222 0 CODE 0
-7 7222 0 CODE 0
-8 7258 0 CODE 0
+5 720A 0 CODE 0
+7 720A 0 CODE 0
+8 7240 0 CODE 0
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul16.c
-15 719C 0 CODE 0
-37 719C 0 CODE 0
-38 71A8 0 CODE 0
-39 71B0 0 CODE 0
-52 71B8 0 CODE 0
-53 71C0 0 CODE 0
+15 7184 0 CODE 0
+37 7184 0 CODE 0
+38 7190 0 CODE 0
+39 7198 0 CODE 0
+52 71A0 0 CODE 0
+53 71A8 0 CODE 0
 Motor.c
-21 725A 0 CODE 0
-22 725C 0 CODE 0
-23 7270 0 CODE 0
-24 7284 0 CODE 0
-25 729A 0 CODE 0
+22 7242 0 CODE 0
+23 7244 0 CODE 0
+24 7258 0 CODE 0
+25 726C 0 CODE 0
+26 7282 0 CODE 0
 PWM.c
 6 7802 0 CODE 0
 7 7804 0 CODE 0
@@ -578,55 +607,55 @@ PWM.c
 41 7924 0 CODE 0
 42 7926 0 CODE 0
 PWM.c
-84 71F2 0 CODE 0
-85 71F2 0 CODE 0
-86 7210 0 CODE 0
-87 7214 0 CODE 0
-89 7218 0 CODE 0
-90 7220 0 CODE 0
+84 71DA 0 CODE 0
+85 71DA 0 CODE 0
+86 71F8 0 CODE 0
+87 71FC 0 CODE 0
+89 7200 0 CODE 0
+90 7208 0 CODE 0
 PWM.c
-76 71C2 0 CODE 0
-77 71C2 0 CODE 0
-78 71E0 0 CODE 0
-79 71E4 0 CODE 0
-81 71E8 0 CODE 0
-82 71F0 0 CODE 0
+76 71AA 0 CODE 0
+77 71AA 0 CODE 0
+78 71C8 0 CODE 0
+79 71CC 0 CODE 0
+81 71D0 0 CODE 0
+82 71D8 0 CODE 0
 PWM.c
-60 7152 0 CODE 0
-62 7152 0 CODE 0
-63 7154 0 CODE 0
-64 7158 0 CODE 0
-65 715C 0 CODE 0
-66 715E 0 CODE 0
-67 7160 0 CODE 0
-68 7162 0 CODE 0
-69 7166 0 CODE 0
-70 716A 0 CODE 0
-71 716E 0 CODE 0
-72 7170 0 CODE 0
-73 7172 0 CODE 0
-74 7174 0 CODE 0
+60 713A 0 CODE 0
+62 713A 0 CODE 0
+63 713C 0 CODE 0
+64 7140 0 CODE 0
+65 7144 0 CODE 0
+66 7146 0 CODE 0
+67 7148 0 CODE 0
+68 714A 0 CODE 0
+69 714E 0 CODE 0
+70 7152 0 CODE 0
+71 7156 0 CODE 0
+72 7158 0 CODE 0
+73 715A 0 CODE 0
+74 715C 0 CODE 0
 PWM.c
-44 7176 0 CODE 0
-46 7176 0 CODE 0
-47 717A 0 CODE 0
-48 717E 0 CODE 0
-49 7182 0 CODE 0
-50 7184 0 CODE 0
-51 7186 0 CODE 0
-52 7188 0 CODE 0
-53 718C 0 CODE 0
-54 7190 0 CODE 0
-55 7194 0 CODE 0
-56 7196 0 CODE 0
-57 7198 0 CODE 0
-58 719A 0 CODE 0
+44 715E 0 CODE 0
+46 715E 0 CODE 0
+47 7162 0 CODE 0
+48 7166 0 CODE 0
+49 716A 0 CODE 0
+50 716C 0 CODE 0
+51 716E 0 CODE 0
+52 7170 0 CODE 0
+53 7174 0 CODE 0
+54 7178 0 CODE 0
+55 717C 0 CODE 0
+56 717E 0 CODE 0
+57 7180 0 CODE 0
+58 7182 0 CODE 0
 Motor.c
-15 7414 0 CODE 0
-16 7414 0 CODE 0
-17 7424 0 CODE 0
-18 747C 0 CODE 0
-19 7484 0 CODE 0
+16 73FC 0 CODE 0
+17 73FC 0 CODE 0
+18 740C 0 CODE 0
+19 7464 0 CODE 0
+20 746C 0 CODE 0
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
 10 7AB2 0 CODE 0
 15 7AB4 0 CODE 0
@@ -658,24 +687,24 @@ C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
 43 7C54 0 CODE 0
 44 7C64 0 CODE 0
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
-43 75F0 0 CODE 0
-47 75F0 0 CODE 0
-48 7606 0 CODE 0
-49 761A 0 CODE 0
-50 7644 0 CODE 0
-51 7646 0 CODE 0
-52 7656 0 CODE 0
-53 765A 0 CODE 0
-54 7668 0 CODE 0
-57 7680 0 CODE 0
-60 7694 0 CODE 0
-63 76A8 0 CODE 0
-64 76B2 0 CODE 0
-62 76B4 0 CODE 0
-67 76C4 0 CODE 0
-68 76D4 0 CODE 0
-69 76E4 0 CODE 0
-70 76F4 0 CODE 0
+43 74E2 0 CODE 0
+47 74E2 0 CODE 0
+48 74F8 0 CODE 0
+49 750C 0 CODE 0
+50 7536 0 CODE 0
+51 7538 0 CODE 0
+52 7548 0 CODE 0
+53 754C 0 CODE 0
+54 755A 0 CODE 0
+57 7572 0 CODE 0
+60 7586 0 CODE 0
+63 759A 0 CODE 0
+64 75A4 0 CODE 0
+62 75A6 0 CODE 0
+67 75B6 0 CODE 0
+68 75C6 0 CODE 0
+69 75D6 0 CODE 0
+70 75E6 0 CODE 0
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
 11 7C66 0 CODE 0
 26 7C66 0 CODE 0
@@ -763,3 +792,17 @@ C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
 180 7FF2 0 CODE 0
 182 7FF4 0 CODE 0
 185 7FFE 0 CODE 0
+Actuator.c
+19 711C 0 CODE 0
+20 711C 0 CODE 0
+21 711E 0 CODE 0
+22 7136 0 CODE 0
+23 7138 0 CODE 0
+Actuator.c
+27 70F0 0 CODE 0
+28 70F0 0 CODE 0
+29 70F2 0 CODE 0
+Actuator.c
+24 70EC 0 CODE 0
+25 70EC 0 CODE 0
+26 70EE 0 CODE 0

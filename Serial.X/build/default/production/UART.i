@@ -5699,7 +5699,7 @@ char USART_TxS(char str[]);
 # 5 "UART.c" 2
 
 void USART_Init(long BAUD){
-      OSCCON= 0x72;
+    OSCCON= 0x72;
     TRISCbits.RC6 = 0;
     TRISCbits.RC7 = 1;
 

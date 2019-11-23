@@ -4,7 +4,7 @@
 #include "configuration.h"
 #include "UART.h"
 void USART_Init(long BAUD){
-      OSCCON= 0x72;// Defines el valor del oscilador interno
+    OSCCON= 0x72;// Defines el valor del oscilador interno
     TRISCbits.RC6 = 0;      
     TRISCbits.RC7 = 1;      
     

@@ -616,7 +616,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _BAUD `l ~T0 @X0 1 r1 ]
 [f ]
 "7
-[; ;UART.c: 7:       OSCCON= 0x72;
+[; ;UART.c: 7:     OSCCON= 0x72;
 [e = _OSCCON -> -> 114 `i `uc ]
 "8
 [; ;UART.c: 8:     TRISCbits.RC6 = 0;

@@ -4,4 +4,5 @@ configuration.h  \
 UART.h  \
 serial.h  \
 PWM.h  \
-motor.h 
+motor.h  \
+Actuator.h 

@@ -9,6 +9,8 @@ int pasosX=0;
 int pasosY=0;
 int Motor_Conversion(int CoordenadaX);
 void Motor_Movimiento(char Oupcode,int CoordenadaX,int CoordenadaY);
+void Motor_MovimientoZ(char direccion);
+void Motor_MovimientoZ_Init(char direccion);
 #ifdef	__cplusplus
 }
 #endif

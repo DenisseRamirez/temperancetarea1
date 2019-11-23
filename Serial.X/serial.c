@@ -14,6 +14,7 @@
 #include "serial.h"
 #include "PWM.h"
 #include "motor.h"
+#include "Actuator.h"
 
 void main() {
     USART_Init(9600);
@@ -32,13 +33,13 @@ void main() {
                 Serial_DecodificacionY(coordenada_array, &CY); // LLamar a serial de decodificacion Coordenada LAS VARIABLES CX Y CY YA SE ENCUENTRAN CON VALORES
                 break;
             case 'T':
-                // LLamar a la funcion touch
+                Actuator_Touch();
                 break;
             case 'H':
-                // LLamar a la funcion Hold
+                Actuator_Hold();
                 break;
             case 'R':
-                // LLamar a la funcion retraer
+                Actuator_Retrain();
                 break;
             case 'O':
                 // LLamar a la funcion setup aun por definir
