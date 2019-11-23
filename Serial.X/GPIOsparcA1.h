@@ -5,6 +5,76 @@
 #include <xc.h>
 #include <stdint.h>
 
+#define GPIO_RA0_TRIS                 TRISAbits.TRISA0 
+#define GPIO_RA0_LAT                  LATAbits.LATA0
+#define GPIO_RA0_PORT                 PORTAbits.RA0
+#define GPIO_RA0_SetHigh()            do { LATAbits.LATA0 = 1; } while(0)
+#define GPIO_RA0_SetLow()             do { LATAbits.LATA0 = 0; } while(0)
+#define GPIO_RA0_Toggle()             do { LATAbits.LATA0 = ~LATAbits.LATA0; } while(0)
+#define GPIO_RA0_GetValue()           PORTAbits.RA0
+#define GPIO_RA0_SetDigitalInput()    do { TRISAbits.TRISA0 = 1; } while(0)
+#define GPIO_RA0_SetDigitalOutput()   do { TRISAbits.TRISA0 = 0; } while(0) 
+
+#define GPIO_RA1_TRIS                 TRISAbits.TRISA1 
+#define GPIO_RA1_LAT                  LATAbits.LATA1
+#define GPIO_RA1_PORT                 PORTAbits.RA1
+#define GPIO_RA1_SetHigh()            do { LATAbits.LATA1 = 1; } while(0)
+#define GPIO_RA1_SetLow()             do { LATAbits.LATA1 = 0; } while(0)
+#define GPIO_RA1_Toggle()             do { LATAbits.LATA1 = ~LATAbits.LATA1; } while(0)
+#define GPIO_RA1_GetValue()           PORTAbits.RA1
+#define GPIO_RA1_SetDigitalInput()    do { TRISAbits.TRISA1 = 1; } while(0)
+#define GPIO_RA1_SetDigitalOutput()   do { TRISAbits.TRISA1 = 0; } while(0) 
+
+#define GPIO_RA2_TRIS                 TRISAbits.TRISA2 
+#define GPIO_RA2_LAT                  LATAbits.LATA2
+#define GPIO_RA2_PORT                 PORTAbits.RA2
+#define GPIO_RA2_SetHigh()            do { LATAbits.LATA2 = 1; } while(0)
+#define GPIO_RA2_SetLow()             do { LATAbits.LATA2 = 0; } while(0)
+#define GPIO_RA2_Toggle()             do { LATAbits.LATA2 = ~LATAbits.LATA2; } while(0)
+#define GPIO_RA2_GetValue()           PORTAbits.RA2
+#define GPIO_RA2_SetDigitalInput()    do { TRISAbits.TRISA2 = 1; } while(0)
+#define GPIO_RA2_SetDigitalOutput()   do { TRISAbits.TRISA2 = 0; } while(0) 
+
+#define GPIO_RA3_TRIS                 TRISAbits.TRISA3 
+#define GPIO_RA3_LAT                  LATAbits.LATA3
+#define GPIO_RA3_PORT                 PORTAbits.RA3
+#define GPIO_RA3_SetHigh()            do { LATAbits.LATA3 = 1; } while(0)
+#define GPIO_RA3_SetLow()             do { LATAbits.LATA3 = 0; } while(0)
+#define GPIO_RA3_Toggle()             do { LATAbits.LATA3 = ~LATAbits.LATA3; } while(0)
+#define GPIO_RA3_GetValue()           PORTAbits.RA3
+#define GPIO_RA3_SetDigitalInput()    do { TRISAbits.TRISA3 = 1; } while(0)
+#define GPIO_RA3_SetDigitalOutput()   do { TRISAbits.TRISA3 = 0; } while(0) 
+
+#define GPIO_RA4_TRIS                 TRISAbits.TRISA4 
+#define GPIO_RA4_LAT                  LATAbits.LATA4
+#define GPIO_RA4_PORT                 PORTAbits.RA4
+#define GPIO_RA4_SetHigh()            do { LATAbits.LATA4 = 1; } while(0)
+#define GPIO_RA4_SetLow()             do { LATAbits.LATA4 = 0; } while(0)
+#define GPIO_RA4_Toggle()             do { LATAbits.LATA4 = ~LATAbits.LATA4; } while(0)
+#define GPIO_RA4_GetValue()           PORTAbits.RA4
+#define GPIO_RA4_SetDigitalInput()    do { TRISAbits.TRISA4 = 1; } while(0)
+#define GPIO_RA4_SetDigitalOutput()   do { TRISAbits.TRISA4 = 0; } while(0) 
+
+#define GPIO_RA5_TRIS                 TRISAbits.TRISA5 
+#define GPIO_RA5_LAT                  LATAbits.LATA5
+#define GPIO_RA5_PORT                 PORTAbits.RA5
+#define GPIO_RA5_SetHigh()            do { LATAbits.LATA5 = 1; } while(0)
+#define GPIO_RA5_SetLow()             do { LATAbits.LATA5 = 0; } while(0)
+#define GPIO_RA5_Toggle()             do { LATAbits.LATA5 = ~LATAbits.LATA5; } while(0)
+#define GPIO_RA5_GetValue()           PORTAbits.RA5
+#define GPIO_RA5_SetDigitalInput()    do { TRISAbits.TRISA5 = 1; } while(0)
+#define GPIO_RA5_SetDigitalOutput()   do { TRISAbits.TRISA5 = 0; } while(0) 
+
+#define GPIO_RA6_TRIS                 TRISAbits.TRISA6 
+#define GPIO_RA6_LAT                  LATAbits.LATA6
+#define GPIO_RA6_PORT                 PORTAbits.RA6
+#define GPIO_RA6_SetHigh()            do { LATAbits.LATA6 = 1; } while(0)
+#define GPIO_RA6_SetLow()             do { LATAbits.LATA6 = 0; } while(0)
+#define GPIO_RA6_Toggle()             do { LATAbits.LATA6 = ~LATAbits.LATA6; } while(0)
+#define GPIO_RA6_GetValue()           PORTAbits.RA6
+#define GPIO_RA6_SetDigitalInput()    do { TRISAbits.TRISA6 = 1; } while(0)
+#define GPIO_RA6_SetDigitalOutput()   do { TRISAbits.TRISA6 = 0; } while(0) 
+
 void GPIO_init_PORTB(void);  //Check function to see pin assignment
 
 #define GPIO_RB0_TRIS                 TRISBbits.TRISB0 

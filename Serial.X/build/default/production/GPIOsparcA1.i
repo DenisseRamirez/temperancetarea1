@@ -5714,8 +5714,6 @@ typedef uint32_t uint_fast32_t;
 void GPIO_init_PORTB(void);
 # 70 "./GPIOsparcA1.h"
 void GPIO_init_PORTC(void);
-# 132 "./GPIOsparcA1.h"
-void GPIO_init_PORTD(void);
 # 1 "GPIOsparcA1.c" 2
 
 
@@ -5746,17 +5744,4 @@ void GPIO_PORTC(void){
 
     do { TRISCbits.TRISC6 = 0; } while(0);
     do { TRISCbits.TRISC7 = 1; } while(0);
-}
-
-void GPIO_PORTD(void){
-    PORTD = 0x00;
-    LATD = 0x00;
-    do { TRISDbits.TRISD0 = 0; } while(0);
-    do { TRISDbits.TRISD1 = 0; } while(0);
-    do { TRISDbits.TRISD2 = 0; } while(0);
-    do { TRISDbits.TRISD3 = 0; } while(0);
-    do { TRISDbits.TRISD4 = 0; } while(0);
-
-
-
 }

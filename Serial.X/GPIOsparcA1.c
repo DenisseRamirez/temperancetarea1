@@ -9,8 +9,8 @@ void GPIO_PORTB(void){
     GPIO_RB0_SetDigitalInput();     //RB0 has been assigned as Limit Switch 1
     GPIO_RB1_SetDigitalInput();     //RB1 has been assigned as Limit Switch HOME
     GPIO_RB2_SetDigitalInput();     //RB2 has been assigned as RESET
-                                    //RB3 has been assigned as Sensor Z1
-                                    //RB4 has been assigned as Sensor Z2
+    //RB3 has NOT been assigned
+    //RB4 has NOT been assigned
     GPIO_RB5_SetDigitalOutput();    //RB5 has been assigned as RED LED
     GPIO_RB6_SetDigitalOutput();    //RB6 has been assigned as GREEN LED
     GPIO_RB7_SetDigitalOutput();    //RB7 has been assigned as BLUE LED
@@ -37,7 +37,7 @@ void GPIO_PORTD(void){
     GPIO_RD2_SetDigitalOutput();    //RD2 has been assigned as Enable Y (bridged-notted)
     GPIO_RD3_SetDigitalOutput();    //RD3 has been assigned as Direction Y
     GPIO_RD4_SetDigitalOutput();    //RD4 has been assigned as Enable for 2 DC motors on platform
-                                    //RD5 has been assigned as MA DC
-                                    //RD6 has been assigned as MB DC
+    GPIO_RD5_SetDigitalOutput();    //RD5 has been assigned as MA DC H bridge
+    GPIO_RD6_SetDigitalOutput();    //RD6 has been assigned as MB DC H bridge
     //RD7 has NOT been assigned
 }
