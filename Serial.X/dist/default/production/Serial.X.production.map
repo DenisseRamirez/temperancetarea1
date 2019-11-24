@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.10\pic\dat\en_msgs.txt \
   -cs -h+dist/default/production\Serial.X.production.sym \
   --cmf=dist/default/production\Serial.X.production.cmf -z -Q18F4550 \
-  -oC:\Users\saenz\AppData\Local\Temp\s940.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\saenz\AppData\Local\Temp\sido.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Serial.X.production.map -E1 -ver=XC8 \
   --acfsm=1493 -ASTACK=060h-07FFh -pstack=STACK -ACODE=00h-07FFFh \
   -ACONST=00h-07FFFh -ASMALLCONST=0800h-08FFhx120 \
@@ -23,7 +23,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\saenz\AppData\Local\Temp\s940.o \
+  C:\Users\saenz\AppData\Local\Temp\sido.o \
   dist/default/production\Serial.X.production.o 
 
 Object code version is 3.11
@@ -36,7 +36,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\saenz\AppData\Local\Temp\s940.o
+C:\Users\saenz\AppData\Local\Temp\sido.o
                 init                                  0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
                 config                           300000   300000        E   300000       0
@@ -304,7 +304,7 @@ _TRISDbits                               (abs)        000F95
 _TXREG                                   (abs)        000FAD
 _TXSTAbits                               (abs)        000FAC
 _USART_Init                              text3        007476
-_USART_Init$1840                         cstackCOMRAM 000013
+_USART_Init$1850                         cstackCOMRAM 000013
 _USART_Rx                                text2        007044
 _USART_RxS                               text1        007274
 __CFG_CPB$OFF                            (abs)        000000
@@ -609,13 +609,13 @@ __size_of_isspace                        (abs)        000000
 __size_of_main                           (abs)        000000
 __smallconst                             smallconst   000000
 _atoi                                    text7        007928
-_atoi$1592                               cstackCOMRAM 000010
-_atoi$1593                               cstackCOMRAM 000014
-_atoi$1594                               cstackCOMRAM 000012
+_atoi$1607                               cstackCOMRAM 000010
+_atoi$1608                               cstackCOMRAM 000014
+_atoi$1609                               cstackCOMRAM 000012
 _coordenada_array                        bssCOMRAM    000051
 _isdigit                                 text9        00715A
 _isspace                                 text8        007222
-_isspace$1610                            cstackCOMRAM 000007
+_isspace$1625                            cstackCOMRAM 000007
 _main                                    text0        0076FC
 _oneshotX                                bssCOMRAM    000050
 _oneshotY                                bssCOMRAM    00004F

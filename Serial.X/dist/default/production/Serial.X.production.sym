@@ -52,6 +52,7 @@ __Hconfig 30000E 0 CONFIG 0
 __Lconfig 300000 0 CONFIG 0
 __size_of_Motor_Calcular_PasosY 0 0 ABS 0
 atoi@n 15 0 COMRAM 1
+_isspace$1625 7 0 COMRAM 1
 _pulsX 42 0 COMRAM 1
 atoi@s 8 0 COMRAM 1
 __Hbigram 0 0 ABS 0
@@ -71,20 +72,20 @@ __Hsfr 0 0 ABS 0
 __Lsfr 0 0 ABS 0
 __Hbss 0 0 RAM 1
 __Lbss 0 0 RAM 1
-_atoi$1592 10 0 COMRAM 1
 ___param_bank 0 0 ABS 0
 __Hnvrram 0 0 COMRAM 1
 __Lnvrram 0 0 COMRAM 1
 __end_of_USART_Rx 7056 0 CODE 0
+_atoi$1607 10 0 COMRAM 1
 ___xxtofl 7AB2 0 CODE 0
-_atoi$1593 14 0 COMRAM 1
 __end_of_USART_RxS 72CA 0 CODE 0
+_atoi$1608 14 0 COMRAM 1
 _ADCON0 FC2 0 ABS 0
 _ADCON1 FC1 0 ABS 0
-_atoi$1594 12 0 COMRAM 1
 _EECON2 FA7 0 ABS 0
 ?___fltol 28 0 COMRAM 1
 __end_of_Actuator_Touch 708A 0 CODE 0
+_atoi$1609 12 0 COMRAM 1
 __Heeprom_data 0 0 EEDATA 0
 __Leeprom_data 0 0 EEDATA 0
 _PIR1bits F9E 0 ABS 0
@@ -147,6 +148,7 @@ __Hrbit 0 0 COMRAM 1
 __Lrbit 0 0 COMRAM 1
 __Hinit 4 0 CODE 0
 __Linit 0 0 CODE 0
+_USART_Init$1850 13 0 COMRAM 1
 __Hintcodelo 0 0 CODE 0
 _PWM_OneshotY 712A 0 CODE 0
 __Lintcodelo 0 0 CODE 0
@@ -314,7 +316,6 @@ __end_of_isdigit 7192 0 CODE 0
 ?_Motor_Conversion 32 0 COMRAM 1
 _USART_Init 7476 0 CODE 0
 __end_of_Motor_Calcular_PasosY 7222 0 CODE 0
-_isspace$1610 7 0 COMRAM 1
 _Actuator_Touch 706C 0 CODE 0
 __size_of_isdigit 0 0 ABS 0
 __CFG_FCMEN$OFF 0 0 ABS 0
@@ -414,7 +415,6 @@ __CFG_MCLRE$ON 0 0 ABS 0
 USART_RxS@i 7 0 COMRAM 1
 ___fldiv@aexp 27 0 COMRAM 1
 __initialization 7056 0 CODE 0
-_USART_Init$1840 13 0 COMRAM 1
 ___fldiv@bexp 26 0 COMRAM 1
 __activetblptr 2 0 ABS 0
 ___wmul@product 5 0 COMRAM 1
@@ -466,7 +466,7 @@ text25 703C 703F CODE 703C 0
 %locals
 dist/default/production\Serial.X.production.o
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-C:\Users\saenz\AppData\Local\Temp\s940.s
+C:\Users\saenz\AppData\Local\Temp\sido.s
 2963 7056 0 CODE 0
 2965 7056 0 CODE 0
 2968 7056 0 CODE 0

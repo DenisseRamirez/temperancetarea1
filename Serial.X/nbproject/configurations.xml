@@ -13,6 +13,7 @@
       <itemPath>ADC.h</itemPath>
       <itemPath>Actuator.h</itemPath>
       <itemPath>EEPROM.h</itemPath>
+      <itemPath>ControlZ.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -21,15 +22,18 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>configuration.c</itemPath>
-      <itemPath>UART.c</itemPath>
+      <logicalFolder name="f1" displayName=" Capa baja" projectFiles="true">
+        <itemPath>PWM.c</itemPath>
+        <itemPath>UART.c</itemPath>
+        <itemPath>GPIOsparcA1.c</itemPath>
+        <itemPath>ADC.c</itemPath>
+        <itemPath>configuration.c</itemPath>
+      </logicalFolder>
       <itemPath>serial.c</itemPath>
-      <itemPath>PWM.c</itemPath>
       <itemPath>Motor.c</itemPath>
-      <itemPath>GPIOsparcA1.c</itemPath>
-      <itemPath>ADC.c</itemPath>
       <itemPath>Actuator.c</itemPath>
       <itemPath>EEPROM.c</itemPath>
+      <itemPath>ControlZ.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
