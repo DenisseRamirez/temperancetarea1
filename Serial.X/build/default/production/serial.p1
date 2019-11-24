@@ -15,8 +15,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9
 [; ;./serial.h: 9: void Serial_DecodificacionY (char string_coordenada[], int *pointerCY);
 [v _Serial_DecodificacionY `(v ~T0 @X0 0 ef2`*uc`*i ]
-"11 ./motor.h
-[; ;./motor.h: 11: void Motor_Movimiento(char Oupcode,int CoordenadaX,int CoordenadaY);
+"12 ./motor.h
+[; ;./motor.h: 12: void Motor_Movimiento(char Oupcode,int CoordenadaX,int CoordenadaY);
 [v _Motor_Movimiento `(v ~T0 @X0 0 ef3`uc`i`i ]
 "12 ./Actuator.h
 [; ;./Actuator.h: 12: void Actuator_Touch();
@@ -589,6 +589,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./motor.h: 9: int pasosY=0;
 [v _pasosY `i ~T0 @X0 1 e ]
 [i _pasosY
+-> 0 `i
+]
+"10
+[; ;./motor.h: 10: int pulsX=0,pulsY=0;
+[v _pulsX `i ~T0 @X0 1 e ]
+[i _pulsX
+-> 0 `i
+]
+[v _pulsY `i ~T0 @X0 1 e ]
+[i _pulsY
 -> 0 `i
 ]
 "1 ./Actuator.h

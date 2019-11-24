@@ -34,9 +34,9 @@ void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY) {
             Enable_DriverY = 1;
         }
     }
-    pasosX = 0;
+   // pasosX = 0;
     oneshotX = 0;
-    pasosY = 0;
+    //pasosY = 0;
     oneshotY = 0;
     T2CONbits.TMR2ON = 0; // Timer OFF
 }

@@ -12,6 +12,7 @@
       <itemPath>GPIOsparcA1.h</itemPath>
       <itemPath>ADC.h</itemPath>
       <itemPath>Actuator.h</itemPath>
+      <itemPath>EEPROM.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -28,6 +29,7 @@
       <itemPath>GPIOsparcA1.c</itemPath>
       <itemPath>ADC.c</itemPath>
       <itemPath>Actuator.c</itemPath>
+      <itemPath>EEPROM.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

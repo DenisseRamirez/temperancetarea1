@@ -757,15 +757,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;PWM.c: 17:     while (pasosX < pulsosX && pasosY < pulsosY) {
 [e $ && < _pasosX _pulsosX < _pasosY _pulsosY 371  ]
 [e :U 372 ]
-"37
-[; ;PWM.c: 37:     pasosX = 0;
-[e = _pasosX -> 0 `i ]
 "38
 [; ;PWM.c: 38:     oneshotX = 0;
 [e = _oneshotX -> -> 0 `i `uc ]
-"39
-[; ;PWM.c: 39:     pasosY = 0;
-[e = _pasosY -> 0 `i ]
 "40
 [; ;PWM.c: 40:     oneshotY = 0;
 [e = _oneshotY -> -> 0 `i `uc ]

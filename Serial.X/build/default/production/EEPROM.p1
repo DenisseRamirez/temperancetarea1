@@ -1,114 +1,47 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"13 ./motor.h
-[; ;./motor.h: 13: int Motor_Calcular_PasosX(int pasos_converX);
-[v _Motor_Calcular_PasosX `(i ~T0 @X0 0 ef1`i ]
-"14
-[; ;./motor.h: 14: int Motor_Calcular_PasosY(int pasos_converY);
-[v _Motor_Calcular_PasosY `(i ~T0 @X0 0 ef1`i ]
-"11 ./PWM.h
-[; ;./PWM.h: 11: void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
-[v _PWM_GeneratePulsos `(v ~T0 @X0 0 ef3`uc`i`i ]
-"2711 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2711:     struct {
-[s S119 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S119 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"2721
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2721:     struct {
-[s S120 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S120 . SPP0 SPP1 SPP2 SPP3 SPP4 SPP5 SPP6 SPP7 ]
-"2731
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2731:     struct {
-[s S121 :7 `uc 1 :1 `uc 1 ]
-[n S121 . . SS2 ]
-"2710
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2710: typedef union {
-[u S118 `S119 1 `S120 1 `S121 1 ]
-[n S118 . . . . ]
-"2736
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2736: extern volatile PORTDbits_t PORTDbits __attribute__((address(0xF83)));
-[v _PORTDbits `VS118 ~T0 @X0 0 e@3971 ]
-"4012
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4012:     struct {
-[s S162 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S162 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
-"4022
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4022:     struct {
-[s S163 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S163 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"4011
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4011: typedef union {
-[u S161 `S162 1 `S163 1 ]
-[n S161 . . . ]
-"4033
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4033: extern volatile TRISDbits_t TRISDbits __attribute__((address(0xF95)));
-[v _TRISDbits `VS161 ~T0 @X0 0 e@3989 ]
-"3269
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3269:     struct {
-[s S138 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S138 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
-"3279
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3279:     struct {
-[s S139 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S139 . LD0 LD1 LD2 LD3 LD4 LD5 LD6 LD7 ]
-"3268
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3268: typedef union {
-[u S137 `S138 1 `S139 1 ]
-[n S137 . . . ]
-"3290
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3290: extern volatile LATDbits_t LATDbits __attribute__((address(0xF8C)));
-[v _LATDbits `VS137 ~T0 @X0 0 e@3980 ]
-"7 ./PWM.h
-[; ;./PWM.h: 7: char oneshotX=0;
-[v _oneshotX `uc ~T0 @X0 1 e ]
-[i _oneshotX
--> -> 0 `i `uc
-]
-"8
-[; ;./PWM.h: 8: char oneshotY=0;
-[v _oneshotY `uc ~T0 @X0 1 e ]
-[i _oneshotY
--> -> 0 `i `uc
-]
-"9
-[; ;./PWM.h: 9: int pulsosX=0;
-[v _pulsosX `i ~T0 @X0 1 e ]
-[i _pulsosX
--> 0 `i
-]
-"10
-[; ;./PWM.h: 10: int pulsosY=0;
-[v _pulsosY `i ~T0 @X0 1 e ]
-[i _pulsosY
--> 0 `i
-]
-"7 ./motor.h
-[; ;./motor.h: 7: int pasos_convertidos=0;
-[v _pasos_convertidos `i ~T0 @X0 1 e ]
-[i _pasos_convertidos
--> 0 `i
-]
-"8
-[; ;./motor.h: 8: int pasosX=0;
-[v _pasosX `i ~T0 @X0 1 e ]
-[i _pasosX
--> 0 `i
-]
-"9
-[; ;./motor.h: 9: int pasosY=0;
-[v _pasosY `i ~T0 @X0 1 e ]
-[i _pasosY
--> 0 `i
-]
-"10
-[; ;./motor.h: 10: int pulsX=0,pulsY=0;
-[v _pulsX `i ~T0 @X0 1 e ]
-[i _pulsX
--> 0 `i
-]
-[v _pulsY `i ~T0 @X0 1 e ]
-[i _pulsY
--> 0 `i
-]
+"4855 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4855:     struct {
+[s S193 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S193 . RD WR WREN WRERR FREE . CFGS EEPGD ]
+"4865
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4865:     struct {
+[s S194 :6 `uc 1 :1 `uc 1 ]
+[n S194 . . EEFS ]
+"4854
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4854: typedef union {
+[u S192 `S193 1 `S194 1 ]
+[n S192 . . . ]
+"4870
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4870: extern volatile EECON1bits_t EECON1bits __attribute__((address(0xFA6)));
+[v _EECON1bits `VS192 ~T0 @X0 0 e@4006 ]
+"4929
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4929: extern volatile unsigned char EEADR __attribute__((address(0xFA9)));
+[v _EEADR `Vuc ~T0 @X0 0 e@4009 ]
+"4922
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4922: extern volatile unsigned char EEDATA __attribute__((address(0xFA8)));
+[v _EEDATA `Vuc ~T0 @X0 0 e@4008 ]
+"8588
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8588:     struct {
+[s S360 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S360 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"8598
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8598:     struct {
+[s S361 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S361 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"8608
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8608:     struct {
+[s S362 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S362 . . GIEL GIEH ]
+"8587
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8587: typedef union {
+[u S359 `S360 1 `S361 1 `S362 1 ]
+[n S359 . . . . ]
+"8614
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8614: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
+[v _INTCONbits `VS359 ~T0 @X0 0 e@4082 ]
+"4915
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4915: extern volatile unsigned char EECON2 __attribute__((address(0xFA7)));
+[v _EECON2 `Vuc ~T0 @X0 0 e@4007 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -619,267 +552,93 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8893
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"16 Motor.c
-[; ;Motor.c: 16: int Motor_Conversion(int Coordenada)
-[v _Motor_Conversion `(i ~T0 @X0 1 ef1`i ]
-"17
-[; ;Motor.c: 17: {
+"13 ./EEPROM.h
+[; ;./EEPROM.h: 13: char setpoint;
+[v _setpoint `uc ~T0 @X0 1 e ]
+"11 EEPROM.c
+[; ;EEPROM.c: 11: void Init(){
+[v _Init `(v ~T0 @X0 1 ef ]
 {
-[e :U _Motor_Conversion ]
+[e :U _Init ]
+[f ]
+"12
+[; ;EEPROM.c: 12:     EECON1bits.CFGS=0;
+[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
+"13
+[; ;EEPROM.c: 13:     EECON1bits.EEPGD=0;
+[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
+"14
+[; ;EEPROM.c: 14:     EECON1bits.WREN=1;
+[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+"15
+[; ;EEPROM.c: 15: }
+[e :UE 367 ]
+}
 "16
-[; ;Motor.c: 16: int Motor_Conversion(int Coordenada)
-[v _Coordenada `i ~T0 @X0 1 r1 ]
+[; ;EEPROM.c: 16: void Read(){
+[v _Read `(v ~T0 @X0 1 ef ]
+{
+[e :U _Read ]
+[f ]
 "17
-[; ;Motor.c: 17: {
-[f ]
+[; ;EEPROM.c: 17:     EEADR=0x05;
+[e = _EEADR -> -> 5 `i `uc ]
 "18
-[; ;Motor.c: 18:     float conversion = 0.2;
-[v _conversion `f ~T0 @X0 1 a ]
-[e = _conversion -> .0.2 `f ]
+[; ;EEPROM.c: 18:     EECON1bits.EEPGD=0;
+[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
 "19
-[; ;Motor.c: 19:     pasos_convertidos = Coordenada / conversion;
-[e = _pasos_convertidos -> / -> _Coordenada `f _conversion `i ]
+[; ;EEPROM.c: 19:       EECON1bits.CFGS=0;
+[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
 "20
-[; ;Motor.c: 20:     return pasos_convertidos;
-[e ) _pasos_convertidos ]
-[e $UE 369  ]
+[; ;EEPROM.c: 20:       EECON1bits.RD=1;
+[e = . . _EECON1bits 0 0 -> -> 1 `i `uc ]
 "21
-[; ;Motor.c: 21: }
-[e :UE 369 ]
+[; ;EEPROM.c: 21:       setpoint=EEDATA;
+[e = _setpoint -> _EEDATA `uc ]
+"22
+[; ;EEPROM.c: 22: }
+[e :UE 368 ]
 }
 "23
-[; ;Motor.c: 23: void Motor_Movimiento(char Oupcode, int CoordenadaX, int CoordenadaY)
-[v _Motor_Movimiento `(v ~T0 @X0 1 ef3`uc`i`i ]
-"24
-[; ;Motor.c: 24: {
+[; ;EEPROM.c: 23: void Write(){
+[v _Write `(v ~T0 @X0 1 ef ]
 {
-[e :U _Motor_Movimiento ]
-"23
-[; ;Motor.c: 23: void Motor_Movimiento(char Oupcode, int CoordenadaX, int CoordenadaY)
-[v _Oupcode `uc ~T0 @X0 1 r1 ]
-[v _CoordenadaX `i ~T0 @X0 1 r2 ]
-[v _CoordenadaY `i ~T0 @X0 1 r3 ]
-"24
-[; ;Motor.c: 24: {
+[e :U _Write ]
 [f ]
+"24
+[; ;EEPROM.c: 24:     EEADR=0x10;
+[e = _EEADR -> -> 16 `i `uc ]
 "25
-[; ;Motor.c: 25:     pasosX = Motor_Conversion(CoordenadaX);
-[e = _pasosX ( _Motor_Conversion (1 _CoordenadaX ]
+[; ;EEPROM.c: 25:     EEDATA=setpoint;
+[e = _EEDATA -> _setpoint `uc ]
 "26
-[; ;Motor.c: 26:     pasosY = Motor_Conversion(CoordenadaY);
-[e = _pasosY ( _Motor_Conversion (1 _CoordenadaY ]
+[; ;EEPROM.c: 26:      EECON1bits.EEPGD=0;
+[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
 "27
-[; ;Motor.c: 27:     pasosX=Motor_Calcular_PasosX(pasosX);
-[e = _pasosX ( _Motor_Calcular_PasosX (1 _pasosX ]
+[; ;EEPROM.c: 27:       EECON1bits.CFGS=0;
+[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
 "28
-[; ;Motor.c: 28:     pasosY=Motor_Calcular_PasosY(pasosY);
-[e = _pasosY ( _Motor_Calcular_PasosY (1 _pasosY ]
+[; ;EEPROM.c: 28:       EECON1bits.WREN=1;
+[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
 "29
-[; ;Motor.c: 29:     PWM_GeneratePulsos(Oupcode, pasosX, pasosY);
-[e ( _PWM_GeneratePulsos (3 , , _Oupcode _pasosX _pasosY ]
-"30
-[; ;Motor.c: 30: }
-[e :UE 370 ]
-}
+[; ;EEPROM.c: 29:       INTCONbits.GIE=0;
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
 "31
-[; ;Motor.c: 31: int Motor_Calcular_PasosX(int pasos_converX)
-[v _Motor_Calcular_PasosX `(i ~T0 @X0 1 ef1`i ]
+[; ;EEPROM.c: 31:       EECON2=0x55;
+[e = _EECON2 -> -> 85 `i `uc ]
 "32
-[; ;Motor.c: 32: {
-{
-[e :U _Motor_Calcular_PasosX ]
-"31
-[; ;Motor.c: 31: int Motor_Calcular_PasosX(int pasos_converX)
-[v _pasos_converX `i ~T0 @X0 1 r1 ]
-"32
-[; ;Motor.c: 32: {
-[f ]
+[; ;EEPROM.c: 32:       EECON2=0x0AA;
+[e = _EECON2 -> -> 170 `i `uc ]
 "33
-[; ;Motor.c: 33:     if (pasos_converX <= pasosX)
-[e $ ! <= _pasos_converX _pasosX 372  ]
+[; ;EEPROM.c: 33:       EECON1bits.WR=1;
+[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
 "34
-[; ;Motor.c: 34:     {
-{
+[; ;EEPROM.c: 34:       INTCONbits.GIE=1;
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 "35
-[; ;Motor.c: 35:         PORTDbits.RD1 = 0;
-[e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
-"36
-[; ;Motor.c: 36:         pulsX = pasosX - pasos_converX;
-[e = _pulsX - _pasosX _pasos_converX ]
-"37
-[; ;Motor.c: 37:     }
-}
-[e $U 373  ]
-"38
-[; ;Motor.c: 38:     else
-[e :U 372 ]
+[; ;EEPROM.c: 35:       EECON1bits.WREN=0 ;
+[e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
 "39
-[; ;Motor.c: 39:     {
-{
-"40
-[; ;Motor.c: 40:         PORTDbits.RD1 = 1;
-[e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
-"41
-[; ;Motor.c: 41:         pulsX = pasos_converX-pasosX;
-[e = _pulsX - _pasos_converX _pasosX ]
-"42
-[; ;Motor.c: 42:     }
-}
-[e :U 373 ]
-"43
-[; ;Motor.c: 43:     return (pulsX);
-[e ) _pulsX ]
-[e $UE 371  ]
-"44
-[; ;Motor.c: 44: }
-[e :UE 371 ]
-}
-"45
-[; ;Motor.c: 45: int Motor_Calcular_PasosY(int pasos_converY)
-[v _Motor_Calcular_PasosY `(i ~T0 @X0 1 ef1`i ]
-"46
-[; ;Motor.c: 46: {
-{
-[e :U _Motor_Calcular_PasosY ]
-"45
-[; ;Motor.c: 45: int Motor_Calcular_PasosY(int pasos_converY)
-[v _pasos_converY `i ~T0 @X0 1 r1 ]
-"46
-[; ;Motor.c: 46: {
-[f ]
-"47
-[; ;Motor.c: 47:     if (pasos_converY < pasosY)
-[e $ ! < _pasos_converY _pasosY 375  ]
-"48
-[; ;Motor.c: 48:     {
-{
-"49
-[; ;Motor.c: 49:         PORTDbits.RD3 = 0;
-[e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
-"50
-[; ;Motor.c: 50:         pulsY = pasosY - pasos_converY;
-[e = _pulsY - _pasosY _pasos_converY ]
-"51
-[; ;Motor.c: 51:     } else
-}
-[e $U 376  ]
-[e :U 375 ]
-"52
-[; ;Motor.c: 52:     {
-{
-"53
-[; ;Motor.c: 53:         PORTDbits.RD3 = 1;
-[e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
-"54
-[; ;Motor.c: 54:         pulsY = pasos_converY-pasosY;
-[e = _pulsY - _pasos_converY _pasosY ]
-"55
-[; ;Motor.c: 55:     }
-}
-[e :U 376 ]
-"56
-[; ;Motor.c: 56:     return (pulsY);
-[e ) _pulsY ]
-[e $UE 374  ]
-"57
-[; ;Motor.c: 57: }
-[e :UE 374 ]
-}
-"59
-[; ;Motor.c: 59: void Motor_MovimientoZ_Init(char direccion)
-[v _Motor_MovimientoZ_Init `(v ~T0 @X0 1 ef1`uc ]
-"60
-[; ;Motor.c: 60: {
-{
-[e :U _Motor_MovimientoZ_Init ]
-"59
-[; ;Motor.c: 59: void Motor_MovimientoZ_Init(char direccion)
-[v _direccion `uc ~T0 @X0 1 r1 ]
-"60
-[; ;Motor.c: 60: {
-[f ]
-"61
-[; ;Motor.c: 61:     do { TRISDbits.TRISD4 = 0; } while(0);
-[e :U 380 ]
-{
-[e = . . _TRISDbits 0 4 -> -> 0 `i `uc ]
-}
-[e :U 379 ]
-"62
-[; ;Motor.c: 62: }
-[e :UE 377 ]
-}
-"64
-[; ;Motor.c: 64: void Motor_MovimientoZ(char direccion)
-[v _Motor_MovimientoZ `(v ~T0 @X0 1 ef1`uc ]
-"65
-[; ;Motor.c: 65: {
-{
-[e :U _Motor_MovimientoZ ]
-"64
-[; ;Motor.c: 64: void Motor_MovimientoZ(char direccion)
-[v _direccion `uc ~T0 @X0 1 r1 ]
-"65
-[; ;Motor.c: 65: {
-[f ]
-"66
-[; ;Motor.c: 66:     do { LATDbits.LATD4 = 1; } while(0);
-[e :U 384 ]
-{
-[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
-}
-[e :U 383 ]
-"67
-[; ;Motor.c: 67:     if (direccion == '1')
-[e $ ! == -> _direccion `ui -> 49 `ui 385  ]
-"68
-[; ;Motor.c: 68:     {
-{
-"69
-[; ;Motor.c: 69:         do { LATDbits.LATD5 = 1; } while(0);
-[e :U 388 ]
-{
-[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
-}
-[e :U 387 ]
-"70
-[; ;Motor.c: 70:         do { LATDbits.LATD6 = 0; } while(0);
-[e :U 391 ]
-{
-[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
-}
-[e :U 390 ]
-"71
-[; ;Motor.c: 71:     }
-}
-[e $U 392  ]
-"72
-[; ;Motor.c: 72:     else if (direccion == '0')
-[e :U 385 ]
-[e $ ! == -> _direccion `ui -> 48 `ui 393  ]
-"73
-[; ;Motor.c: 73:     {
-{
-"74
-[; ;Motor.c: 74:         do { LATDbits.LATD5 = 0; } while(0);
-[e :U 396 ]
-{
-[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
-}
-[e :U 395 ]
-"75
-[; ;Motor.c: 75:         do { LATDbits.LATD6 = 1; } while(0);
-[e :U 399 ]
-{
-[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
-}
-[e :U 398 ]
-"76
-[; ;Motor.c: 76:     }
-}
-[e :U 393 ]
-[e :U 392 ]
-"77
-[; ;Motor.c: 77: }
-[e :UE 381 ]
+[; ;EEPROM.c: 39: }
+[e :UE 369 ]
 }

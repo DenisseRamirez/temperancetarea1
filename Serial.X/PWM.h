@@ -15,6 +15,8 @@ void PWM_InitF();
 void PWM_InitS();
 #define Enable_DriverX PORTCbits.RC0
 #define Enable_DriverY PORTCbits.RC4
+#define Direction_DriverX PORTDbits.RD1
+#define Direction_DriverY PORTDbits.RD3
 #ifdef	__cplusplus
 }
 #endif
