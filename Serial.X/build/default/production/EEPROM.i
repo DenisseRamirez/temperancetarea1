@@ -5629,28 +5629,29 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 # 1 "./EEPROM.h" 1
 # 10 "./EEPROM.h"
-void Read();
-void Write();
-void Init();
-char setpoint;
+char EEPROM_Rx(char direccion);
+void EEPROM_Tx(char direccion, char dato);
+void EEMPROM_Init();
+char data;
 # 9 "EEPROM.c" 2
 
 
-void Init(){
+void EEPROM_Init(){
     EECON1bits.CFGS=0;
     EECON1bits.EEPGD=0;
     EECON1bits.WREN=1;
 }
-void Read(){
-    EEADR=0x05;
+char EEPROM_Rx(char direccion){
+    EEADR=direccion;
     EECON1bits.EEPGD=0;
       EECON1bits.CFGS=0;
       EECON1bits.RD=1;
-      setpoint=EEDATA;
+      data=EEDATA;
+      return data;
 }
-void Write(){
-    EEADR=0x10;
-    EEDATA=setpoint;
+void EEPROM_Tx(char direccion, char dato){
+    EEADR=direccion;
+    EEDATA=data;
      EECON1bits.EEPGD=0;
       EECON1bits.CFGS=0;
       EECON1bits.WREN=1;
@@ -5661,7 +5662,6 @@ void Write(){
       EECON1bits.WR=1;
       INTCONbits.GIE=1;
       EECON1bits.WREN=0 ;
-
 
 
 }

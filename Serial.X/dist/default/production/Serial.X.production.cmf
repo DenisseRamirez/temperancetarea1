@@ -11,49 +11,56 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\saenz\AppData\Local\Temp\sido.o
+$C:\Users\saenz\AppData\Local\Temp\sda0.o
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 0 0 4 1
 config CONFIG 0 300000 300000 E 1
 $dist/default/production\Serial.X.production.o
-cinit CODE 0 7056 7056 16 1
-text0 CODE 0 76FC 76FC 10E 1
-text1 CODE 0 7274 7274 56 1
-text2 CODE 0 7044 7044 12 1
-text3 CODE 0 7476 7476 74 1
-text4 CODE 0 75F0 75F0 10C 1
-text5 CODE 0 7396 7396 6E 1
-text6 CODE 0 72CA 72CA 62 1
-text7 CODE 0 7928 7928 18A 1
-text8 CODE 0 7222 7222 52 1
-text9 CODE 0 715A 715A 38 1
-text10 CODE 0 70D4 70D4 26 1
-text11 CODE 0 732C 732C 6A 1
-text12 CODE 0 780A 780A 11E 1
-text13 CODE 0 712A 712A 30 1
-text14 CODE 0 70FA 70FA 30 1
-text15 CODE 0 708A 708A 24 1
-text16 CODE 0 70AE 70AE 26 1
-text17 CODE 0 7404 7404 72 1
-text18 CODE 0 7AB2 7AB2 1B4 1
-text19 CODE 0 74EA 74EA 106 1
-text20 CODE 0 7C66 7C66 39A 1
-text21 CODE 0 71DA 71DA 48 1
-text22 CODE 0 7192 7192 48 1
-text23 CODE 0 706C 706C 1E 1
-text24 CODE 0 7040 7040 4 1
-text25 CODE 0 703C 703C 4 1
+cinit CODE 0 6CC6 6CC6 22 1
+text0 CODE 0 7912 7912 1A0 1
+text1 CODE 0 6ED2 6ED2 56 1
+text2 CODE 0 6C4A 6C4A 12 1
+text3 CODE 0 70E0 70E0 74 1
+text4 CODE 0 7432 7432 10C 1
+text5 CODE 0 7240 7240 EC 1
+text6 CODE 0 6C5C 6C5C 14 1
+text7 CODE 0 7154 7154 EC 1
+text8 CODE 0 6CA4 6CA4 22 1
+text9 CODE 0 706C 706C 74 1
+text10 CODE 0 6F28 6F28 68 1
+text11 CODE 0 7788 7788 18A 1
+text12 CODE 0 6E80 6E80 52 1
+text13 CODE 0 6DB8 6DB8 38 1
+text14 CODE 0 6D32 6D32 26 1
+text15 CODE 0 6C70 6C70 16 1
+text16 CODE 0 753E 753E 124 1
+text17 CODE 0 6F90 6F90 6A 1
+text18 CODE 0 7662 7662 126 1
+text19 CODE 0 6D88 6D88 30 1
+text20 CODE 0 6D58 6D58 30 1
+text21 CODE 0 6CE8 6CE8 24 1
+text22 CODE 0 6D0C 6D0C 26 1
+text23 CODE 0 6FFA 6FFA 72 1
+text24 CODE 0 7AB2 7AB2 1B4 1
+text25 CODE 0 732C 732C 106 1
+text26 CODE 0 7C66 7C66 39A 1
+text27 CODE 0 6E38 6E38 48 1
+text28 CODE 0 6DF0 6DF0 48 1
+text29 CODE 0 6C86 6C86 1E 1
+text30 CODE 0 6C46 6C46 4 1
+text31 CODE 0 6C42 6C42 4 1
 cstackCOMRAM COMRAM 1 1 1 3F 1
-bssCOMRAM COMRAM 1 40 40 1C 1
+bssBANK0 BANK0 1 60 60 B 1
+bssCOMRAM COMRAM 1 40 40 1B 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 60-7FF 1
+RAM 6B-7FF 1
 SFR F60-FFF 1
-BANK0 60-FF 1
+BANK0 6B-FF 1
 BANK1 100-1FF 1
 BANK2 200-2FF 1
 BANK3 300-3FF 1
@@ -61,14 +68,15 @@ BANK4 400-4FF 1
 BANK5 500-5FF 1
 BANK6 600-6FF 1
 BANK7 700-7FF 1
-CONST 4-703B 1
-STACK 60-7FF 1
-SMALLCONST 800-703B 1
-CODE 4-703B 1
-BIGRAM 5C-7FF 1
-COMRAM 5C-5F 1
+CONST 4-6C41 1
+STACK 6B-7FF 1
+SMALLCONST 800-6C41 1
+CODE 4-6C41 1
+BIGRAM 5B-5F 1
+BIGRAM 6B-7FF 1
+COMRAM 5B-5F 1
 EEDATA F00000-F000FF 1
-MEDIUMCONST 800-703B 1
+MEDIUMCONST 800-6C41 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -83,367 +91,481 @@ MEDIUMCONST 800-703B 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Serial.X.production.o
-703C text25 CODE >24:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Actuator.c
-703C text25 CODE >25:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Actuator.c
-703E text25 CODE >26:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Actuator.c
-7040 text24 CODE >27:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Actuator.c
-7040 text24 CODE >28:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Actuator.c
-7042 text24 CODE >29:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Actuator.c
-706C text23 CODE >19:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Actuator.c
-706C text23 CODE >20:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Actuator.c
-706E text23 CODE >21:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Actuator.c
-7086 text23 CODE >22:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Actuator.c
-7088 text23 CODE >23:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Actuator.c
-7192 text22 CODE >31:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-7192 text22 CODE >33:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-71B0 text22 CODE >35:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-71B2 text22 CODE >36:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-71BE text22 CODE >37:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-71C2 text22 CODE >38:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-71C2 text22 CODE >40:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-71C4 text22 CODE >41:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-71D0 text22 CODE >43:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-71D8 text22 CODE >44:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-71DA text21 CODE >45:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-71DA text21 CODE >47:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-71F8 text21 CODE >49:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-71FA text21 CODE >50:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-7206 text21 CODE >51:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-720A text21 CODE >53:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-720C text21 CODE >54:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-7218 text21 CODE >56:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-7220 text21 CODE >57:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-7C66 text20 CODE >11:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7C66 text20 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7C6C text20 CODE >27:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7C72 text20 CODE >28:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7C80 text20 CODE >29:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7C82 text20 CODE >33:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7C92 text20 CODE >35:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7CA2 text20 CODE >37:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7CB2 text20 CODE >40:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7CB4 text20 CODE >42:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7CB8 text20 CODE >43:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7CBC text20 CODE >46:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7CCC text20 CODE >49:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7CD2 text20 CODE >50:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7CD8 text20 CODE >51:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7CE6 text20 CODE >52:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7CE8 text20 CODE >56:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7CF8 text20 CODE >58:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7D08 text20 CODE >60:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7D18 text20 CODE >63:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7D1A text20 CODE >65:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7D1E text20 CODE >66:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7D22 text20 CODE >69:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7D32 text20 CODE >75:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7D48 text20 CODE >76:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7D58 text20 CODE >77:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7D60 text20 CODE >78:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7D64 text20 CODE >79:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7D78 text20 CODE >83:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7D88 text20 CODE >84:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7D88 text20 CODE >85:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7D9C text20 CODE >89:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7DB6 text20 CODE >92:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7DC6 text20 CODE >93:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7DD6 text20 CODE >94:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7DE6 text20 CODE >96:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7DEA text20 CODE >97:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7DEE text20 CODE >100:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7DFE text20 CODE >101:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7E08 text20 CODE >102:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7E12 text20 CODE >103:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7E20 text20 CODE >104:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7E22 text20 CODE >105:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7E22 text20 CODE >106:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7E2C text20 CODE >112:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7E4A text20 CODE >115:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7E4C text20 CODE >116:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7E5C text20 CODE >118:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7E5E text20 CODE >97:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7E5E text20 CODE >119:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7E6E text20 CODE >122:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7E84 text20 CODE >123:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7E8A text20 CODE >128:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7E94 text20 CODE >129:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7EA2 text20 CODE >130:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7EA4 text20 CODE >131:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7EA4 text20 CODE >132:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7EAE text20 CODE >133:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7EB4 text20 CODE >127:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7EC2 text20 CODE >139:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7EC6 text20 CODE >140:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7ED4 text20 CODE >141:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7F02 text20 CODE >142:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7F06 text20 CODE >143:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7F0A text20 CODE >144:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7F0A text20 CODE >145:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7F1C text20 CODE >149:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7F1C text20 CODE >150:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7F2C text20 CODE >151:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7F38 text20 CODE >152:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7F46 text20 CODE >153:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7F70 text20 CODE >154:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7F74 text20 CODE >159:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7F8E text20 CODE >160:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7F94 text20 CODE >161:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7FA4 text20 CODE >165:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7FBE text20 CODE >166:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7FC6 text20 CODE >167:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7FD6 text20 CODE >169:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7FDA text20 CODE >173:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7FDE text20 CODE >175:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7FEC text20 CODE >176:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7FEE text20 CODE >177:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7FF2 text20 CODE >180:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7FF4 text20 CODE >182:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-7FFE text20 CODE >185:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
-74EA text19 CODE >43:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
-74EA text19 CODE >47:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
-7500 text19 CODE >48:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
-7514 text19 CODE >49:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
-753E text19 CODE >50:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
-7540 text19 CODE >51:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
-7550 text19 CODE >52:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
-7554 text19 CODE >53:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
-7562 text19 CODE >54:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
-757A text19 CODE >57:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
-758E text19 CODE >60:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
-75A2 text19 CODE >63:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
-75AC text19 CODE >64:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
-75AE text19 CODE >62:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
-75BE text19 CODE >67:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
-75CE text19 CODE >68:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
-75DE text19 CODE >69:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
-75EE text19 CODE >70:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
-7AB2 text18 CODE >10:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7AB4 text18 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7AD2 text18 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7B04 text18 CODE >17:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7B08 text18 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7B08 text18 CODE >19:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7B18 text18 CODE >21:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7B2E text18 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7B42 text18 CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7B46 text18 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7B4A text18 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7B4C text18 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7B56 text18 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7B88 text18 CODE >29:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7B8A text18 CODE >30:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7B96 text18 CODE >31:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7BA0 text18 CODE >28:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7BA0 text18 CODE >32:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7BD2 text18 CODE >34:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7BD4 text18 CODE >35:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7BDE text18 CODE >33:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7BFC text18 CODE >37:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7C0A text18 CODE >38:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7C0C text18 CODE >39:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7C10 text18 CODE >40:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7C34 text18 CODE >41:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7C52 text18 CODE >42:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7C54 text18 CODE >43:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7C64 text18 CODE >44:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
-7404 text17 CODE >16:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-7404 text17 CODE >18:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-7414 text17 CODE >19:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-746C text17 CODE >20:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-7474 text17 CODE >21:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-70AE text16 CODE >44:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-70AE text16 CODE >46:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-70B2 text16 CODE >47:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-70B6 text16 CODE >48:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-70BA text16 CODE >49:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-70BC text16 CODE >50:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-70BE text16 CODE >51:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-70C0 text16 CODE >52:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-70C4 text16 CODE >53:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-70C8 text16 CODE >54:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-70CC text16 CODE >55:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-70CE text16 CODE >56:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-70D0 text16 CODE >57:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-70D2 text16 CODE >58:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-708A text15 CODE >60:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-708A text15 CODE >62:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-708C text15 CODE >63:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7090 text15 CODE >64:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7094 text15 CODE >65:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7096 text15 CODE >66:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7098 text15 CODE >67:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-709A text15 CODE >68:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-709E text15 CODE >69:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-70A2 text15 CODE >70:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-70A6 text15 CODE >71:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-70A8 text15 CODE >72:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-70AA text15 CODE >73:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-70AC text15 CODE >74:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-70FA text14 CODE >76:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-70FA text14 CODE >77:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7118 text14 CODE >78:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-711C text14 CODE >79:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7120 text14 CODE >81:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7128 text14 CODE >82:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-712A text13 CODE >84:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-712A text13 CODE >85:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7148 text13 CODE >86:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-714C text13 CODE >87:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7150 text13 CODE >89:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7158 text13 CODE >90:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-780A text12 CODE >6:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-780C text12 CODE >7:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-781E text12 CODE >8:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7822 text12 CODE >9:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7826 text12 CODE >10:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-782A text12 CODE >12:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-782C text12 CODE >13:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-782E text12 CODE >14:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7830 text12 CODE >15:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7838 text12 CODE >16:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7840 text12 CODE >17:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7844 text12 CODE >18:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7862 text12 CODE >19:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7870 text12 CODE >20:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7884 text12 CODE >21:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7888 text12 CODE >22:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7890 text12 CODE >24:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7890 text12 CODE >25:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7892 text12 CODE >27:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-78B0 text12 CODE >28:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-78BE text12 CODE >29:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-78D2 text12 CODE >30:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-78D6 text12 CODE >31:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-78DE text12 CODE >33:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-78DE text12 CODE >34:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-78E0 text12 CODE >17:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-791C text12 CODE >38:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7920 text12 CODE >40:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7924 text12 CODE >41:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-7926 text12 CODE >42:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
-732C text11 CODE >23:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-732E text11 CODE >25:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-7342 text11 CODE >26:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-7356 text11 CODE >27:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-736A text11 CODE >28:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-737E text11 CODE >29:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-7394 text11 CODE >30:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
-70D4 text10 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul16.c
-70D4 text10 CODE >37:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul16.c
-70E0 text10 CODE >38:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul16.c
-70E8 text10 CODE >39:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul16.c
-70F0 text10 CODE >52:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul16.c
-70F8 text10 CODE >53:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul16.c
-715A text9 CODE >5:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\isdigit.c
-715A text9 CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\isdigit.c
-7190 text9 CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\isdigit.c
-7222 text8 CODE >5:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\isspace.c
-7222 text8 CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\isspace.c
-7272 text8 CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\isspace.c
-7928 text7 CODE >4:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
-7928 text7 CODE >6:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
-7938 text7 CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
-79B2 text7 CODE >9:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
-79BA text7 CODE >10:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
-79BE text7 CODE >11:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
-79F4 text7 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
-7A2C text7 CODE >13:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
-7A7A text7 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
-7AB0 text7 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
-72CA text6 CODE >52:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-72CA text6 CODE >54:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-72D2 text6 CODE >55:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-72EE text6 CODE >56:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-730E text6 CODE >57:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-732A text6 CODE >59:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-7396 text5 CODE >61:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-7396 text5 CODE >63:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-739E text5 CODE >64:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-73C6 text5 CODE >65:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-73E6 text5 CODE >66:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-7402 text5 CODE >67:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-75F0 text4 CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-75F0 text4 CODE >13:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-75F4 text4 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-7602 text4 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-7612 text4 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-7616 text4 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-7624 text4 CODE >19:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-7634 text4 CODE >20:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-7638 text4 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-7648 text4 CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-765E text4 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-7662 text4 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-7666 text4 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-7670 text4 CODE >27:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-7672 text4 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-7680 text4 CODE >30:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-768A text4 CODE >31:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-76A8 text4 CODE >32:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-76B8 text4 CODE >33:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-76BA text4 CODE >35:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-76C4 text4 CODE >36:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-76CA text4 CODE >38:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-76DA text4 CODE >39:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-76EA text4 CODE >40:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-76FA text4 CODE >41:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
-7476 text3 CODE >6:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
-7476 text3 CODE >7:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
-747A text3 CODE >8:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
-747C text3 CODE >9:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
-747E text3 CODE >12:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
-74DA text3 CODE >14:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
-74DC text3 CODE >15:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
-74DE text3 CODE >16:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
-74E0 text3 CODE >18:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
-74E2 text3 CODE >19:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
-74E4 text3 CODE >21:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
-74E6 text3 CODE >22:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
-74E8 text3 CODE >23:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
-7044 text2 CODE >30:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
-7044 text2 CODE >31:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
-7052 text2 CODE >32:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
-7054 text2 CODE >33:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
-7274 text1 CODE >48:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
-7276 text1 CODE >49:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
-7282 text1 CODE >51:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
-7290 text1 CODE >52:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
-72A0 text1 CODE >53:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
-72C8 text1 CODE >54:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
-76FC text0 CODE >19:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-76FC text0 CODE >20:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-7710 text0 CODE >22:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-7716 text0 CODE >23:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-771A text0 CODE >25:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-7728 text0 CODE >26:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-773C text0 CODE >27:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-7750 text0 CODE >28:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-7766 text0 CODE >29:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-776A text0 CODE >31:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-7778 text0 CODE >32:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-778C text0 CODE >33:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-77A0 text0 CODE >34:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-77A4 text0 CODE >36:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-77A8 text0 CODE >37:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-77AC text0 CODE >39:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-77B0 text0 CODE >40:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-77B4 text0 CODE >42:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-77B8 text0 CODE >43:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-77BC text0 CODE >47:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
-7056 cinit CODE >2963:C:\Users\saenz\AppData\Local\Temp\sido.s
-7056 cinit CODE >2965:C:\Users\saenz\AppData\Local\Temp\sido.s
-7056 cinit CODE >2968:C:\Users\saenz\AppData\Local\Temp\sido.s
-7056 cinit CODE >3018:C:\Users\saenz\AppData\Local\Temp\sido.s
-705A cinit CODE >3019:C:\Users\saenz\AppData\Local\Temp\sido.s
-705C cinit CODE >3020:C:\Users\saenz\AppData\Local\Temp\sido.s
-705C cinit CODE >3021:C:\Users\saenz\AppData\Local\Temp\sido.s
-705E cinit CODE >3022:C:\Users\saenz\AppData\Local\Temp\sido.s
-7060 cinit CODE >3023:C:\Users\saenz\AppData\Local\Temp\sido.s
-7062 cinit CODE >3029:C:\Users\saenz\AppData\Local\Temp\sido.s
-7062 cinit CODE >3032:C:\Users\saenz\AppData\Local\Temp\sido.s
-7064 cinit CODE >3033:C:\Users\saenz\AppData\Local\Temp\sido.s
-7066 cinit CODE >3034:C:\Users\saenz\AppData\Local\Temp\sido.s
-7068 cinit CODE >3035:C:\Users\saenz\AppData\Local\Temp\sido.s
+6C42 text31 CODE >24:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Actuator.c
+6C42 text31 CODE >25:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Actuator.c
+6C44 text31 CODE >26:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Actuator.c
+6C46 text30 CODE >27:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Actuator.c
+6C46 text30 CODE >28:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Actuator.c
+6C48 text30 CODE >29:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Actuator.c
+6C86 text29 CODE >19:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Actuator.c
+6C86 text29 CODE >20:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Actuator.c
+6C88 text29 CODE >21:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Actuator.c
+6CA0 text29 CODE >22:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Actuator.c
+6CA2 text29 CODE >23:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Actuator.c
+6DF0 text28 CODE >31:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6DF0 text28 CODE >33:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6E0E text28 CODE >35:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6E10 text28 CODE >36:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6E1C text28 CODE >37:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6E20 text28 CODE >38:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6E20 text28 CODE >40:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6E22 text28 CODE >41:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6E2E text28 CODE >43:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6E36 text28 CODE >44:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6E38 text27 CODE >45:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6E38 text27 CODE >47:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6E56 text27 CODE >49:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6E58 text27 CODE >50:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6E64 text27 CODE >51:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6E68 text27 CODE >53:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6E6A text27 CODE >54:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6E76 text27 CODE >56:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6E7E text27 CODE >57:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+7C66 text26 CODE >11:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7C66 text26 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7C6C text26 CODE >27:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7C72 text26 CODE >28:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7C80 text26 CODE >29:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7C82 text26 CODE >33:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7C92 text26 CODE >35:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7CA2 text26 CODE >37:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7CB2 text26 CODE >40:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7CB4 text26 CODE >42:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7CB8 text26 CODE >43:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7CBC text26 CODE >46:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7CCC text26 CODE >49:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7CD2 text26 CODE >50:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7CD8 text26 CODE >51:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7CE6 text26 CODE >52:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7CE8 text26 CODE >56:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7CF8 text26 CODE >58:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7D08 text26 CODE >60:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7D18 text26 CODE >63:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7D1A text26 CODE >65:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7D1E text26 CODE >66:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7D22 text26 CODE >69:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7D32 text26 CODE >75:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7D48 text26 CODE >76:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7D58 text26 CODE >77:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7D60 text26 CODE >78:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7D64 text26 CODE >79:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7D78 text26 CODE >83:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7D88 text26 CODE >84:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7D88 text26 CODE >85:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7D9C text26 CODE >89:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7DB6 text26 CODE >92:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7DC6 text26 CODE >93:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7DD6 text26 CODE >94:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7DE6 text26 CODE >96:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7DEA text26 CODE >97:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7DEE text26 CODE >100:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7DFE text26 CODE >101:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7E08 text26 CODE >102:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7E12 text26 CODE >103:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7E20 text26 CODE >104:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7E22 text26 CODE >105:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7E22 text26 CODE >106:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7E2C text26 CODE >112:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7E4A text26 CODE >115:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7E4C text26 CODE >116:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7E5C text26 CODE >118:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7E5E text26 CODE >97:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7E5E text26 CODE >119:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7E6E text26 CODE >122:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7E84 text26 CODE >123:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7E8A text26 CODE >128:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7E94 text26 CODE >129:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7EA2 text26 CODE >130:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7EA4 text26 CODE >131:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7EA4 text26 CODE >132:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7EAE text26 CODE >133:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7EB4 text26 CODE >127:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7EC2 text26 CODE >139:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7EC6 text26 CODE >140:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7ED4 text26 CODE >141:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7F02 text26 CODE >142:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7F06 text26 CODE >143:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7F0A text26 CODE >144:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7F0A text26 CODE >145:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7F1C text26 CODE >149:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7F1C text26 CODE >150:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7F2C text26 CODE >151:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7F38 text26 CODE >152:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7F46 text26 CODE >153:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7F70 text26 CODE >154:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7F74 text26 CODE >159:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7F8E text26 CODE >160:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7F94 text26 CODE >161:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7FA4 text26 CODE >165:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7FBE text26 CODE >166:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7FC6 text26 CODE >167:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7FD6 text26 CODE >169:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7FDA text26 CODE >173:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7FDE text26 CODE >175:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7FEC text26 CODE >176:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7FEE text26 CODE >177:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7FF2 text26 CODE >180:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7FF4 text26 CODE >182:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+7FFE text26 CODE >185:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+732C text25 CODE >43:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
+732C text25 CODE >47:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
+7342 text25 CODE >48:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
+7356 text25 CODE >49:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
+7380 text25 CODE >50:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
+7382 text25 CODE >51:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
+7392 text25 CODE >52:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
+7396 text25 CODE >53:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
+73A4 text25 CODE >54:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
+73BC text25 CODE >57:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
+73D0 text25 CODE >60:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
+73E4 text25 CODE >63:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
+73EE text25 CODE >64:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
+73F0 text25 CODE >62:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
+7400 text25 CODE >67:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
+7410 text25 CODE >68:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
+7420 text25 CODE >69:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
+7430 text25 CODE >70:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fltol.c
+7AB2 text24 CODE >10:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7AB4 text24 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7AD2 text24 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7B04 text24 CODE >17:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7B08 text24 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7B08 text24 CODE >19:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7B18 text24 CODE >21:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7B2E text24 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7B42 text24 CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7B46 text24 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7B4A text24 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7B4C text24 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7B56 text24 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7B88 text24 CODE >29:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7B8A text24 CODE >30:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7B96 text24 CODE >31:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7BA0 text24 CODE >28:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7BA0 text24 CODE >32:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7BD2 text24 CODE >34:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7BD4 text24 CODE >35:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7BDE text24 CODE >33:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7BFC text24 CODE >37:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7C0A text24 CODE >38:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7C0C text24 CODE >39:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7C10 text24 CODE >40:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7C34 text24 CODE >41:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7C52 text24 CODE >42:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7C54 text24 CODE >43:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+7C64 text24 CODE >44:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
+6FFA text23 CODE >16:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6FFA text23 CODE >18:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+700A text23 CODE >19:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+7062 text23 CODE >20:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+706A text23 CODE >21:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6D0C text22 CODE >44:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D0C text22 CODE >46:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D10 text22 CODE >47:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D14 text22 CODE >48:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D18 text22 CODE >49:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D1A text22 CODE >50:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D1C text22 CODE >51:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D1E text22 CODE >52:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D22 text22 CODE >53:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D26 text22 CODE >54:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D2A text22 CODE >55:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D2C text22 CODE >56:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D2E text22 CODE >57:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D30 text22 CODE >58:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6CE8 text21 CODE >60:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6CE8 text21 CODE >62:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6CEA text21 CODE >63:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6CEE text21 CODE >64:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6CF2 text21 CODE >65:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6CF4 text21 CODE >66:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6CF6 text21 CODE >67:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6CF8 text21 CODE >68:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6CFC text21 CODE >69:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D00 text21 CODE >70:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D04 text21 CODE >71:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D06 text21 CODE >72:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D08 text21 CODE >73:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D0A text21 CODE >74:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D58 text20 CODE >76:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D58 text20 CODE >77:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D76 text20 CODE >78:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D7A text20 CODE >79:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D7E text20 CODE >81:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D86 text20 CODE >82:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D88 text19 CODE >84:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6D88 text19 CODE >85:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6DA6 text19 CODE >86:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6DAA text19 CODE >87:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6DAE text19 CODE >89:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6DB6 text19 CODE >90:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+7662 text18 CODE >6:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+7664 text18 CODE >7:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+7676 text18 CODE >8:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+767A text18 CODE >9:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+767E text18 CODE >10:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+7682 text18 CODE >12:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+7684 text18 CODE >13:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+7686 text18 CODE >14:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+7688 text18 CODE >15:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+7690 text18 CODE >16:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+7698 text18 CODE >17:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+769C text18 CODE >18:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+76BA text18 CODE >19:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+76C8 text18 CODE >20:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+76DC text18 CODE >21:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+76E0 text18 CODE >22:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+76E8 text18 CODE >24:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+76E8 text18 CODE >25:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+76EA text18 CODE >27:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+7708 text18 CODE >28:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+7716 text18 CODE >29:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+772A text18 CODE >30:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+772E text18 CODE >31:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+7736 text18 CODE >33:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+7736 text18 CODE >34:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+7738 text18 CODE >17:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+7774 text18 CODE >37:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+7774 text18 CODE >38:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+7778 text18 CODE >39:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+7780 text18 CODE >40:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+7784 text18 CODE >41:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+7786 text18 CODE >42:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
+6F90 text17 CODE >23:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6F92 text17 CODE >25:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6FA6 text17 CODE >26:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6FBA text17 CODE >27:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6FCE text17 CODE >28:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6FE2 text17 CODE >29:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+6FF8 text17 CODE >30:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
+753E text16 CODE >91:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7540 text16 CODE >92:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7544 text16 CODE >94:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7548 text16 CODE >95:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+754C text16 CODE >97:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7550 text16 CODE >98:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7554 text16 CODE >100:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7558 text16 CODE >101:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+755C text16 CODE >103:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7560 text16 CODE >104:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7564 text16 CODE >106:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7568 text16 CODE >107:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+756C text16 CODE >109:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7570 text16 CODE >110:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7574 text16 CODE >112:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7578 text16 CODE >113:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+757C text16 CODE >115:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7580 text16 CODE >116:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7584 text16 CODE >118:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7588 text16 CODE >119:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+758C text16 CODE >121:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7590 text16 CODE >122:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7594 text16 CODE >124:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7598 text16 CODE >125:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+759C text16 CODE >127:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+75A0 text16 CODE >128:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+75A4 text16 CODE >130:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+75A8 text16 CODE >131:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+75AC text16 CODE >133:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+75B0 text16 CODE >134:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+75B4 text16 CODE >136:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+75B8 text16 CODE >137:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+75BC text16 CODE >139:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+75C0 text16 CODE >140:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+75C4 text16 CODE >141:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+765E text16 CODE >142:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7660 text16 CODE >143:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+6C70 text15 CODE >25:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+6C72 text15 CODE >26:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+6C80 text15 CODE >27:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+6C84 text15 CODE >28:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+6D32 text14 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul16.c
+6D32 text14 CODE >37:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul16.c
+6D3E text14 CODE >38:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul16.c
+6D46 text14 CODE >39:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul16.c
+6D4E text14 CODE >52:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul16.c
+6D56 text14 CODE >53:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul16.c
+6DB8 text13 CODE >5:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\isdigit.c
+6DB8 text13 CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\isdigit.c
+6DEE text13 CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\isdigit.c
+6E80 text12 CODE >5:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\isspace.c
+6E80 text12 CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\isspace.c
+6ED0 text12 CODE >8:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\isspace.c
+7788 text11 CODE >4:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
+7788 text11 CODE >6:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
+7798 text11 CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
+7812 text11 CODE >9:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
+781A text11 CODE >10:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
+781E text11 CODE >11:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
+7854 text11 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
+788C text11 CODE >13:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
+78DA text11 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
+7910 text11 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
+6F28 text10 CODE >64:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+6F28 text10 CODE >66:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+6F30 text10 CODE >67:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+6F4C text10 CODE >68:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+6F6C text10 CODE >69:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+6F72 text10 CODE >70:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+6F8E text10 CODE >72:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+706C text9 CODE >74:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+706C text9 CODE >76:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7074 text9 CODE >77:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+709C text9 CODE >78:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+70BC text9 CODE >79:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+70C2 text9 CODE >80:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+70DE text9 CODE >81:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+6CA4 text8 CODE >24:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\EEPROM.c
+6CA6 text8 CODE >25:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\EEPROM.c
+6CAA text8 CODE >26:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\EEPROM.c
+6CAE text8 CODE >27:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\EEPROM.c
+6CB0 text8 CODE >28:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\EEPROM.c
+6CB2 text8 CODE >29:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\EEPROM.c
+6CB4 text8 CODE >30:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\EEPROM.c
+6CB6 text8 CODE >32:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\EEPROM.c
+6CBA text8 CODE >33:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\EEPROM.c
+6CBE text8 CODE >34:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\EEPROM.c
+6CC0 text8 CODE >35:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\EEPROM.c
+6CC2 text8 CODE >36:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\EEPROM.c
+6CC4 text8 CODE >39:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\EEPROM.c
+7154 text7 CODE >169:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7156 text7 CODE >171:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+715E text7 CODE >172:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7164 text7 CODE >173:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+717A text7 CODE >174:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+719A text7 CODE >175:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+71A2 text7 CODE >176:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+71AA text7 CODE >177:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+71CC text7 CODE >178:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+71EC text7 CODE >179:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+71F4 text7 CODE >180:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+71FC text7 CODE >181:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+721E text7 CODE >182:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+723E text7 CODE >183:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+6C5C text6 CODE >16:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\EEPROM.c
+6C5E text6 CODE >17:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\EEPROM.c
+6C62 text6 CODE >18:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\EEPROM.c
+6C64 text6 CODE >19:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\EEPROM.c
+6C66 text6 CODE >20:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\EEPROM.c
+6C68 text6 CODE >21:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\EEPROM.c
+6C6C text6 CODE >22:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\EEPROM.c
+6C6E text6 CODE >23:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\EEPROM.c
+7240 text5 CODE >145:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7242 text5 CODE >152:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7246 text5 CODE >153:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+724C text5 CODE >154:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7260 text5 CODE >155:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7272 text5 CODE >156:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7276 text5 CODE >157:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+727E text5 CODE >158:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7292 text5 CODE >159:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+72A4 text5 CODE >160:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+72A8 text5 CODE >161:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+72B0 text5 CODE >162:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+72C4 text5 CODE >163:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+72D6 text5 CODE >164:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+72F2 text5 CODE >165:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+730E text5 CODE >166:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+732A text5 CODE >168:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7432 text4 CODE >7:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+7432 text4 CODE >13:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+7436 text4 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+7444 text4 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+7454 text4 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+7458 text4 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+7466 text4 CODE >19:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+7476 text4 CODE >20:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+747A text4 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+748A text4 CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+74A0 text4 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+74A4 text4 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+74A8 text4 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+74B2 text4 CODE >27:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+74B4 text4 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+74C2 text4 CODE >30:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+74CC text4 CODE >31:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+74EA text4 CODE >32:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+74FA text4 CODE >33:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+74FC text4 CODE >35:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+7506 text4 CODE >36:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+750C text4 CODE >38:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+751C text4 CODE >39:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+752C text4 CODE >40:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+753C text4 CODE >41:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\aldiv.c
+70E0 text3 CODE >6:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+70E0 text3 CODE >7:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+70E4 text3 CODE >8:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+70E6 text3 CODE >9:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+70E8 text3 CODE >12:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+7144 text3 CODE >14:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+7146 text3 CODE >15:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+7148 text3 CODE >16:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+714A text3 CODE >18:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+714C text3 CODE >19:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+714E text3 CODE >21:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+7150 text3 CODE >22:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+7152 text3 CODE >23:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+6C4A text2 CODE >30:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+6C4A text2 CODE >31:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+6C58 text2 CODE >32:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+6C5A text2 CODE >33:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+6ED2 text1 CODE >48:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+6ED4 text1 CODE >49:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+6EE0 text1 CODE >51:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+6EEE text1 CODE >52:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+6EFE text1 CODE >53:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+6F26 text1 CODE >54:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+7912 text0 CODE >20:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7912 text0 CODE >21:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7926 text0 CODE >23:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+792C text0 CODE >24:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7930 text0 CODE >26:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+793E text0 CODE >27:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7952 text0 CODE >28:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7966 text0 CODE >29:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+797C text0 CODE >30:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7980 text0 CODE >32:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+798E text0 CODE >33:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+79A2 text0 CODE >34:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+79B6 text0 CODE >35:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+79CC text0 CODE >36:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+79D0 text0 CODE >38:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+79D4 text0 CODE >39:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+79D8 text0 CODE >41:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+79DC text0 CODE >42:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+79E0 text0 CODE >44:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+79E4 text0 CODE >45:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+79E8 text0 CODE >47:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+79EE text0 CODE >48:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+79F6 text0 CODE >49:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7A14 text0 CODE >51:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7A2A text0 CODE >52:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7A2E text0 CODE >54:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7A34 text0 CODE >55:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7A42 text0 CODE >56:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7A4A text0 CODE >57:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7A58 text0 CODE >58:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+7A5C text0 CODE >59:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+6CC6 cinit CODE >3036:C:\Users\saenz\AppData\Local\Temp\sda0.s
+6CC6 cinit CODE >3038:C:\Users\saenz\AppData\Local\Temp\sda0.s
+6CC6 cinit CODE >3041:C:\Users\saenz\AppData\Local\Temp\sda0.s
+6CC6 cinit CODE >3095:C:\Users\saenz\AppData\Local\Temp\sda0.s
+6CCA cinit CODE >3096:C:\Users\saenz\AppData\Local\Temp\sda0.s
+6CCC cinit CODE >3097:C:\Users\saenz\AppData\Local\Temp\sda0.s
+6CCC cinit CODE >3098:C:\Users\saenz\AppData\Local\Temp\sda0.s
+6CCE cinit CODE >3099:C:\Users\saenz\AppData\Local\Temp\sda0.s
+6CD0 cinit CODE >3100:C:\Users\saenz\AppData\Local\Temp\sda0.s
+6CD2 cinit CODE >3103:C:\Users\saenz\AppData\Local\Temp\sda0.s
+6CD6 cinit CODE >3104:C:\Users\saenz\AppData\Local\Temp\sda0.s
+6CD8 cinit CODE >3105:C:\Users\saenz\AppData\Local\Temp\sda0.s
+6CD8 cinit CODE >3106:C:\Users\saenz\AppData\Local\Temp\sda0.s
+6CDA cinit CODE >3107:C:\Users\saenz\AppData\Local\Temp\sda0.s
+6CDC cinit CODE >3108:C:\Users\saenz\AppData\Local\Temp\sda0.s
+6CDE cinit CODE >3114:C:\Users\saenz\AppData\Local\Temp\sda0.s
+6CDE cinit CODE >3117:C:\Users\saenz\AppData\Local\Temp\sda0.s
+6CE0 cinit CODE >3118:C:\Users\saenz\AppData\Local\Temp\sda0.s
+6CE2 cinit CODE >3119:C:\Users\saenz\AppData\Local\Temp\sda0.s
+6CE4 cinit CODE >3120:C:\Users\saenz\AppData\Local\Temp\sda0.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -458,73 +580,94 @@ $dist/default/production\Serial.X.production.o
 %SYMTAB
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\Serial.X.production.o
 __Hspace_0 30000E 0 ABS 0 - dist/default/production\Serial.X.production.o
-__Hspace_1 5C 0 ABS 0 - dist/default/production\Serial.X.production.o
+__Hspace_1 6B 0 ABS 0 - dist/default/production\Serial.X.production.o
 __Hspace_2 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+__CFG_IESO$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\Serial.X.production.o
-_Actuator_Hold 703C 0 CODE 0 text25 dist/default/production\Serial.X.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\saenz\AppData\Local\Temp\sido.o
+_Actuator_Hold 6C42 0 CODE 0 text31 dist/default/production\Serial.X.production.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\saenz\AppData\Local\Temp\sda0.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\Serial.X.production.o
-__end_of_PWM_OneshotX 712A 0 CODE 0 text14 dist/default/production\Serial.X.production.o
-__end_of_PWM_OneshotY 715A 0 CODE 0 text13 dist/default/production\Serial.X.production.o
+PWM_GeneratePulsos@countX 9 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+PWM_GeneratePulsos@countY B 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+__end_of_PWM_OneshotX 6D88 0 CODE 0 text20 dist/default/production\Serial.X.production.o
+__end_of_PWM_OneshotY 6DB8 0 CODE 0 text19 dist/default/production\Serial.X.production.o
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production\Serial.X.production.o
-_CX 5A 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
-_CY 58 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
+_CX 59 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
+_CY 57 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
+_CZ 55 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\Serial.X.production.o
 _LATB F8A 0 ABS 0 - dist/default/production\Serial.X.production.o
 _LATC F8B 0 ABS 0 - dist/default/production\Serial.X.production.o
 _LATD F8C 0 ABS 0 - dist/default/production\Serial.X.production.o
 _RCIF 7CF5 0 ABS 0 - dist/default/production\Serial.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\saenz\AppData\Local\Temp\sido.o
-_atoi 7928 0 CODE 0 text7 dist/default/production\Serial.X.production.o
-_main 76FC 0 CODE 0 text0 dist/default/production\Serial.X.production.o
-start 0 0 CODE 0 init C:\Users\saenz\AppData\Local\Temp\sido.o
+___sp 0 0 STACK 2 stack C:\Users\saenz\AppData\Local\Temp\sda0.o
+_atoi 7788 0 CODE 0 text11 dist/default/production\Serial.X.production.o
+_data 4A 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
+_main 7912 0 CODE 0 text0 dist/default/production\Serial.X.production.o
+Serial_Lectura_Memoria@i_863 2B 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+Serial_Lectura_Memoria@i_864 2C 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+start 0 0 CODE 0 init C:\Users\saenz\AppData\Local\Temp\sda0.o
+Serial_Lectura_Memoria@coordenadaX 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+Serial_Lectura_Memoria@coordenadaY 20 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+Serial_Lectura_Memoria@coordenadaZ 23 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __size_of___aldiv 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __size_of___fldiv 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __size_of___fltol 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __size_of_USART_Rx 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+__size_of_USART_Tx 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __size_of_atoi 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+USART_Tx@data 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\Serial.X.production.o
 ?_PWM_OneshotX 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 ?_PWM_OneshotY 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 ?___wmul 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
-__end_of_USART_Init 74EA 0 CODE 0 text3 dist/default/production\Serial.X.production.o
-__end_of_Actuator_Touch 708A 0 CODE 0 text23 dist/default/production\Serial.X.production.o
+__end_of_USART_Init 7154 0 CODE 0 text3 dist/default/production\Serial.X.production.o
+__end_of_Actuator_Touch 6CA4 0 CODE 0 text29 dist/default/production\Serial.X.production.o
 __Hpowerup 0 0 CODE 0 powerup dist/default/production\Serial.X.production.o
+Serial_Escritura_Memoria@string_setpoint 3 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 ?_Motor_Calcular_PasosX 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 ?_Motor_Calcular_PasosY 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
-__accesstop 60 0 ABS 0 - C:\Users\saenz\AppData\Local\Temp\sido.o
-intlevel0 0 0 CODE 0 text C:\Users\saenz\AppData\Local\Temp\sido.o
-intlevel1 0 0 CODE 0 text C:\Users\saenz\AppData\Local\Temp\sido.o
-intlevel2 0 0 CODE 0 text C:\Users\saenz\AppData\Local\Temp\sido.o
-intlevel3 0 0 CODE 0 text C:\Users\saenz\AppData\Local\Temp\sido.o
+__accesstop 60 0 ABS 0 - C:\Users\saenz\AppData\Local\Temp\sda0.o
+intlevel0 0 0 CODE 0 text C:\Users\saenz\AppData\Local\Temp\sda0.o
+intlevel1 0 0 CODE 0 text C:\Users\saenz\AppData\Local\Temp\sda0.o
+intlevel2 0 0 CODE 0 text C:\Users\saenz\AppData\Local\Temp\sda0.o
+intlevel3 0 0 CODE 0 text C:\Users\saenz\AppData\Local\Temp\sda0.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\Serial.X.production.o
+__CFG_USBDIV$1 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 ___aldiv@divisor 5 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\Serial.X.production.o
-PWM_GeneratePulsos@pasosX 9 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
-PWM_GeneratePulsos@pasosY B 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+__CFG_EBTR0$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+__CFG_EBTR1$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+__CFG_EBTR2$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+__CFG_EBTR3$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+__CFG_EBTRB$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 Serial_DecodificacionX@pointerCX 19 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\Serial.X.production.o
-_USART_Init$1850 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+_USART_Init$1901 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 ___aldiv@sign A 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\Serial.X.production.o
 _pasos_convertidos 48 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
+_Serial_Lectura_Memoria 7240 0 CODE 0 text5 dist/default/production\Serial.X.production.o
 ___wmul@multiplicand 3 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
-_USART_Rx 7044 0 CODE 0 text2 dist/default/production\Serial.X.production.o
+_USART_Rx 6C4A 0 CODE 0 text2 dist/default/production\Serial.X.production.o
+_USART_Tx 6C70 0 CODE 0 text15 dist/default/production\Serial.X.production.o
 _ADCON0 FC2 0 ABS 0 - dist/default/production\Serial.X.production.o
 _ADCON1 FC1 0 ABS 0 - dist/default/production\Serial.X.production.o
-_Motor_Movimiento 732C 0 CODE 0 text11 dist/default/production\Serial.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\saenz\AppData\Local\Temp\sido.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\saenz\AppData\Local\Temp\sido.o
-_Serial_DecodificacionX 72CA 0 CODE 0 text6 dist/default/production\Serial.X.production.o
-_Serial_DecodificacionY 7396 0 CODE 0 text5 dist/default/production\Serial.X.production.o
+_Motor_Movimiento 6F90 0 CODE 0 text17 dist/default/production\Serial.X.production.o
+Serial_Lectura_Memoria@direccion 29 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\saenz\AppData\Local\Temp\sda0.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\saenz\AppData\Local\Temp\sda0.o
+_Serial_DecodificacionX 6F28 0 CODE 0 text10 dist/default/production\Serial.X.production.o
+_Serial_DecodificacionY 706C 0 CODE 0 text9 dist/default/production\Serial.X.production.o
 _EECON1bits FA6 0 ABS 0 - dist/default/production\Serial.X.production.o
 _CCPR1L FBE 0 ABS 0 - dist/default/production\Serial.X.production.o
 _CCPR2L FBB 0 ABS 0 - dist/default/production\Serial.X.production.o
-_Actuator_Retrain 7040 0 CODE 0 text24 dist/default/production\Serial.X.production.o
+_Actuator_Retrain 6C46 0 CODE 0 text30 dist/default/production\Serial.X.production.o
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\Serial.X.production.o
-__end_of_USART_Rx 7056 0 CODE 0 text2 dist/default/production\Serial.X.production.o
-__end_of___wmul 70FA 0 CODE 0 text10 dist/default/production\Serial.X.production.o
+__end_of_USART_Rx 6C5C 0 CODE 0 text2 dist/default/production\Serial.X.production.o
+__end_of_USART_Tx 6C86 0 CODE 0 text15 dist/default/production\Serial.X.production.o
+__end_of___wmul 6D58 0 CODE 0 text14 dist/default/production\Serial.X.production.o
 PWM_GeneratePulsos@pulsosX 3 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 PWM_GeneratePulsos@pulsosY 5 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __size_of_Actuator_Hold 0 0 ABS 0 - dist/default/production\Serial.X.production.o
@@ -535,49 +678,56 @@ ___fldiv@aexp 27 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.produc
 ___fldiv@bexp 26 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 ___fldiv@sign 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\Serial.X.production.o
-_atoi$1607 10 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
-_atoi$1608 14 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
-_atoi$1609 12 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
-__end_of_USART_RxS 72CA 0 CODE 0 text1 dist/default/production\Serial.X.production.o
+_atoi$1653 10 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+_atoi$1654 14 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+_atoi$1655 12 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+__end_of_USART_RxS 6F28 0 CODE 0 text1 dist/default/production\Serial.X.production.o
 __Hintcodelo 0 0 CODE 0 intcodelo dist/default/production\Serial.X.production.o
-__end_of___aldiv 76FC 0 CODE 0 text4 dist/default/production\Serial.X.production.o
+__end_of___aldiv 753E 0 CODE 0 text4 dist/default/production\Serial.X.production.o
 __size_of_USART_RxS 0 0 ABS 0 - dist/default/production\Serial.X.production.o
-__end_of___fldiv 8000 0 CODE 0 text20 dist/default/production\Serial.X.production.o
-__end_of___fltol 75F0 0 CODE 0 text19 dist/default/production\Serial.X.production.o
+__end_of___fldiv 8000 0 CODE 0 text26 dist/default/production\Serial.X.production.o
+__end_of___fltol 7432 0 CODE 0 text25 dist/default/production\Serial.X.production.o
 __size_of_isdigit 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+PWM_OneshotY@countY 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __size_of_isspace 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __size_of_PWM_GeneratePulsos 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 ___fldiv@a 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 ___fldiv@b F 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 Serial_DecodificacionX@string_coordenada 17 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 PWM_GeneratePulsos@Oupcode 8 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
-_USART_RxS 7274 0 CODE 0 text1 dist/default/production\Serial.X.production.o
-__end_of_Actuator_Hold 7040 0 CODE 0 text25 dist/default/production\Serial.X.production.o
+_USART_RxS 6ED2 0 CODE 0 text1 dist/default/production\Serial.X.production.o
+__end_of_Actuator_Hold 6C46 0 CODE 0 text31 dist/default/production\Serial.X.production.o
 __Lintcodelo 0 0 CODE 0 intcodelo dist/default/production\Serial.X.production.o
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
-start_initialization 7056 0 CODE 0 cinit dist/default/production\Serial.X.production.o
+Serial_Escritura_Memoria@direccion 7 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+start_initialization 6CC6 0 CODE 0 cinit dist/default/production\Serial.X.production.o
 _OSCCON FD3 0 ABS 0 - dist/default/production\Serial.X.production.o
+_Serial_Escritura_Memoria 7154 0 CODE 0 text7 dist/default/production\Serial.X.production.o
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\Serial.X.production.o
 _TRISAbits F92 0 ABS 0 - dist/default/production\Serial.X.production.o
 _TRISBbits F93 0 ABS 0 - dist/default/production\Serial.X.production.o
 _TRISCbits F94 0 ABS 0 - dist/default/production\Serial.X.production.o
 _TRISDbits F95 0 ABS 0 - dist/default/production\Serial.X.production.o
 ___aldiv@quotient B 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+PWM_OneshotX@countX 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+EEPROM_Rx@direccion 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 ___rparam_used 1 0 ABS 0 - dist/default/production\Serial.X.production.o
 main@Oupcode 3F 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 Motor_Conversion@conversion 34 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+__CFG_WDTPS$32768 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 Motor_Calcular_PasosX@pasos_converX 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 Motor_Movimiento@CoordenadaX 38 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 Motor_Movimiento@CoordenadaY 3A 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
-PWM_OneshotY@pasosY 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
-__end_of_Motor_Movimiento 7396 0 CODE 0 text11 dist/default/production\Serial.X.production.o
-__end_of_PWM_InitF 70D4 0 CODE 0 text16 dist/default/production\Serial.X.production.o
-__end_of_PWM_InitS 70AE 0 CODE 0 text15 dist/default/production\Serial.X.production.o
-__end_of_Actuator_Retrain 7044 0 CODE 0 text24 dist/default/production\Serial.X.production.o
+Seria_Decodificacion_Memoria@direccion 3 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+__end_of_Motor_Movimiento 6FFA 0 CODE 0 text17 dist/default/production\Serial.X.production.o
+__end_of_PWM_InitF 6D32 0 CODE 0 text22 dist/default/production\Serial.X.production.o
+__end_of_PWM_InitS 6D0C 0 CODE 0 text21 dist/default/production\Serial.X.production.o
+__end_of_Actuator_Retrain 6C4A 0 CODE 0 text30 dist/default/production\Serial.X.production.o
 __size_of_Motor_Calcular_PasosX 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __size_of_Motor_Calcular_PasosY 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __size_of_PWM_InitF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __size_of_PWM_InitS 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+_coordenada_setpoint 60 0 BANK0 1 bssBANK0 dist/default/production\Serial.X.production.o
 __size_of_USART_Init 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __size_of_Motor_Movimiento 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __Hbank0 0 0 ABS 0 bank0 dist/default/production\Serial.X.production.o
@@ -610,14 +760,15 @@ __size_of_Actuator_Retrain 0 0 ABS 0 - dist/default/production\Serial.X.producti
 __size_of___xxtofl 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\Serial.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\Serial.X.production.o
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\saenz\AppData\Local\Temp\sido.o
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\saenz\AppData\Local\Temp\sda0.o
 ___xxtofl@arg B 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 ___xxtofl@exp A 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 ___xxtofl@val 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __Hcomram 0 0 ABS 0 comram dist/default/production\Serial.X.production.o
 __Hconfig 30000E 0 CONFIG 0 config dist/default/production\Serial.X.production.o
-_PWM_InitF 70AE 0 CODE 0 text16 dist/default/production\Serial.X.production.o
-_PWM_InitS 708A 0 CODE 0 text15 dist/default/production\Serial.X.production.o
+__CFG_LPT1OSC$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+_PWM_InitF 6D0C 0 CODE 0 text22 dist/default/production\Serial.X.production.o
+_PWM_InitS 6CE8 0 CODE 0 text21 dist/default/production\Serial.X.production.o
 __Lbank0 0 0 ABS 0 bank0 dist/default/production\Serial.X.production.o
 __Lbank1 0 0 ABS 0 bank1 dist/default/production\Serial.X.production.o
 __Lbank2 0 0 ABS 0 bank2 dist/default/production\Serial.X.production.o
@@ -626,14 +777,14 @@ __Lbank4 0 0 ABS 0 bank4 dist/default/production\Serial.X.production.o
 __Lbank5 0 0 ABS 0 bank5 dist/default/production\Serial.X.production.o
 __Lbank6 0 0 ABS 0 bank6 dist/default/production\Serial.X.production.o
 __Lbank7 0 0 ABS 0 bank7 dist/default/production\Serial.X.production.o
-__end_of_isdigit 7192 0 CODE 0 text9 dist/default/production\Serial.X.production.o
+__end_of_isdigit 6DF0 0 CODE 0 text13 dist/default/production\Serial.X.production.o
 __Lcinit 0 0 ABS 0 cinit dist/default/production\Serial.X.production.o
 __Lconst 0 0 CONST 0 const dist/default/production\Serial.X.production.o
 __Lidata 0 0 CODE 0 idata dist/default/production\Serial.X.production.o
 __Lidloc 200000 0 IDLOC 0 idloc dist/default/production\Serial.X.production.o
 __Lnvbit 0 0 COMRAM 1 nvbit dist/default/production\Serial.X.production.o
 __Lparam 0 0 COMRAM 1 rparam dist/default/production\Serial.X.production.o
-__end_of_isspace 7274 0 CODE 0 text8 dist/default/production\Serial.X.production.o
+__end_of_isspace 6ED2 0 CODE 0 text12 dist/default/production\Serial.X.production.o
 __Lrdata 0 0 COMRAM 1 rdata dist/default/production\Serial.X.production.o
 __Lstack 0 0 STACK 2 stack dist/default/production\Serial.X.production.o
 __Ltext0 0 0 ABS 0 text0 dist/default/production\Serial.X.production.o
@@ -646,7 +797,6 @@ __Ltext6 0 0 ABS 0 text6 dist/default/production\Serial.X.production.o
 __Ltext7 0 0 ABS 0 text7 dist/default/production\Serial.X.production.o
 __Ltext8 0 0 ABS 0 text8 dist/default/production\Serial.X.production.o
 __Ltext9 0 0 ABS 0 text9 dist/default/production\Serial.X.production.o
-PWM_OneshotX@pasosX 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __Hfarbss 0 0 FARRAM 0 farbss dist/default/production\Serial.X.production.o
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\Serial.X.production.o
 _PORTCbits F82 0 ABS 0 - dist/default/production\Serial.X.production.o
@@ -666,34 +816,48 @@ __Lrbit 0 0 COMRAM 1 rbit dist/default/production\Serial.X.production.o
 __Lrbss 0 0 COMRAM 1 rbss dist/default/production\Serial.X.production.o
 __Ltemp 0 0 COMRAM 1 temp dist/default/production\Serial.X.production.o
 __Ltext 0 0 ABS 0 text dist/default/production\Serial.X.production.o
-___wmul 70D4 0 CODE 0 text10 dist/default/production\Serial.X.production.o
-_coordenada_array 51 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
+__CFG_XINST$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+___wmul 6D32 0 CODE 0 text14 dist/default/production\Serial.X.production.o
+_coordenada_array 4E 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\Serial.X.production.o
 isspace@c 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+__end_of_Serial_Lectura_Memoria 732C 0 CODE 0 text5 dist/default/production\Serial.X.production.o
 __Hintret 0 0 ABS 0 intret dist/default/production\Serial.X.production.o
 __Hirdata 0 0 CODE 0 irdata dist/default/production\Serial.X.production.o
 _PR2 FCB 0 ABS 0 - dist/default/production\Serial.X.production.o
 __S0 30000E 0 ABS 0 - dist/default/production\Serial.X.production.o
-__S1 5C 0 ABS 0 - dist/default/production\Serial.X.production.o
+__S1 6B 0 ABS 0 - dist/default/production\Serial.X.production.o
 __S2 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+__CFG_VREGEN$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 USART_Init@BAUD F 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
-_Motor_Conversion 7404 0 CODE 0 text17 dist/default/production\Serial.X.production.o
+_Motor_Conversion 6FFA 0 CODE 0 text23 dist/default/production\Serial.X.production.o
 USART_RxS@lenght 6 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
-__end_of_Serial_DecodificacionX 732C 0 CODE 0 text6 dist/default/production\Serial.X.production.o
-__end_of_Serial_DecodificacionY 7404 0 CODE 0 text5 dist/default/production\Serial.X.production.o
+__end_of_Serial_DecodificacionX 6F90 0 CODE 0 text10 dist/default/production\Serial.X.production.o
+__end_of_Serial_DecodificacionY 70E0 0 CODE 0 text9 dist/default/production\Serial.X.production.o
+__CFG_PLLDIV$1 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+__CFG_PBADEN$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\Serial.X.production.o
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\Serial.X.production.o
 __size_of_Actuator_Touch 0 0 ABS 0 - dist/default/production\Serial.X.production.o
-___xxtofl 7AB2 0 CODE 0 text18 dist/default/production\Serial.X.production.o
+___xxtofl 7AB2 0 CODE 0 text24 dist/default/production\Serial.X.production.o
 Motor_Conversion@Coordenada 32 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+__end_of_EEPROM_Rx 6C70 0 CODE 0 text6 dist/default/production\Serial.X.production.o
+__end_of_EEPROM_Tx 6CC6 0 CODE 0 text8 dist/default/production\Serial.X.production.o
 __Lintentry 0 0 ABS 0 intentry dist/default/production\Serial.X.production.o
 Serial_DecodificacionX@coordenadaX 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+__size_of_Serial_Escritura_Memoria 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+__size_of_EEPROM_Rx 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+__size_of_EEPROM_Tx 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __Hramtop 800 0 RAM 0 ramtop dist/default/production\Serial.X.production.o
 __Hrparam 0 0 COMRAM 1 rparam dist/default/production\Serial.X.production.o
-__end_of___xxtofl 7C66 0 CODE 0 text18 dist/default/production\Serial.X.production.o
+__end_of___xxtofl 7C66 0 CODE 0 text24 dist/default/production\Serial.X.production.o
 __activetblptr 2 0 ABS 0 - dist/default/production\Serial.X.production.o
 __Hstruct 0 0 COMRAM 1 struct dist/default/production\Serial.X.production.o
 __size_of___wmul 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+Serial_Lectura_Memoria@pointerCX 17 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+Serial_Lectura_Memoria@pointerCY 19 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+Serial_Lectura_Memoria@pointerCZ 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+__LbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\Serial.X.production.o
 __Htext10 0 0 ABS 0 text10 dist/default/production\Serial.X.production.o
 __Htext11 0 0 ABS 0 text11 dist/default/production\Serial.X.production.o
 __Htext12 0 0 ABS 0 text12 dist/default/production\Serial.X.production.o
@@ -710,48 +874,72 @@ __Htext22 0 0 ABS 0 text22 dist/default/production\Serial.X.production.o
 __Htext23 0 0 ABS 0 text23 dist/default/production\Serial.X.production.o
 __Htext24 0 0 ABS 0 text24 dist/default/production\Serial.X.production.o
 __Htext25 0 0 ABS 0 text25 dist/default/production\Serial.X.production.o
+__Htext26 0 0 ABS 0 text26 dist/default/production\Serial.X.production.o
+__Htext27 0 0 ABS 0 text27 dist/default/production\Serial.X.production.o
+__Htext28 0 0 ABS 0 text28 dist/default/production\Serial.X.production.o
+__Htext29 0 0 ABS 0 text29 dist/default/production\Serial.X.production.o
+__Htext30 0 0 ABS 0 text30 dist/default/production\Serial.X.production.o
+__Htext31 0 0 ABS 0 text31 dist/default/production\Serial.X.production.o
 Motor_Movimiento@Oupcode 3C 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 _RCSTAbits FAB 0 ABS 0 - dist/default/production\Serial.X.production.o
-__ptext10 70D4 0 CODE 0 text10 dist/default/production\Serial.X.production.o
-__ptext11 732C 0 CODE 0 text11 dist/default/production\Serial.X.production.o
-__ptext12 780A 0 CODE 0 text12 dist/default/production\Serial.X.production.o
-__ptext13 712A 0 CODE 0 text13 dist/default/production\Serial.X.production.o
-__ptext14 70FA 0 CODE 0 text14 dist/default/production\Serial.X.production.o
-__ptext15 708A 0 CODE 0 text15 dist/default/production\Serial.X.production.o
-__ptext16 70AE 0 CODE 0 text16 dist/default/production\Serial.X.production.o
-__ptext17 7404 0 CODE 0 text17 dist/default/production\Serial.X.production.o
-__ptext18 7AB2 0 CODE 0 text18 dist/default/production\Serial.X.production.o
-__ptext19 74EA 0 CODE 0 text19 dist/default/production\Serial.X.production.o
-__ptext20 7C66 0 CODE 0 text20 dist/default/production\Serial.X.production.o
-__ptext21 71DA 0 CODE 0 text21 dist/default/production\Serial.X.production.o
-__ptext22 7192 0 CODE 0 text22 dist/default/production\Serial.X.production.o
-__ptext23 706C 0 CODE 0 text23 dist/default/production\Serial.X.production.o
-__ptext24 7040 0 CODE 0 text24 dist/default/production\Serial.X.production.o
-__ptext25 703C 0 CODE 0 text25 dist/default/production\Serial.X.production.o
-___aldiv 75F0 0 CODE 0 text4 dist/default/production\Serial.X.production.o
-___fldiv 7C66 0 CODE 0 text20 dist/default/production\Serial.X.production.o
-___fltol 74EA 0 CODE 0 text19 dist/default/production\Serial.X.production.o
+_EEPROM_Rx 6C5C 0 CODE 0 text6 dist/default/production\Serial.X.production.o
+_EEPROM_Tx 6CA4 0 CODE 0 text8 dist/default/production\Serial.X.production.o
+__ptext10 6F28 0 CODE 0 text10 dist/default/production\Serial.X.production.o
+__ptext11 7788 0 CODE 0 text11 dist/default/production\Serial.X.production.o
+__ptext12 6E80 0 CODE 0 text12 dist/default/production\Serial.X.production.o
+__ptext13 6DB8 0 CODE 0 text13 dist/default/production\Serial.X.production.o
+__ptext14 6D32 0 CODE 0 text14 dist/default/production\Serial.X.production.o
+__ptext15 6C70 0 CODE 0 text15 dist/default/production\Serial.X.production.o
+__ptext16 753E 0 CODE 0 text16 dist/default/production\Serial.X.production.o
+__ptext17 6F90 0 CODE 0 text17 dist/default/production\Serial.X.production.o
+__ptext18 7662 0 CODE 0 text18 dist/default/production\Serial.X.production.o
+__ptext19 6D88 0 CODE 0 text19 dist/default/production\Serial.X.production.o
+__ptext20 6D58 0 CODE 0 text20 dist/default/production\Serial.X.production.o
+__ptext21 6CE8 0 CODE 0 text21 dist/default/production\Serial.X.production.o
+__ptext22 6D0C 0 CODE 0 text22 dist/default/production\Serial.X.production.o
+__ptext23 6FFA 0 CODE 0 text23 dist/default/production\Serial.X.production.o
+__ptext24 7AB2 0 CODE 0 text24 dist/default/production\Serial.X.production.o
+__ptext25 732C 0 CODE 0 text25 dist/default/production\Serial.X.production.o
+__ptext26 7C66 0 CODE 0 text26 dist/default/production\Serial.X.production.o
+__ptext27 6E38 0 CODE 0 text27 dist/default/production\Serial.X.production.o
+__ptext28 6DF0 0 CODE 0 text28 dist/default/production\Serial.X.production.o
+__ptext29 6C86 0 CODE 0 text29 dist/default/production\Serial.X.production.o
+__ptext30 6C46 0 CODE 0 text30 dist/default/production\Serial.X.production.o
+__ptext31 6C42 0 CODE 0 text31 dist/default/production\Serial.X.production.o
+___aldiv 7432 0 CODE 0 text4 dist/default/production\Serial.X.production.o
+___fldiv 7C66 0 CODE 0 text26 dist/default/production\Serial.X.production.o
+___fltol 732C 0 CODE 0 text25 dist/default/production\Serial.X.production.o
 __Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\Serial.X.production.o
 __Lbigram 0 0 ABS 0 bigram dist/default/production\Serial.X.production.o
+Serial_Lectura_Memoria@direccionX 26 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+Serial_Lectura_Memoria@direccionY 27 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+Serial_Lectura_Memoria@direccionZ 28 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+__CFG_BOR$ON 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+__CFG_BORV$3 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 _pasosX 46 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
 _pasosY 44 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
 ?_atoi 8 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+Serial_Lectura_Memoria@i 2A 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __Lcomram 0 0 ABS 0 comram dist/default/production\Serial.X.production.o
 __Lconfig 300000 0 CONFIG 0 config dist/default/production\Serial.X.production.o
 ___wmul@multiplier 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 _LATCbits F8B 0 ABS 0 - dist/default/production\Serial.X.production.o
-_oneshotX 50 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
-_oneshotY 4F 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
+_oneshotX 4D 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
+_oneshotY 4C 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
 _LATDbits F8C 0 ABS 0 - dist/default/production\Serial.X.production.o
 ___fldiv@grs 22 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 ___fldiv@rem 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+Serial_Escritura_Memoria@i_870 B 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+Serial_Escritura_Memoria@i_871 D 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\Serial.X.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\Serial.X.production.o
 ___fldiv@new_exp 20 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
-__end_of_Motor_Conversion 7476 0 CODE 0 text17 dist/default/production\Serial.X.production.o
+__end_of_Motor_Conversion 706C 0 CODE 0 text23 dist/default/production\Serial.X.production.o
+_Seria_Decodificacion_Memoria 753E 0 CODE 0 text16 dist/default/production\Serial.X.production.o
+__CFG_CCP2MX$ON 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 Serial_DecodificacionY@pointerCY 19 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
-stackhi 7FF 0 ABS 0 - C:\Users\saenz\AppData\Local\Temp\sido.o
-stacklo 60 0 ABS 0 - C:\Users\saenz\AppData\Local\Temp\sido.o
+stackhi 7FF 0 ABS 0 - C:\Users\saenz\AppData\Local\Temp\sda0.o
+stacklo 6B 0 ABS 0 - C:\Users\saenz\AppData\Local\Temp\sda0.o
 __Lintcode 0 0 CODE 0 intcode dist/default/production\Serial.X.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\Serial.X.production.o
 __Lirdata 0 0 CODE 0 irdata dist/default/production\Serial.X.production.o
@@ -760,6 +948,7 @@ _ADCON1bits FC1 0 ABS 0 - dist/default/production\Serial.X.production.o
 _ADCON2bits FC0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __size_of_Motor_Conversion 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+__CFG_ICPRT$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __Lspace_0 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __Lspace_1 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __Lspace_2 0 0 ABS 0 - dist/default/production\Serial.X.production.o
@@ -767,27 +956,33 @@ __pbssCOMRAM 40 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production
 _PIR1bits F9E 0 ABS 0 - dist/default/production\Serial.X.production.o
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\Serial.X.production.o
 ___fltol@exp1 31 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
-end_of_initialization 7062 0 CODE 0 cinit dist/default/production\Serial.X.production.o
+EEPROM_Tx@direccion 2 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+__CFG_CPUDIV$OSC1_PLL2 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+end_of_initialization 6CDE 0 CODE 0 cinit dist/default/production\Serial.X.production.o
+_Direccion_Memoria 4B 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\Serial.X.production.o
 __Hintentry 0 0 ABS 0 intentry dist/default/production\Serial.X.production.o
+__end_of_Serial_Escritura_Memoria 7240 0 CODE 0 text7 dist/default/production\Serial.X.production.o
+__CFG_STVREN$ON 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 ?___aldiv 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 ?___fldiv F 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 ?___fltol 28 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+EEPROM_Tx@dato 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __Hreset_vec 0 0 CODE 0 reset_vec dist/default/production\Serial.X.production.o
-_setpoint 4E 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
+__HbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\Serial.X.production.o
 __Lramtop 800 0 RAM 0 ramtop dist/default/production\Serial.X.production.o
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production\Serial.X.production.o
-__pcinit 7056 0 CODE 0 cinit dist/default/production\Serial.X.production.o
-__ptext0 76FC 0 CODE 0 text0 dist/default/production\Serial.X.production.o
-__ptext1 7274 0 CODE 0 text1 dist/default/production\Serial.X.production.o
-__ptext2 7044 0 CODE 0 text2 dist/default/production\Serial.X.production.o
-__ptext3 7476 0 CODE 0 text3 dist/default/production\Serial.X.production.o
-__ptext4 75F0 0 CODE 0 text4 dist/default/production\Serial.X.production.o
-__ptext5 7396 0 CODE 0 text5 dist/default/production\Serial.X.production.o
-__ptext6 72CA 0 CODE 0 text6 dist/default/production\Serial.X.production.o
-__ptext7 7928 0 CODE 0 text7 dist/default/production\Serial.X.production.o
-__ptext8 7222 0 CODE 0 text8 dist/default/production\Serial.X.production.o
-__ptext9 715A 0 CODE 0 text9 dist/default/production\Serial.X.production.o
+__pcinit 6CC6 0 CODE 0 cinit dist/default/production\Serial.X.production.o
+__ptext0 7912 0 CODE 0 text0 dist/default/production\Serial.X.production.o
+__ptext1 6ED2 0 CODE 0 text1 dist/default/production\Serial.X.production.o
+__ptext2 6C4A 0 CODE 0 text2 dist/default/production\Serial.X.production.o
+__ptext3 70E0 0 CODE 0 text3 dist/default/production\Serial.X.production.o
+__ptext4 7432 0 CODE 0 text4 dist/default/production\Serial.X.production.o
+__ptext5 7240 0 CODE 0 text5 dist/default/production\Serial.X.production.o
+__ptext6 6C5C 0 CODE 0 text6 dist/default/production\Serial.X.production.o
+__ptext7 7154 0 CODE 0 text7 dist/default/production\Serial.X.production.o
+__ptext8 6CA4 0 CODE 0 text8 dist/default/production\Serial.X.production.o
+__ptext9 706C 0 CODE 0 text9 dist/default/production\Serial.X.production.o
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\Serial.X.production.o
 __Ltext10 0 0 ABS 0 text10 dist/default/production\Serial.X.production.o
 __Ltext11 0 0 ABS 0 text11 dist/default/production\Serial.X.production.o
@@ -805,35 +1000,51 @@ __Ltext22 0 0 ABS 0 text22 dist/default/production\Serial.X.production.o
 __Ltext23 0 0 ABS 0 text23 dist/default/production\Serial.X.production.o
 __Ltext24 0 0 ABS 0 text24 dist/default/production\Serial.X.production.o
 __Ltext25 0 0 ABS 0 text25 dist/default/production\Serial.X.production.o
-__ramtop 800 0 RAM 0 ramtop C:\Users\saenz\AppData\Local\Temp\sido.o
+__Ltext26 0 0 ABS 0 text26 dist/default/production\Serial.X.production.o
+__Ltext27 0 0 ABS 0 text27 dist/default/production\Serial.X.production.o
+__Ltext28 0 0 ABS 0 text28 dist/default/production\Serial.X.production.o
+__Ltext29 0 0 ABS 0 text29 dist/default/production\Serial.X.production.o
+__Ltext30 0 0 ABS 0 text30 dist/default/production\Serial.X.production.o
+__Ltext31 0 0 ABS 0 text31 dist/default/production\Serial.X.production.o
+__ramtop 800 0 RAM 0 ramtop C:\Users\saenz\AppData\Local\Temp\sda0.o
 ___aldiv@dividend 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __Lpowerup 0 0 CODE 0 powerup dist/default/production\Serial.X.production.o
 ?___xxtofl 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\Serial.X.production.o
-_isdigit 715A 0 CODE 0 text9 dist/default/production\Serial.X.production.o
+__size_of_Serial_Lectura_Memoria 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+_isdigit 6DB8 0 CODE 0 text13 dist/default/production\Serial.X.production.o
+Serial_Escritura_Memoria@direccionFinal 8 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 ___fltol@sign1 30 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
-_isspace 7222 0 CODE 0 text8 dist/default/production\Serial.X.production.o
+_isspace 6E80 0 CODE 0 text12 dist/default/production\Serial.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\Serial.X.production.o
 __size_of_Serial_DecodificacionX 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __size_of_Serial_DecodificacionY 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __CFG_FOSC$INTOSCIO_EC 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 ___fltol@f1 28 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 ___param_bank 0 0 ABS 0 - dist/default/production\Serial.X.production.o
-__end_of_PWM_GeneratePulsos 7928 0 CODE 0 text12 dist/default/production\Serial.X.production.o
+__end_of_PWM_GeneratePulsos 7788 0 CODE 0 text18 dist/default/production\Serial.X.production.o
 __CFG_WDT$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\Serial.X.production.o
-__end_of__initialization 7062 0 CODE 0 cinit dist/default/production\Serial.X.production.o
+__end_of__initialization 6CDE 0 CODE 0 cinit dist/default/production\Serial.X.production.o
+__CFG_WRT0$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+__CFG_WRT1$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+__CFG_WRT2$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+__CFG_WRT3$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+__CFG_WRTB$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production\Serial.X.production.o
+__CFG_WRTC$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+__CFG_WRTD$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\Serial.X.production.o
-_isspace$1625 7 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+_isspace$1671 7 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 Serial_DecodificacionY@coordenadaY 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
-_PWM_OneshotX 70FA 0 CODE 0 text14 dist/default/production\Serial.X.production.o
-_PWM_OneshotY 712A 0 CODE 0 text13 dist/default/production\Serial.X.production.o
+__CFG_PWRT$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+_PWM_OneshotX 6D58 0 CODE 0 text20 dist/default/production\Serial.X.production.o
+_PWM_OneshotY 6D88 0 CODE 0 text19 dist/default/production\Serial.X.production.o
 __pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 _TXSTAbits FAC 0 ABS 0 - dist/default/production\Serial.X.production.o
 ___aldiv@counter 9 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
-__end_of_atoi 7AB2 0 CODE 0 text7 dist/default/production\Serial.X.production.o
-__end_of_main 780A 0 CODE 0 text0 dist/default/production\Serial.X.production.o
+__end_of_atoi 7912 0 CODE 0 text11 dist/default/production\Serial.X.production.o
+__end_of_main 7AB2 0 CODE 0 text0 dist/default/production\Serial.X.production.o
 isdigit@c 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 USART_RxS@i 7 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 Serial_DecodificacionX@i 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
@@ -846,7 +1057,9 @@ _RCREG FAE 0 ABS 0 - dist/default/production\Serial.X.production.o
 _SPBRG FAF 0 ABS 0 - dist/default/production\Serial.X.production.o
 _T2CON FCA 0 ABS 0 - dist/default/production\Serial.X.production.o
 _TXREG FAD 0 ABS 0 - dist/default/production\Serial.X.production.o
-_PWM_GeneratePulsos 780A 0 CODE 0 text12 dist/default/production\Serial.X.production.o
+_PWM_GeneratePulsos 7662 0 CODE 0 text18 dist/default/production\Serial.X.production.o
+__CFG_CP0$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+__CFG_CP1$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __HRAM 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __Hbss 0 0 RAM 1 bss dist/default/production\Serial.X.production.o
 __Hram 0 0 ABS 0 ram dist/default/production\Serial.X.production.o
@@ -855,36 +1068,40 @@ __LRAM 1 0 ABS 0 - dist/default/production\Serial.X.production.o
 __Lbss 0 0 RAM 1 bss dist/default/production\Serial.X.production.o
 __Lram 0 0 ABS 0 ram dist/default/production\Serial.X.production.o
 __Lsfr 0 0 ABS 0 sfr dist/default/production\Serial.X.production.o
+__CFG_CP2$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
+__CFG_CP3$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 atoi@neg E 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
-__end_of_Motor_Calcular_PasosX 71DA 0 CODE 0 text22 dist/default/production\Serial.X.production.o
-__end_of_Motor_Calcular_PasosY 7222 0 CODE 0 text21 dist/default/production\Serial.X.production.o
+__end_of_Motor_Calcular_PasosX 6E38 0 CODE 0 text28 dist/default/production\Serial.X.production.o
+__end_of_Motor_Calcular_PasosY 6E80 0 CODE 0 text27 dist/default/production\Serial.X.production.o
 __CFG_CPB$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 _pulsX 42 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
 _pulsY 40 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
 __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\Serial.X.production.o
-_pulsosX 4C 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
-_pulsosY 4A 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
 ?_isdigit 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 _CCP1CON FBD 0 ABS 0 - dist/default/production\Serial.X.production.o
 _CCP2CON FBA 0 ABS 0 - dist/default/production\Serial.X.production.o
 ?_isspace 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 atoi@n 15 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 atoi@s 8 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
-_USART_Init 7476 0 CODE 0 text3 dist/default/production\Serial.X.production.o
-__initialization 7056 0 CODE 0 cinit dist/default/production\Serial.X.production.o
+_USART_Init 70E0 0 CODE 0 text3 dist/default/production\Serial.X.production.o
+__initialization 6CC6 0 CODE 0 cinit dist/default/production\Serial.X.production.o
 ___xxtofl@sign 9 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
+__pbssBANK0 60 0 BANK0 1 bssBANK0 dist/default/production\Serial.X.production.o
 _T2CONbits FCA 0 ABS 0 - dist/default/production\Serial.X.production.o
+__size_of_Seria_Decodificacion_Memoria 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production\Serial.X.production.o
 ___wmul@product 5 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\Serial.X.production.o
 __size_of_PWM_OneshotX 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __size_of_PWM_OneshotY 0 0 ABS 0 - dist/default/production\Serial.X.production.o
-_Motor_Calcular_PasosX 7192 0 CODE 0 text22 dist/default/production\Serial.X.production.o
-_Motor_Calcular_PasosY 71DA 0 CODE 0 text21 dist/default/production\Serial.X.production.o
+_Motor_Calcular_PasosX 6DF0 0 CODE 0 text28 dist/default/production\Serial.X.production.o
+_Motor_Calcular_PasosY 6E38 0 CODE 0 text27 dist/default/production\Serial.X.production.o
 __Lifardata 0 0 CODE 0 ifardata dist/default/production\Serial.X.production.o
-_Actuator_Touch 706C 0 CODE 0 text23 dist/default/production\Serial.X.production.o
+_Actuator_Touch 6C86 0 CODE 0 text29 dist/default/production\Serial.X.production.o
+__end_of_Seria_Decodificacion_Memoria 7662 0 CODE 0 text16 dist/default/production\Serial.X.production.o
 Serial_DecodificacionY@string_coordenada 17 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\Serial.X.production.o
+Serial_Escritura_Memoria@i 9 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 USART_RxS@pointer 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
 __Hintcode 0 0 CODE 0 intcode dist/default/production\Serial.X.production.o
 Motor_Calcular_PasosY@pasos_converY 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Serial.X.production.o
@@ -913,36 +1130,43 @@ Motor_Calcular_PasosY@pasos_converY 1 0 COMRAM 1 cstackCOMRAM dist/default/produ
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cinit 0 7056 7056 16 1
+cinit 0 6CC6 6CC6 22 1
 idloc 0 200000 200000 8 1
-text0 0 76FC 76FC 10E 1
-text1 0 7274 7274 56 1
-text2 0 7044 7044 12 1
-text3 0 7476 7476 74 1
-text4 0 75F0 75F0 10C 1
-text5 0 7396 7396 6E 1
-text6 0 72CA 72CA 62 1
-text7 0 7928 7928 18A 1
-text8 0 7222 7222 52 1
-text9 0 715A 715A 38 1
-text10 0 70D4 70D4 26 1
-text11 0 732C 732C 6A 1
-text12 0 780A 780A 11E 1
-text13 0 712A 712A 30 1
-text14 0 70FA 70FA 30 1
-text15 0 708A 708A 24 1
-text16 0 70AE 70AE 26 1
-text17 0 7404 7404 72 1
-text18 0 7AB2 7AB2 1B4 1
-text19 0 74EA 74EA 106 1
-text20 0 7C66 7C66 39A 1
-text21 0 71DA 71DA 48 1
-text22 0 7192 7192 48 1
-text23 0 706C 706C 1E 1
-text24 0 7040 7040 4 1
-text25 0 703C 703C 4 1
-cstackCOMRAM 1 1 1 5B 1
+text0 0 7912 7912 1A0 1
+text1 0 6ED2 6ED2 56 1
+text2 0 6C4A 6C4A 12 1
+text3 0 70E0 70E0 74 1
+text4 0 7432 7432 10C 1
+text5 0 7240 7240 EC 1
+text6 0 6C5C 6C5C 14 1
+text7 0 7154 7154 EC 1
+text8 0 6CA4 6CA4 22 1
+text9 0 706C 706C 74 1
+text10 0 6F28 6F28 68 1
+text11 0 7788 7788 18A 1
+text12 0 6E80 6E80 52 1
+text13 0 6DB8 6DB8 38 1
+text14 0 6D32 6D32 26 1
+text15 0 6C70 6C70 16 1
+text16 0 753E 753E 124 1
+text17 0 6F90 6F90 6A 1
+text18 0 7662 7662 126 1
+text19 0 6D88 6D88 30 1
+text20 0 6D58 6D58 30 1
+text21 0 6CE8 6CE8 24 1
+text22 0 6D0C 6D0C 26 1
+text23 0 6FFA 6FFA 72 1
+text24 0 7AB2 7AB2 1B4 1
+text25 0 732C 732C 106 1
+text26 0 7C66 7C66 39A 1
+text27 0 6E38 6E38 48 1
+text28 0 6DF0 6DF0 48 1
+text29 0 6C86 6C86 1E 1
+text30 0 6C46 6C46 4 1
+text31 0 6C42 6C42 4 1
+cstackCOMRAM 1 1 1 5A 1
 reset_vec 0 0 0 4 1
+bssBANK0 1 60 60 B 1
 config 0 300000 300000 E 1
 # OTES Section
 # This section contains data of all the note-psects.  The beginning of the section

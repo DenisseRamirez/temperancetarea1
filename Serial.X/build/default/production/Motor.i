@@ -242,8 +242,6 @@ size_t __ctype_get_mb_cur_max(void);
 
 char oneshotX=0;
 char oneshotY=0;
-int pulsosX=0;
-int pulsosY=0;
 void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
 int PWM_OneshotX ();
 int PWM_OneshotY ();

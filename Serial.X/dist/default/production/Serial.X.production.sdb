@@ -47,6 +47,10 @@
 [v ___omul __omul `(uo  1 e 8 0 ]
 "10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+"16 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\EEPROM.c
+[v _EEPROM_Rx EEPROM_Rx `(uc  1 e 1 0 ]
+"24
+[v _EEPROM_Tx EEPROM_Tx `(v  1 e 1 0 ]
 "16 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
 [v _Motor_Conversion Motor_Conversion `(i  1 e 2 0 ]
 "23
@@ -65,12 +69,18 @@
 [v _PWM_OneshotX PWM_OneshotX `(i  1 e 2 0 ]
 "84
 [v _PWM_OneshotY PWM_OneshotY `(i  1 e 2 0 ]
-"19 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+"20 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
 [v _main main `(v  1 e 1 0 ]
-"52
+"64
 [v _Serial_DecodificacionX Serial_DecodificacionX `(v  1 e 1 0 ]
-"61
+"74
 [v _Serial_DecodificacionY Serial_DecodificacionY `(v  1 e 1 0 ]
+"91
+[v _Seria_Decodificacion_Memoria Seria_Decodificacion_Memoria `(uc  1 e 1 0 ]
+"145
+[v _Serial_Lectura_Memoria Serial_Lectura_Memoria `(v  1 e 1 0 ]
+"169
+[v _Serial_Escritura_Memoria Serial_Escritura_Memoria `(v  1 e 1 0 ]
 "6 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
 [v _USART_Init USART_Init `(v  1 e 1 0 ]
 "25
@@ -80,7 +90,7 @@
 "48
 [v _USART_RxS USART_RxS `(v  1 e 1 0 ]
 "13 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X/EEPROM.h
-[v _setpoint setpoint `uc  1 e 1 0 ]
+[v _data data `uc  1 e 1 0 ]
 "7 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X/motor.h
 [v _pasos_convertidos pasos_convertidos `i  1 e 2 0 ]
 "8
@@ -94,17 +104,23 @@
 [v _oneshotX oneshotX `uc  1 e 1 0 ]
 "8
 [v _oneshotY oneshotY `uc  1 e 1 0 ]
-"10 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X/serial.h
+"14 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X/serial.h
 [v _CX CX `i  1 e 2 0 ]
-"11
+"15
 [v _CY CY `i  1 e 2 0 ]
-"12
+"16
+[v _CZ CZ `i  1 e 2 0 ]
+"17
 [v _coordenada_array coordenada_array `[7]uc  1 e 7 0 ]
+"18
+[v _coordenada_setpoint coordenada_setpoint `[11]uc  1 e 11 0 ]
+"19
+[v _Direccion_Memoria Direccion_Memoria `uc  1 e 1 0 ]
 "2453 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [v _PORTB PORTB `VEuc  1 e 1 @3969 ]
 "2563
 [v _PORTC PORTC `VEuc  1 e 1 @3970 ]
-[s S491 . 1 `uc 1 RC0 1 0 :1:0 
+[s S32 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -114,32 +130,32 @@
 `uc 1 RC7 1 0 :1:7 
 ]
 "2605
-[s S500 . 1 `uc 1 T1OSO 1 0 :1:0 
+[s S41 . 1 `uc 1 T1OSO 1 0 :1:0 
 `uc 1 T1OSI 1 0 :1:1 
 `uc 1 CCP1 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 TX 1 0 :1:6 
 `uc 1 RX 1 0 :1:7 
 ]
-[s S507 . 1 `uc 1 T13CKI 1 0 :1:0 
+[s S48 . 1 `uc 1 T13CKI 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 P1A 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 CK 1 0 :1:6 
 `uc 1 DT 1 0 :1:7 
 ]
-[s S514 . 1 `uc 1 . 1 0 :1:0 
+[s S55 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 CCP2 1 0 :1:1 
 `uc 1 PA1 1 0 :1:2 
 ]
-[s S518 . 1 `uc 1 . 1 0 :1:0 
+[s S59 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 PA2 1 0 :1:1 
 ]
-[u S521 . 1 `S491 1 . 1 0 `S500 1 . 1 0 `S507 1 . 1 0 `S514 1 . 1 0 `S518 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES521  1 e 1 @3970 ]
+[u S62 . 1 `S32 1 . 1 0 `S41 1 . 1 0 `S48 1 . 1 0 `S55 1 . 1 0 `S59 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES62  1 e 1 @3970 ]
 "2705
 [v _PORTD PORTD `VEuc  1 e 1 @3971 ]
-[s S121 . 1 `uc 1 RD0 1 0 :1:0 
+[s S496 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -149,7 +165,7 @@
 `uc 1 RD7 1 0 :1:7 
 ]
 "2736
-[s S130 . 1 `uc 1 SPP0 1 0 :1:0 
+[s S892 . 1 `uc 1 SPP0 1 0 :1:0 
 `uc 1 SPP1 1 0 :1:1 
 `uc 1 SPP2 1 0 :1:2 
 `uc 1 SPP3 1 0 :1:3 
@@ -158,16 +174,16 @@
 `uc 1 SPP6 1 0 :1:6 
 `uc 1 SPP7 1 0 :1:7 
 ]
-[s S139 . 1 `uc 1 . 1 0 :7:0 
+[s S901 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 SS2 1 0 :1:7 
 ]
-[u S142 . 1 `S121 1 . 1 0 `S130 1 . 1 0 `S139 1 . 1 0 ]
-[v _PORTDbits PORTDbits `VES142  1 e 1 @3971 ]
+[u S904 . 1 `S496 1 . 1 0 `S892 1 . 1 0 `S901 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES904  1 e 1 @3971 ]
 "3073
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
 "3185
 [v _LATC LATC `VEuc  1 e 1 @3979 ]
-[s S329 . 1 `uc 1 LATC0 1 0 :1:0 
+[s S1050 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
@@ -175,18 +191,18 @@
 `uc 1 LATC7 1 0 :1:7 
 ]
 "3208
-[s S336 . 1 `uc 1 LC0 1 0 :1:0 
+[s S1057 . 1 `uc 1 LC0 1 0 :1:0 
 `uc 1 LC1 1 0 :1:1 
 `uc 1 LC2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 LC6 1 0 :1:6 
 `uc 1 LC7 1 0 :1:7 
 ]
-[u S343 . 1 `S329 1 . 1 0 `S336 1 . 1 0 ]
-[v _LATCbits LATCbits `VES343  1 e 1 @3979 ]
+[u S1064 . 1 `S1050 1 . 1 0 `S1057 1 . 1 0 ]
+[v _LATCbits LATCbits `VES1064  1 e 1 @3979 ]
 "3263
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
-[s S208 . 1 `uc 1 LATD0 1 0 :1:0 
+[s S952 . 1 `uc 1 LATD0 1 0 :1:0 
 `uc 1 LATD1 1 0 :1:1 
 `uc 1 LATD2 1 0 :1:2 
 `uc 1 LATD3 1 0 :1:3 
@@ -196,7 +212,7 @@
 `uc 1 LATD7 1 0 :1:7 
 ]
 "3290
-[s S217 . 1 `uc 1 LD0 1 0 :1:0 
+[s S961 . 1 `uc 1 LD0 1 0 :1:0 
 `uc 1 LD1 1 0 :1:1 
 `uc 1 LD2 1 0 :1:2 
 `uc 1 LD3 1 0 :1:3 
@@ -205,9 +221,9 @@
 `uc 1 LD6 1 0 :1:6 
 `uc 1 LD7 1 0 :1:7 
 ]
-[u S226 . 1 `S208 1 . 1 0 `S217 1 . 1 0 ]
-[v _LATDbits LATDbits `VES226  1 e 1 @3980 ]
-[s S967 . 1 `uc 1 TRISA0 1 0 :1:0 
+[u S970 . 1 `S952 1 . 1 0 `S961 1 . 1 0 ]
+[v _LATDbits LATDbits `VES970  1 e 1 @3980 ]
+[s S552 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -216,7 +232,7 @@
 `uc 1 TRISA6 1 0 :1:6 
 ]
 "3457
-[s S975 . 1 `uc 1 RA0 1 0 :1:0 
+[s S560 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -224,9 +240,9 @@
 `uc 1 RA5 1 0 :1:5 
 `uc 1 RA6 1 0 :1:6 
 ]
-[u S983 . 1 `S967 1 . 1 0 `S975 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES983  1 e 1 @3986 ]
-[s S872 . 1 `uc 1 TRISB0 1 0 :1:0 
+[u S568 . 1 `S552 1 . 1 0 `S560 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES568  1 e 1 @3986 ]
+[s S425 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -236,7 +252,7 @@
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "3657
-[s S881 . 1 `uc 1 RB0 1 0 :1:0 
+[s S434 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -245,9 +261,9 @@
 `uc 1 RB6 1 0 :1:6 
 `uc 1 RB7 1 0 :1:7 
 ]
-[u S890 . 1 `S872 1 . 1 0 `S881 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES890  1 e 1 @3987 ]
-[s S297 . 1 `uc 1 TRISC0 1 0 :1:0 
+[u S443 . 1 `S425 1 . 1 0 `S434 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES443  1 e 1 @3987 ]
+[s S151 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
@@ -255,16 +271,16 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "3875
-[s S304 . 1 `uc 1 RC0 1 0 :1:0 
+[s S158 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 RC6 1 0 :1:6 
 `uc 1 RC7 1 0 :1:7 
 ]
-[u S311 . 1 `S297 1 . 1 0 `S304 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES311  1 e 1 @3988 ]
-[s S168 . 1 `uc 1 TRISD0 1 0 :1:0 
+[u S165 . 1 `S151 1 . 1 0 `S158 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES165  1 e 1 @3988 ]
+[s S487 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
 `uc 1 TRISD3 1 0 :1:3 
@@ -274,9 +290,9 @@
 `uc 1 TRISD7 1 0 :1:7 
 ]
 "4033
-[u S186 . 1 `S168 1 . 1 0 `S121 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES186  1 e 1 @3989 ]
-[s S790 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S505 . 1 `S487 1 . 1 0 `S496 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES505  1 e 1 @3989 ]
+[s S343 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -286,15 +302,15 @@
 `uc 1 SPPIF 1 0 :1:7 
 ]
 "4492
-[s S799 . 1 `uc 1 . 1 0 :4:0 
+[s S352 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IF 1 0 :1:4 
 `uc 1 RC1IF 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 PSPIF 1 0 :1:7 
 ]
-[u S805 . 1 `S790 1 . 1 0 `S799 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES805  1 e 1 @3998 ]
-[s S383 . 1 `uc 1 RD 1 0 :1:0 
+[u S358 . 1 `S343 1 . 1 0 `S352 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES358  1 e 1 @3998 ]
+[s S1098 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
 `uc 1 WRERR 1 0 :1:3 
@@ -304,18 +320,18 @@
 `uc 1 EEPGD 1 0 :1:7 
 ]
 "4870
-[s S392 . 1 `uc 1 . 1 0 :6:0 
+[s S1107 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 EEFS 1 0 :1:6 
 ]
-[u S395 . 1 `S383 1 . 1 0 `S392 1 . 1 0 ]
-[v _EECON1bits EECON1bits `VES395  1 e 1 @4006 ]
+[u S1110 . 1 `S1098 1 . 1 0 `S1107 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES1110  1 e 1 @4006 ]
 "4915
 [v _EECON2 EECON2 `VEuc  1 e 1 @4007 ]
 "4922
 [v _EEDATA EEDATA `VEuc  1 e 1 @4008 ]
 "4929
 [v _EEADR EEADR `VEuc  1 e 1 @4009 ]
-[s S736 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S289 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -325,23 +341,23 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "4977
-[s S745 . 1 `uc 1 . 1 0 :3:0 
+[s S298 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 ADEN 1 0 :1:3 
 ]
-[s S748 . 1 `uc 1 . 1 0 :5:0 
+[s S301 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[s S751 . 1 `uc 1 . 1 0 :6:0 
+[s S304 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S754 . 1 `uc 1 . 1 0 :6:0 
+[s S307 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S757 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S310 . 1 `uc 1 RCD8 1 0 :1:0 
 ]
-[u S759 . 1 `S736 1 . 1 0 `S745 1 . 1 0 `S748 1 . 1 0 `S751 1 . 1 0 `S754 1 . 1 0 `S757 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES759  1 e 1 @4011 ]
-[s S684 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S312 . 1 `S289 1 . 1 0 `S298 1 . 1 0 `S301 1 . 1 0 `S304 1 . 1 0 `S307 1 . 1 0 `S310 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES312  1 e 1 @4011 ]
+[s S237 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -351,7 +367,7 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "5185
-[s S693 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S246 . 1 `uc 1 TX9D1 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 `uc 1 BRGH1 1 0 :1:2 
 `uc 1 SENDB1 1 0 :1:3 
@@ -360,13 +376,13 @@
 `uc 1 TX91 1 0 :1:6 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[s S702 . 1 `uc 1 . 1 0 :6:0 
+[s S255 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[s S705 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S258 . 1 `uc 1 TXD8 1 0 :1:0 
 ]
-[u S707 . 1 `S684 1 . 1 0 `S693 1 . 1 0 `S702 1 . 1 0 `S705 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES707  1 e 1 @4012 ]
+[u S260 . 1 `S237 1 . 1 0 `S246 1 . 1 0 `S255 1 . 1 0 `S258 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES260  1 e 1 @4012 ]
 "5402
 [v _TXREG TXREG `VEuc  1 e 1 @4013 ]
 "5414
@@ -381,83 +397,83 @@
 [v _CCP1CON CCP1CON `VEuc  1 e 1 @4029 ]
 "6496
 [v _CCPR1L CCPR1L `VEuc  1 e 1 @4030 ]
-[s S1039 . 1 `uc 1 ADCS 1 0 :3:0 
+[s S624 . 1 `uc 1 ADCS 1 0 :3:0 
 `uc 1 ACQT 1 0 :3:3 
 `uc 1 . 1 0 :1:6 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "6531
-[s S1044 . 1 `uc 1 ADCS0 1 0 :1:0 
+[s S629 . 1 `uc 1 ADCS0 1 0 :1:0 
 `uc 1 ADCS1 1 0 :1:1 
 `uc 1 ADCS2 1 0 :1:2 
 `uc 1 ACQT0 1 0 :1:3 
 `uc 1 ACQT1 1 0 :1:4 
 `uc 1 ACQT2 1 0 :1:5 
 ]
-[u S1051 . 1 `S1039 1 . 1 0 `S1044 1 . 1 0 ]
-[v _ADCON2bits ADCON2bits `VES1051  1 e 1 @4032 ]
+[u S636 . 1 `S624 1 . 1 0 `S629 1 . 1 0 ]
+[v _ADCON2bits ADCON2bits `VES636  1 e 1 @4032 ]
 "6581
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
-[s S1003 . 1 `uc 1 PCFG 1 0 :4:0 
+[s S588 . 1 `uc 1 PCFG 1 0 :4:0 
 `uc 1 VCFG 1 0 :2:4 
 ]
 "6606
-[s S1006 . 1 `uc 1 PCFG0 1 0 :1:0 
+[s S591 . 1 `uc 1 PCFG0 1 0 :1:0 
 `uc 1 PCFG1 1 0 :1:1 
 `uc 1 PCFG2 1 0 :1:2 
 `uc 1 PCFG3 1 0 :1:3 
 `uc 1 VCFG0 1 0 :1:4 
 `uc 1 VCFG1 1 0 :1:5 
 ]
-[s S1013 . 1 `uc 1 . 1 0 :3:0 
+[s S598 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CHSN3 1 0 :1:3 
 `uc 1 VCFG01 1 0 :1:4 
 `uc 1 VCFG11 1 0 :1:5 
 ]
-[u S1018 . 1 `S1003 1 . 1 0 `S1006 1 . 1 0 `S1013 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES1018  1 e 1 @4033 ]
+[u S603 . 1 `S588 1 . 1 0 `S591 1 . 1 0 `S598 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES603  1 e 1 @4033 ]
 "6666
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
-[s S1067 . 1 `uc 1 . 1 0 :1:0 
+[s S652 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "6710
-[s S1070 . 1 `uc 1 ADON 1 0 :1:0 
+[s S655 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :4:2 
 ]
-[s S1074 . 1 `uc 1 . 1 0 :1:0 
+[s S659 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
 `uc 1 CHS2 1 0 :1:4 
 `uc 1 CHS3 1 0 :1:5 
 ]
-[s S1081 . 1 `uc 1 . 1 0 :1:0 
+[s S666 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 ]
-[s S1084 . 1 `uc 1 . 1 0 :1:0 
+[s S669 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[s S1087 . 1 `uc 1 . 1 0 :1:0 
+[s S672 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
-[s S1090 . 1 `uc 1 . 1 0 :1:0 
+[s S675 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S1093 . 1 `uc 1 . 1 0 :1:0 
+[s S678 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 ]
-[u S1096 . 1 `S1067 1 . 1 0 `S1070 1 . 1 0 `S1074 1 . 1 0 `S1081 1 . 1 0 `S1084 1 . 1 0 `S1087 1 . 1 0 `S1090 1 . 1 0 `S1093 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES1096  1 e 1 @4034 ]
+[u S681 . 1 `S652 1 . 1 0 `S655 1 . 1 0 `S659 1 . 1 0 `S666 1 . 1 0 `S669 1 . 1 0 `S672 1 . 1 0 `S675 1 . 1 0 `S678 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES681  1 e 1 @4034 ]
 "7200
 [v _T2CON T2CON `VEuc  1 e 1 @4042 ]
-[s S558 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S99 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 TOUTPS 1 0 :4:3 
 ]
 "7228
-[s S562 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S103 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -465,19 +481,19 @@
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[s S570 . 1 `uc 1 . 1 0 :3:0 
+[s S111 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 TOUTPS0 1 0 :1:3 
 `uc 1 TOUTPS1 1 0 :1:4 
 `uc 1 TOUTPS2 1 0 :1:5 
 `uc 1 TOUTPS3 1 0 :1:6 
 ]
-[u S576 . 1 `S558 1 . 1 0 `S562 1 . 1 0 `S570 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES576  1 e 1 @4042 ]
+[u S117 . 1 `S99 1 . 1 0 `S103 1 . 1 0 `S111 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES117  1 e 1 @4042 ]
 "7298
 [v _PR2 PR2 `VEuc  1 e 1 @4043 ]
 "7986
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
-[s S413 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S1128 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -487,7 +503,7 @@
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "8614
-[s S422 . 1 `uc 1 . 1 0 :1:0 
+[s S1137 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -496,20 +512,20 @@
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S431 . 1 `uc 1 . 1 0 :6:0 
+[s S1146 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S435 . 1 `S413 1 . 1 0 `S422 1 . 1 0 `S431 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES435  1 e 1 @4082 ]
+[u S1150 . 1 `S1128 1 . 1 0 `S1137 1 . 1 0 `S1146 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES1150  1 e 1 @4082 ]
 "10443
 [v _RCIF RCIF `VEb  1 e 0 @31989 ]
-"19 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+"20 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
 [v _main main `(v  1 e 1 0 ]
 {
-"22
+"23
 [v main@Oupcode Oupcode `uc  1 a 1 62 ]
-"50
+"62
 } 0
 "48 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
 [v _USART_RxS USART_RxS `(v  1 e 1 0 ]
@@ -547,29 +563,96 @@
 [v ___aldiv@divisor divisor `l  1 p 4 4 ]
 "41
 } 0
-"61 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+"145 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+[v _Serial_Lectura_Memoria Serial_Lectura_Memoria `(v  1 e 1 0 ]
+{
+[v Serial_Lectura_Memoria@direccion direccion `uc  1 a 1 wreg ]
+"160
+[v Serial_Lectura_Memoria@i_864 i `uc  1 a 1 43 ]
+"156
+[v Serial_Lectura_Memoria@i_863 i `uc  1 a 1 42 ]
+"152
+[v Serial_Lectura_Memoria@i i `uc  1 a 1 41 ]
+"148
+[v Serial_Lectura_Memoria@coordenadaZ coordenadaZ `[3]uc  1 a 3 34 ]
+"147
+[v Serial_Lectura_Memoria@coordenadaY coordenadaY `[3]uc  1 a 3 31 ]
+"146
+[v Serial_Lectura_Memoria@coordenadaX coordenadaX `[3]uc  1 a 3 28 ]
+"151
+[v Serial_Lectura_Memoria@direccionZ direccionZ `uc  1 a 1 39 ]
+"150
+[v Serial_Lectura_Memoria@direccionY direccionY `uc  1 a 1 38 ]
+"149
+[v Serial_Lectura_Memoria@direccionX direccionX `uc  1 a 1 37 ]
+"145
+[v Serial_Lectura_Memoria@direccion direccion `uc  1 a 1 wreg ]
+[v Serial_Lectura_Memoria@pointerCX pointerCX `*.39i  1 p 2 22 ]
+[v Serial_Lectura_Memoria@pointerCY pointerCY `*.39i  1 p 2 24 ]
+[v Serial_Lectura_Memoria@pointerCZ pointerCZ `*.39i  1 p 2 26 ]
+"152
+[v Serial_Lectura_Memoria@direccion direccion `uc  1 a 1 40 ]
+"168
+} 0
+"16 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\EEPROM.c
+[v _EEPROM_Rx EEPROM_Rx `(uc  1 e 1 0 ]
+{
+[v EEPROM_Rx@direccion direccion `uc  1 a 1 wreg ]
+[v EEPROM_Rx@direccion direccion `uc  1 a 1 wreg ]
+[v EEPROM_Rx@direccion direccion `uc  1 a 1 0 ]
+"23
+} 0
+"169 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+[v _Serial_Escritura_Memoria Serial_Escritura_Memoria `(v  1 e 1 0 ]
+{
+[v Serial_Escritura_Memoria@direccion direccion `uc  1 a 1 wreg ]
+"179
+[v Serial_Escritura_Memoria@i_871 i `i  1 a 2 12 ]
+"175
+[v Serial_Escritura_Memoria@i_870 i `i  1 a 2 10 ]
+"171
+[v Serial_Escritura_Memoria@i i `i  1 a 2 8 ]
+"170
+[v Serial_Escritura_Memoria@direccionFinal direccionFinal `uc  1 a 1 7 ]
+"169
+[v Serial_Escritura_Memoria@direccion direccion `uc  1 a 1 wreg ]
+[v Serial_Escritura_Memoria@string_setpoint string_setpoint `*.39uc  1 p 2 2 ]
+"171
+[v Serial_Escritura_Memoria@direccion direccion `uc  1 a 1 6 ]
+"183
+} 0
+"24 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\EEPROM.c
+[v _EEPROM_Tx EEPROM_Tx `(v  1 e 1 0 ]
+{
+[v EEPROM_Tx@direccion direccion `uc  1 a 1 wreg ]
+[v EEPROM_Tx@direccion direccion `uc  1 a 1 wreg ]
+[v EEPROM_Tx@dato dato `uc  1 p 1 0 ]
+[v EEPROM_Tx@direccion direccion `uc  1 a 1 1 ]
+"39
+} 0
+"74 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
 [v _Serial_DecodificacionY Serial_DecodificacionY `(v  1 e 1 0 ]
 {
-"63
+"76
 [v Serial_DecodificacionY@i i `i  1 a 2 31 ]
-"62
+"75
 [v Serial_DecodificacionY@coordenadaY coordenadaY `[3]uc  1 a 3 28 ]
-"61
+"74
 [v Serial_DecodificacionY@string_coordenada string_coordenada `*.39uc  1 p 2 22 ]
 [v Serial_DecodificacionY@pointerCY pointerCY `*.39i  1 p 2 24 ]
-"67
+"81
 } 0
-"52
+"64
 [v _Serial_DecodificacionX Serial_DecodificacionX `(v  1 e 1 0 ]
 {
-"54
+"66
 [v Serial_DecodificacionX@i i `i  1 a 2 29 ]
-"53
+"65
 [v Serial_DecodificacionX@coordenadaX coordenadaX `[3]uc  1 a 3 26 ]
-"52
+"64
 [v Serial_DecodificacionX@string_coordenada string_coordenada `*.39uc  1 p 2 22 ]
 [v Serial_DecodificacionX@pointerCX pointerCX `*.39i  1 p 2 24 ]
-"59
+"72
 } 0
 "4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
 [v _atoi atoi `(i  1 e 2 0 ]
@@ -603,6 +686,22 @@
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
 "53
 } 0
+"25 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\UART.c
+[v _USART_Tx USART_Tx `(v  1 e 1 0 ]
+{
+[v USART_Tx@data data `uc  1 a 1 wreg ]
+[v USART_Tx@data data `uc  1 a 1 wreg ]
+[v USART_Tx@data data `uc  1 a 1 0 ]
+"28
+} 0
+"91 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\serial.c
+[v _Seria_Decodificacion_Memoria Seria_Decodificacion_Memoria `(uc  1 e 1 0 ]
+{
+[v Seria_Decodificacion_Memoria@direccion direccion `uc  1 a 1 wreg ]
+[v Seria_Decodificacion_Memoria@direccion direccion `uc  1 a 1 wreg ]
+[v Seria_Decodificacion_Memoria@direccion direccion `uc  1 a 1 2 ]
+"143
+} 0
 "23 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\Motor.c
 [v _Motor_Movimiento Motor_Movimiento `(v  1 e 1 0 ]
 {
@@ -619,9 +718,9 @@
 {
 [v PWM_GeneratePulsos@Oupcode Oupcode `uc  1 a 1 wreg ]
 "16
-[v PWM_GeneratePulsos@pasosY pasosY `i  1 a 2 10 ]
+[v PWM_GeneratePulsos@countY countY `i  1 a 2 10 ]
 "15
-[v PWM_GeneratePulsos@pasosX pasosX `i  1 a 2 8 ]
+[v PWM_GeneratePulsos@countX countX `i  1 a 2 8 ]
 "6
 [v PWM_GeneratePulsos@Oupcode Oupcode `uc  1 a 1 wreg ]
 [v PWM_GeneratePulsos@pulsosX pulsosX `i  1 p 2 2 ]
@@ -632,13 +731,13 @@
 "84
 [v _PWM_OneshotY PWM_OneshotY `(i  1 e 2 0 ]
 {
-[v PWM_OneshotY@pasosY pasosY `i  1 p 2 0 ]
+[v PWM_OneshotY@countY countY `i  1 p 2 0 ]
 "90
 } 0
 "76
 [v _PWM_OneshotX PWM_OneshotX `(i  1 e 2 0 ]
 {
-[v PWM_OneshotX@pasosX pasosX `i  1 p 2 0 ]
+[v PWM_OneshotX@countX countX `i  1 p 2 0 ]
 "82
 } 0
 "60

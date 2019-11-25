@@ -553,13 +553,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "13 ./EEPROM.h
-[; ;./EEPROM.h: 13: char setpoint;
-[v _setpoint `uc ~T0 @X0 1 e ]
+[; ;./EEPROM.h: 13: char data;
+[v _data `uc ~T0 @X0 1 e ]
 "11 EEPROM.c
-[; ;EEPROM.c: 11: void Init(){
-[v _Init `(v ~T0 @X0 1 ef ]
+[; ;EEPROM.c: 11: void EEPROM_Init(){
+[v _EEPROM_Init `(v ~T0 @X0 1 ef ]
 {
-[e :U _Init ]
+[e :U _EEPROM_Init ]
 [f ]
 "12
 [; ;EEPROM.c: 12:     EECON1bits.CFGS=0;
@@ -575,14 +575,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 367 ]
 }
 "16
-[; ;EEPROM.c: 16: void Read(){
-[v _Read `(v ~T0 @X0 1 ef ]
+[; ;EEPROM.c: 16: char EEPROM_Rx(char direccion){
+[v _EEPROM_Rx `(uc ~T0 @X0 1 ef1`uc ]
 {
-[e :U _Read ]
+[e :U _EEPROM_Rx ]
+[v _direccion `uc ~T0 @X0 1 r1 ]
 [f ]
 "17
-[; ;EEPROM.c: 17:     EEADR=0x05;
-[e = _EEADR -> -> 5 `i `uc ]
+[; ;EEPROM.c: 17:     EEADR=direccion;
+[e = _EEADR -> _direccion `uc ]
 "18
 [; ;EEPROM.c: 18:     EECON1bits.EEPGD=0;
 [e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
@@ -593,50 +594,56 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;EEPROM.c: 20:       EECON1bits.RD=1;
 [e = . . _EECON1bits 0 0 -> -> 1 `i `uc ]
 "21
-[; ;EEPROM.c: 21:       setpoint=EEDATA;
-[e = _setpoint -> _EEDATA `uc ]
+[; ;EEPROM.c: 21:       data=EEDATA;
+[e = _data -> _EEDATA `uc ]
 "22
-[; ;EEPROM.c: 22: }
+[; ;EEPROM.c: 22:       return data;
+[e ) _data ]
+[e $UE 368  ]
+"23
+[; ;EEPROM.c: 23: }
 [e :UE 368 ]
 }
-"23
-[; ;EEPROM.c: 23: void Write(){
-[v _Write `(v ~T0 @X0 1 ef ]
-{
-[e :U _Write ]
-[f ]
 "24
-[; ;EEPROM.c: 24:     EEADR=0x10;
-[e = _EEADR -> -> 16 `i `uc ]
+[; ;EEPROM.c: 24: void EEPROM_Tx(char direccion, char dato){
+[v _EEPROM_Tx `(v ~T0 @X0 1 ef2`uc`uc ]
+{
+[e :U _EEPROM_Tx ]
+[v _direccion `uc ~T0 @X0 1 r1 ]
+[v _dato `uc ~T0 @X0 1 r2 ]
+[f ]
 "25
-[; ;EEPROM.c: 25:     EEDATA=setpoint;
-[e = _EEDATA -> _setpoint `uc ]
+[; ;EEPROM.c: 25:     EEADR=direccion;
+[e = _EEADR -> _direccion `uc ]
 "26
-[; ;EEPROM.c: 26:      EECON1bits.EEPGD=0;
-[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
+[; ;EEPROM.c: 26:     EEDATA=data;
+[e = _EEDATA -> _data `uc ]
 "27
-[; ;EEPROM.c: 27:       EECON1bits.CFGS=0;
-[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
+[; ;EEPROM.c: 27:      EECON1bits.EEPGD=0;
+[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
 "28
-[; ;EEPROM.c: 28:       EECON1bits.WREN=1;
-[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+[; ;EEPROM.c: 28:       EECON1bits.CFGS=0;
+[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
 "29
-[; ;EEPROM.c: 29:       INTCONbits.GIE=0;
+[; ;EEPROM.c: 29:       EECON1bits.WREN=1;
+[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+"30
+[; ;EEPROM.c: 30:       INTCONbits.GIE=0;
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-"31
-[; ;EEPROM.c: 31:       EECON2=0x55;
-[e = _EECON2 -> -> 85 `i `uc ]
 "32
-[; ;EEPROM.c: 32:       EECON2=0x0AA;
-[e = _EECON2 -> -> 170 `i `uc ]
+[; ;EEPROM.c: 32:       EECON2=0x55;
+[e = _EECON2 -> -> 85 `i `uc ]
 "33
-[; ;EEPROM.c: 33:       EECON1bits.WR=1;
-[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
+[; ;EEPROM.c: 33:       EECON2=0x0AA;
+[e = _EECON2 -> -> 170 `i `uc ]
 "34
-[; ;EEPROM.c: 34:       INTCONbits.GIE=1;
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;EEPROM.c: 34:       EECON1bits.WR=1;
+[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
 "35
-[; ;EEPROM.c: 35:       EECON1bits.WREN=0 ;
+[; ;EEPROM.c: 35:       INTCONbits.GIE=1;
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"36
+[; ;EEPROM.c: 36:       EECON1bits.WREN=0 ;
 [e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
 "39
 [; ;EEPROM.c: 39: }

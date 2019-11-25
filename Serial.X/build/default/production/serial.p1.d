@@ -5,4 +5,5 @@ UART.h  \
 serial.h  \
 PWM.h  \
 motor.h  \
-Actuator.h 
+Actuator.h  \
+EEPROM.h 

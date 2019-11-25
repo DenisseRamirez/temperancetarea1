@@ -7,10 +7,10 @@
 
 #endif
 
-void Read();
-void Write();
-void Init();
-char setpoint;
+char EEPROM_Rx(char direccion);
+void EEPROM_Tx(char direccion, char dato);
+void EEMPROM_Init();
+char data;
 
 #ifdef	__cplusplus
 

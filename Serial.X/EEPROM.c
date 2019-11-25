@@ -8,21 +8,22 @@
 #include <xc.h>
 #include "EEPROM.h"
 
-void Init(){
+void EEPROM_Init(){
     EECON1bits.CFGS=0;
     EECON1bits.EEPGD=0;//SELECCIONAR DATA EEPROM
     EECON1bits.WREN=1;//PERMITIR WRITE OPERATION
 }
-void Read(){
-    EEADR=0x05;//DIRECCION A LEER
+char EEPROM_Rx(char direccion){
+    EEADR=direccion;//DIRECCION A LEER
     EECON1bits.EEPGD=0;//SELECCIONAR DATA EEPROM
       EECON1bits.CFGS=0;// //DATA EEPROM
       EECON1bits.RD=1;// HABILITAR LECTURA
-      setpoint=EEDATA;//LEER DATO Y GUARDARLO EN VARIABLE
+      data=EEDATA;//LEER DATO Y GUARDARLO EN VARIABLE
+      return data;
 }
-void Write(){
-    EEADR=0x10;//DIRECCION A ESCRIBIR
-    EEDATA=setpoint;//DATO A GUARDAR
+void EEPROM_Tx(char direccion, char dato){
+    EEADR=direccion;//DIRECCION A ESCRIBIR
+    EEDATA=data;//DATO A GUARDAR
      EECON1bits.EEPGD=0;//SELECCIONAR DATA EEPROM
       EECON1bits.CFGS=0;// //DATA EEPROM
       EECON1bits.WREN=1;// ENABLE WRITES
@@ -35,8 +36,8 @@ void Write(){
       EECON1bits.WREN=0 ;// DISABLE WRITES
       
       //APAGAR BANDERA EEIF
-      
 }
 
 
 
+//void Write(char direccion, char coordenadaX[], char coordenadaY[], char coordenadaY[]){

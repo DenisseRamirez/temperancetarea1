@@ -1,9 +1,9 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"15 ./PWM.h
-[; ;./PWM.h: 15: void PWM_InitS();
+"13 ./PWM.h
+[; ;./PWM.h: 13: void PWM_InitS();
 [v _PWM_InitS `(v ~T0 @X0 0 e? ]
-"14
-[; ;./PWM.h: 14: void PWM_InitF();
+"12
+[; ;./PWM.h: 12: void PWM_InitF();
 [v _PWM_InitF `(v ~T0 @X0 0 e? ]
 "2569 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2569:     struct {
@@ -51,11 +51,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7228
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7228: extern volatile T2CONbits_t T2CONbits __attribute__((address(0xFCA)));
 [v _T2CONbits `VS300 ~T0 @X0 0 e@4042 ]
-"12 ./PWM.h
-[; ;./PWM.h: 12: int PWM_OneshotX ();
+"10 ./PWM.h
+[; ;./PWM.h: 10: int PWM_OneshotX ();
 [v _PWM_OneshotX `(i ~T0 @X0 0 e? ]
-"13
-[; ;./PWM.h: 13: int PWM_OneshotY ();
+"11
+[; ;./PWM.h: 11: int PWM_OneshotY ();
 [v _PWM_OneshotY `(i ~T0 @X0 0 e? ]
 "7298 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7298: extern volatile unsigned char PR2 __attribute__((address(0xFCB)));
@@ -612,18 +612,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _oneshotY
 -> -> 0 `i `uc
 ]
-"9
-[; ;./PWM.h: 9: int pulsosX=0;
-[v _pulsosX `i ~T0 @X0 1 e ]
-[i _pulsosX
--> 0 `i
-]
-"10
-[; ;./PWM.h: 10: int pulsosY=0;
-[v _pulsosY `i ~T0 @X0 1 e ]
-[i _pulsosY
--> 0 `i
-]
 "6 PWM.c
 [; ;PWM.c: 6: void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY) {
 [v _PWM_GeneratePulsos `(v ~T0 @X0 1 ef3`uc`i`i ]
@@ -663,29 +651,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;PWM.c: 14:     T2CONbits.TMR2ON = 1;
 [e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
 "15
-[; ;PWM.c: 15:     int pasosX = 0;
-[v _pasosX `i ~T0 @X0 1 a ]
-[e = _pasosX -> 0 `i ]
+[; ;PWM.c: 15:     int countX = 0;
+[v _countX `i ~T0 @X0 1 a ]
+[e = _countX -> 0 `i ]
 "16
-[; ;PWM.c: 16:     int pasosY = 0;
-[v _pasosY `i ~T0 @X0 1 a ]
-[e = _pasosY -> 0 `i ]
+[; ;PWM.c: 16:     int countY = 0;
+[v _countY `i ~T0 @X0 1 a ]
+[e = _countY -> 0 `i ]
 "17
-[; ;PWM.c: 17:     while (pasosX < pulsosX && pasosY < pulsosY) {
+[; ;PWM.c: 17:     while (countX < pulsosX && countY < pulsosY) {
 [e $U 370  ]
 [e :U 371 ]
 {
 "18
-[; ;PWM.c: 18:         if (pasosX < pulsosX) {
-[e $ ! < _pasosX _pulsosX 373  ]
+[; ;PWM.c: 18:         if (countX < pulsosX) {
+[e $ ! < _countX _pulsosX 373  ]
 {
 "19
 [; ;PWM.c: 19:             if (PORTCbits.RC2 == 1) {
 [e $ ! == -> . . _PORTCbits 0 2 `i -> 1 `i 374  ]
 {
 "20
-[; ;PWM.c: 20:                 pasosX = PWM_OneshotX(pasosX);
-[e = _pasosX ( _PWM_OneshotX _pasosX ]
+[; ;PWM.c: 20:                 countX = PWM_OneshotX(countX);
+[e = _countX ( _PWM_OneshotX _countX ]
 "21
 [; ;PWM.c: 21:             } else {
 }
@@ -713,16 +701,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 376 ]
 "27
-[; ;PWM.c: 27:         if (pasosY < pulsosY) {
-[e $ ! < _pasosY _pulsosY 377  ]
+[; ;PWM.c: 27:         if (countY < pulsosY) {
+[e $ ! < _countY _pulsosY 377  ]
 {
 "28
 [; ;PWM.c: 28:             if (PORTCbits.RC1 == 1) {
 [e $ ! == -> . . _PORTCbits 0 1 `i -> 1 `i 378  ]
 {
 "29
-[; ;PWM.c: 29:                 pasosY = PWM_OneshotY(pasosY);
-[e = _pasosY ( _PWM_OneshotY _pasosY ]
+[; ;PWM.c: 29:                 countY = PWM_OneshotY(countY);
+[e = _countY ( _PWM_OneshotY _countY ]
 "30
 [; ;PWM.c: 30:             } else {
 }
@@ -754,12 +742,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 370 ]
 "17
-[; ;PWM.c: 17:     while (pasosX < pulsosX && pasosY < pulsosY) {
-[e $ && < _pasosX _pulsosX < _pasosY _pulsosY 371  ]
+[; ;PWM.c: 17:     while (countX < pulsosX && countY < pulsosY) {
+[e $ && < _countX _pulsosX < _countY _pulsosY 371  ]
 [e :U 372 ]
+"37
+[; ;PWM.c: 37:     countX = 0;
+[e = _countX -> 0 `i ]
 "38
 [; ;PWM.c: 38:     oneshotX = 0;
 [e = _oneshotX -> -> 0 `i `uc ]
+"39
+[; ;PWM.c: 39:     countY = 0;
+[e = _countY -> 0 `i ]
 "40
 [; ;PWM.c: 40:     oneshotY = 0;
 [e = _oneshotY -> -> 0 `i `uc ]
@@ -863,19 +857,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 382 ]
 }
 "76
-[; ;PWM.c: 76: int PWM_OneshotX(int pasosX) {
+[; ;PWM.c: 76: int PWM_OneshotX(int countX) {
 [v _PWM_OneshotX `(i ~T0 @X0 1 ef1`i ]
 {
 [e :U _PWM_OneshotX ]
-[v _pasosX `i ~T0 @X0 1 r1 ]
+[v _countX `i ~T0 @X0 1 r1 ]
 [f ]
 "77
 [; ;PWM.c: 77:     if (PORTCbits.RC2 == 1 & oneshotX == 0) {
 [e $ ! & == -> . . _PORTCbits 0 2 `i -> 1 `i == -> _oneshotX `i -> 0 `i 384  ]
 {
 "78
-[; ;PWM.c: 78:         pasosX++;
-[e ++ _pasosX -> 1 `i ]
+[; ;PWM.c: 78:         countX++;
+[e ++ _countX -> 1 `i ]
 "79
 [; ;PWM.c: 79:         oneshotX = 1;
 [e = _oneshotX -> -> 1 `i `uc ]
@@ -884,27 +878,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 384 ]
 "81
-[; ;PWM.c: 81:     return pasosX;
-[e ) _pasosX ]
+[; ;PWM.c: 81:     return countX;
+[e ) _countX ]
 [e $UE 383  ]
 "82
 [; ;PWM.c: 82: }
 [e :UE 383 ]
 }
 "84
-[; ;PWM.c: 84: int PWM_OneshotY(int pasosY) {
+[; ;PWM.c: 84: int PWM_OneshotY(int countY) {
 [v _PWM_OneshotY `(i ~T0 @X0 1 ef1`i ]
 {
 [e :U _PWM_OneshotY ]
-[v _pasosY `i ~T0 @X0 1 r1 ]
+[v _countY `i ~T0 @X0 1 r1 ]
 [f ]
 "85
 [; ;PWM.c: 85:     if (PORTCbits.RC1 == 1 & oneshotY == 0) {
 [e $ ! & == -> . . _PORTCbits 0 1 `i -> 1 `i == -> _oneshotY `i -> 0 `i 386  ]
 {
 "86
-[; ;PWM.c: 86:         pasosY++;
-[e ++ _pasosY -> 1 `i ]
+[; ;PWM.c: 86:         countY++;
+[e ++ _countY -> 1 `i ]
 "87
 [; ;PWM.c: 87:         oneshotY = 1;
 [e = _oneshotY -> -> 1 `i `uc ]
@@ -913,8 +907,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 386 ]
 "89
-[; ;PWM.c: 89:     return pasosY;
-[e ) _pasosY ]
+[; ;PWM.c: 89:     return countY;
+[e ) _countY ]
 [e $UE 385  ]
 "90
 [; ;PWM.c: 90: }
