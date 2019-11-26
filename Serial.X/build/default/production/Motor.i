@@ -242,6 +242,8 @@ size_t __ctype_get_mb_cur_max(void);
 
 char oneshotX=0;
 char oneshotY=0;
+int coordenada_anteriorX=0;
+int coordenada_anteriorY=0;
 void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
 int PWM_OneshotX ();
 int PWM_OneshotY ();
@@ -259,7 +261,10 @@ void PWM_InitS();
 int pasos_convertidos=0;
 int pasosX=0;
 int pasosY=0;
-int pulsX=0,pulsY=0;
+int coordenaX=0;
+int coordenaY=0;
+int CoordenadaXX=0;
+int CoordenadaYY=0;
 int Motor_Conversion(int CoordenadaX);
 void Motor_Movimiento(char Oupcode,int CoordenadaX,int CoordenadaY);
 int Motor_Calcular_PasosX(int pasos_converX);
@@ -5890,68 +5895,86 @@ void GPIO_init_PORTC(void);
 void GPIO_init_PORTD(void);
 # 12 "Motor.c" 2
 
+# 1 "./UART.h" 1
 
 
 
-int Motor_Conversion(int Coordenada)
-{
+
+
+
+
+void USART_Init(long BAUD);
+void USART_Tx(char data);
+char USART_Rx();
+void USARTStr(char *Output, unsigned int size);
+void USART_SPrint(char Str[]);
+void USART_RxS (char lenght, char* pointer );
+char USART_TxS(char str[]);
+# 13 "Motor.c" 2
+
+
+
+
+
+int Motor_Conversion(int Coordenada) {
     float conversion = 0.2;
     pasos_convertidos = Coordenada / conversion;
     return pasos_convertidos;
 }
 
-void Motor_Movimiento(char Oupcode, int CoordenadaX, int CoordenadaY)
-{
-    pasosX = Motor_Conversion(CoordenadaX);
-    pasosY = Motor_Conversion(CoordenadaY);
-    pasosX=Motor_Calcular_PasosX(pasosX);
-    pasosY=Motor_Calcular_PasosY(pasosY);
+void Motor_Movimiento(char Oupcode, int CoordenadaX, int CoordenadaY) {
+    CoordenadaXX = Motor_Calcular_PasosX(CoordenadaX);
+    CoordenadaYY = Motor_Calcular_PasosY(CoordenadaY);
+    pasosX = Motor_Conversion(CoordenadaXX);
+    pasosY = Motor_Conversion(CoordenadaYY);
+    coordenada_anteriorX=CoordenadaX;
+    coordenada_anteriorY=CoordenadaY;
     PWM_GeneratePulsos(Oupcode, pasosX, pasosY);
-}
-int Motor_Calcular_PasosX(int pasos_converX)
-{
-    if (pasos_converX <= pasosX)
-    {
-        PORTDbits.RD1 = 0;
-        pulsX = pasosX - pasos_converX;
-    }
-    else
-    {
-        PORTDbits.RD1 = 1;
-        pulsX = pasos_converX-pasosX;
-    }
-    return (pulsX);
-}
-int Motor_Calcular_PasosY(int pasos_converY)
-{
-    if (pasos_converY < pasosY)
-    {
-        PORTDbits.RD3 = 0;
-        pulsY = pasosY - pasos_converY;
-    } else
-    {
-        PORTDbits.RD3 = 1;
-        pulsY = pasos_converY-pasosY;
-    }
-    return (pulsY);
+    return;
 }
 
-void Motor_MovimientoZ_Init(char direccion)
-{
+int Motor_Calcular_PasosX(int coordenada_converX) {
+    if (coordenada_converX < coordenada_anteriorX) {
+        USART_Tx('-');
+        PORTDbits.RD1 = 0;
+        coordenaX = coordenada_anteriorX - coordenada_converX;
+    } else if (coordenada_converX > coordenada_anteriorX) {
+        USART_Tx('+');
+        PORTDbits.RD1 = 1;
+        coordenaX = coordenada_converX - coordenada_anteriorX;
+    } else if (coordenada_converX == coordenada_anteriorX) {
+        coordenaX = 0;
+    }
+    return (coordenaX);
+}
+
+int Motor_Calcular_PasosY(int coordenada_converY) {
+    if (coordenada_converY < coordenada_anteriorY) {
+        USART_Tx('-');
+        PORTDbits.RD3 = 0;
+        coordenaY = coordenada_anteriorY - coordenada_converY;
+    } else if (coordenada_converY > coordenada_anteriorY) {
+        USART_Tx('+');
+        PORTDbits.RD3 = 1;
+        coordenaY = coordenada_converY - coordenada_anteriorY;
+    } else if (coordenada_converY == coordenada_anteriorY) {
+        coordenaY=0;
+    }
+    return (coordenaY);
+}
+
+void Motor_MovimientoZ_Init(char direccion) {
     do { TRISDbits.TRISD4 = 0; } while(0);
 }
 
-void Motor_MovimientoZ(char direccion)
-{
+void Motor_MovimientoZ(char direccion) {
     do { LATDbits.LATD4 = 1; } while(0);
-    if (direccion == '1')
-    {
+    if (direccion == '1') {
         do { LATDbits.LATD5 = 1; } while(0);
         do { LATDbits.LATD6 = 0; } while(0);
-    }
-    else if (direccion == '0')
-    {
+    } else if (direccion == '0') {
         do { LATDbits.LATD5 = 0; } while(0);
         do { LATDbits.LATD6 = 1; } while(0);
     }
+    return;
 }

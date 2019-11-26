@@ -1,4 +1,4 @@
-# 1 "PWM.c"
+# 1 "main.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,12 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "PWM.c" 2
+# 1 "main.c" 2
+
+
+
+
+
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
@@ -5619,109 +5624,199 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 2 "PWM.c" 2
+# 7 "main.c" 2
 
-# 1 "./configuration.h" 1
-# 3 "PWM.c" 2
-
-# 1 "./PWM.h" 1
-
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdio.h" 1 3
+# 24 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdio.h" 3
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 1 3
 
 
 
 
 
-char oneshotX=0;
-char oneshotY=0;
-int coordenada_anteriorX=0;
-int coordenada_anteriorY=0;
-void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
-int PWM_OneshotX ();
-int PWM_OneshotY ();
-void PWM_InitF();
-void PWM_InitS();
-# 4 "PWM.c" 2
+typedef void * va_list[1];
 
 
-void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY) {
-    if (Oupcode == 'S') {
-        PWM_InitS();
-    } else {
-        PWM_InitF();
+
+
+typedef void * __isoc_va_list[1];
+# 137 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long ssize_t;
+# 246 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long off_t;
+# 399 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct _IO_FILE FILE;
+# 24 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdio.h" 2 3
+# 52 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdio.h" 3
+typedef union _G_fpos64_t {
+ char __opaque[16];
+ double __align;
+} fpos_t;
+
+extern FILE *const stdin;
+extern FILE *const stdout;
+extern FILE *const stderr;
+
+
+
+
+
+FILE *fopen(const char *restrict, const char *restrict);
+FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
+int fclose(FILE *);
+
+int remove(const char *);
+int rename(const char *, const char *);
+
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+void clearerr(FILE *);
+
+int fseek(FILE *, long, int);
+long ftell(FILE *);
+void rewind(FILE *);
+
+int fgetpos(FILE *restrict, fpos_t *restrict);
+int fsetpos(FILE *, const fpos_t *);
+
+size_t fread(void *restrict, size_t, size_t, FILE *restrict);
+size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+
+int fgetc(FILE *);
+int getc(FILE *);
+int getchar(void);
+int ungetc(int, FILE *);
+
+int fputc(int, FILE *);
+int putc(int, FILE *);
+int putchar(int);
+
+char *fgets(char *restrict, int, FILE *restrict);
+
+char *gets(char *);
+
+
+int fputs(const char *restrict, FILE *restrict);
+int puts(const char *);
+
+#pragma printf_check(printf) const
+#pragma printf_check(vprintf) const
+#pragma printf_check(sprintf) const
+#pragma printf_check(snprintf) const
+#pragma printf_check(vsprintf) const
+#pragma printf_check(vsnprintf) const
+
+int printf(const char *restrict, ...);
+int fprintf(FILE *restrict, const char *restrict, ...);
+int sprintf(char *restrict, const char *restrict, ...);
+int snprintf(char *restrict, size_t, const char *restrict, ...);
+
+int vprintf(const char *restrict, __isoc_va_list);
+int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+
+int scanf(const char *restrict, ...);
+int fscanf(FILE *restrict, const char *restrict, ...);
+int sscanf(const char *restrict, const char *restrict, ...);
+int vscanf(const char *restrict, __isoc_va_list);
+int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
+
+void perror(const char *);
+
+int setvbuf(FILE *restrict, char *restrict, int, size_t);
+void setbuf(FILE *restrict, char *restrict);
+
+char *tmpnam(char *);
+FILE *tmpfile(void);
+
+
+
+
+FILE *fmemopen(void *restrict, size_t, const char *restrict);
+FILE *open_memstream(char **, size_t *);
+FILE *fdopen(int, const char *);
+FILE *popen(const char *, const char *);
+int pclose(FILE *);
+int fileno(FILE *);
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+int dprintf(int, const char *restrict, ...);
+int vdprintf(int, const char *restrict, __isoc_va_list);
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
+int renameat(int, const char *, int, const char *);
+char *ctermid(char *);
+
+
+
+
+
+
+
+char *tempnam(const char *, const char *);
+# 8 "main.c" 2
+
+
+# 1 "./main.h" 1
+# 10 "./main.h"
+void __attribute__((picinterrupt(("high_priority")))) INT_isr (void);
+void Int_Ext();
+char oneshot=0;
+void Oneshot();
+void maain_interrrupt();
+ int cont=0;
+# 10 "main.c" 2
+
+
+void maain_interrrupt(){
+  OSCCON= 0x72;
+  Int_Ext();
+    while(1){
+        if ((cont%2)==1){
+            PORTDbits.RD0=1;
+        }else {
+        PORTDbits.RD0=0;}
     }
-    PORTDbits.RD0 = 0;
-    PORTDbits.RD2 = 0;
-    T2CONbits.TMR2ON = 1;
-    int countX = 0;
-    int countY = 0;
-    while ((countX < pulsosX) || (countY < pulsosY)) {
-        if (countX < pulsosX) {
-            if (PORTCbits.RC2 == 1) {
-                countX = PWM_OneshotX(countX);
-            } else {
-                oneshotX = 0;
-            }
-        } else {
-            PORTDbits.RD0 = 1;
-        }
-        if (countY < pulsosY) {
-            if (PORTCbits.RC1 == 1) {
-                countY = PWM_OneshotY(countY);
-            } else {
-                oneshotY = 0;
-            }
-        } else {
-            PORTDbits.RD2 = 1;
-        }
+  return;
+}
+void Int_Ext(){
+     TRISD=0;
+    TRISBbits.RB2=1;
+    RCONbits.IPEN=1;
+
+     INTCONbits.GIE=1;
+
+    INTCON3bits.INT2P=1;
+     INTCON2bits.INTEDG2=0;
+     INTCON3bits.INT2IF=0;
+      INTCON3bits.INT2IE=1;
+      return;
+}
+void __attribute__((picinterrupt(("")))) INT_isr (void){
+    PORTDbits.RD1=1;
+    if (PORTBbits.RB2==0){
+            Oneshot();
+        INTCON3bits.INT2IF=0;
     }
-    countX = 0;
-    oneshotX = 0;
-    countY = 0;
-    oneshotY = 0;
-    T2CONbits.TMR2ON = 0;
+    oneshot=0;
+    PORTDbits.RD1=0;
+    INTCON3bits.INT2IF=0;
     return;
 }
 
-void PWM_InitF() {
-
-    PR2 = 0X7C;
-    CCPR1L = 0X3E;
-    CCPR2L = 0X3E;
-    TRISCbits.RC1 = 0;
-    TRISCbits.RC2 = 0;
-    T2CON = 0X03;
-    CCP1CON = 0X0C;
-    CCP2CON = 0X0C;
-    T2CONbits.TMR2ON = 0;
-    return;
-}
-
-void PWM_InitS() {
-
-    PR2 = 0XFF;
-    CCPR1L = 0X3E;
-    CCPR2L = 0X3E;
-    TRISCbits.RC1 = 0;
-    TRISCbits.RC2 = 0;
-    T2CON = 0X03;
-    CCP1CON = 0X0C;
-    CCP2CON = 0X0C;
-    T2CONbits.TMR2ON = 0;
-    return;
-}
-
-int PWM_OneshotX(int countX) {
-    if (PORTCbits.RC2 == 1 & oneshotX == 0) {
-        countX++;
-        oneshotX = 1;
+void Oneshot() {
+    if (PORTBbits.RB2 == 0 & oneshot == 0) {
+        cont++;
+        oneshot = 1;
     }
-    return countX;
-}
-
-int PWM_OneshotY(int countY) {
-    if (PORTCbits.RC1 == 1 & oneshotY == 0) {
-        countY++;
-        oneshotY = 1;
-    }
-    return countY;
 }

@@ -6,4 +6,5 @@ serial.h  \
 PWM.h  \
 motor.h  \
 Actuator.h  \
-EEPROM.h 
+EEPROM.h  \
+GPIOsparcA1.h 

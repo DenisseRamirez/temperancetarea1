@@ -23,7 +23,7 @@ char EEPROM_Rx(char direccion){
 }
 void EEPROM_Tx(char direccion, char dato){
     EEADR=direccion;//DIRECCION A ESCRIBIR
-    EEDATA=data;//DATO A GUARDAR
+    EEDATA=dato;//DATO A GUARDAR
      EECON1bits.EEPGD=0;//SELECCIONAR DATA EEPROM
       EECON1bits.CFGS=0;// //DATA EEPROM
       EECON1bits.WREN=1;// ENABLE WRITES
@@ -32,9 +32,10 @@ void EEPROM_Tx(char direccion, char dato){
       EECON2=0x55;
       EECON2=0x0AA;
       EECON1bits.WR=1;//ENABLE WRITE
-      INTCONbits.GIE=1;//ENABLE INTERRUPTS
+      INTCONbits.GIE=1;//ENABLE INTERRUPT
+      while(!PIR2bits.EEIF);
+      PIR2bits.EEIF=0;
       EECON1bits.WREN=0 ;// DISABLE WRITES
-      
       //APAGAR BANDERA EEIF
 }
 

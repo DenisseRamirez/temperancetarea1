@@ -5651,7 +5651,7 @@ char EEPROM_Rx(char direccion){
 }
 void EEPROM_Tx(char direccion, char dato){
     EEADR=direccion;
-    EEDATA=data;
+    EEDATA=dato;
      EECON1bits.EEPGD=0;
       EECON1bits.CFGS=0;
       EECON1bits.WREN=1;
@@ -5661,7 +5661,8 @@ void EEPROM_Tx(char direccion, char dato){
       EECON2=0x0AA;
       EECON1bits.WR=1;
       INTCONbits.GIE=1;
+      while(!PIR2bits.EEIF);
+      PIR2bits.EEIF=0;
       EECON1bits.WREN=0 ;
-
 
 }

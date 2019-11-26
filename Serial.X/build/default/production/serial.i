@@ -5866,6 +5866,8 @@ char USART_TxS(char str[]);
 
 char oneshotX=0;
 char oneshotY=0;
+int coordenada_anteriorX=0;
+int coordenada_anteriorY=0;
 void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
 int PWM_OneshotX ();
 int PWM_OneshotY ();
@@ -5883,7 +5885,10 @@ void PWM_InitS();
 int pasos_convertidos=0;
 int pasosX=0;
 int pasosY=0;
-int pulsX=0,pulsY=0;
+int coordenaX=0;
+int coordenaY=0;
+int CoordenadaXX=0;
+int CoordenadaYY=0;
 int Motor_Conversion(int CoordenadaX);
 void Motor_Movimiento(char Oupcode,int CoordenadaX,int CoordenadaY);
 int Motor_Calcular_PasosX(int pasos_converX);
@@ -5911,9 +5916,116 @@ void EEMPROM_Init();
 char data;
 # 18 "serial.c" 2
 
+# 1 "./GPIOsparcA1.h" 1
+
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 1 3
+# 22 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 127 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long uintptr_t;
+# 142 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long intptr_t;
+# 158 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef signed char int8_t;
+
+
+
+
+typedef short int16_t;
+# 173 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long int32_t;
+
+
+
+
+
+typedef long long int64_t;
+# 188 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long intmax_t;
+
+
+
+
+
+typedef unsigned char uint8_t;
+
+
+
+
+typedef unsigned short uint16_t;
+# 209 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long uint32_t;
+
+
+
+
+
+typedef unsigned long long uint64_t;
+# 229 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long long uintmax_t;
+# 22 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 2 3
+
+
+typedef int8_t int_fast8_t;
+
+typedef int64_t int_fast64_t;
+
+
+typedef int8_t int_least8_t;
+typedef int16_t int_least16_t;
+
+typedef int24_t int_least24_t;
+
+typedef int32_t int_least32_t;
+
+typedef int64_t int_least64_t;
+
+
+typedef uint8_t uint_fast8_t;
+
+typedef uint64_t uint_fast64_t;
+
+
+typedef uint8_t uint_least8_t;
+typedef uint16_t uint_least16_t;
+
+typedef uint24_t uint_least24_t;
+
+typedef uint32_t uint_least32_t;
+
+typedef uint64_t uint_least64_t;
+# 139 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/stdint.h" 1 3
+typedef int32_t int_fast16_t;
+typedef int32_t int_fast32_t;
+typedef uint32_t uint_fast16_t;
+typedef uint32_t uint_fast32_t;
+# 139 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 2 3
+# 6 "./GPIOsparcA1.h" 2
+# 78 "./GPIOsparcA1.h"
+void GPIO_init_PORTB(void);
+# 140 "./GPIOsparcA1.h"
+void GPIO_init_PORTC(void);
+# 202 "./GPIOsparcA1.h"
+void GPIO_init_PORTD(void);
+# 19 "serial.c" 2
+
 
 void main() {
     USART_Init(9600);
+    TRISDbits.TRISD0=0;
+    TRISDbits.TRISD2=0;
+    TRISDbits.TRISD1=0;
+    TRISDbits.TRISD3=0;
+    PORTDbits.RD0=1;
+    PORTDbits.RD0=1;
+     TRISCbits.RC1 = 0;
+    TRISCbits.RC2 = 0;
+    PORTCbits.RC1=0;
     while (1) {
         char Oupcode = USART_Rx();
         switch (Oupcode) {
@@ -5948,12 +6060,12 @@ void main() {
             case 'M':
                 Direccion_Memoria = USART_Rx();
                 USART_RxS(11, coordenada_setpoint);
+                USART_Tx('M');
                 Direccion_Memoria = Seria_Decodificacion_Memoria(Direccion_Memoria);
                 Serial_Escritura_Memoria(Direccion_Memoria,coordenada_setpoint);
                 break;
         }
     }
-
 }
 
 void Serial_DecodificacionX(char string_coordenada[], int *pointerCX) {
@@ -5961,9 +6073,8 @@ void Serial_DecodificacionX(char string_coordenada[], int *pointerCX) {
     for (int i = 0; i < 3; i++) {
         coordenadaX[i] = string_coordenada[i];
     }
-    USART_Tx('2');
     *pointerCX = atoi(coordenadaX);
-
+    return;
 }
 
 void Serial_DecodificacionY(char string_coordenada[], int *pointerCY) {
@@ -5971,8 +6082,8 @@ void Serial_DecodificacionY(char string_coordenada[], int *pointerCY) {
     for (int i = 0; i < 3; i++) {
         coordenadaY[i] = string_coordenada[4 + i];
     }
-    USART_Tx('1');
     *pointerCY = atoi(coordenadaY);
+    return;
 }
 
 void Serial_DecodificacionZ(char string_coordenada[], int *pointerCZ) {
@@ -5981,6 +6092,7 @@ void Serial_DecodificacionZ(char string_coordenada[], int *pointerCZ) {
         coordenadaZ[i] = string_coordenada[8 + i];
     }
     *pointerCZ = atoi(coordenadaZ);
+    return;
 }
 
 char Seria_Decodificacion_Memoria(char direccion) {
@@ -5989,49 +6101,49 @@ char Seria_Decodificacion_Memoria(char direccion) {
             direccion = 0x00;
             break;
         case '1':
-            direccion = 0x01;
+            direccion = 0x10;
             break;
         case '2':
-            direccion = 0x02;
+            direccion = 0x20;
             break;
         case '3':
-            direccion = 0x03;
+            direccion = 0x30;
             break;
         case '4':
-            direccion = 0x04;
+            direccion = 0x40;
             break;
         case '5':
-            direccion = 0x05;
+            direccion = 0x50;
             break;
         case '6':
-            direccion = 0x06;
+            direccion = 0x60;
             break;
         case '7':
-            direccion = 0x07;
+            direccion = 0x70;
             break;
         case '8':
-            direccion = 0x08;
+            direccion = 0x80;
             break;
         case '9':
-            direccion = 0x09;
+            direccion = 0x90;
             break;
         case 'A':
-            direccion = 0x0A;
+            direccion = 0xA0;
             break;
         case 'B':
-            direccion = 0x0B;
+            direccion = 0xB0;
             break;
         case 'C':
-            direccion = 0x0C;
+            direccion = 0xC0;
             break;
         case 'D':
-            direccion = 0x0D;
+            direccion = 0xD0;
             break;
         case 'E':
-            direccion = 0x0E;
+            direccion = 0xE0;
             break;
         case 'F':
-            direccion = 0x0F;
+            direccion = 0xF0;
             break;
     }
     return direccion;
@@ -6056,10 +6168,11 @@ void Serial_Lectura_Memoria(char direccion, int *pointerCX, int *pointerCY, int 
         direccionZ = direccion + i + 6;
         coordenadaZ[i] = EEPROM_Rx(direccionZ);
     }
+
     *pointerCX = atoi(coordenadaX);
     *pointerCY = atoi(coordenadaY);
     *pointerCZ = atoi(coordenadaZ);
-
+    return;
 }
 void Serial_Escritura_Memoria(char direccion,char string_setpoint[]){
     char direccionFinal;
@@ -6075,4 +6188,5 @@ void Serial_Escritura_Memoria(char direccion,char string_setpoint[]){
         direccionFinal=direccion+i+6;
         EEPROM_Tx(direccionFinal,string_setpoint[i+8]);
     }
+    return;
 }

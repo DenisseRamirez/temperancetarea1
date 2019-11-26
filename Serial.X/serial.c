@@ -16,9 +16,19 @@
 #include "motor.h"
 #include "Actuator.h"
 #include "EEPROM.h"
+#include "GPIOsparcA1.h"
 
 void main() {
     USART_Init(9600);
+    GPIO_RD0_TRIS=0;
+    GPIO_RD2_TRIS=0;
+    GPIO_RD1_TRIS=0;
+    GPIO_RD3_TRIS=0;
+    Enable_DriverX=1;
+    Enable_DriverX=1;
+     TRISCbits.RC1 = 0;
+    TRISCbits.RC2 = 0;
+    PORTCbits.RC1=0;
     while (1) {
         char Oupcode = USART_Rx();
         switch (Oupcode) { // Checa el Opcode que llega para saber a que funcion del serial llamar para decodificar lo que llega
@@ -53,12 +63,12 @@ void main() {
             case 'M':
                 Direccion_Memoria = USART_Rx();
                 USART_RxS(11, coordenada_setpoint); //Lectura de las coordenadas
+                USART_Tx('M');
                 Direccion_Memoria = Seria_Decodificacion_Memoria(Direccion_Memoria);
                 Serial_Escritura_Memoria(Direccion_Memoria,coordenada_setpoint);
                 break;
         }
     }
-
 }
 
 void Serial_DecodificacionX(char string_coordenada[], int *pointerCX) {
@@ -66,18 +76,17 @@ void Serial_DecodificacionX(char string_coordenada[], int *pointerCX) {
     for (int i = 0; i < 3; i++) {
         coordenadaX[i] = string_coordenada[i];
     }
-    USART_Tx('2');
     *pointerCX = atoi(coordenadaX); //Cambia el valor de string a una variable int, por lo que se deja el valor de la coordenada x
-
+    return;
 }
 
 void Serial_DecodificacionY(char string_coordenada[], int *pointerCY) {
     char coordenadaY[3];
     for (int i = 0; i < 3; i++) {
         coordenadaY[i] = string_coordenada[4 + i];
-    }
-    USART_Tx('1');
+    } 
     *pointerCY = atoi(coordenadaY); //Cambia el valor de string a una variable int, por lo que se deja el valor de la coordenada y
+    return;
 }
 
 void Serial_DecodificacionZ(char string_coordenada[], int *pointerCZ) {
@@ -86,6 +95,7 @@ void Serial_DecodificacionZ(char string_coordenada[], int *pointerCZ) {
         coordenadaZ[i] = string_coordenada[8 + i];
     }
     *pointerCZ = atoi(coordenadaZ); //Cambia el valor de string a una variable int, por lo que se deja el valor de la coordenada y
+    return;
 }
 
 char Seria_Decodificacion_Memoria(char direccion) {
@@ -94,49 +104,49 @@ char Seria_Decodificacion_Memoria(char direccion) {
             direccion = 0x00;
             break;
         case '1':
-            direccion = 0x01;
+            direccion = 0x10;
             break;
         case '2':
-            direccion = 0x02;
+            direccion = 0x20;
             break;
         case '3':
-            direccion = 0x03;
+            direccion = 0x30;
             break;
         case '4':
-            direccion = 0x04;
+            direccion = 0x40;
             break;
         case '5':
-            direccion = 0x05;
+            direccion = 0x50;
             break;
         case '6':
-            direccion = 0x06;
+            direccion = 0x60;
             break;
         case '7':
-            direccion = 0x07;
+            direccion = 0x70;
             break;
         case '8':
-            direccion = 0x08;
+            direccion = 0x80;
             break;
         case '9':
-            direccion = 0x09;
+            direccion = 0x90;
             break;
         case 'A':
-            direccion = 0x0A;
+            direccion = 0xA0;
             break;
         case 'B':
-            direccion = 0x0B;
+            direccion = 0xB0;
             break;
         case 'C':
-            direccion = 0x0C;
+            direccion = 0xC0;
             break;
         case 'D':
-            direccion = 0x0D;
+            direccion = 0xD0;
             break;
         case 'E':
-            direccion = 0x0E;
+            direccion = 0xE0;
             break;
         case 'F':
-            direccion = 0x0F;
+            direccion = 0xF0;
             break;
     }
     return direccion;
@@ -161,10 +171,11 @@ void Serial_Lectura_Memoria(char direccion, int *pointerCX, int *pointerCY, int 
         direccionZ = direccion + i + 6;
         coordenadaZ[i] = EEPROM_Rx(direccionZ);
     }
+    
     *pointerCX = atoi(coordenadaX); //Cambia el valor de string a una variable int, por lo que se deja el valor de la coordenada x
     *pointerCY = atoi(coordenadaY); //Cambia el valor de string a una variable int, por lo que se deja el valor de la coordenada y
     *pointerCZ = atoi(coordenadaZ); //Cambia el valor de string a una variable int, por lo que se deja el valor de la coordenada z
-
+    return;
 }
 void Serial_Escritura_Memoria(char direccion,char string_setpoint[]){
     char direccionFinal;
@@ -180,5 +191,6 @@ void Serial_Escritura_Memoria(char direccion,char string_setpoint[]){
         direccionFinal=direccion+i+6;
         EEPROM_Tx(direccionFinal,string_setpoint[i+8]);
     }
+    return;
 }
 

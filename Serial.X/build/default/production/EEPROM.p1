@@ -42,6 +42,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4915
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4915: extern volatile unsigned char EECON2 __attribute__((address(0xFA7)));
 [v _EECON2 `Vuc ~T0 @X0 0 e@4007 ]
+"4713
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4713:     struct {
+[s S187 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S187 . CCP2IF TMR3IF HLVDIF BCLIF EEIF USBIF CMIF OSCFIF ]
+"4723
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4723:     struct {
+[s S188 :2 `uc 1 :1 `uc 1 ]
+[n S188 . . LVDIF ]
+"4712
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4712: typedef union {
+[u S186 `S187 1 `S188 1 ]
+[n S186 . . . ]
+"4728
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4728: extern volatile PIR2bits_t PIR2bits __attribute__((address(0xFA1)));
+[v _PIR2bits `VS186 ~T0 @X0 0 e@4001 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -616,8 +631,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;EEPROM.c: 25:     EEADR=direccion;
 [e = _EEADR -> _direccion `uc ]
 "26
-[; ;EEPROM.c: 26:     EEDATA=data;
-[e = _EEDATA -> _data `uc ]
+[; ;EEPROM.c: 26:     EEDATA=dato;
+[e = _EEDATA -> _dato `uc ]
 "27
 [; ;EEPROM.c: 27:      EECON1bits.EEPGD=0;
 [e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
@@ -643,9 +658,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;EEPROM.c: 35:       INTCONbits.GIE=1;
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 "36
-[; ;EEPROM.c: 36:       EECON1bits.WREN=0 ;
+[; ;EEPROM.c: 36:       while(!PIR2bits.EEIF);
+[e $U 370  ]
+[e :U 371 ]
+[e :U 370 ]
+[e $ ! != -> . . _PIR2bits 0 4 `i -> 0 `i 371  ]
+[e :U 372 ]
+"37
+[; ;EEPROM.c: 37:       PIR2bits.EEIF=0;
+[e = . . _PIR2bits 0 4 -> -> 0 `i `uc ]
+"38
+[; ;EEPROM.c: 38:       EECON1bits.WREN=0 ;
 [e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
-"39
-[; ;EEPROM.c: 39: }
+"40
+[; ;EEPROM.c: 40: }
 [e :UE 369 ]
 }

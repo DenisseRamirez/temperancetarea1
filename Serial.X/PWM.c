@@ -9,12 +9,12 @@ void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY) {
     } else {
         PWM_InitF();
     }
-    Enable_DriverX = 0;
-    Enable_DriverY = 0;
+    Enable_DriverX = 0;//Habilita los drivers
+    Enable_DriverY = 0; //Habilita los drivers
     T2CONbits.TMR2ON = 1; // Timer ON
     int countX = 0;
     int countY = 0;
-    while (countX < pulsosX && countY < pulsosY) {
+    while ((countX < pulsosX) || (countY < pulsosY)) {
         if (countX < pulsosX) {
             if (PORTCbits.RC2 == 1) {
                 countX = PWM_OneshotX(countX);
@@ -39,6 +39,7 @@ void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY) {
     countY = 0;
     oneshotY = 0;
     T2CONbits.TMR2ON = 0; // Timer OFF
+    return;
 }
 
 void PWM_InitF() {
@@ -47,14 +48,12 @@ void PWM_InitF() {
     CCPR1L = 0X3E;
     CCPR2L = 0X3E;
     TRISCbits.RC1 = 0;
-    TRISCbits.RC0 = 0;
     TRISCbits.RC2 = 0;
     T2CON = 0X03; //PREESCALER 16 TIMER 2
     CCP1CON = 0X0C;
     CCP2CON = 0X0C;
     T2CONbits.TMR2ON = 0; // Timer ON
-    Enable_DriverX = 1;
-    Enable_DriverY = 1;
+    return;
 }
 
 void PWM_InitS() {
@@ -63,14 +62,12 @@ void PWM_InitS() {
     CCPR1L = 0X3E;
     CCPR2L = 0X3E;
     TRISCbits.RC1 = 0;
-    TRISCbits.RC0 = 0;
     TRISCbits.RC2 = 0;
     T2CON = 0X03; //PREESCALER 16 TIMER 2
     CCP1CON = 0X0C;
     CCP2CON = 0X0C;
     T2CONbits.TMR2ON = 0; // Timer ON
-    Enable_DriverX = 1;
-    Enable_DriverY = 1;
+    return;
 }
 
 int PWM_OneshotX(int countX) {

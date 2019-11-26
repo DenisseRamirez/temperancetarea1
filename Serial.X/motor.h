@@ -7,7 +7,10 @@ extern "C" {
 int pasos_convertidos=0;
 int pasosX=0;
 int pasosY=0;
-int pulsX=0,pulsY=0;
+int coordenaX=0;
+int coordenaY=0;
+int CoordenadaXX=0;
+int CoordenadaYY=0;
 int Motor_Conversion(int CoordenadaX);
 void Motor_Movimiento(char Oupcode,int CoordenadaX,int CoordenadaY);
 int Motor_Calcular_PasosX(int pasos_converX);
