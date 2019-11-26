@@ -21,45 +21,43 @@ int Motor_Conversion(int Coordenada) {
     return pasos_convertidos;
 }
 
-void Motor_Movimiento(char Oupcode, int CoordenadaX, int CoordenadaY) {
-    CoordenadaXX = Motor_Calcular_PasosX(CoordenadaX);
-    CoordenadaYY = Motor_Calcular_PasosY(CoordenadaY);
-    pasosX = Motor_Conversion(CoordenadaXX);
-    pasosY = Motor_Conversion(CoordenadaYY);
-    coordenada_anteriorX=CoordenadaX;
-    coordenada_anteriorY=CoordenadaY;
-    PWM_GeneratePulsos(Oupcode, pasosX, pasosY);
+void Motor_Movimiento(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY) {
+    Motor_Calcular_PasosX(Motor_CoordenadaX);
+    Motor_Calcular_PasosY(Motor_CoordenadaY);
+    PasosX = Motor_Conversion(DeltaX);
+    PasosY = Motor_Conversion(DeltaY);
+    coordenada_anteriorX=Motor_CoordenadaX;
+    coordenada_anteriorY=Motor_CoordenadaY;
+    PWM_GeneratePulsos(Oupcode, PasosX, PasosY);
     return;
 }
 
-int Motor_Calcular_PasosX(int coordenada_converX) {
-    if (coordenada_converX < coordenada_anteriorX) {
-        USART_Tx('-');
+void Motor_Calcular_PasosX(int coordenada_actualX) {
+    if (coordenada_actualX < coordenada_anteriorX) {
+        
         Direction_DriverX = 0;
-        coordenaX = coordenada_anteriorX - coordenada_converX;
-    } else if (coordenada_converX > coordenada_anteriorX) {
-        USART_Tx('+');
+        DeltaX = coordenada_anteriorX - coordenada_actualX;
+    } else if (coordenada_actualX > coordenada_anteriorX) {
+       
         Direction_DriverX = 1;
-        coordenaX = coordenada_converX - coordenada_anteriorX;
-    } else if (coordenada_converX == coordenada_anteriorX) {
-        coordenaX = 0;
+        DeltaX = coordenada_actualX - coordenada_anteriorX;
+    } else if (coordenada_actualX == coordenada_anteriorX) {
+        DeltaX = 0;
     }
-    return (coordenaX);
 }
 
-int Motor_Calcular_PasosY(int coordenada_converY) {
-    if (coordenada_converY < coordenada_anteriorY) {
-        USART_Tx('-');
+void Motor_Calcular_PasosY(int coordenada_actualY) {
+    if (coordenada_actualY < coordenada_anteriorY) {
+       
         Direction_DriverY = 0;
-        coordenaY = coordenada_anteriorY - coordenada_converY;
-    } else if (coordenada_converY > coordenada_anteriorY) {
-        USART_Tx('+');
+        DeltaY = coordenada_anteriorY - coordenada_actualY;
+    } else if (coordenada_actualY > coordenada_anteriorY) {
+       
         Direction_DriverY = 1;
-        coordenaY = coordenada_converY - coordenada_anteriorY;
-    } else if (coordenada_converY == coordenada_anteriorY) {
-        coordenaY=0;
+        DeltaY = coordenada_actualY - coordenada_anteriorY;
+    } else if (coordenada_actualY == coordenada_anteriorY) {
+        DeltaY=0;
     }
-    return (coordenaY);
 }
 
 void Motor_MovimientoZ_Init(char direccion) {

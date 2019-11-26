@@ -5633,8 +5633,6 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 char oneshotX=0;
 char oneshotY=0;
-int coordenada_anteriorX=0;
-int coordenada_anteriorY=0;
 void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
 int PWM_OneshotX ();
 int PWM_OneshotY ();
@@ -5651,9 +5649,9 @@ void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY) {
     }
     PORTDbits.RD0 = 0;
     PORTDbits.RD2 = 0;
-    T2CONbits.TMR2ON = 1;
     int countX = 0;
     int countY = 0;
+    T2CONbits.TMR2ON = 1;
     while ((countX < pulsosX) || (countY < pulsosY)) {
         if (countX < pulsosX) {
             if (PORTCbits.RC2 == 1) {

@@ -1,9 +1,9 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"15 ./PWM.h
-[; ;./PWM.h: 15: void PWM_InitS();
+"13 ./PWM.h
+[; ;./PWM.h: 13: void PWM_InitS();
 [v _PWM_InitS `(v ~T0 @X0 0 e? ]
-"14
-[; ;./PWM.h: 14: void PWM_InitF();
+"12
+[; ;./PWM.h: 12: void PWM_InitF();
 [v _PWM_InitF `(v ~T0 @X0 0 e? ]
 "2711 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2711:     struct {
@@ -70,11 +70,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2605
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2605: extern volatile PORTCbits_t PORTCbits __attribute__((address(0xF82)));
 [v _PORTCbits `VS110 ~T0 @X0 0 e@3970 ]
-"12 ./PWM.h
-[; ;./PWM.h: 12: int PWM_OneshotX ();
+"10 ./PWM.h
+[; ;./PWM.h: 10: int PWM_OneshotX ();
 [v _PWM_OneshotX `(i ~T0 @X0 0 e? ]
-"13
-[; ;./PWM.h: 13: int PWM_OneshotY ();
+"11
+[; ;./PWM.h: 11: int PWM_OneshotY ();
 [v _PWM_OneshotY `(i ~T0 @X0 0 e? ]
 "7298 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7298: extern volatile unsigned char PR2 __attribute__((address(0xFCB)));
@@ -631,18 +631,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _oneshotY
 -> -> 0 `i `uc
 ]
-"9
-[; ;./PWM.h: 9: int coordenada_anteriorX=0;
-[v _coordenada_anteriorX `i ~T0 @X0 1 e ]
-[i _coordenada_anteriorX
--> 0 `i
-]
-"10
-[; ;./PWM.h: 10: int coordenada_anteriorY=0;
-[v _coordenada_anteriorY `i ~T0 @X0 1 e ]
-[i _coordenada_anteriorY
--> 0 `i
-]
 "6 PWM.c
 [; ;PWM.c: 6: void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY) {
 [v _PWM_GeneratePulsos `(v ~T0 @X0 1 ef3`uc`i`i ]
@@ -679,16 +667,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;PWM.c: 13:     PORTDbits.RD2 = 0;
 [e = . . _PORTDbits 0 2 -> -> 0 `i `uc ]
 "14
-[; ;PWM.c: 14:     T2CONbits.TMR2ON = 1;
-[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
-"15
-[; ;PWM.c: 15:     int countX = 0;
+[; ;PWM.c: 14:     int countX = 0;
 [v _countX `i ~T0 @X0 1 a ]
 [e = _countX -> 0 `i ]
-"16
-[; ;PWM.c: 16:     int countY = 0;
+"15
+[; ;PWM.c: 15:     int countY = 0;
 [v _countY `i ~T0 @X0 1 a ]
 [e = _countY -> 0 `i ]
+"16
+[; ;PWM.c: 16:     T2CONbits.TMR2ON = 1;
+[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
 "17
 [; ;PWM.c: 17:     while ((countX < pulsosX) || (countY < pulsosY)) {
 [e $U 370  ]

@@ -242,8 +242,6 @@ size_t __ctype_get_mb_cur_max(void);
 
 char oneshotX=0;
 char oneshotY=0;
-int coordenada_anteriorX=0;
-int coordenada_anteriorY=0;
 void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
 int PWM_OneshotX ();
 int PWM_OneshotY ();
@@ -259,16 +257,18 @@ void PWM_InitS();
 
 
 int pasos_convertidos=0;
-int pasosX=0;
-int pasosY=0;
-int coordenaX=0;
-int coordenaY=0;
+int PasosX=0;
+int PasosY=0;
+int DeltaX=0;
+int DeltaY=0;
 int CoordenadaXX=0;
 int CoordenadaYY=0;
+int coordenada_anteriorX=0;
+int coordenada_anteriorY=0;
 int Motor_Conversion(int CoordenadaX);
 void Motor_Movimiento(char Oupcode,int CoordenadaX,int CoordenadaY);
-int Motor_Calcular_PasosX(int pasos_converX);
-int Motor_Calcular_PasosY(int pasos_converY);
+void Motor_Calcular_PasosX(int coordenada_actualX);
+void Motor_Calcular_PasosY(int coordenada_actualY);
 void Motor_MovimientoZ(char direccion);
 void Motor_MovimientoZ_Init(char direccion);
 # 11 "Motor.c" 2
@@ -5904,10 +5904,10 @@ void GPIO_init_PORTD(void);
 
 
 void USART_Init(long BAUD);
-void USART_Tx(char data);
-char USART_Rx();
+void USART_TxC(char data);
+char USART_RxC();
 void USARTStr(char *Output, unsigned int size);
-void USART_SPrint(char Str[]);
+void USART_TxSP(char Str[]);
 void USART_RxS (char lenght, char* pointer );
 char USART_TxS(char str[]);
 # 13 "Motor.c" 2
@@ -5922,45 +5922,43 @@ int Motor_Conversion(int Coordenada) {
     return pasos_convertidos;
 }
 
-void Motor_Movimiento(char Oupcode, int CoordenadaX, int CoordenadaY) {
-    CoordenadaXX = Motor_Calcular_PasosX(CoordenadaX);
-    CoordenadaYY = Motor_Calcular_PasosY(CoordenadaY);
-    pasosX = Motor_Conversion(CoordenadaXX);
-    pasosY = Motor_Conversion(CoordenadaYY);
-    coordenada_anteriorX=CoordenadaX;
-    coordenada_anteriorY=CoordenadaY;
-    PWM_GeneratePulsos(Oupcode, pasosX, pasosY);
+void Motor_Movimiento(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY) {
+    Motor_Calcular_PasosX(Motor_CoordenadaX);
+    Motor_Calcular_PasosY(Motor_CoordenadaY);
+    PasosX = Motor_Conversion(DeltaX);
+    PasosY = Motor_Conversion(DeltaY);
+    coordenada_anteriorX=Motor_CoordenadaX;
+    coordenada_anteriorY=Motor_CoordenadaY;
+    PWM_GeneratePulsos(Oupcode, PasosX, PasosY);
     return;
 }
 
-int Motor_Calcular_PasosX(int coordenada_converX) {
-    if (coordenada_converX < coordenada_anteriorX) {
-        USART_Tx('-');
+void Motor_Calcular_PasosX(int coordenada_actualX) {
+    if (coordenada_actualX < coordenada_anteriorX) {
+
         PORTDbits.RD1 = 0;
-        coordenaX = coordenada_anteriorX - coordenada_converX;
-    } else if (coordenada_converX > coordenada_anteriorX) {
-        USART_Tx('+');
+        DeltaX = coordenada_anteriorX - coordenada_actualX;
+    } else if (coordenada_actualX > coordenada_anteriorX) {
+
         PORTDbits.RD1 = 1;
-        coordenaX = coordenada_converX - coordenada_anteriorX;
-    } else if (coordenada_converX == coordenada_anteriorX) {
-        coordenaX = 0;
+        DeltaX = coordenada_actualX - coordenada_anteriorX;
+    } else if (coordenada_actualX == coordenada_anteriorX) {
+        DeltaX = 0;
     }
-    return (coordenaX);
 }
 
-int Motor_Calcular_PasosY(int coordenada_converY) {
-    if (coordenada_converY < coordenada_anteriorY) {
-        USART_Tx('-');
+void Motor_Calcular_PasosY(int coordenada_actualY) {
+    if (coordenada_actualY < coordenada_anteriorY) {
+
         PORTDbits.RD3 = 0;
-        coordenaY = coordenada_anteriorY - coordenada_converY;
-    } else if (coordenada_converY > coordenada_anteriorY) {
-        USART_Tx('+');
+        DeltaY = coordenada_anteriorY - coordenada_actualY;
+    } else if (coordenada_actualY > coordenada_anteriorY) {
+
         PORTDbits.RD3 = 1;
-        coordenaY = coordenada_converY - coordenada_anteriorY;
-    } else if (coordenada_converY == coordenada_anteriorY) {
-        coordenaY=0;
+        DeltaY = coordenada_actualY - coordenada_anteriorY;
+    } else if (coordenada_actualY == coordenada_anteriorY) {
+        DeltaY=0;
     }
-    return (coordenaY);
 }
 
 void Motor_MovimientoZ_Init(char direccion) {

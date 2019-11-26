@@ -11,9 +11,9 @@ void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY) {
     }
     Enable_DriverX = 0;//Habilita los drivers
     Enable_DriverY = 0; //Habilita los drivers
-    T2CONbits.TMR2ON = 1; // Timer ON
     int countX = 0;
     int countY = 0;
+    T2CONbits.TMR2ON = 1; // Timer ON
     while ((countX < pulsosX) || (countY < pulsosY)) {
         if (countX < pulsosX) {
             if (PORTCbits.RC2 == 1) {
@@ -44,8 +44,8 @@ void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY) {
 
 void PWM_InitF() {
 
-    PR2 = 0X7C;
-    CCPR1L = 0X3E;
+    PR2 = 0X7C;//FRECUENCIA DE 1000HZ
+    CCPR1L = 0X3E;//DUTY CICLE 50
     CCPR2L = 0X3E;
     TRISCbits.RC1 = 0;
     TRISCbits.RC2 = 0;
@@ -58,8 +58,8 @@ void PWM_InitF() {
 
 void PWM_InitS() {
 
-    PR2 = 0XFF;
-    CCPR1L = 0X3E;
+    PR2 = 0XFF;//FRECUENCIA DE 500HZ
+    CCPR1L = 0X3E;//DUTY CICLE 50
     CCPR2L = 0X3E;
     TRISCbits.RC1 = 0;
     TRISCbits.RC2 = 0;

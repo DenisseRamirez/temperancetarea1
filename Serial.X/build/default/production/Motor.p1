@@ -1,16 +1,13 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"16 ./motor.h
-[; ;./motor.h: 16: int Motor_Calcular_PasosX(int pasos_converX);
-[v _Motor_Calcular_PasosX `(i ~T0 @X0 0 ef1`i ]
-"17
-[; ;./motor.h: 17: int Motor_Calcular_PasosY(int pasos_converY);
-[v _Motor_Calcular_PasosY `(i ~T0 @X0 0 ef1`i ]
-"11 ./PWM.h
-[; ;./PWM.h: 11: void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
+"18 ./motor.h
+[; ;./motor.h: 18: void Motor_Calcular_PasosX(int coordenada_actualX);
+[v _Motor_Calcular_PasosX `(v ~T0 @X0 0 ef1`i ]
+"19
+[; ;./motor.h: 19: void Motor_Calcular_PasosY(int coordenada_actualY);
+[v _Motor_Calcular_PasosY `(v ~T0 @X0 0 ef1`i ]
+"9 ./PWM.h
+[; ;./PWM.h: 9: void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
 [v _PWM_GeneratePulsos `(v ~T0 @X0 0 ef3`uc`i`i ]
-"9 ./UART.h
-[; ;./UART.h: 9: void USART_Tx(char data);
-[v _USART_Tx `(v ~T0 @X0 0 ef1`uc ]
 "2711 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2711:     struct {
 [s S119 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -72,18 +69,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _oneshotY
 -> -> 0 `i `uc
 ]
-"9
-[; ;./PWM.h: 9: int coordenada_anteriorX=0;
-[v _coordenada_anteriorX `i ~T0 @X0 1 e ]
-[i _coordenada_anteriorX
--> 0 `i
-]
-"10
-[; ;./PWM.h: 10: int coordenada_anteriorY=0;
-[v _coordenada_anteriorY `i ~T0 @X0 1 e ]
-[i _coordenada_anteriorY
--> 0 `i
-]
 "7 ./motor.h
 [; ;./motor.h: 7: int pasos_convertidos=0;
 [v _pasos_convertidos `i ~T0 @X0 1 e ]
@@ -91,27 +76,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `i
 ]
 "8
-[; ;./motor.h: 8: int pasosX=0;
-[v _pasosX `i ~T0 @X0 1 e ]
-[i _pasosX
+[; ;./motor.h: 8: int PasosX=0;
+[v _PasosX `i ~T0 @X0 1 e ]
+[i _PasosX
 -> 0 `i
 ]
 "9
-[; ;./motor.h: 9: int pasosY=0;
-[v _pasosY `i ~T0 @X0 1 e ]
-[i _pasosY
+[; ;./motor.h: 9: int PasosY=0;
+[v _PasosY `i ~T0 @X0 1 e ]
+[i _PasosY
 -> 0 `i
 ]
 "10
-[; ;./motor.h: 10: int coordenaX=0;
-[v _coordenaX `i ~T0 @X0 1 e ]
-[i _coordenaX
+[; ;./motor.h: 10: int DeltaX=0;
+[v _DeltaX `i ~T0 @X0 1 e ]
+[i _DeltaX
 -> 0 `i
 ]
 "11
-[; ;./motor.h: 11: int coordenaY=0;
-[v _coordenaY `i ~T0 @X0 1 e ]
-[i _coordenaY
+[; ;./motor.h: 11: int DeltaY=0;
+[v _DeltaY `i ~T0 @X0 1 e ]
+[i _DeltaY
 -> 0 `i
 ]
 "12
@@ -124,6 +109,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./motor.h: 13: int CoordenadaYY=0;
 [v _CoordenadaYY `i ~T0 @X0 1 e ]
 [i _CoordenadaYY
+-> 0 `i
+]
+"14
+[; ;./motor.h: 14: int coordenada_anteriorX=0;
+[v _coordenada_anteriorX `i ~T0 @X0 1 e ]
+[i _coordenada_anteriorX
+-> 0 `i
+]
+"15
+[; ;./motor.h: 15: int coordenada_anteriorY=0;
+[v _coordenada_anteriorY `i ~T0 @X0 1 e ]
+[i _coordenada_anteriorY
 -> 0 `i
 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
@@ -659,35 +656,35 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 369 ]
 }
 "24
-[; ;Motor.c: 24: void Motor_Movimiento(char Oupcode, int CoordenadaX, int CoordenadaY) {
+[; ;Motor.c: 24: void Motor_Movimiento(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY) {
 [v _Motor_Movimiento `(v ~T0 @X0 1 ef3`uc`i`i ]
 {
 [e :U _Motor_Movimiento ]
 [v _Oupcode `uc ~T0 @X0 1 r1 ]
-[v _CoordenadaX `i ~T0 @X0 1 r2 ]
-[v _CoordenadaY `i ~T0 @X0 1 r3 ]
+[v _Motor_CoordenadaX `i ~T0 @X0 1 r2 ]
+[v _Motor_CoordenadaY `i ~T0 @X0 1 r3 ]
 [f ]
 "25
-[; ;Motor.c: 25:     CoordenadaXX = Motor_Calcular_PasosX(CoordenadaX);
-[e = _CoordenadaXX ( _Motor_Calcular_PasosX (1 _CoordenadaX ]
+[; ;Motor.c: 25:     Motor_Calcular_PasosX(Motor_CoordenadaX);
+[e ( _Motor_Calcular_PasosX (1 _Motor_CoordenadaX ]
 "26
-[; ;Motor.c: 26:     CoordenadaYY = Motor_Calcular_PasosY(CoordenadaY);
-[e = _CoordenadaYY ( _Motor_Calcular_PasosY (1 _CoordenadaY ]
+[; ;Motor.c: 26:     Motor_Calcular_PasosY(Motor_CoordenadaY);
+[e ( _Motor_Calcular_PasosY (1 _Motor_CoordenadaY ]
 "27
-[; ;Motor.c: 27:     pasosX = Motor_Conversion(CoordenadaXX);
-[e = _pasosX ( _Motor_Conversion (1 _CoordenadaXX ]
+[; ;Motor.c: 27:     PasosX = Motor_Conversion(DeltaX);
+[e = _PasosX ( _Motor_Conversion (1 _DeltaX ]
 "28
-[; ;Motor.c: 28:     pasosY = Motor_Conversion(CoordenadaYY);
-[e = _pasosY ( _Motor_Conversion (1 _CoordenadaYY ]
+[; ;Motor.c: 28:     PasosY = Motor_Conversion(DeltaY);
+[e = _PasosY ( _Motor_Conversion (1 _DeltaY ]
 "29
-[; ;Motor.c: 29:     coordenada_anteriorX=CoordenadaX;
-[e = _coordenada_anteriorX _CoordenadaX ]
+[; ;Motor.c: 29:     coordenada_anteriorX=Motor_CoordenadaX;
+[e = _coordenada_anteriorX _Motor_CoordenadaX ]
 "30
-[; ;Motor.c: 30:     coordenada_anteriorY=CoordenadaY;
-[e = _coordenada_anteriorY _CoordenadaY ]
+[; ;Motor.c: 30:     coordenada_anteriorY=Motor_CoordenadaY;
+[e = _coordenada_anteriorY _Motor_CoordenadaY ]
 "31
-[; ;Motor.c: 31:     PWM_GeneratePulsos(Oupcode, pasosX, pasosY);
-[e ( _PWM_GeneratePulsos (3 , , _Oupcode _pasosX _pasosY ]
+[; ;Motor.c: 31:     PWM_GeneratePulsos(Oupcode, PasosX, PasosY);
+[e ( _PWM_GeneratePulsos (3 , , _Oupcode _PasosX _PasosY ]
 "32
 [; ;Motor.c: 32:     return;
 [e $UE 370  ]
@@ -696,51 +693,45 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 370 ]
 }
 "35
-[; ;Motor.c: 35: int Motor_Calcular_PasosX(int coordenada_converX) {
-[v _Motor_Calcular_PasosX `(i ~T0 @X0 1 ef1`i ]
+[; ;Motor.c: 35: void Motor_Calcular_PasosX(int coordenada_actualX) {
+[v _Motor_Calcular_PasosX `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _Motor_Calcular_PasosX ]
-[v _coordenada_converX `i ~T0 @X0 1 r1 ]
+[v _coordenada_actualX `i ~T0 @X0 1 r1 ]
 [f ]
 "36
-[; ;Motor.c: 36:     if (coordenada_converX < coordenada_anteriorX) {
-[e $ ! < _coordenada_converX _coordenada_anteriorX 372  ]
+[; ;Motor.c: 36:     if (coordenada_actualX < coordenada_anteriorX) {
+[e $ ! < _coordenada_actualX _coordenada_anteriorX 372  ]
 {
-"37
-[; ;Motor.c: 37:         USART_Tx('-');
-[e ( _USART_Tx (1 -> -> 45 `ui `uc ]
 "38
 [; ;Motor.c: 38:         PORTDbits.RD1 = 0;
 [e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
 "39
-[; ;Motor.c: 39:         coordenaX = coordenada_anteriorX - coordenada_converX;
-[e = _coordenaX - _coordenada_anteriorX _coordenada_converX ]
+[; ;Motor.c: 39:         DeltaX = coordenada_anteriorX - coordenada_actualX;
+[e = _DeltaX - _coordenada_anteriorX _coordenada_actualX ]
 "40
-[; ;Motor.c: 40:     } else if (coordenada_converX > coordenada_anteriorX) {
+[; ;Motor.c: 40:     } else if (coordenada_actualX > coordenada_anteriorX) {
 }
 [e $U 373  ]
 [e :U 372 ]
-[e $ ! > _coordenada_converX _coordenada_anteriorX 374  ]
+[e $ ! > _coordenada_actualX _coordenada_anteriorX 374  ]
 {
-"41
-[; ;Motor.c: 41:         USART_Tx('+');
-[e ( _USART_Tx (1 -> -> 43 `ui `uc ]
 "42
 [; ;Motor.c: 42:         PORTDbits.RD1 = 1;
 [e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
 "43
-[; ;Motor.c: 43:         coordenaX = coordenada_converX - coordenada_anteriorX;
-[e = _coordenaX - _coordenada_converX _coordenada_anteriorX ]
+[; ;Motor.c: 43:         DeltaX = coordenada_actualX - coordenada_anteriorX;
+[e = _DeltaX - _coordenada_actualX _coordenada_anteriorX ]
 "44
-[; ;Motor.c: 44:     } else if (coordenada_converX == coordenada_anteriorX) {
+[; ;Motor.c: 44:     } else if (coordenada_actualX == coordenada_anteriorX) {
 }
 [e $U 375  ]
 [e :U 374 ]
-[e $ ! == _coordenada_converX _coordenada_anteriorX 376  ]
+[e $ ! == _coordenada_actualX _coordenada_anteriorX 376  ]
 {
 "45
-[; ;Motor.c: 45:         coordenaX = 0;
-[e = _coordenaX -> 0 `i ]
+[; ;Motor.c: 45:         DeltaX = 0;
+[e = _DeltaX -> 0 `i ]
 "46
 [; ;Motor.c: 46:     }
 }
@@ -748,153 +739,139 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 375 ]
 [e :U 373 ]
 "47
-[; ;Motor.c: 47:     return (coordenaX);
-[e ) _coordenaX ]
-[e $UE 371  ]
-"48
-[; ;Motor.c: 48: }
+[; ;Motor.c: 47: }
 [e :UE 371 ]
 }
-"50
-[; ;Motor.c: 50: int Motor_Calcular_PasosY(int coordenada_converY) {
-[v _Motor_Calcular_PasosY `(i ~T0 @X0 1 ef1`i ]
+"49
+[; ;Motor.c: 49: void Motor_Calcular_PasosY(int coordenada_actualY) {
+[v _Motor_Calcular_PasosY `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _Motor_Calcular_PasosY ]
-[v _coordenada_converY `i ~T0 @X0 1 r1 ]
+[v _coordenada_actualY `i ~T0 @X0 1 r1 ]
 [f ]
-"51
-[; ;Motor.c: 51:     if (coordenada_converY < coordenada_anteriorY) {
-[e $ ! < _coordenada_converY _coordenada_anteriorY 378  ]
+"50
+[; ;Motor.c: 50:     if (coordenada_actualY < coordenada_anteriorY) {
+[e $ ! < _coordenada_actualY _coordenada_anteriorY 378  ]
 {
 "52
-[; ;Motor.c: 52:         USART_Tx('-');
-[e ( _USART_Tx (1 -> -> 45 `ui `uc ]
-"53
-[; ;Motor.c: 53:         PORTDbits.RD3 = 0;
+[; ;Motor.c: 52:         PORTDbits.RD3 = 0;
 [e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
+"53
+[; ;Motor.c: 53:         DeltaY = coordenada_anteriorY - coordenada_actualY;
+[e = _DeltaY - _coordenada_anteriorY _coordenada_actualY ]
 "54
-[; ;Motor.c: 54:         coordenaY = coordenada_anteriorY - coordenada_converY;
-[e = _coordenaY - _coordenada_anteriorY _coordenada_converY ]
-"55
-[; ;Motor.c: 55:     } else if (coordenada_converY > coordenada_anteriorY) {
+[; ;Motor.c: 54:     } else if (coordenada_actualY > coordenada_anteriorY) {
 }
 [e $U 379  ]
 [e :U 378 ]
-[e $ ! > _coordenada_converY _coordenada_anteriorY 380  ]
+[e $ ! > _coordenada_actualY _coordenada_anteriorY 380  ]
 {
 "56
-[; ;Motor.c: 56:         USART_Tx('+');
-[e ( _USART_Tx (1 -> -> 43 `ui `uc ]
-"57
-[; ;Motor.c: 57:         PORTDbits.RD3 = 1;
+[; ;Motor.c: 56:         PORTDbits.RD3 = 1;
 [e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
+"57
+[; ;Motor.c: 57:         DeltaY = coordenada_actualY - coordenada_anteriorY;
+[e = _DeltaY - _coordenada_actualY _coordenada_anteriorY ]
 "58
-[; ;Motor.c: 58:         coordenaY = coordenada_converY - coordenada_anteriorY;
-[e = _coordenaY - _coordenada_converY _coordenada_anteriorY ]
-"59
-[; ;Motor.c: 59:     } else if (coordenada_converY == coordenada_anteriorY) {
+[; ;Motor.c: 58:     } else if (coordenada_actualY == coordenada_anteriorY) {
 }
 [e $U 381  ]
 [e :U 380 ]
-[e $ ! == _coordenada_converY _coordenada_anteriorY 382  ]
+[e $ ! == _coordenada_actualY _coordenada_anteriorY 382  ]
 {
+"59
+[; ;Motor.c: 59:         DeltaY=0;
+[e = _DeltaY -> 0 `i ]
 "60
-[; ;Motor.c: 60:         coordenaY=0;
-[e = _coordenaY -> 0 `i ]
-"61
-[; ;Motor.c: 61:     }
+[; ;Motor.c: 60:     }
 }
 [e :U 382 ]
 [e :U 381 ]
 [e :U 379 ]
-"62
-[; ;Motor.c: 62:     return (coordenaY);
-[e ) _coordenaY ]
-[e $UE 377  ]
-"63
-[; ;Motor.c: 63: }
+"61
+[; ;Motor.c: 61: }
 [e :UE 377 ]
 }
-"65
-[; ;Motor.c: 65: void Motor_MovimientoZ_Init(char direccion) {
+"63
+[; ;Motor.c: 63: void Motor_MovimientoZ_Init(char direccion) {
 [v _Motor_MovimientoZ_Init `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _Motor_MovimientoZ_Init ]
 [v _direccion `uc ~T0 @X0 1 r1 ]
 [f ]
-"66
-[; ;Motor.c: 66:     do { TRISDbits.TRISD4 = 0; } while(0);
+"64
+[; ;Motor.c: 64:     do { TRISDbits.TRISD4 = 0; } while(0);
 [e :U 386 ]
 {
 [e = . . _TRISDbits 0 4 -> -> 0 `i `uc ]
 }
 [e :U 385 ]
-"67
-[; ;Motor.c: 67: }
+"65
+[; ;Motor.c: 65: }
 [e :UE 383 ]
 }
-"69
-[; ;Motor.c: 69: void Motor_MovimientoZ(char direccion) {
+"67
+[; ;Motor.c: 67: void Motor_MovimientoZ(char direccion) {
 [v _Motor_MovimientoZ `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _Motor_MovimientoZ ]
 [v _direccion `uc ~T0 @X0 1 r1 ]
 [f ]
-"70
-[; ;Motor.c: 70:     do { LATDbits.LATD4 = 1; } while(0);
+"68
+[; ;Motor.c: 68:     do { LATDbits.LATD4 = 1; } while(0);
 [e :U 390 ]
 {
 [e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
 }
 [e :U 389 ]
-"71
-[; ;Motor.c: 71:     if (direccion == '1') {
+"69
+[; ;Motor.c: 69:     if (direccion == '1') {
 [e $ ! == -> _direccion `ui -> 49 `ui 391  ]
 {
-"72
-[; ;Motor.c: 72:         do { LATDbits.LATD5 = 1; } while(0);
+"70
+[; ;Motor.c: 70:         do { LATDbits.LATD5 = 1; } while(0);
 [e :U 394 ]
 {
 [e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 }
 [e :U 393 ]
-"73
-[; ;Motor.c: 73:         do { LATDbits.LATD6 = 0; } while(0);
+"71
+[; ;Motor.c: 71:         do { LATDbits.LATD6 = 0; } while(0);
 [e :U 397 ]
 {
 [e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
 }
 [e :U 396 ]
-"74
-[; ;Motor.c: 74:     } else if (direccion == '0') {
+"72
+[; ;Motor.c: 72:     } else if (direccion == '0') {
 }
 [e $U 398  ]
 [e :U 391 ]
 [e $ ! == -> _direccion `ui -> 48 `ui 399  ]
 {
-"75
-[; ;Motor.c: 75:         do { LATDbits.LATD5 = 0; } while(0);
+"73
+[; ;Motor.c: 73:         do { LATDbits.LATD5 = 0; } while(0);
 [e :U 402 ]
 {
 [e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 }
 [e :U 401 ]
-"76
-[; ;Motor.c: 76:         do { LATDbits.LATD6 = 1; } while(0);
+"74
+[; ;Motor.c: 74:         do { LATDbits.LATD6 = 1; } while(0);
 [e :U 405 ]
 {
 [e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
 }
 [e :U 404 ]
-"77
-[; ;Motor.c: 77:     }
+"75
+[; ;Motor.c: 75:     }
 }
 [e :U 399 ]
 [e :U 398 ]
-"78
-[; ;Motor.c: 78:     return;
+"76
+[; ;Motor.c: 76:     return;
 [e $UE 387  ]
-"79
-[; ;Motor.c: 79: }
+"77
+[; ;Motor.c: 77: }
 [e :UE 387 ]
 }

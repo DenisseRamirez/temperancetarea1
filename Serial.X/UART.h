@@ -6,10 +6,10 @@ extern "C" {
 #endif
 
 void USART_Init(long BAUD);
-void USART_Tx(char data);
-char USART_Rx();
+void USART_TxC(char data);
+char USART_RxC();
 void USARTStr(char *Output, unsigned int size);
-void USART_SPrint(char Str[]);
+void USART_TxSP(char Str[]);
 void USART_RxS (char lenght, char* pointer );
 char USART_TxS(char str[]);
 

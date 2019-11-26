@@ -11,7 +11,7 @@ void Actuator_Init(){
 void Actuator_Ini();
 void Actuator_Touch();
 void Actuator_Hold();
-void Actuator_Retrain();
+void Actuator_Retract();
 
 
 #ifdef	__cplusplus

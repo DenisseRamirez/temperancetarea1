@@ -5827,10 +5827,10 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 
 
 void USART_Init(long BAUD);
-void USART_Tx(char data);
-char USART_Rx();
+void USART_TxC(char data);
+char USART_RxC();
 void USARTStr(char *Output, unsigned int size);
-void USART_SPrint(char Str[]);
+void USART_TxSP(char Str[]);
 void USART_RxS (char lenght, char* pointer );
 char USART_TxS(char str[]);
 # 13 "serial.c" 2
@@ -5849,9 +5849,9 @@ char USART_TxS(char str[]);
     void Serial_Lectura_Memoria(char direccion, int *pointerCX, int *pointerCY, int *pointerCZ);
     void Serial_Escritura_Memoria(char direccion,char string_setpoint[]);
     char Seria_Decodificacion_Memoria(char direccion);
-    int CX;
-    int CY;
-    int CZ;
+    int CoordenadaX;
+    int CoordenadaY;
+    int CoordenadaZ;
     char coordenada_array[7];
     char coordenada_setpoint[11];
     char Direccion_Memoria;
@@ -5866,8 +5866,6 @@ char USART_TxS(char str[]);
 
 char oneshotX=0;
 char oneshotY=0;
-int coordenada_anteriorX=0;
-int coordenada_anteriorY=0;
 void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
 int PWM_OneshotX ();
 int PWM_OneshotY ();
@@ -5883,16 +5881,18 @@ void PWM_InitS();
 
 
 int pasos_convertidos=0;
-int pasosX=0;
-int pasosY=0;
-int coordenaX=0;
-int coordenaY=0;
+int PasosX=0;
+int PasosY=0;
+int DeltaX=0;
+int DeltaY=0;
 int CoordenadaXX=0;
 int CoordenadaYY=0;
+int coordenada_anteriorX=0;
+int coordenada_anteriorY=0;
 int Motor_Conversion(int CoordenadaX);
 void Motor_Movimiento(char Oupcode,int CoordenadaX,int CoordenadaY);
-int Motor_Calcular_PasosX(int pasos_converX);
-int Motor_Calcular_PasosY(int pasos_converY);
+void Motor_Calcular_PasosX(int coordenada_actualX);
+void Motor_Calcular_PasosY(int coordenada_actualY);
 void Motor_MovimientoZ(char direccion);
 void Motor_MovimientoZ_Init(char direccion);
 # 16 "serial.c" 2
@@ -5903,7 +5903,7 @@ void Actuator_Init(){
 void Actuator_Ini();
 void Actuator_Touch();
 void Actuator_Hold();
-void Actuator_Retrain();
+void Actuator_Retract();
 # 23 "./Actuator.h"
 }
 # 17 "serial.c" 2
@@ -6027,19 +6027,19 @@ void main() {
     TRISCbits.RC2 = 0;
     PORTCbits.RC1=0;
     while (1) {
-        char Oupcode = USART_Rx();
+        char Oupcode = USART_RxC();
         switch (Oupcode) {
             case 'F':
                 USART_RxS(7, coordenada_array);
-                Serial_DecodificacionX(coordenada_array, &CX);
-                Serial_DecodificacionY(coordenada_array, &CY);
-                Motor_Movimiento(Oupcode, CX, CY);
+                Serial_DecodificacionX(coordenada_array, &CoordenadaX);
+                Serial_DecodificacionY(coordenada_array, &CoordenadaY);
+                Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
                 break;
             case 'S':
                 USART_RxS(7, coordenada_array);
-                Serial_DecodificacionX(coordenada_array, &CX);
-                Serial_DecodificacionY(coordenada_array, &CY);
-                Motor_Movimiento(Oupcode, CX, CY);
+                Serial_DecodificacionX(coordenada_array,&CoordenadaX);
+                Serial_DecodificacionY(coordenada_array,&CoordenadaY);
+                Motor_Movimiento(Oupcode, CoordenadaX, &CoordenadaY);
                 break;
             case 'T':
                 Actuator_Touch();
@@ -6048,19 +6048,18 @@ void main() {
                 Actuator_Hold();
                 break;
             case 'R':
-                Actuator_Retrain();
+                Actuator_Retract();
                 break;
             case 'O':
-                Direccion_Memoria = USART_Rx();
+                Direccion_Memoria = USART_RxC();
                 Direccion_Memoria = Seria_Decodificacion_Memoria(Direccion_Memoria);
-                Serial_Lectura_Memoria(Direccion_Memoria, &CX, &CY, &CZ);
+                Serial_Lectura_Memoria(Direccion_Memoria,&CoordenadaX, &CoordenadaY, &CoordenadaZ);
 
-                Motor_Movimiento(Oupcode, CX, CY);
+                Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
                 break;
             case 'M':
-                Direccion_Memoria = USART_Rx();
+                Direccion_Memoria = USART_RxC();
                 USART_RxS(11, coordenada_setpoint);
-                USART_Tx('M');
                 Direccion_Memoria = Seria_Decodificacion_Memoria(Direccion_Memoria);
                 Serial_Escritura_Memoria(Direccion_Memoria,coordenada_setpoint);
                 break;
@@ -6156,15 +6155,15 @@ void Serial_Lectura_Memoria(char direccion, int *pointerCX, int *pointerCY, int 
     char direccionX;
     char direccionY;
     char direccionZ;
-    for (char i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; i++) {
         direccionX = direccion + i;
         coordenadaX[i] = EEPROM_Rx(direccionX);
     }
-    for (char i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; i++) {
         direccionY = direccion + i + 3;
         coordenadaY[i] = EEPROM_Rx(direccionY);
     }
-    for (char i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; i++) {
         direccionZ = direccion + i + 6;
         coordenadaZ[i] = EEPROM_Rx(direccionZ);
     }

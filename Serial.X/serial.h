@@ -11,9 +11,9 @@ extern "C" {
     void Serial_Lectura_Memoria(char direccion, int *pointerCX, int *pointerCY, int *pointerCZ);
     void Serial_Escritura_Memoria(char direccion,char string_setpoint[]);
     char Seria_Decodificacion_Memoria(char direccion);
-    int CX; //Coordenada en x, global ya que sera usada en varias funciones
-    int CY; //Cooordenada en y
-    int CZ; //Coordenad en Z
+    int CoordenadaX; //Coordenada en x, global ya que sera usada en varias funciones
+    int CoordenadaY; //Cooordenada en y
+    int CoordenadaZ; //Coordenad en Z
     char coordenada_array[7];
     char coordenada_setpoint[11];
     char Direccion_Memoria;

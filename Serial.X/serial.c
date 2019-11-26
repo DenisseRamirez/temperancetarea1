@@ -30,19 +30,19 @@ void main() {
     TRISCbits.RC2 = 0;
     PORTCbits.RC1=0;
     while (1) {
-        char Oupcode = USART_Rx();
+        char Oupcode = USART_RxC();//Variable que indica la instruccion
         switch (Oupcode) { // Checa el Opcode que llega para saber a que funcion del serial llamar para decodificar lo que llega
-            case 'F':
+            case 'F'://Movimiento a coordenada rapido 
                 USART_RxS(7, coordenada_array); //Lectura de las coordenadas
-                Serial_DecodificacionX(coordenada_array, &CX); // LLamar a serial de decodificacion Coordenada LAS VARIABLES CX Y CY YA SE ENCUENTRAN CON VALORES
-                Serial_DecodificacionY(coordenada_array, &CY); // LLamar a serial de decodificacion Coordenada LAS VARIABLES CX Y CY YA SE ENCUENTRAN CON VALORES
-                Motor_Movimiento(Oupcode, CX, CY);
+                Serial_DecodificacionX(coordenada_array, &CoordenadaX); // LLamar a serial de decodificacion Coordenada LAS VARIABLES CX Y CY YA SE ENCUENTRAN CON VALORES
+                Serial_DecodificacionY(coordenada_array, &CoordenadaY); // LLamar a serial de decodificacion Coordenada LAS VARIABLES CX Y CY YA SE ENCUENTRAN CON VALORES
+                Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
                 break;
             case 'S':
                 USART_RxS(7, coordenada_array); //Lectura de las coordenadas
-                Serial_DecodificacionX(coordenada_array, &CX); // LLamar a serial de decodificacion Coordenada LAS VARIABLES CX Y CY YA SE ENCUENTRAN CON VALORES
-                Serial_DecodificacionY(coordenada_array, &CY); // LLamar a serial de decodificacion Coordenada LAS VARIABLES CX Y CY YA SE ENCUENTRAN CON VALORES
-                Motor_Movimiento(Oupcode, CX, CY);
+                Serial_DecodificacionX(coordenada_array,&CoordenadaX); // LLamar a serial de decodificacion Coordenada LAS VARIABLES CX Y CY YA SE ENCUENTRAN CON VALORES
+                Serial_DecodificacionY(coordenada_array,&CoordenadaY); // LLamar a serial de decodificacion Coordenada LAS VARIABLES CX Y CY YA SE ENCUENTRAN CON VALORES
+                Motor_Movimiento(Oupcode, CoordenadaX, &CoordenadaY);
                 break;
             case 'T':
                 Actuator_Touch();
@@ -51,19 +51,18 @@ void main() {
                 Actuator_Hold();
                 break;
             case 'R':
-                Actuator_Retrain();
+                Actuator_Retract();
                 break;
             case 'O':
-                Direccion_Memoria = USART_Rx();
+                Direccion_Memoria = USART_RxC();
                 Direccion_Memoria = Seria_Decodificacion_Memoria(Direccion_Memoria);
-                Serial_Lectura_Memoria(Direccion_Memoria, &CX, &CY, &CZ);
+                Serial_Lectura_Memoria(Direccion_Memoria,&CoordenadaX, &CoordenadaY, &CoordenadaZ);
                 //Iniciar control Manadando Variable CZ
-                Motor_Movimiento(Oupcode, CX, CY);
+                Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
                 break;
             case 'M':
-                Direccion_Memoria = USART_Rx();
+                Direccion_Memoria = USART_RxC();
                 USART_RxS(11, coordenada_setpoint); //Lectura de las coordenadas
-                USART_Tx('M');
                 Direccion_Memoria = Seria_Decodificacion_Memoria(Direccion_Memoria);
                 Serial_Escritura_Memoria(Direccion_Memoria,coordenada_setpoint);
                 break;
@@ -71,7 +70,7 @@ void main() {
     }
 }
 
-void Serial_DecodificacionX(char string_coordenada[], int *pointerCX) {
+void Serial_DecodificacionX(char string_coordenada[], int *pointerCX) { //Convierte la coordenada en str a int
     char coordenadaX[3]; //
     for (int i = 0; i < 3; i++) {
         coordenadaX[i] = string_coordenada[i];
@@ -80,7 +79,7 @@ void Serial_DecodificacionX(char string_coordenada[], int *pointerCX) {
     return;
 }
 
-void Serial_DecodificacionY(char string_coordenada[], int *pointerCY) {
+void Serial_DecodificacionY(char string_coordenada[], int *pointerCY) {//Convierte la coordenada en str a int
     char coordenadaY[3];
     for (int i = 0; i < 3; i++) {
         coordenadaY[i] = string_coordenada[4 + i];
@@ -89,7 +88,7 @@ void Serial_DecodificacionY(char string_coordenada[], int *pointerCY) {
     return;
 }
 
-void Serial_DecodificacionZ(char string_coordenada[], int *pointerCZ) {
+void Serial_DecodificacionZ(char string_coordenada[], int *pointerCZ) {//Convierte la coordenada en str a int
     char coordenadaZ[3];
     for (int i = 0; i < 3; i++) {
         coordenadaZ[i] = string_coordenada[8 + i];
@@ -159,17 +158,17 @@ void Serial_Lectura_Memoria(char direccion, int *pointerCX, int *pointerCY, int 
     char direccionX;
     char direccionY;
     char direccionZ;
-    for (char i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; i++) {
         direccionX = direccion + i;
-        coordenadaX[i] = EEPROM_Rx(direccionX);
+        coordenadaX[i] = EEPROM_Rx(direccionX);//Guardar datos de le EEPROM en string
     }
-    for (char i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; i++) {
         direccionY = direccion + i + 3;
-        coordenadaY[i] = EEPROM_Rx(direccionY);
+        coordenadaY[i] = EEPROM_Rx(direccionY);//Guardar datos de le EEPROM en string
     }
-    for (char i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; i++) {
         direccionZ = direccion + i + 6;
-        coordenadaZ[i] = EEPROM_Rx(direccionZ);
+        coordenadaZ[i] = EEPROM_Rx(direccionZ);//Guardar datos de le EEPROM en string
     }
     
     *pointerCX = atoi(coordenadaX); //Cambia el valor de string a una variable int, por lo que se deja el valor de la coordenada x

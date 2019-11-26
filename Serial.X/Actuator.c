@@ -24,7 +24,7 @@ void Actuator_Touch(){
 void Actuator_Hold(){
     GPIO_RC0_SetHigh();
 }
-void Actuator_Retrain(){
+void Actuator_Retract(){
     GPIO_RC0_SetLow();
 }
 

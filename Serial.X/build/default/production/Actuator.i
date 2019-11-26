@@ -5873,6 +5873,6 @@ void Actuator_Touch(){
 void Actuator_Hold(){
     do { LATCbits.LATC0 = 1; } while(0);
 }
-void Actuator_Retrain(){
+void Actuator_Retract(){
     do { LATCbits.LATC0 = 0; } while(0);
 }

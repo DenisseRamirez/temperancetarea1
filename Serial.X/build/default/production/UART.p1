@@ -95,7 +95,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5414
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 5414: extern volatile unsigned char RCREG __attribute__((address(0xFAE)));
 [v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
-"10443
+"45 UART.c
+[; ;UART.c: 45:     USART_Tx(Str[Strindex]);
+[v _USART_Tx `(i ~T0 @X0 0 e? ]
+"10443 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 10443: extern volatile __bit RCIF __attribute__((address(0x7CF5)));
 [v _RCIF `Vb ~T0 @X0 0 e@31989 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
@@ -618,91 +621,91 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7
 [; ;UART.c: 7:     OSCCON= 0x72;
 [e = _OSCCON -> -> 114 `i `uc ]
-"8
-[; ;UART.c: 8:     TRISCbits.RC6 = 0;
-[e = . . _TRISCbits 1 4 -> -> 0 `i `uc ]
 "9
-[; ;UART.c: 9:     TRISCbits.RC7 = 1;
+[; ;UART.c: 9:     TRISCbits.RC6 = 0;
+[e = . . _TRISCbits 1 4 -> -> 0 `i `uc ]
+"10
+[; ;UART.c: 10:     TRISCbits.RC7 = 1;
 [e = . . _TRISCbits 1 5 -> -> 1 `i `uc ]
-"12
-[; ;UART.c: 12:     SPBRG = (unsigned char)(((8000000/BAUD)/64)-1);
+"13
+[; ;UART.c: 13:     SPBRG = (unsigned char)(((8000000/BAUD)/64)-1);
 [e = _SPBRG -> - / / -> 8000000 `l _BAUD -> -> 64 `i `l -> -> 1 `i `l `uc ]
-"14
-[; ;UART.c: 14:     TXSTAbits.BRGH = 0;
-[e = . . _TXSTAbits 0 2 -> -> 0 `i `uc ]
 "15
-[; ;UART.c: 15:     TXSTAbits.SYNC = 0;
-[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
+[; ;UART.c: 15:     TXSTAbits.BRGH = 0;
+[e = . . _TXSTAbits 0 2 -> -> 0 `i `uc ]
 "16
-[; ;UART.c: 16:     RCSTAbits.SPEN = 1;
+[; ;UART.c: 16:     TXSTAbits.SYNC = 0;
+[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
+"17
+[; ;UART.c: 17:     RCSTAbits.SPEN = 1;
 [e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
-"18
-[; ;UART.c: 18:     TXSTAbits.TX9 = 0;
-[e = . . _TXSTAbits 0 6 -> -> 0 `i `uc ]
 "19
-[; ;UART.c: 19:     TXSTAbits.TXEN = 1;
+[; ;UART.c: 19:     TXSTAbits.TX9 = 0;
+[e = . . _TXSTAbits 0 6 -> -> 0 `i `uc ]
+"20
+[; ;UART.c: 20:     TXSTAbits.TXEN = 1;
 [e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
-"21
-[; ;UART.c: 21:     RCSTAbits.RC9 = 0;
-[e = . . _RCSTAbits 4 1 -> -> 0 `i `uc ]
 "22
-[; ;UART.c: 22:     RCSTAbits.CREN = 1;
-[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+[; ;UART.c: 22:     RCSTAbits.RC9 = 0;
+[e = . . _RCSTAbits 4 1 -> -> 0 `i `uc ]
 "23
-[; ;UART.c: 23: }
+[; ;UART.c: 23:     RCSTAbits.CREN = 1;
+[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+"24
+[; ;UART.c: 24: }
 [e :UE 368 ]
 }
-"25
-[; ;UART.c: 25: void USART_Tx(char data){
-[v _USART_Tx `(v ~T0 @X0 1 ef1`uc ]
+"26
+[; ;UART.c: 26: void USART_TxC(char data){
+[v _USART_TxC `(v ~T0 @X0 1 ef1`uc ]
 {
-[e :U _USART_Tx ]
+[e :U _USART_TxC ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [f ]
-"26
-[; ;UART.c: 26:     while(!PIR1bits.TXIF);
+"27
+[; ;UART.c: 27:     while(!PIR1bits.TXIF);
 [e $U 370  ]
 [e :U 371 ]
 [e :U 370 ]
 [e $ ! != -> . . _PIR1bits 0 4 `i -> 0 `i 371  ]
 [e :U 372 ]
-"27
-[; ;UART.c: 27:     TXREG = data;
-[e = _TXREG -> _data `uc ]
 "28
-[; ;UART.c: 28: }
+[; ;UART.c: 28:     TXREG = data;
+[e = _TXREG -> _data `uc ]
+"29
+[; ;UART.c: 29: }
 [e :UE 369 ]
 }
-"30
-[; ;UART.c: 30: char USART_Rx(){
-[v _USART_Rx `(uc ~T0 @X0 1 ef ]
-{
-[e :U _USART_Rx ]
-[f ]
 "31
-[; ;UART.c: 31:     while(!PIR1bits.RCIF);
+[; ;UART.c: 31: char USART_RxC(){
+[v _USART_RxC `(uc ~T0 @X0 1 ef ]
+{
+[e :U _USART_RxC ]
+[f ]
+"32
+[; ;UART.c: 32:     while(!PIR1bits.RCIF);
 [e $U 374  ]
 [e :U 375 ]
 [e :U 374 ]
 [e $ ! != -> . . _PIR1bits 0 5 `i -> 0 `i 375  ]
 [e :U 376 ]
-"32
-[; ;UART.c: 32:     return RCREG;
+"33
+[; ;UART.c: 33:     return RCREG;
 [e ) -> _RCREG `uc ]
 [e $UE 373  ]
-"33
-[; ;UART.c: 33: }
+"34
+[; ;UART.c: 34: }
 [e :UE 373 ]
 }
-"34
-[; ;UART.c: 34: char USART_TxS(char str[]){
+"35
+[; ;UART.c: 35: char USART_TxS(char str[]){
 [v _USART_TxS `(uc ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _USART_TxS ]
 [v _str `*uc ~T0 @X0 1 r1 ]
 [f ]
-"35
-[; ;UART.c: 35:     for (int i=0;i<=(sizeof(str));i++){
+"36
+[; ;UART.c: 36:     for (int i=0;i<=(sizeof(str));i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -710,94 +713,94 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 379  ]
 [e :U 378 ]
 {
-"36
-[; ;UART.c: 36:     while(!PIR1bits.TXIF)
+"37
+[; ;UART.c: 37:     while(!PIR1bits.TXIF)
 [e $U 381  ]
 [e :U 382 ]
-"37
-[; ;UART.c: 37:     TXREG = str[i];
+"38
+[; ;UART.c: 38:     TXREG = str[i];
 [e = _TXREG -> *U + _str * -> _i `x -> -> # *U _str `i `x `uc ]
 [e :U 381 ]
-"36
-[; ;UART.c: 36:     while(!PIR1bits.TXIF)
+"37
+[; ;UART.c: 37:     while(!PIR1bits.TXIF)
 [e $ ! != -> . . _PIR1bits 0 4 `i -> 0 `i 382  ]
 [e :U 383 ]
-"38
-[; ;UART.c: 38:     }
+"39
+[; ;UART.c: 39:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ <= -> _i `ui -> # _str `ui 378  ]
 [e :U 379 ]
 }
-"39
-[; ;UART.c: 39: }
+"40
+[; ;UART.c: 40: }
 [e :UE 377 ]
 }
-"41
-[; ;UART.c: 41: void USART_SPrint(char Str[]){
-[v _USART_SPrint `(v ~T0 @X0 1 ef1`*uc ]
+"42
+[; ;UART.c: 42: void USART_TxSP(char Str[]){
+[v _USART_TxSP `(v ~T0 @X0 1 ef1`*uc ]
 {
-[e :U _USART_SPrint ]
+[e :U _USART_TxSP ]
 [v _Str `*uc ~T0 @X0 1 r1 ]
 [f ]
-"42
-[; ;UART.c: 42:     int Strindex = 0;
+"43
+[; ;UART.c: 43:     int Strindex = 0;
 [v _Strindex `i ~T0 @X0 1 a ]
 [e = _Strindex -> 0 `i ]
-"43
-[; ;UART.c: 43:     while(Str[Strindex] != 0);
+"44
+[; ;UART.c: 44:     while(Str[Strindex] != 0);
 [e $U 385  ]
 [e :U 386 ]
 [e :U 385 ]
 [e $ != -> *U + _Str * -> _Strindex `x -> -> # *U _Str `i `x `i -> 0 `i 386  ]
 [e :U 387 ]
-"44
-[; ;UART.c: 44:     USART_Tx(Str[Strindex]);
-[e ( _USART_Tx (1 *U + _Str * -> _Strindex `x -> -> # *U _Str `i `x ]
 "45
-[; ;UART.c: 45:     Strindex++;
-[e ++ _Strindex -> 1 `i ]
+[; ;UART.c: 45:     USART_Tx(Str[Strindex]);
+[e ( _USART_Tx -> *U + _Str * -> _Strindex `x -> -> # *U _Str `i `x `i ]
 "46
-[; ;UART.c: 46: }
+[; ;UART.c: 46:     Strindex++;
+[e ++ _Strindex -> 1 `i ]
+"47
+[; ;UART.c: 47: }
 [e :UE 384 ]
 }
-"48
-[; ;UART.c: 48: void USART_RxS (char lenght, char* pointer ){
+"49
+[; ;UART.c: 49: void USART_RxS (char length, char* pointer ){
 [v _USART_RxS `(v ~T0 @X0 1 ef2`uc`*uc ]
 {
 [e :U _USART_RxS ]
-[v _lenght `uc ~T0 @X0 1 r1 ]
+[v _length `uc ~T0 @X0 1 r1 ]
 [v _pointer `*uc ~T0 @X0 1 r2 ]
 [f ]
-"49
-[; ;UART.c: 49:     for (int i = 0; i < lenght; i++)
+"50
+[; ;UART.c: 50:     for (int i = 0; i < length; i++)
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [e $U 392  ]
 [e :U 389 ]
-"50
-[; ;UART.c: 50:         {
-{
 "51
-[; ;UART.c: 51:             while (!RCIF);
+[; ;UART.c: 51:         {
+{
+"52
+[; ;UART.c: 52:             while (!RCIF);
 [e $U 393  ]
 [e :U 394 ]
 [e :U 393 ]
 [e $ ! _RCIF 394  ]
 [e :U 395 ]
-"52
-[; ;UART.c: 52:             pointer[i] = RCREG;
-[e = *U + _pointer * -> _i `x -> -> # *U _pointer `i `x -> _RCREG `uc ]
 "53
-[; ;UART.c: 53:         }
+[; ;UART.c: 53:             pointer[i] = RCREG;
+[e = *U + _pointer * -> _i `x -> -> # *U _pointer `i `x -> _RCREG `uc ]
+"54
+[; ;UART.c: 54:         }
 }
 [e ++ _i -> 1 `i ]
 [e :U 392 ]
-[e $ < _i -> _lenght `i 389  ]
+[e $ < _i -> _length `i 389  ]
 [e :U 390 ]
 }
-"54
-[; ;UART.c: 54: }
+"55
+[; ;UART.c: 55: }
 [e :UE 388 ]
 }

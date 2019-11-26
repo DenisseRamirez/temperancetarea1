@@ -5,6 +5,7 @@
 #include "UART.h"
 void USART_Init(long BAUD){
     OSCCON= 0x72;// Defines el valor del oscilador interno
+    
     TRISCbits.RC6 = 0;      
     TRISCbits.RC7 = 1;      
     
@@ -22,12 +23,12 @@ void USART_Init(long BAUD){
     RCSTAbits.CREN = 1;     
 }
 
-void USART_Tx(char data){
+void USART_TxC(char data){
     while(!PIR1bits.TXIF);
     TXREG = data;
 }
 
-char USART_Rx(){
+char USART_RxC(){
     while(!PIR1bits.RCIF);
     return RCREG; 
 }
@@ -38,15 +39,15 @@ char USART_TxS(char str[]){
     }
 }
 
-void USART_SPrint(char Str[]){
+void USART_TxSP(char Str[]){
     int Strindex = 0;
     while(Str[Strindex] != 0);
     USART_Tx(Str[Strindex]);
     Strindex++;
 }
 
-void USART_RxS (char lenght, char* pointer ){//funcion pa leer string
-    for (int i = 0; i < lenght; i++) 
+void USART_RxS (char length, char* pointer ){//funcion pa leer string
+    for (int i = 0; i < length; i++) 
         {
             while (!RCIF);
             pointer[i] = RCREG;

@@ -6,8 +6,6 @@
 #endif
 char oneshotX=0;
 char oneshotY=0;
-int coordenada_anteriorX=0;
-int coordenada_anteriorY=0;
 void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
 int PWM_OneshotX ();
 int PWM_OneshotY ();
