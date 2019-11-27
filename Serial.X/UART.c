@@ -3,9 +3,7 @@
 #include <stdlib.h>
 #include "configuration.h"
 #include "UART.h"
-void USART_Init(long BAUD){
-    OSCCON= 0x72;// Defines el valor del oscilador interno
-    
+void USART_Init(long BAUD){  
     TRISCbits.RC6 = 0;      
     TRISCbits.RC7 = 1;      
     
@@ -42,7 +40,7 @@ char USART_TxS(char str[]){
 void USART_TxSP(char Str[]){
     int Strindex = 0;
     while(Str[Strindex] != 0);
-    USART_Tx(Str[Strindex]);
+    USART_TxC(Str[Strindex]);
     Strindex++;
 }
 

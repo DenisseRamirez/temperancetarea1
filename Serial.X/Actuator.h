@@ -1,4 +1,4 @@
-void Actuator_Init(){
+
     
     
 #ifndef Actuator_H
@@ -19,5 +19,3 @@ void Actuator_Retract();
 #endif
 
 #endif	
-
-}

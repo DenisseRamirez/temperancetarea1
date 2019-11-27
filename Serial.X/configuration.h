@@ -1,6 +1,6 @@
 
-#ifndef CONFIG_H
-#define	CONFIG_H
+#ifndef configuration_H
+#define	configuration_H
 
 #ifdef	__cplusplus
 extern "C" {

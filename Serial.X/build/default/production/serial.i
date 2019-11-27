@@ -5898,14 +5898,11 @@ void Motor_MovimientoZ_Init(char direccion);
 # 16 "serial.c" 2
 
 # 1 "./Actuator.h" 1
-void Actuator_Init(){
 # 11 "./Actuator.h"
 void Actuator_Ini();
 void Actuator_Touch();
 void Actuator_Hold();
 void Actuator_Retract();
-# 23 "./Actuator.h"
-}
 # 17 "serial.c" 2
 
 # 1 "./EEPROM.h" 1
@@ -6016,6 +6013,7 @@ void GPIO_init_PORTD(void);
 
 
 void main() {
+    OSCCON= 0x72;
     USART_Init(9600);
     TRISDbits.TRISD0=0;
     TRISDbits.TRISD2=0;

@@ -5699,8 +5699,6 @@ char USART_TxS(char str[]);
 # 5 "UART.c" 2
 
 void USART_Init(long BAUD){
-    OSCCON= 0x72;
-
     TRISCbits.RC6 = 0;
     TRISCbits.RC7 = 1;
 
@@ -5737,7 +5735,7 @@ char USART_TxS(char str[]){
 void USART_TxSP(char Str[]){
     int Strindex = 0;
     while(Str[Strindex] != 0);
-    USART_Tx(Str[Strindex]);
+    USART_TxC(Str[Strindex]);
     Strindex++;
 }
 
