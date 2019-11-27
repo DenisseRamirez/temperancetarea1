@@ -5887,12 +5887,17 @@ typedef uint32_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 139 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 2 3
 # 6 "./GPIOsparcA1.h" 2
-# 78 "./GPIOsparcA1.h"
+
+
+void GPIO_init_PORTA(void);
+# 80 "./GPIOsparcA1.h"
 void GPIO_init_PORTB(void);
-# 140 "./GPIOsparcA1.h"
+# 142 "./GPIOsparcA1.h"
 void GPIO_init_PORTC(void);
-# 202 "./GPIOsparcA1.h"
+# 204 "./GPIOsparcA1.h"
 void GPIO_init_PORTD(void);
+# 286 "./GPIOsparcA1.h"
+void GPIO_init_PORTE(void);
 # 12 "Motor.c" 2
 
 # 1 "./UART.h" 1

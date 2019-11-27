@@ -5709,21 +5709,41 @@ typedef uint32_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 139 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 2 3
 # 6 "./GPIOsparcA1.h" 2
-# 78 "./GPIOsparcA1.h"
+
+
+void GPIO_init_PORTA(void);
+# 80 "./GPIOsparcA1.h"
 void GPIO_init_PORTB(void);
-# 140 "./GPIOsparcA1.h"
+# 142 "./GPIOsparcA1.h"
 void GPIO_init_PORTC(void);
-# 202 "./GPIOsparcA1.h"
+# 204 "./GPIOsparcA1.h"
 void GPIO_init_PORTD(void);
+# 286 "./GPIOsparcA1.h"
+void GPIO_init_PORTE(void);
 # 1 "GPIOsparcA1.c" 2
 
 
 
 
+void GPIO_PORTA(void){
+    PORTA = 0x00;
+    LATA = 0x00;
+    ADCON1 = 0xD0;
+    CMCON = 0x07;
+
+
+
+
+    do { TRISAbits.TRISA4 = 1; } while(0);
+
+
+
+}
+
 void GPIO_PORTB(void){
     PORTB = 0x00;
     LATB = 0x00;
-    ADCON1 = 0x0E;
+    ADCON1 = 0xD0;
     do { TRISBbits.TRISB0 = 1; } while(0);
     do { TRISBbits.TRISB1 = 1; } while(0);
     do { TRISBbits.TRISB2 = 1; } while(0);
@@ -5737,7 +5757,7 @@ void GPIO_PORTB(void){
 void GPIO_PORTC(void){
     PORTC = 0x00;
     LATC = 0x00;
-    do { TRISCbits.TRISC0 = 0; } while(0);
+    do { TRISCbits.TRISC0 = 1; } while(0);
     do { TRISCbits.TRISC1 = 0; } while(0);
     do { TRISCbits.TRISC2 = 0; } while(0);
 
@@ -5750,6 +5770,7 @@ void GPIO_PORTC(void){
 void GPIO_PORTD(void){
     PORTD = 0x00;
     LATD = 0x00;
+    CMCON = 0x07;
     do { TRISDbits.TRISD0 = 0; } while(0);
     do { TRISDbits.TRISD1 = 0; } while(0);
     do { TRISDbits.TRISD2 = 0; } while(0);
@@ -5757,5 +5778,20 @@ void GPIO_PORTD(void){
     do { TRISDbits.TRISD4 = 0; } while(0);
     do { TRISDbits.TRISD5 = 0; } while(0);
     do { TRISDbits.TRISD6 = 0; } while(0);
+
+}
+
+void GPIO_PORTE(void){
+    PORTE = 0x00;
+    LATE = 0x00;
+    ADCON1 = 0xD0;
+    CMCON = 0x07;
+    do { TRISEbits.TRISE0 = 0; } while(0);
+
+
+
+
+
+
 
 }
