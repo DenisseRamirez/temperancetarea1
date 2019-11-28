@@ -1,57 +1,9 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"3438 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3438:     struct {
-[s S144 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S144 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 ]
-"3447
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3447:     struct {
-[s S145 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S145 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 ]
-"3437
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3437: typedef union {
-[u S143 `S144 1 `S145 1 ]
-[n S143 . . . ]
-"3457
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3457: extern volatile TRISAbits_t TRISAbits __attribute__((address(0xF92)));
-[v _TRISAbits `VS143 ~T0 @X0 0 e@3986 ]
-"6587
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6587:     struct {
-[s S271 :4 `uc 1 :2 `uc 1 ]
-[n S271 . PCFG VCFG ]
-"6591
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6591:     struct {
-[s S272 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S272 . PCFG0 PCFG1 PCFG2 PCFG3 VCFG0 VCFG1 ]
-"6599
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6599:     struct {
-[s S273 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S273 . . CHSN3 VCFG01 VCFG11 ]
-"6586
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6586: typedef union {
-[u S270 `S271 1 `S272 1 `S273 1 ]
-[n S270 . . . . ]
-"6606
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6606: extern volatile ADCON1bits_t ADCON1bits __attribute__((address(0xFC1)));
-[v _ADCON1bits `VS270 ~T0 @X0 0 e@4033 ]
-"6666
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6666: extern volatile unsigned char ADCON0 __attribute__((address(0xFC2)));
-[v _ADCON0 `Vuc ~T0 @X0 0 e@4034 ]
-"6516
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6516:     struct {
-[s S268 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S268 . ADCS ACQT . ADFM ]
-"6522
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6522:     struct {
-[s S269 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S269 . ADCS0 ADCS1 ADCS2 ACQT0 ACQT1 ACQT2 ]
-"6515
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6515: typedef union {
-[u S267 `S268 1 `S269 1 ]
-[n S267 . . . ]
-"6531
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6531: extern volatile ADCON2bits_t ADCON2bits __attribute__((address(0xFC0)));
-[v _ADCON2bits `VS267 ~T0 @X0 0 e@4032 ]
-"6672
+[v F3789 `(f ~T0 @X0 1 tf2`f`f ]
+"319 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\math.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\math.h: 319: __attribute__((nonreentrant)) float powf(float, float);
+[v _powf `JF3789 ~T0 @X0 0 e ]
+"6672 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6672:     struct {
 [s S275 :1 `uc 1 :1 `uc 1 ]
 [n S275 . . GO_NOT_DONE ]
@@ -90,6 +42,61 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6710
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6710: extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0xFC2)));
 [v _ADCON0bits `VS274 ~T0 @X0 0 e@4034 ]
+"6792
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6792: extern volatile unsigned char ADRESL __attribute__((address(0xFC3)));
+[v _ADRESL `Vuc ~T0 @X0 0 e@4035 ]
+"6799
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6799: extern volatile unsigned char ADRESH __attribute__((address(0xFC4)));
+[v _ADRESH `Vuc ~T0 @X0 0 e@4036 ]
+"3438
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3438:     struct {
+[s S144 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S144 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 ]
+"3447
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3447:     struct {
+[s S145 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S145 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 ]
+"3437
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3437: typedef union {
+[u S143 `S144 1 `S145 1 ]
+[n S143 . . . ]
+"3457
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3457: extern volatile TRISAbits_t TRISAbits __attribute__((address(0xF92)));
+[v _TRISAbits `VS143 ~T0 @X0 0 e@3986 ]
+"6587
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6587:     struct {
+[s S271 :4 `uc 1 :2 `uc 1 ]
+[n S271 . PCFG VCFG ]
+"6591
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6591:     struct {
+[s S272 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S272 . PCFG0 PCFG1 PCFG2 PCFG3 VCFG0 VCFG1 ]
+"6599
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6599:     struct {
+[s S273 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S273 . . CHSN3 VCFG01 VCFG11 ]
+"6586
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6586: typedef union {
+[u S270 `S271 1 `S272 1 `S273 1 ]
+[n S270 . . . . ]
+"6606
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6606: extern volatile ADCON1bits_t ADCON1bits __attribute__((address(0xFC1)));
+[v _ADCON1bits `VS270 ~T0 @X0 0 e@4033 ]
+"6516
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6516:     struct {
+[s S268 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S268 . ADCS ACQT . ADFM ]
+"6522
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6522:     struct {
+[s S269 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S269 . ADCS0 ADCS1 ADCS2 ACQT0 ACQT1 ACQT2 ]
+"6515
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6515: typedef union {
+[u S267 `S268 1 `S269 1 ]
+[n S267 . . . ]
+"6531
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6531: extern volatile ADCON2bits_t ADCON2bits __attribute__((address(0xFC0)));
+[v _ADCON2bits `VS267 ~T0 @X0 0 e@4032 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -600,57 +607,157 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8893
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"16 ADC.c
-[; ;ADC.c: 16: void ADC_Init(){
+"10 ./ADC.h
+[; ;./ADC.h: 10: char bites_menosS;
+[v _bites_menosS `uc ~T0 @X0 1 e ]
+"11
+[; ;./ADC.h: 11: char bites_masS;
+[v _bites_masS `uc ~T0 @X0 1 e ]
+"12
+[; ;./ADC.h: 12: int Lectura;
+[v _Lectura `i ~T0 @X0 1 e ]
+"13
+[; ;./ADC.h: 13: int LecturaFiltro;
+[v _LecturaFiltro `i ~T0 @X0 1 e ]
+"14
+[; ;./ADC.h: 14: long Suma;
+[v _Suma `l ~T0 @X0 1 e ]
+"15
+[; ;./ADC.h: 15: float Distancia;
+[v _Distancia `f ~T0 @X0 1 e ]
+"20 ADC.c
+[; ;ADC.c: 20: void ADC_ConvertirDistancia(int Volts) {
+[v _ADC_ConvertirDistancia `(v ~T0 @X0 1 ef1`i ]
+{
+[e :U _ADC_ConvertirDistancia ]
+[v _Volts `i ~T0 @X0 1 r1 ]
+[f ]
+"21
+[; ;ADC.c: 21:     Distancia = 3143 * powf(Volts,-1.0610) + .3;
+[e = _Distancia -> + -> * -> -> 3143 `i `f ( _powf (2 , -> _Volts `f -> -U .1.0610 `f `d .0.3 `f ]
+"22
+[; ;ADC.c: 22: }
+[e :UE 369 ]
+}
+"24
+[; ;ADC.c: 24: int ADC_InsertBits(char Bmenos, char Bmas) {
+[v _ADC_InsertBits `(i ~T0 @X0 1 ef2`uc`uc ]
+{
+[e :U _ADC_InsertBits ]
+[v _Bmenos `uc ~T0 @X0 1 r1 ]
+[v _Bmas `uc ~T0 @X0 1 r2 ]
+[f ]
+"25
+[; ;ADC.c: 25:     Bmas &= ~(0xC);
+[e =& _Bmas -> ~ -> 12 `i `uc ]
+"26
+[; ;ADC.c: 26:     Lectura = Bmenos;
+[e = _Lectura -> _Bmenos `i ]
+"27
+[; ;ADC.c: 27:     Lectura &= ~(0xFFFFFF << 8);
+[e =& _Lectura -> ~ << -> 16777215 `l -> 8 `i `i ]
+"28
+[; ;ADC.c: 28:     Lectura |= ((Bmas & 0x3) << 8);
+[e =| _Lectura << & -> _Bmas `i -> 3 `i -> 8 `i ]
+"29
+[; ;ADC.c: 29:     return Lectura;
+[e ) _Lectura ]
+[e $UE 370  ]
+"30
+[; ;ADC.c: 30: }
+[e :UE 370 ]
+}
+"32
+[; ;ADC.c: 32: int ADC_LecturaFiltro(int n) {
+[v _ADC_LecturaFiltro `(i ~T0 @X0 1 ef1`i ]
+{
+[e :U _ADC_LecturaFiltro ]
+[v _n `i ~T0 @X0 1 r1 ]
+[f ]
+"33
+[; ;ADC.c: 33:     int lectura = 0;
+[v _lectura `i ~T0 @X0 1 a ]
+[e = _lectura -> 0 `i ]
+"34
+[; ;ADC.c: 34:     Suma=0;
+[e = _Suma -> -> 0 `i `l ]
+"35
+[; ;ADC.c: 35:     ADCON0bits.GO_DONE = 1;
+[e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
+"36
+[; ;ADC.c: 36:     for (int i = 0; i < n; i++) {
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $U 375  ]
+[e :U 372 ]
+{
+"37
+[; ;ADC.c: 37:        while (ADCON0bits.GO_DONE);
+[e $U 376  ]
+[e :U 377 ]
+[e :U 376 ]
+[e $ != -> . . _ADCON0bits 2 1 `i -> 0 `i 377  ]
+[e :U 378 ]
+"38
+[; ;ADC.c: 38:             bites_menosS = ADRESL;
+[e = _bites_menosS -> _ADRESL `uc ]
+"39
+[; ;ADC.c: 39:             bites_masS = ADRESH;
+[e = _bites_masS -> _ADRESH `uc ]
+"40
+[; ;ADC.c: 40:         lectura = ADC_InsertBits(bites_menosS, bites_masS);
+[e = _lectura ( _ADC_InsertBits (2 , _bites_menosS _bites_masS ]
+"41
+[; ;ADC.c: 41:         Suma = Suma + lectura;
+[e = _Suma + _Suma -> _lectura `l ]
+"42
+[; ;ADC.c: 42:     }
+}
+[e ++ _i -> 1 `i ]
+[e :U 375 ]
+[e $ < _i _n 372  ]
+[e :U 373 ]
+}
+"43
+[; ;ADC.c: 43:     return (Suma / n);
+[e ) -> / _Suma -> _n `l `i ]
+[e $UE 371  ]
+"44
+[; ;ADC.c: 44: }
+[e :UE 371 ]
+}
+"45
+[; ;ADC.c: 45: void ADC_Init() {
 [v _ADC_Init `(v ~T0 @X0 1 ef ]
 {
 [e :U _ADC_Init ]
 [f ]
-"17
-[; ;ADC.c: 17:     TRISAbits.RA0=1;
+"46
+[; ;ADC.c: 46:     TRISAbits.RA0=1;
 [e = . . _TRISAbits 1 0 -> -> 1 `i `uc ]
-"18
-[; ;ADC.c: 18:      TRISAbits.RA1=1;
-[e = . . _TRISAbits 1 1 -> -> 1 `i `uc ]
-"19
-[; ;ADC.c: 19:     ADCON1bits.PCFG=0xD;
-[e = . . _ADCON1bits 0 0 -> -> 13 `i `uc ]
-"20
-[; ;ADC.c: 20:     ADCON1bits.VCFG=0;
+"47
+[; ;ADC.c: 47:     ADCON1bits.PCFG = 0b1110;
+[e = . . _ADCON1bits 0 0 -> -> 14 `i `uc ]
+"48
+[; ;ADC.c: 48:     ADCON1bits.VCFG = 0b00;
 [e = . . _ADCON1bits 0 1 -> -> 0 `i `uc ]
-"21
-[; ;ADC.c: 21:     ADCON0=0;
-[e = _ADCON0 -> -> 0 `i `uc ]
-"22
-[; ;ADC.c: 22:     ADCON2bits.ACQT=0x2;
-[e = . . _ADCON2bits 0 1 -> -> 2 `i `uc ]
-"23
-[; ;ADC.c: 23:     ADCON2bits.ADCS=0x1;
-[e = . . _ADCON2bits 0 0 -> -> 1 `i `uc ]
-"24
-[; ;ADC.c: 24:     ADCON2bits.ADFM=1;
+"49
+[; ;ADC.c: 49:     ADCON0bits.CHS = 0b0000;
+[e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
+"50
+[; ;ADC.c: 50:    ADCON2bits.ACQT = 4;
+[e = . . _ADCON2bits 0 1 -> -> 4 `i `uc ]
+"51
+[; ;ADC.c: 51:     ADCON2bits.ADCS = 4;
+[e = . . _ADCON2bits 0 0 -> -> 4 `i `uc ]
+"52
+[; ;ADC.c: 52:     ADCON2bits.ADFM = 1;
 [e = . . _ADCON2bits 0 3 -> -> 1 `i `uc ]
-"25
-[; ;ADC.c: 25:     while(1){
-[e :U 371 ]
-{
-"26
-[; ;ADC.c: 26:         ADCON0bits.GO_DONE==1;
-[e == -> . . _ADCON0bits 2 1 `i -> 1 `i ]
-"27
-[; ;ADC.c: 27:         while(ADCON0bits.GO_DONE==1);
-[e $U 373  ]
-[e :U 374 ]
-[e :U 373 ]
-[e $ == -> . . _ADCON0bits 2 1 `i -> 1 `i 374  ]
-[e :U 375 ]
-"30
-[; ;ADC.c: 30:     }
-}
-[e :U 370 ]
-[e $U 371  ]
-[e :U 372 ]
-"31
-[; ;ADC.c: 31: }
-[e :UE 369 ]
+"53
+[; ;ADC.c: 53:     ADCON0bits.ADON = 1;
+[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
+"54
+[; ;ADC.c: 54: }
+[e :UE 379 ]
 }

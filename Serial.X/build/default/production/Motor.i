@@ -5914,7 +5914,7 @@ char USART_RxC();
 void USARTStr(char *Output, unsigned int size);
 void USART_TxSP(char Str[]);
 void USART_RxS (char lenght, char* pointer );
-char USART_TxS(char str[]);
+char USART_TxS(char str[], int length);
 # 13 "Motor.c" 2
 
 
@@ -5935,6 +5935,7 @@ void Motor_Movimiento(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY)
     coordenada_anteriorX=Motor_CoordenadaX;
     coordenada_anteriorY=Motor_CoordenadaY;
     PWM_GeneratePulsos(Oupcode, PasosX, PasosY);
+    USART_TxS("COMPLETED",sizeof("COMPLETED"));
     return;
 }
 

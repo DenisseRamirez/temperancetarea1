@@ -33,6 +33,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "187 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18.h
 [v __delay `JF3470 ~T0 @X0 0 e ]
 [p i __delay ]
+"14 ./UART.h
+[; ;./UART.h: 14: char USART_TxS(char str[], int length);
+[v _USART_TxS `(uc ~T0 @X0 0 ef2`*uc`i ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -543,81 +546,93 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8893
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"16 Actuator.c
-[; ;Actuator.c: 16: void Actuator_Ini(){
+"17 Actuator.c
+[; ;Actuator.c: 17: void Actuator_Ini(){
 [v _Actuator_Ini `(v ~T0 @X0 1 ef ]
 {
 [e :U _Actuator_Ini ]
 [f ]
-"17
-[; ;Actuator.c: 17:    do { TRISCbits.TRISC0 = 0; } while(0);
+"18
+[; ;Actuator.c: 18:    do { TRISCbits.TRISC0 = 0; } while(0);
 [e :U 372 ]
 {
 [e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
 }
 [e :U 371 ]
-"18
-[; ;Actuator.c: 18: }
+"19
+[; ;Actuator.c: 19: }
 [e :UE 369 ]
 }
-"19
-[; ;Actuator.c: 19: void Actuator_Touch(){
+"20
+[; ;Actuator.c: 20: void Actuator_Touch(){
 [v _Actuator_Touch `(v ~T0 @X0 1 ef ]
 {
 [e :U _Actuator_Touch ]
 [f ]
-"20
-[; ;Actuator.c: 20:     do { LATCbits.LATC0 = 1; } while(0);
+"21
+[; ;Actuator.c: 21:     do { LATCbits.LATC0 = 1; } while(0);
 [e :U 376 ]
 {
 [e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
 }
 [e :U 375 ]
-"21
-[; ;Actuator.c: 21:     _delay((unsigned long)((100)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "22
-[; ;Actuator.c: 22:     do { LATCbits.LATC0 = 0; } while(0);
+[; ;Actuator.c: 22:     _delay((unsigned long)((100)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"23
+[; ;Actuator.c: 23:     do { LATCbits.LATC0 = 0; } while(0);
 [e :U 379 ]
 {
 [e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
 }
 [e :U 378 ]
-"23
-[; ;Actuator.c: 23: }
+"24
+[; ;Actuator.c: 24:     USART_TxS("TOUCH",sizeof("TOUCH"));
+[e ( _USART_TxS (2 , :s 1C -> -> 6 `ui `i ]
+"25
+[; ;Actuator.c: 25: }
 [e :UE 373 ]
 }
-"24
-[; ;Actuator.c: 24: void Actuator_Hold(){
+"26
+[; ;Actuator.c: 26: void Actuator_Hold(){
 [v _Actuator_Hold `(v ~T0 @X0 1 ef ]
 {
 [e :U _Actuator_Hold ]
 [f ]
-"25
-[; ;Actuator.c: 25:     do { LATCbits.LATC0 = 1; } while(0);
+"27
+[; ;Actuator.c: 27:     do { LATCbits.LATC0 = 1; } while(0);
 [e :U 383 ]
 {
 [e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
 }
 [e :U 382 ]
-"26
-[; ;Actuator.c: 26: }
+"28
+[; ;Actuator.c: 28:     USART_TxS("COMPLETE",sizeof("COMPLETE"));
+[e ( _USART_TxS (2 , :s 2C -> -> 9 `ui `i ]
+"29
+[; ;Actuator.c: 29: }
 [e :UE 380 ]
 }
-"27
-[; ;Actuator.c: 27: void Actuator_Retract(){
+"30
+[; ;Actuator.c: 30: void Actuator_Retract(){
 [v _Actuator_Retract `(v ~T0 @X0 1 ef ]
 {
 [e :U _Actuator_Retract ]
 [f ]
-"28
-[; ;Actuator.c: 28:     do { LATCbits.LATC0 = 0; } while(0);
+"31
+[; ;Actuator.c: 31:     do { LATCbits.LATC0 = 0; } while(0);
 [e :U 387 ]
 {
 [e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
 }
 [e :U 386 ]
-"29
-[; ;Actuator.c: 29: }
+"32
+[; ;Actuator.c: 32:      USART_TxS("COMPLETE",sizeof("COMPLETE"));
+[e ( _USART_TxS (2 , :s 3C -> -> 9 `ui `i ]
+"33
+[; ;Actuator.c: 33: }
 [e :UE 384 ]
 }
+[a 1C 84 79 85 67 72 0 ]
+[a 2C 67 79 77 80 76 69 84 69 0 ]
+[a 3C 67 79 77 80 76 69 84 69 0 ]

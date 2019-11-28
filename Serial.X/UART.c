@@ -17,6 +17,7 @@ void USART_Init(long BAUD){
     TXSTAbits.TX9 = 0;   
     TXSTAbits.TXEN = 1;     
     
+    
     RCSTAbits.RC9 = 0;    
     RCSTAbits.CREN = 1;     
 }
@@ -30,9 +31,9 @@ char USART_RxC(){
     while(!PIR1bits.RCIF);
     return RCREG; 
 }
-char USART_TxS(char str[]){
-    for (int i=0;i<=(sizeof(str));i++){
-    while(!PIR1bits.TXIF)   
+char USART_TxS(char str[], int length){
+    for (int i=0;i<length;i++){
+    while(!PIR1bits.TXIF);
     TXREG = str[i];
     }
 }

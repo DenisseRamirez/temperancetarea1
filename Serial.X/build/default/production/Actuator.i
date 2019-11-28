@@ -5863,6 +5863,23 @@ void GPIO_init_PORTE(void);
 # 1 "./configuration.h" 1
 # 11 "Actuator.c" 2
 
+# 1 "./UART.h" 1
+
+
+
+
+
+
+
+void USART_Init(long BAUD);
+void USART_TxC(char data);
+char USART_RxC();
+void USARTStr(char *Output, unsigned int size);
+void USART_TxSP(char Str[]);
+void USART_RxS (char lenght, char* pointer );
+char USART_TxS(char str[], int length);
+# 12 "Actuator.c" 2
+
 
 
 
@@ -5874,10 +5891,13 @@ void Actuator_Touch(){
     do { LATCbits.LATC0 = 1; } while(0);
     _delay((unsigned long)((100)*(8000000/4000.0)));
     do { LATCbits.LATC0 = 0; } while(0);
+    USART_TxS("TOUCH",sizeof("TOUCH"));
 }
 void Actuator_Hold(){
     do { LATCbits.LATC0 = 1; } while(0);
+    USART_TxS("COMPLETE",sizeof("COMPLETE"));
 }
 void Actuator_Retract(){
     do { LATCbits.LATC0 = 0; } while(0);
+     USART_TxS("COMPLETE",sizeof("COMPLETE"));
 }

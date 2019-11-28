@@ -8,6 +8,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9 ./PWM.h
 [; ;./PWM.h: 9: void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
 [v _PWM_GeneratePulsos `(v ~T0 @X0 0 ef3`uc`i`i ]
+"14 ./UART.h
+[; ;./UART.h: 14: char USART_TxS(char str[], int length);
+[v _USART_TxS `(uc ~T0 @X0 0 ef2`*uc`i ]
 "2711 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2711:     struct {
 [s S119 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -686,192 +689,196 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Motor.c: 31:     PWM_GeneratePulsos(Oupcode, PasosX, PasosY);
 [e ( _PWM_GeneratePulsos (3 , , _Oupcode _PasosX _PasosY ]
 "32
-[; ;Motor.c: 32:     return;
-[e $UE 370  ]
+[; ;Motor.c: 32:     USART_TxS("COMPLETED",sizeof("COMPLETED"));
+[e ( _USART_TxS (2 , :s 1C -> -> 10 `ui `i ]
 "33
-[; ;Motor.c: 33: }
+[; ;Motor.c: 33:     return;
+[e $UE 370  ]
+"34
+[; ;Motor.c: 34: }
 [e :UE 370 ]
 }
-"35
-[; ;Motor.c: 35: void Motor_Calcular_PasosX(int coordenada_actualX) {
+"36
+[; ;Motor.c: 36: void Motor_Calcular_PasosX(int coordenada_actualX) {
 [v _Motor_Calcular_PasosX `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _Motor_Calcular_PasosX ]
 [v _coordenada_actualX `i ~T0 @X0 1 r1 ]
 [f ]
-"36
-[; ;Motor.c: 36:     if (coordenada_actualX < coordenada_anteriorX) {
+"37
+[; ;Motor.c: 37:     if (coordenada_actualX < coordenada_anteriorX) {
 [e $ ! < _coordenada_actualX _coordenada_anteriorX 372  ]
 {
-"38
-[; ;Motor.c: 38:         PORTDbits.RD1 = 0;
-[e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
 "39
-[; ;Motor.c: 39:         DeltaX = coordenada_anteriorX - coordenada_actualX;
-[e = _DeltaX - _coordenada_anteriorX _coordenada_actualX ]
+[; ;Motor.c: 39:         PORTDbits.RD1 = 0;
+[e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
 "40
-[; ;Motor.c: 40:     } else if (coordenada_actualX > coordenada_anteriorX) {
+[; ;Motor.c: 40:         DeltaX = coordenada_anteriorX - coordenada_actualX;
+[e = _DeltaX - _coordenada_anteriorX _coordenada_actualX ]
+"41
+[; ;Motor.c: 41:     } else if (coordenada_actualX > coordenada_anteriorX) {
 }
 [e $U 373  ]
 [e :U 372 ]
 [e $ ! > _coordenada_actualX _coordenada_anteriorX 374  ]
 {
-"42
-[; ;Motor.c: 42:         PORTDbits.RD1 = 1;
-[e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
 "43
-[; ;Motor.c: 43:         DeltaX = coordenada_actualX - coordenada_anteriorX;
-[e = _DeltaX - _coordenada_actualX _coordenada_anteriorX ]
+[; ;Motor.c: 43:         PORTDbits.RD1 = 1;
+[e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
 "44
-[; ;Motor.c: 44:     } else if (coordenada_actualX == coordenada_anteriorX) {
+[; ;Motor.c: 44:         DeltaX = coordenada_actualX - coordenada_anteriorX;
+[e = _DeltaX - _coordenada_actualX _coordenada_anteriorX ]
+"45
+[; ;Motor.c: 45:     } else if (coordenada_actualX == coordenada_anteriorX) {
 }
 [e $U 375  ]
 [e :U 374 ]
 [e $ ! == _coordenada_actualX _coordenada_anteriorX 376  ]
 {
-"45
-[; ;Motor.c: 45:         DeltaX = 0;
-[e = _DeltaX -> 0 `i ]
 "46
-[; ;Motor.c: 46:     }
+[; ;Motor.c: 46:         DeltaX = 0;
+[e = _DeltaX -> 0 `i ]
+"47
+[; ;Motor.c: 47:     }
 }
 [e :U 376 ]
 [e :U 375 ]
 [e :U 373 ]
-"47
-[; ;Motor.c: 47: }
+"48
+[; ;Motor.c: 48: }
 [e :UE 371 ]
 }
-"49
-[; ;Motor.c: 49: void Motor_Calcular_PasosY(int coordenada_actualY) {
+"50
+[; ;Motor.c: 50: void Motor_Calcular_PasosY(int coordenada_actualY) {
 [v _Motor_Calcular_PasosY `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _Motor_Calcular_PasosY ]
 [v _coordenada_actualY `i ~T0 @X0 1 r1 ]
 [f ]
-"50
-[; ;Motor.c: 50:     if (coordenada_actualY < coordenada_anteriorY) {
+"51
+[; ;Motor.c: 51:     if (coordenada_actualY < coordenada_anteriorY) {
 [e $ ! < _coordenada_actualY _coordenada_anteriorY 378  ]
 {
-"52
-[; ;Motor.c: 52:         PORTDbits.RD3 = 0;
-[e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
 "53
-[; ;Motor.c: 53:         DeltaY = coordenada_anteriorY - coordenada_actualY;
-[e = _DeltaY - _coordenada_anteriorY _coordenada_actualY ]
+[; ;Motor.c: 53:         PORTDbits.RD3 = 0;
+[e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
 "54
-[; ;Motor.c: 54:     } else if (coordenada_actualY > coordenada_anteriorY) {
+[; ;Motor.c: 54:         DeltaY = coordenada_anteriorY - coordenada_actualY;
+[e = _DeltaY - _coordenada_anteriorY _coordenada_actualY ]
+"55
+[; ;Motor.c: 55:     } else if (coordenada_actualY > coordenada_anteriorY) {
 }
 [e $U 379  ]
 [e :U 378 ]
 [e $ ! > _coordenada_actualY _coordenada_anteriorY 380  ]
 {
-"56
-[; ;Motor.c: 56:         PORTDbits.RD3 = 1;
-[e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
 "57
-[; ;Motor.c: 57:         DeltaY = coordenada_actualY - coordenada_anteriorY;
-[e = _DeltaY - _coordenada_actualY _coordenada_anteriorY ]
+[; ;Motor.c: 57:         PORTDbits.RD3 = 1;
+[e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
 "58
-[; ;Motor.c: 58:     } else if (coordenada_actualY == coordenada_anteriorY) {
+[; ;Motor.c: 58:         DeltaY = coordenada_actualY - coordenada_anteriorY;
+[e = _DeltaY - _coordenada_actualY _coordenada_anteriorY ]
+"59
+[; ;Motor.c: 59:     } else if (coordenada_actualY == coordenada_anteriorY) {
 }
 [e $U 381  ]
 [e :U 380 ]
 [e $ ! == _coordenada_actualY _coordenada_anteriorY 382  ]
 {
-"59
-[; ;Motor.c: 59:         DeltaY=0;
-[e = _DeltaY -> 0 `i ]
 "60
-[; ;Motor.c: 60:     }
+[; ;Motor.c: 60:         DeltaY=0;
+[e = _DeltaY -> 0 `i ]
+"61
+[; ;Motor.c: 61:     }
 }
 [e :U 382 ]
 [e :U 381 ]
 [e :U 379 ]
-"61
-[; ;Motor.c: 61: }
+"62
+[; ;Motor.c: 62: }
 [e :UE 377 ]
 }
-"63
-[; ;Motor.c: 63: void Motor_MovimientoZ_Init(char direccion) {
+"64
+[; ;Motor.c: 64: void Motor_MovimientoZ_Init(char direccion) {
 [v _Motor_MovimientoZ_Init `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _Motor_MovimientoZ_Init ]
 [v _direccion `uc ~T0 @X0 1 r1 ]
 [f ]
-"64
-[; ;Motor.c: 64:     do { TRISDbits.TRISD4 = 0; } while(0);
+"65
+[; ;Motor.c: 65:     do { TRISDbits.TRISD4 = 0; } while(0);
 [e :U 386 ]
 {
 [e = . . _TRISDbits 0 4 -> -> 0 `i `uc ]
 }
 [e :U 385 ]
-"65
-[; ;Motor.c: 65: }
+"66
+[; ;Motor.c: 66: }
 [e :UE 383 ]
 }
-"67
-[; ;Motor.c: 67: void Motor_MovimientoZ(char direccion) {
+"68
+[; ;Motor.c: 68: void Motor_MovimientoZ(char direccion) {
 [v _Motor_MovimientoZ `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _Motor_MovimientoZ ]
 [v _direccion `uc ~T0 @X0 1 r1 ]
 [f ]
-"68
-[; ;Motor.c: 68:     do { LATDbits.LATD4 = 1; } while(0);
+"69
+[; ;Motor.c: 69:     do { LATDbits.LATD4 = 1; } while(0);
 [e :U 390 ]
 {
 [e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
 }
 [e :U 389 ]
-"69
-[; ;Motor.c: 69:     if (direccion == '1') {
+"70
+[; ;Motor.c: 70:     if (direccion == '1') {
 [e $ ! == -> _direccion `ui -> 49 `ui 391  ]
 {
-"70
-[; ;Motor.c: 70:         do { LATDbits.LATD5 = 1; } while(0);
+"71
+[; ;Motor.c: 71:         do { LATDbits.LATD5 = 1; } while(0);
 [e :U 394 ]
 {
 [e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 }
 [e :U 393 ]
-"71
-[; ;Motor.c: 71:         do { LATDbits.LATD6 = 0; } while(0);
+"72
+[; ;Motor.c: 72:         do { LATDbits.LATD6 = 0; } while(0);
 [e :U 397 ]
 {
 [e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
 }
 [e :U 396 ]
-"72
-[; ;Motor.c: 72:     } else if (direccion == '0') {
+"73
+[; ;Motor.c: 73:     } else if (direccion == '0') {
 }
 [e $U 398  ]
 [e :U 391 ]
 [e $ ! == -> _direccion `ui -> 48 `ui 399  ]
 {
-"73
-[; ;Motor.c: 73:         do { LATDbits.LATD5 = 0; } while(0);
+"74
+[; ;Motor.c: 74:         do { LATDbits.LATD5 = 0; } while(0);
 [e :U 402 ]
 {
 [e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 }
 [e :U 401 ]
-"74
-[; ;Motor.c: 74:         do { LATDbits.LATD6 = 1; } while(0);
+"75
+[; ;Motor.c: 75:         do { LATDbits.LATD6 = 1; } while(0);
 [e :U 405 ]
 {
 [e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
 }
 [e :U 404 ]
-"75
-[; ;Motor.c: 75:     }
+"76
+[; ;Motor.c: 76:     }
 }
 [e :U 399 ]
 [e :U 398 ]
-"76
-[; ;Motor.c: 76:     return;
-[e $UE 387  ]
 "77
-[; ;Motor.c: 77: }
+[; ;Motor.c: 77:     return;
+[e $UE 387  ]
+"78
+[; ;Motor.c: 78: }
 [e :UE 387 ]
 }
+[a 1C 67 79 77 80 76 69 84 69 68 0 ]
