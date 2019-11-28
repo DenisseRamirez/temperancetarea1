@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=PWM.c UART.c GPIOsparcA1.c ADC.c configuration.c serial.c Motor.c Actuator.c EEPROM.c ControlZ.c main.c
+SOURCEFILES_QUOTED_IF_SPACED=PWM.c UART.c GPIOsparcA1.c ADC.c configuration.c EEPROM.c serial.c Motor.c Actuator.c ControlZ.c main.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/PWM.p1 ${OBJECTDIR}/UART.p1 ${OBJECTDIR}/GPIOsparcA1.p1 ${OBJECTDIR}/ADC.p1 ${OBJECTDIR}/configuration.p1 ${OBJECTDIR}/serial.p1 ${OBJECTDIR}/Motor.p1 ${OBJECTDIR}/Actuator.p1 ${OBJECTDIR}/EEPROM.p1 ${OBJECTDIR}/ControlZ.p1 ${OBJECTDIR}/main.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/PWM.p1.d ${OBJECTDIR}/UART.p1.d ${OBJECTDIR}/GPIOsparcA1.p1.d ${OBJECTDIR}/ADC.p1.d ${OBJECTDIR}/configuration.p1.d ${OBJECTDIR}/serial.p1.d ${OBJECTDIR}/Motor.p1.d ${OBJECTDIR}/Actuator.p1.d ${OBJECTDIR}/EEPROM.p1.d ${OBJECTDIR}/ControlZ.p1.d ${OBJECTDIR}/main.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/PWM.p1 ${OBJECTDIR}/UART.p1 ${OBJECTDIR}/GPIOsparcA1.p1 ${OBJECTDIR}/ADC.p1 ${OBJECTDIR}/configuration.p1 ${OBJECTDIR}/EEPROM.p1 ${OBJECTDIR}/serial.p1 ${OBJECTDIR}/Motor.p1 ${OBJECTDIR}/Actuator.p1 ${OBJECTDIR}/ControlZ.p1 ${OBJECTDIR}/main.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/PWM.p1.d ${OBJECTDIR}/UART.p1.d ${OBJECTDIR}/GPIOsparcA1.p1.d ${OBJECTDIR}/ADC.p1.d ${OBJECTDIR}/configuration.p1.d ${OBJECTDIR}/EEPROM.p1.d ${OBJECTDIR}/serial.p1.d ${OBJECTDIR}/Motor.p1.d ${OBJECTDIR}/Actuator.p1.d ${OBJECTDIR}/ControlZ.p1.d ${OBJECTDIR}/main.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/PWM.p1 ${OBJECTDIR}/UART.p1 ${OBJECTDIR}/GPIOsparcA1.p1 ${OBJECTDIR}/ADC.p1 ${OBJECTDIR}/configuration.p1 ${OBJECTDIR}/serial.p1 ${OBJECTDIR}/Motor.p1 ${OBJECTDIR}/Actuator.p1 ${OBJECTDIR}/EEPROM.p1 ${OBJECTDIR}/ControlZ.p1 ${OBJECTDIR}/main.p1
+OBJECTFILES=${OBJECTDIR}/PWM.p1 ${OBJECTDIR}/UART.p1 ${OBJECTDIR}/GPIOsparcA1.p1 ${OBJECTDIR}/ADC.p1 ${OBJECTDIR}/configuration.p1 ${OBJECTDIR}/EEPROM.p1 ${OBJECTDIR}/serial.p1 ${OBJECTDIR}/Motor.p1 ${OBJECTDIR}/Actuator.p1 ${OBJECTDIR}/ControlZ.p1 ${OBJECTDIR}/main.p1
 
 # Source Files
-SOURCEFILES=PWM.c UART.c GPIOsparcA1.c ADC.c configuration.c serial.c Motor.c Actuator.c EEPROM.c ControlZ.c main.c
+SOURCEFILES=PWM.c UART.c GPIOsparcA1.c ADC.c configuration.c EEPROM.c serial.c Motor.c Actuator.c ControlZ.c main.c
 
 
 
@@ -134,6 +134,14 @@ ${OBJECTDIR}/configuration.p1: configuration.c  nbproject/Makefile-${CND_CONF}.m
 	@-${MV} ${OBJECTDIR}/configuration.d ${OBJECTDIR}/configuration.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/configuration.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/EEPROM.p1: EEPROM.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/EEPROM.p1.d 
+	@${RM} ${OBJECTDIR}/EEPROM.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/EEPROM.p1 EEPROM.c 
+	@-${MV} ${OBJECTDIR}/EEPROM.d ${OBJECTDIR}/EEPROM.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/EEPROM.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 ${OBJECTDIR}/serial.p1: serial.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/serial.p1.d 
@@ -157,14 +165,6 @@ ${OBJECTDIR}/Actuator.p1: Actuator.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/Actuator.p1 Actuator.c 
 	@-${MV} ${OBJECTDIR}/Actuator.d ${OBJECTDIR}/Actuator.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/Actuator.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/EEPROM.p1: EEPROM.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/EEPROM.p1.d 
-	@${RM} ${OBJECTDIR}/EEPROM.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/EEPROM.p1 EEPROM.c 
-	@-${MV} ${OBJECTDIR}/EEPROM.d ${OBJECTDIR}/EEPROM.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/EEPROM.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/ControlZ.p1: ControlZ.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -223,6 +223,14 @@ ${OBJECTDIR}/configuration.p1: configuration.c  nbproject/Makefile-${CND_CONF}.m
 	@-${MV} ${OBJECTDIR}/configuration.d ${OBJECTDIR}/configuration.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/configuration.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/EEPROM.p1: EEPROM.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/EEPROM.p1.d 
+	@${RM} ${OBJECTDIR}/EEPROM.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/EEPROM.p1 EEPROM.c 
+	@-${MV} ${OBJECTDIR}/EEPROM.d ${OBJECTDIR}/EEPROM.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/EEPROM.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 ${OBJECTDIR}/serial.p1: serial.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/serial.p1.d 
@@ -246,14 +254,6 @@ ${OBJECTDIR}/Actuator.p1: Actuator.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/Actuator.p1 Actuator.c 
 	@-${MV} ${OBJECTDIR}/Actuator.d ${OBJECTDIR}/Actuator.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/Actuator.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/EEPROM.p1: EEPROM.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/EEPROM.p1.d 
-	@${RM} ${OBJECTDIR}/EEPROM.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/EEPROM.p1 EEPROM.c 
-	@-${MV} ${OBJECTDIR}/EEPROM.d ${OBJECTDIR}/EEPROM.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/EEPROM.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/ControlZ.p1: ControlZ.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 

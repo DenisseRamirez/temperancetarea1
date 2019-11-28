@@ -47,8 +47,12 @@ void main() {
                 Serial_DecodificacionY(coordenada_array, &CoordenadaY); // LLamar a serial de decodificacion Coordenada LAS VARIABLES CX Y CY YA SE ENCUENTRAN CON VALORES
                 Serial_RangosCoordenadas(CoordenadaX);
                 Serial_RangosCoordenadas(CoordenadaY);
-                if (Coordenadas_fuera == 1) {
+                if (Coordenadas_fuera == 1 ) {//En caso de Coordenada ingresada fuera del rango no comenzar
+                     USART_TxS("ERROR CORDINATES OUTSIDE THE RANGE\n", sizeof ("ERROR CORDINATES OUTSIDE THE RANGE\n") - 1);
                     Coordenadas_fuera = 0;
+                }else if (Coordenadas_mal==1){
+                    USART_TxS("ERROR CARACTERS INGRESED WRONG\n", sizeof ("ERROR CARACTERS INGRESED WRONG\n") - 1);
+                    Coordenadas_mal=0;
                 } else {
                     Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
                 }
@@ -60,8 +64,12 @@ void main() {
                 Serial_DecodificacionY(coordenada_array, &CoordenadaY); // LLamar a serial de decodificacion Coordenada LAS VARIABLES CX Y CY YA SE ENCUENTRAN CON VALORES
                 Serial_RangosCoordenadas(CoordenadaX); //Checar las coordenadas
                 Serial_RangosCoordenadas(CoordenadaY); //Checar las coordenadas
-                if (Coordenadas_fuera == 1) {//En caso de Coordenada ingresada fuera del rango no mover motores
+               if (Coordenadas_fuera == 1 ) {//En caso de Coordenada ingresada fuera del rango no comenzar
+                     USART_TxS("ERROR CORDINATES OUTSIDE THE RANGE\n", sizeof ("ERROR CORDINATES OUTSIDE THE RANGE\n") - 1);
                     Coordenadas_fuera = 0;
+                }else if (Coordenadas_mal==1){
+                    USART_TxS("ERROR CARACTERS INGRESED WRONG\n", sizeof ("ERROR CARACTERS INGRESED WRONG\n") - 1);
+                    Coordenadas_mal=0;
                 } else {
                     Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
                 }
@@ -85,9 +93,14 @@ void main() {
                 Serial_Lectura_MemoriaX(Direccion_Memoria,&CoordenadaX);
                 Serial_Lectura_MemoriaY(Direccion_Memoria,&CoordenadaY);
                 Serial_Lectura_MemoriaZ(Direccion_Memoria,&CoordenadaZ);
-                if (Coordenadas_fuera == 1) {//En caso de Coordenada ingresada fuera del rango no comenzar
+                if (Coordenadas_fuera == 1 ) {//En caso de Coordenada ingresada fuera del rango no comenzar
+                     USART_TxS("ERROR CORDINATES OUTSIDE THE RANGE\n", sizeof ("ERROR CORDINATES OUTSIDE THE RANGE\n") - 1);
                     USART_TxS("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n", sizeof ("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n") - 1);
                     Coordenadas_fuera = 0;
+                }else if (Coordenadas_mal==1){
+                    USART_TxS("ERROR CARACTERS INGRESED WRONG\n", sizeof ("ERROR CARACTERS INGRESED WRONG\n") - 1);
+                     USART_TxS("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n", sizeof ("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n") - 1);
+                    Coordenadas_mal=0;
                 } else {
                     //Iniciar control Manadando Variable CZ
                     Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
@@ -105,18 +118,28 @@ void main() {
 }
 
 void Serial_DecodificacionX(char string_coordenada[], int *pointerCX) { //Convierte la coordenada en str a int
-    char coordenadaX[3]; //
+    char coordenadaX[3];
     for (int i = 0; i < 3; i++) {
         coordenadaX[i] = string_coordenada[i];
+    }
+    for (int i=0;i<3;i++){
+    if (!(coordenadaX[i] >= 48 && coordenadaX[i] <= 57)) {//En caso de Coordenada ingresada fuera del rango prender banderra y enviar error
+        Coordenadas_mal = 1;
+    }
     }
     *pointerCX = atoi(coordenadaX); //Cambia el valor de string a una variable int, por lo que se deja el valor de la coordenada x
     return;
 }
 
 void Serial_DecodificacionY(char string_coordenada[], int *pointerCY) {//Convierte la coordenada en str a int
-    char coordenadaY[3];
+   char coordenadaY[3];
     for (int i = 0; i < 3; i++) {
         coordenadaY[i] = string_coordenada[4 + i];
+    }
+   for (int i=0;i<3;i++){
+    if (!(coordenadaY[i] >= 48 && coordenadaY[i] <= 57)) {//En caso de Coordenada ingresada fuera del rango prender banderra y enviar error
+        Coordenadas_mal = 1;
+    }
     }
     *pointerCY = atoi(coordenadaY); //Cambia el valor de string a una variable int, por lo que se deja el valor de la coordenada y
     return;
@@ -127,13 +150,16 @@ void Serial_DecodificacionZ(char string_coordenada[], int *pointerCZ) {//Convier
     for (int i = 0; i < 3; i++) {
         coordenadaZ[i] = string_coordenada[8 + i];
     }
+    for (int i=0;i<3;i++){
+    if (!(coordenadaZ[i] >= 48 && coordenadaZ[i] <= 57)) {//En caso de Coordenada ingresada fuera del rango prender banderra y enviar error
+        Coordenadas_mal = 1;
+    }
+    }
     *pointerCZ = atoi(coordenadaZ); //Cambia el valor de string a una variable int, por lo que se deja el valor de la coordenada y
     return;
 }
-
 void Serial_RangosCoordenadas(int C) {//Funcion que checa que las coordenadas se encuentren dentro del rango
     if (C > 300 || C < 0) {//En caso de Coordenada ingresada fuera del rango prender banderra y enviar error
-        USART_TxS("ERROR CORDINATES OUTSIDE THE RANGE\n", sizeof ("ERROR CORDINATES OUTSIDE THE RANGE\n") - 1);
         Coordenadas_fuera = 1;
     }
     return;
@@ -216,6 +242,11 @@ void Serial_Lectura_MemoriaX(char direccion, int *pointerCX) {
         direccionX = direccion + i;
         coordenadaX[i] = EEPROM_Rx(direccionX); //Guardar datos de le EEPROM en string
     }
+   for (int i=0;i<3;i++){
+    if (!(coordenadaX[i] >= 48 && coordenadaX[i] <= 57)) {//En caso de Coordenada ingresada fuera del rango prender banderra y enviar error
+        Coordenadas_mal = 1;
+    }
+    }
     *pointerCX = atoi(coordenadaX); //Cambia el valor de string a una variable int, por lo que se deja el valor de la coordenada x
     USART_TxS("COORDINATE X:", sizeof ("COORDINATE X:") - 1);
     USART_TxS(coordenadaX, sizeof (coordenadaX));
@@ -230,6 +261,11 @@ void Serial_Lectura_MemoriaY(char direccion, int *pointerCY) {
         direccionY = direccion + i + 3;
         coordenadaY[i] = EEPROM_Rx(direccionY); //Guardar datos de le EEPROM en string
     }
+    for (int i=0;i<3;i++){
+    if (!(coordenadaY[i] >= 48 && coordenadaY[i] <= 57)) {//En caso de Coordenada ingresada fuera del rango prender banderra y enviar error
+        Coordenadas_mal = 1;
+    }
+    }
     *pointerCY = atoi(coordenadaY); //Cambia el valor de string a una variable int, por lo que se deja el valor de la coordenada x
     USART_TxS("\nCOORDINATE Y:", sizeof ("\nCOORDINATE Y:") - 1);
     USART_TxS(coordenadaY, sizeof (coordenadaY));
@@ -243,6 +279,11 @@ void Serial_Lectura_MemoriaZ(char direccion, int *pointerCZ) {
     for (int i = 0; i < 3; i++) {
         direccionZ = direccion + i + 6;
         coordenadaZ[i] = EEPROM_Rx(direccionZ); //Guardar datos de le EEPROM en string
+    }
+   for (int i=0;i<3;i++){
+    if (!(coordenadaZ[i] >= 48 && coordenadaZ[i] <= 57)) {//En caso de Coordenada ingresada fuera del rango prender banderra y enviar error
+        Coordenadas_mal = 1;
+    }
     }
     *pointerCZ = atoi(coordenadaZ); //Cambia el valor de string a una variable int, por lo que se deja el valor de la coordenada x
     USART_TxS("\nCOORDINATE Z:", sizeof ("\nCOORDINATE Z:") - 1);
@@ -306,4 +347,16 @@ void Serial_Escritura_Memoria(char direccion, char string_setpoint[]) {
     Serial_RangosCoordenadas(CoordenadaY);
     Serial_RangosCoordenadas(CoordenadaZ);
     return;
-}*/
+}
+ 
+ void Serial_FiltroCaracteres(char C[]) {//Funcion que checa que las coordenadas se encuentren dentro del rango
+    for (int i=0;i<3;i++){
+    if (!(C[i] >= 48 && C[i] <= 57)) {//En caso de Coordenada ingresada fuera del rango prender banderra y enviar error
+        Coordenadas_mal = 1;
+    }
+    }
+    return;
+}
+ 
+ */
+

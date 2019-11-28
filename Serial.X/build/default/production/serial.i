@@ -5851,15 +5851,18 @@ char USART_TxS(char str[], int length);
     void Serial_Lectura_MemoriaZ(char direccion, int *pointerCZ) ;
     void Serial_RangosCoordenadas(int C);
 
+
     void Serial_Escritura_Memoria(char direccion,char string_setpoint[]);
     char Seria_Decodificacion_Memoria(char direccion);
     int CoordenadaX;
     int CoordenadaY;
     int CoordenadaZ;
+    char C[3];
     char coordenada_array[7];
     char coordenada_setpoint[11];
     char Direccion_Memoria;
-    char Coordenadas_fuera;
+    char Coordenadas_fuera=0;
+    char Coordenadas_mal=0;
 # 14 "serial.c" 2
 
 # 1 "./PWM.h" 1
@@ -6051,8 +6054,12 @@ void main() {
                 Serial_DecodificacionY(coordenada_array, &CoordenadaY);
                 Serial_RangosCoordenadas(CoordenadaX);
                 Serial_RangosCoordenadas(CoordenadaY);
-                if (Coordenadas_fuera == 1) {
+                if (Coordenadas_fuera == 1 ) {
+                     USART_TxS("ERROR CORDINATES OUTSIDE THE RANGE\n", sizeof ("ERROR CORDINATES OUTSIDE THE RANGE\n") - 1);
                     Coordenadas_fuera = 0;
+                }else if (Coordenadas_mal==1){
+                    USART_TxS("ERROR CARACTERS INGRESED WRONG\n", sizeof ("ERROR CARACTERS INGRESED WRONG\n") - 1);
+                    Coordenadas_mal=0;
                 } else {
                     Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
                 }
@@ -6064,8 +6071,12 @@ void main() {
                 Serial_DecodificacionY(coordenada_array, &CoordenadaY);
                 Serial_RangosCoordenadas(CoordenadaX);
                 Serial_RangosCoordenadas(CoordenadaY);
-                if (Coordenadas_fuera == 1) {
+               if (Coordenadas_fuera == 1 ) {
+                     USART_TxS("ERROR CORDINATES OUTSIDE THE RANGE\n", sizeof ("ERROR CORDINATES OUTSIDE THE RANGE\n") - 1);
                     Coordenadas_fuera = 0;
+                }else if (Coordenadas_mal==1){
+                    USART_TxS("ERROR CARACTERS INGRESED WRONG\n", sizeof ("ERROR CARACTERS INGRESED WRONG\n") - 1);
+                    Coordenadas_mal=0;
                 } else {
                     Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
                 }
@@ -6089,9 +6100,14 @@ void main() {
                 Serial_Lectura_MemoriaX(Direccion_Memoria,&CoordenadaX);
                 Serial_Lectura_MemoriaY(Direccion_Memoria,&CoordenadaY);
                 Serial_Lectura_MemoriaZ(Direccion_Memoria,&CoordenadaZ);
-                if (Coordenadas_fuera == 1) {
+                if (Coordenadas_fuera == 1 ) {
+                     USART_TxS("ERROR CORDINATES OUTSIDE THE RANGE\n", sizeof ("ERROR CORDINATES OUTSIDE THE RANGE\n") - 1);
                     USART_TxS("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n", sizeof ("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n") - 1);
                     Coordenadas_fuera = 0;
+                }else if (Coordenadas_mal==1){
+                    USART_TxS("ERROR CARACTERS INGRESED WRONG\n", sizeof ("ERROR CARACTERS INGRESED WRONG\n") - 1);
+                     USART_TxS("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n", sizeof ("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n") - 1);
+                    Coordenadas_mal=0;
                 } else {
 
                     Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
@@ -6113,14 +6129,24 @@ void Serial_DecodificacionX(char string_coordenada[], int *pointerCX) {
     for (int i = 0; i < 3; i++) {
         coordenadaX[i] = string_coordenada[i];
     }
+    for (int i=0;i<3;i++){
+    if (!(coordenadaX[i] >= 48 && coordenadaX[i] <= 57)) {
+        Coordenadas_mal = 1;
+    }
+    }
     *pointerCX = atoi(coordenadaX);
     return;
 }
 
 void Serial_DecodificacionY(char string_coordenada[], int *pointerCY) {
-    char coordenadaY[3];
+   char coordenadaY[3];
     for (int i = 0; i < 3; i++) {
         coordenadaY[i] = string_coordenada[4 + i];
+    }
+   for (int i=0;i<3;i++){
+    if (!(coordenadaY[i] >= 48 && coordenadaY[i] <= 57)) {
+        Coordenadas_mal = 1;
+    }
     }
     *pointerCY = atoi(coordenadaY);
     return;
@@ -6131,13 +6157,16 @@ void Serial_DecodificacionZ(char string_coordenada[], int *pointerCZ) {
     for (int i = 0; i < 3; i++) {
         coordenadaZ[i] = string_coordenada[8 + i];
     }
+    for (int i=0;i<3;i++){
+    if (!(coordenadaZ[i] >= 48 && coordenadaZ[i] <= 57)) {
+        Coordenadas_mal = 1;
+    }
+    }
     *pointerCZ = atoi(coordenadaZ);
     return;
 }
-
 void Serial_RangosCoordenadas(int C) {
     if (C > 300 || C < 0) {
-        USART_TxS("ERROR CORDINATES OUTSIDE THE RANGE\n", sizeof ("ERROR CORDINATES OUTSIDE THE RANGE\n") - 1);
         Coordenadas_fuera = 1;
     }
     return;
@@ -6220,6 +6249,11 @@ void Serial_Lectura_MemoriaX(char direccion, int *pointerCX) {
         direccionX = direccion + i;
         coordenadaX[i] = EEPROM_Rx(direccionX);
     }
+   for (int i=0;i<3;i++){
+    if (!(coordenadaX[i] >= 48 && coordenadaX[i] <= 57)) {
+        Coordenadas_mal = 1;
+    }
+    }
     *pointerCX = atoi(coordenadaX);
     USART_TxS("COORDINATE X:", sizeof ("COORDINATE X:") - 1);
     USART_TxS(coordenadaX, sizeof (coordenadaX));
@@ -6234,6 +6268,11 @@ void Serial_Lectura_MemoriaY(char direccion, int *pointerCY) {
         direccionY = direccion + i + 3;
         coordenadaY[i] = EEPROM_Rx(direccionY);
     }
+    for (int i=0;i<3;i++){
+    if (!(coordenadaY[i] >= 48 && coordenadaY[i] <= 57)) {
+        Coordenadas_mal = 1;
+    }
+    }
     *pointerCY = atoi(coordenadaY);
     USART_TxS("\nCOORDINATE Y:", sizeof ("\nCOORDINATE Y:") - 1);
     USART_TxS(coordenadaY, sizeof (coordenadaY));
@@ -6247,6 +6286,11 @@ void Serial_Lectura_MemoriaZ(char direccion, int *pointerCZ) {
     for (int i = 0; i < 3; i++) {
         direccionZ = direccion + i + 6;
         coordenadaZ[i] = EEPROM_Rx(direccionZ);
+    }
+   for (int i=0;i<3;i++){
+    if (!(coordenadaZ[i] >= 48 && coordenadaZ[i] <= 57)) {
+        Coordenadas_mal = 1;
+    }
     }
     *pointerCZ = atoi(coordenadaZ);
     USART_TxS("\nCOORDINATE Z:", sizeof ("\nCOORDINATE Z:") - 1);
