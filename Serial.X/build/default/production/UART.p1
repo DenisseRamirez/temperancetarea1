@@ -763,7 +763,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _pointer `*uc ~T0 @X0 1 r2 ]
 [f ]
 "49
-[; ;UART.c: 49:     for (int i = 0; i < length; i++)
+[; ;UART.c: 49:     for (int i = 0; i < (length); i++)
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]

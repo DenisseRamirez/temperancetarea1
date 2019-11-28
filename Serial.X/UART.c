@@ -46,7 +46,7 @@ void USART_TxSP(char Str[]){
 }
 
 void USART_RxS (char length, char* pointer ){//funcion pa leer string
-    for (int i = 0; i < length; i++) 
+    for (int i = 0; i < (length); i++) 
         {
             while (!RCIF);
             pointer[i] = RCREG;

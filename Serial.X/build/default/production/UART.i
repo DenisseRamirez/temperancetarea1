@@ -5741,7 +5741,7 @@ void USART_TxSP(char Str[]){
 }
 
 void USART_RxS (char length, char* pointer ){
-    for (int i = 0; i < length; i++)
+    for (int i = 0; i < (length); i++)
         {
             while (!RCIF);
             pointer[i] = RCREG;
