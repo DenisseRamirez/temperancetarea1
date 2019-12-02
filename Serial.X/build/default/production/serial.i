@@ -6043,7 +6043,6 @@ void Serial_Oupcode() {
     TRISCbits.RC2 = 0;
     PORTCbits.RC1 = 0;
     char instruction_counter = 0;
-    USART_TxS("WELCOME TO SPARC\n", sizeof ("WELCOME TO SPARC\n") - 1);
     USART_TxS("PLEASE INSERT THE INSTRUCTION OF SETPOINT\n", sizeof ("PLEASE INSERT THE INSTRUCTION OF SETPOINT\n") - 1);
     while (1) {
         if (instruction_counter == 0) {

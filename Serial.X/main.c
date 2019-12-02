@@ -19,11 +19,23 @@ void main() {
     OSCCON = 0x72;
     USART_Init(9600);
     Int_Ext();
+    USART_TxS("WELCOME TO SPARC\n", sizeof ("WELCOME TO SPARC\n") - 1);
+    USART_TxS("WAIT FOR HOME\n", sizeof ("WAIT FOR HOME\n") - 1);
     main_Home();
+    USART_TxS("COMPLETED\n", sizeof ("COMPLETED\n") - 1);
+    USART_TxS("WAITING FOR CONTROL...\n", sizeof ("WAITING FOR CONTROL...\n") - 1);
     //LLamar a control
     Serial_Oupcode();
     return;
 }
+
+
+
+
+
+
+
+
 
 void Int_Ext() {
     TRISD = 0x00;
@@ -66,46 +78,46 @@ void __interrupt() INT_isr(void) {
 
 void INT0_ACTION(void) {
     main_Home();
- coordenada_anteriorX=0;
- coordenada_anteriorY=0;
+    coordenada_anteriorX = 0;
+    coordenada_anteriorY = 0;
 }
 
 void INT1_ACTION(void) {
-      Enable_DriverX = 1; 
+    Enable_DriverX = 1;
     Enable_DriverY = 1;
     __delay_ms(100);
-    if(BanderaX==0){
-    Motor_Movimiento_Home('S', 30, 0);
+    if (BanderaX == 0) {
+        Motor_Movimiento_Home('S', 30, 0);
     }
     BanderaX = 1;
     return;
 }
 
 void INT2_ACTION(void) {
-       Enable_DriverX = 1; //Habilita los drivers
+    Enable_DriverX = 1; //Habilita los drivers
     Enable_DriverY = 1;
     __delay_ms(100);
-    if(BanderaY==0){
-   Motor_Movimiento_Home('S', 0, 30);
+    if (BanderaY == 0) {
+        Motor_Movimiento_Home('S', 0, 30);
     }
     BanderaY = 1;
     return;
 }
 
 void main_Home() {
-    while(BanderaX==0){
-    Enable_DriverX = 0; //Habilita los drivers
-    Enable_DriverY = 1;
-    Motor_Home();
-    }
-    while ( BanderaY == 0) {
-    Enable_DriverX = 1; //Habilita los drivers
-    Enable_DriverY = 0;
+    while (BanderaX == 0) {
+        Enable_DriverX = 0; //Habilita los drivers
+        Enable_DriverY = 1;
         Motor_Home();
     }
-    Enable_DriverX = 1; 
+    while (BanderaY == 0) {
+        Enable_DriverX = 1; //Habilita los drivers
+        Enable_DriverY = 0;
+        Motor_Home();
+    }
+    Enable_DriverX = 1;
     Enable_DriverY = 1;
-     T2CONbits.TMR2ON = 0;
+    T2CONbits.TMR2ON = 0;
     BanderaX = 0;
     BanderaY = 0;
     return;
