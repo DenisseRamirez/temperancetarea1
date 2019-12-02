@@ -28,11 +28,11 @@ Be aware that this link should be updated every 30 days.
 ## Developers
 Be sure to contact Support first. A desired new feature may be satisifed with the current software version; a bug may be troubleshot by Support. 
 
-Requests for software updates must done by filling the request template provided [here]().
+Requests for software updates must done by filling the request template provided [here](https://github.com/DenisseRamirez/temperancetarea1/blob/master/TempSPARC_Update_Request.docx).
 
 Update requests should be sent to: saenz_jorge_33@hotmail.com.
 
-Reports on software bugs must done by filling the report template provided [here]().
+Reports on software bugs must done by filling the report template provided [here](https://github.com/DenisseRamirez/temperancetarea1/blob/master/TempSPARC_Bug_Report.docx).
 
 Create an Issue, provide a meaningful title, and attach the report along with any other related attachment. 
 ## Software release 
