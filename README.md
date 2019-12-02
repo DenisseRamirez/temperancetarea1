@@ -26,8 +26,10 @@ https://join.slack.com/t/temperance-sparc/shared_invite/enQtODU3NjM4NTc5NDk0LTEz
 
 Be aware that this link should be updated every 30 days.
 ## Developers
-Requests for software updates must done by filling the report template provided [here]().
+Requests for software updates must done by filling the request template provided [here]().
 
-The full report with the attachments should be sent to: saenz_jorge_33@hotmail.com.
+Reports on software bugs must done by filling the report template provided [here]().
+
+Either complete template with the related attachments should be sent to: saenz_jorge_33@hotmail.com.
 ## Software release 
 https://github.com/DenisseRamirez/temperancetarea1/releases
