@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <xc.h>
 #include <string.h>
+#include <pic18f4550.h>
 #include "configuration.h"
 #include "UART.h"
 #include "serial.h"
@@ -102,6 +103,8 @@ void Serial_Oupcode() {
                 } else {
                     //Iniciar control Manadando Variable CZ
                     Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
+                    //APAGAR AZUL
+                    //PRENDER VERDE
                 }
                 break;
             case 'M':
@@ -111,6 +114,10 @@ void Serial_Oupcode() {
                 Direccion_Memoria = Seria_Decodificacion_Memoria(Direccion_Memoria);
                 Serial_Escritura_Memoria(Direccion_Memoria, coordenada_setpoint);
                 break;
+             case 'A'://Movimiento con botones 
+                 while(PORTAbits.RA5==0){
+                     Motor_MovimientoZ();
+                 }
         }
     }
 }

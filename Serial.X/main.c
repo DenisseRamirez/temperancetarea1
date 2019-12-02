@@ -14,28 +14,28 @@
 #include "motor.h"
 #include "PWM.h"
 #include "serial.h"
+#include "GPIOsparcA1.h"
+#include "User_Interface.h"
 
 void main() {
     OSCCON = 0x72;
+    GPIO_init_PORTA();
+    GPIO_init_PORTB();
+   GPIO_init_PORTC();
+   GPIO_init_PORTD();
+    GPIO_init_PORTE();
     USART_Init(9600);
     Int_Ext();
     USART_TxS("WELCOME TO SPARC\n", sizeof ("WELCOME TO SPARC\n") - 1);
+    Usart_Interface_ON('A');
     USART_TxS("WAIT FOR HOME\n", sizeof ("WAIT FOR HOME\n") - 1);
     main_Home();
     USART_TxS("COMPLETED\n", sizeof ("COMPLETED\n") - 1);
-    USART_TxS("WAITING FOR CONTROL...\n", sizeof ("WAITING FOR CONTROL...\n") - 1);
-    //LLamar a control
+    Usart_Interface_Flash('V');
     Serial_Oupcode();
+    //LLamar a control
     return;
 }
-
-
-
-
-
-
-
-
 
 void Int_Ext() {
     TRISD = 0x00;

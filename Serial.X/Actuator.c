@@ -18,16 +18,16 @@ void Actuator_Ini(){
    GPIO_RC0_SetDigitalOutput();
 }
 void Actuator_Touch(){
-    GPIO_RC0_SetHigh();
-    __delay_ms(100);
     GPIO_RC0_SetLow();
+    __delay_ms(100);
+    GPIO_RC0_SetHigh();
     USART_TxS("TOUCH\n",sizeof("TOUCH\n")-1);
 }
-void Actuator_Hold(){
+void Actuator_Retract(){
     GPIO_RC0_SetHigh();
     USART_TxS("COMPLETE\n",sizeof("COMPLETE\n")-1);
 }
-void Actuator_Retract(){
+void Actuator_Hold(){
     GPIO_RC0_SetLow();
      USART_TxS("COMPLETE\n",sizeof("COMPLETE\n")-1);
 }

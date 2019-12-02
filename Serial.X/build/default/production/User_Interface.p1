@@ -1,41 +1,23 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"3858 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3858:     struct {
-[s S156 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S156 . TRISC0 TRISC1 TRISC2 . TRISC6 TRISC7 ]
-"3866
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3866:     struct {
-[s S157 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S157 . RC0 RC1 RC2 . RC6 RC7 ]
-"3857
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3857: typedef union {
-[u S155 `S156 1 `S157 1 ]
-[n S155 . . . ]
-"3875
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3875: extern volatile TRISCbits_t TRISCbits __attribute__((address(0xF94)));
-[v _TRISCbits `VS155 ~T0 @X0 0 e@3988 ]
-"3191
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3191:     struct {
-[s S135 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S135 . LATC0 LATC1 LATC2 . LATC6 LATC7 ]
-"3199
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3199:     struct {
-[s S136 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S136 . LC0 LC1 LC2 . LC6 LC7 ]
-"3190
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3190: typedef union {
-[u S134 `S135 1 `S136 1 ]
-[n S134 . . . ]
-"3208
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3208: extern volatile LATCbits_t LATCbits __attribute__((address(0xF8B)));
-[v _LATCbits `VS134 ~T0 @X0 0 e@3979 ]
+"3079 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3079:     struct {
+[s S132 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S132 . LATB0 LATB1 LATB2 LATB3 LATB4 LATB5 LATB6 LATB7 ]
+"3089
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3089:     struct {
+[s S133 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S133 . LB0 LB1 LB2 LB3 LB4 LB5 LB6 LB7 ]
+"3078
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3078: typedef union {
+[u S131 `S132 1 `S133 1 ]
+[n S131 . . . ]
+"3100
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3100: extern volatile LATBbits_t LATBbits __attribute__((address(0xF8A)));
+[v _LATBbits `VS131 ~T0 @X0 0 e@3978 ]
 [v F3470 `(v ~T0 @X0 1 tf1`ul ]
 "187 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18.h
 [v __delay `JF3470 ~T0 @X0 0 e ]
 [p i __delay ]
-"14 ./UART.h
-[; ;./UART.h: 14: char USART_TxS(char str[], int length);
-[v _USART_TxS `(uc ~T0 @X0 0 ef2`*uc`i ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -546,93 +528,210 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8893
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"17 Actuator.c
-[; ;Actuator.c: 17: void Actuator_Ini(){
-[v _Actuator_Ini `(v ~T0 @X0 1 ef ]
+"14 User_Interface.c
+[; ;User_Interface.c: 14: void Usart_Interface_Off(char color){
+[v _Usart_Interface_Off `(v ~T0 @X0 1 ef1`uc ]
 {
-[e :U _Actuator_Ini ]
+[e :U _Usart_Interface_Off ]
+[v _color `uc ~T0 @X0 1 r1 ]
 [f ]
-"18
-[; ;Actuator.c: 18:    do { TRISCbits.TRISC0 = 0; } while(0);
+"15
+[; ;User_Interface.c: 15:     if (color=='A'){
+[e $ ! == -> _color `ui -> 65 `ui 370  ]
+{
+"16
+[; ;User_Interface.c: 16:         do { LATBbits.LATB7 = 0; } while(0);
+[e :U 373 ]
+{
+[e = . . _LATBbits 0 7 -> -> 0 `i `uc ]
+}
 [e :U 372 ]
-{
-[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
+"17
+[; ;User_Interface.c: 17:     }else if (color=='V'){
 }
-[e :U 371 ]
-"19
-[; ;Actuator.c: 19: }
-[e :UE 369 ]
-}
-"20
-[; ;Actuator.c: 20: void Actuator_Touch(){
-[v _Actuator_Touch `(v ~T0 @X0 1 ef ]
+[e $U 374  ]
+[e :U 370 ]
+[e $ ! == -> _color `ui -> 86 `ui 375  ]
 {
-[e :U _Actuator_Touch ]
-[f ]
-"21
-[; ;Actuator.c: 21:     do { LATCbits.LATC0 = 0; } while(0);
-[e :U 376 ]
-{
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
-}
-[e :U 375 ]
-"22
-[; ;Actuator.c: 22:     _delay((unsigned long)((100)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"23
-[; ;Actuator.c: 23:     do { LATCbits.LATC0 = 1; } while(0);
-[e :U 379 ]
-{
-[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
-}
+"18
+[; ;User_Interface.c: 18:         do { LATBbits.LATB6 = 0; } while(0);
 [e :U 378 ]
-"24
-[; ;Actuator.c: 24:     USART_TxS("TOUCH\n",sizeof("TOUCH\n")-1);
-[e ( _USART_TxS (2 , :s 1C -> - -> 7 `ui -> -> 1 `i `ui `i ]
-"25
-[; ;Actuator.c: 25: }
-[e :UE 373 ]
-}
-"26
-[; ;Actuator.c: 26: void Actuator_Retract(){
-[v _Actuator_Retract `(v ~T0 @X0 1 ef ]
 {
-[e :U _Actuator_Retract ]
-[f ]
-"27
-[; ;Actuator.c: 27:     do { LATCbits.LATC0 = 1; } while(0);
+[e = . . _LATBbits 0 6 -> -> 0 `i `uc ]
+}
+[e :U 377 ]
+"19
+[; ;User_Interface.c: 19:     } else if (color=='R'){
+}
+[e $U 379  ]
+[e :U 375 ]
+[e $ ! == -> _color `ui -> 82 `ui 380  ]
+{
+"20
+[; ;User_Interface.c: 20:         do { LATBbits.LATB5 = 0; } while(0);
 [e :U 383 ]
 {
-[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
+[e = . . _LATBbits 0 5 -> -> 0 `i `uc ]
 }
 [e :U 382 ]
-"28
-[; ;Actuator.c: 28:     USART_TxS("COMPLETE\n",sizeof("COMPLETE\n")-1);
-[e ( _USART_TxS (2 , :s 2C -> - -> 10 `ui -> -> 1 `i `ui `i ]
-"29
-[; ;Actuator.c: 29: }
-[e :UE 380 ]
+"21
+[; ;User_Interface.c: 21:     }
 }
-"30
-[; ;Actuator.c: 30: void Actuator_Hold(){
-[v _Actuator_Hold `(v ~T0 @X0 1 ef ]
+[e :U 380 ]
+[e :U 379 ]
+[e :U 374 ]
+"22
+[; ;User_Interface.c: 22:     return;
+[e $UE 369  ]
+"23
+[; ;User_Interface.c: 23: }
+[e :UE 369 ]
+}
+"24
+[; ;User_Interface.c: 24: void Usart_Interface_ON(char color){
+[v _Usart_Interface_ON `(v ~T0 @X0 1 ef1`uc ]
 {
-[e :U _Actuator_Hold ]
+[e :U _Usart_Interface_ON ]
+[v _color `uc ~T0 @X0 1 r1 ]
 [f ]
-"31
-[; ;Actuator.c: 31:     do { LATCbits.LATC0 = 0; } while(0);
-[e :U 387 ]
+"25
+[; ;User_Interface.c: 25:     if (color=='A'){
+[e $ ! == -> _color `ui -> 65 `ui 385  ]
 {
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+"26
+[; ;User_Interface.c: 26:         do { LATBbits.LATB7 = 1; } while(0);
+[e :U 388 ]
+{
+[e = . . _LATBbits 0 7 -> -> 1 `i `uc ]
 }
-[e :U 386 ]
+[e :U 387 ]
+"27
+[; ;User_Interface.c: 27:     }else if (color=='V'){
+}
+[e $U 389  ]
+[e :U 385 ]
+[e $ ! == -> _color `ui -> 86 `ui 390  ]
+{
+"28
+[; ;User_Interface.c: 28:         do { LATBbits.LATB6 = 1; } while(0);
+[e :U 393 ]
+{
+[e = . . _LATBbits 0 6 -> -> 1 `i `uc ]
+}
+[e :U 392 ]
+"29
+[; ;User_Interface.c: 29:     } else if (color=='R'){
+}
+[e $U 394  ]
+[e :U 390 ]
+[e $ ! == -> _color `ui -> 82 `ui 395  ]
+{
+"30
+[; ;User_Interface.c: 30:         do { LATBbits.LATB5 = 1; } while(0);
+[e :U 398 ]
+{
+[e = . . _LATBbits 0 5 -> -> 1 `i `uc ]
+}
+[e :U 397 ]
+"31
+[; ;User_Interface.c: 31:     }
+}
+[e :U 395 ]
+[e :U 394 ]
+[e :U 389 ]
 "32
-[; ;Actuator.c: 32:      USART_TxS("COMPLETE\n",sizeof("COMPLETE\n")-1);
-[e ( _USART_TxS (2 , :s 3C -> - -> 10 `ui -> -> 1 `i `ui `i ]
+[; ;User_Interface.c: 32:     return;
+[e $UE 384  ]
 "33
-[; ;Actuator.c: 33: }
+[; ;User_Interface.c: 33: }
 [e :UE 384 ]
 }
-[a 1C 84 79 85 67 72 10 0 ]
-[a 2C 67 79 77 80 76 69 84 69 10 0 ]
-[a 3C 67 79 77 80 76 69 84 69 10 0 ]
+"35
+[; ;User_Interface.c: 35: void Usart_Interface_Flash(char color){
+[v _Usart_Interface_Flash `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _Usart_Interface_Flash ]
+[v _color `uc ~T0 @X0 1 r1 ]
+[f ]
+"36
+[; ;User_Interface.c: 36:       if (color=='A'){
+[e $ ! == -> _color `ui -> 65 `ui 400  ]
+{
+"37
+[; ;User_Interface.c: 37:         do { LATBbits.LATB7 = 1; } while(0);
+[e :U 403 ]
+{
+[e = . . _LATBbits 0 7 -> -> 1 `i `uc ]
+}
+[e :U 402 ]
+"38
+[; ;User_Interface.c: 38:         _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"39
+[; ;User_Interface.c: 39:         do { LATBbits.LATB7 = 0; } while(0);
+[e :U 406 ]
+{
+[e = . . _LATBbits 0 7 -> -> 0 `i `uc ]
+}
+[e :U 405 ]
+"40
+[; ;User_Interface.c: 40:     }else if (color=='V'){
+}
+[e $U 407  ]
+[e :U 400 ]
+[e $ ! == -> _color `ui -> 86 `ui 408  ]
+{
+"41
+[; ;User_Interface.c: 41:         do { LATBbits.LATB6 = 1; } while(0);
+[e :U 411 ]
+{
+[e = . . _LATBbits 0 6 -> -> 1 `i `uc ]
+}
+[e :U 410 ]
+"42
+[; ;User_Interface.c: 42:         _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"43
+[; ;User_Interface.c: 43:         do { LATBbits.LATB6 = 0; } while(0);
+[e :U 414 ]
+{
+[e = . . _LATBbits 0 6 -> -> 0 `i `uc ]
+}
+[e :U 413 ]
+"44
+[; ;User_Interface.c: 44:     } else if (color=='R'){
+}
+[e $U 415  ]
+[e :U 408 ]
+[e $ ! == -> _color `ui -> 82 `ui 416  ]
+{
+"45
+[; ;User_Interface.c: 45:         do { LATBbits.LATB5 = 1; } while(0);
+[e :U 419 ]
+{
+[e = . . _LATBbits 0 5 -> -> 1 `i `uc ]
+}
+[e :U 418 ]
+"46
+[; ;User_Interface.c: 46:         _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"47
+[; ;User_Interface.c: 47:         do { LATBbits.LATB5 = 0; } while(0);
+[e :U 422 ]
+{
+[e = . . _LATBbits 0 5 -> -> 0 `i `uc ]
+}
+[e :U 421 ]
+"48
+[; ;User_Interface.c: 48:     }
+}
+[e :U 416 ]
+[e :U 415 ]
+[e :U 407 ]
+"49
+[; ;User_Interface.c: 49:       return;
+[e $UE 399  ]
+"50
+[; ;User_Interface.c: 50: }
+[e :UE 399 ]
+}

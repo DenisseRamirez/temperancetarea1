@@ -5830,11 +5830,12 @@ int CoordenadaXX=0;
 int CoordenadaYY=0;
 int coordenada_anteriorX=0;
 int coordenada_anteriorY=0;
+char Flag_Botones=0;
 int Motor_Conversion(int CoordenadaX);
 void Motor_Movimiento(char Oupcode,int CoordenadaX,int CoordenadaY);
 void Motor_Calcular_PasosX(int coordenada_actualX);
 void Motor_Calcular_PasosY(int coordenada_actualY);
-void Motor_MovimientoZ(char direccion);
+void Motor_MovimientoZ();
 void Motor_MovimientoZ_Init(char direccion);
 void Motor_Home();
 void Motor_Movimiento_Home(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY);
@@ -5890,21 +5891,143 @@ void PWM_InitS();
     char Coordenadas_mal=0;
 # 16 "main.c" 2
 
+# 1 "./GPIOsparcA1.h" 1
+
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 1 3
+# 22 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 127 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long uintptr_t;
+# 142 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long intptr_t;
+# 158 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef signed char int8_t;
+
+
+
+
+typedef short int16_t;
+# 173 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long int32_t;
+
+
+
+
+
+typedef long long int64_t;
+# 188 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long intmax_t;
+
+
+
+
+
+typedef unsigned char uint8_t;
+
+
+
+
+typedef unsigned short uint16_t;
+# 209 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long uint32_t;
+
+
+
+
+
+typedef unsigned long long uint64_t;
+# 229 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long long uintmax_t;
+# 22 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 2 3
+
+
+typedef int8_t int_fast8_t;
+
+typedef int64_t int_fast64_t;
+
+
+typedef int8_t int_least8_t;
+typedef int16_t int_least16_t;
+
+typedef int24_t int_least24_t;
+
+typedef int32_t int_least32_t;
+
+typedef int64_t int_least64_t;
+
+
+typedef uint8_t uint_fast8_t;
+
+typedef uint64_t uint_fast64_t;
+
+
+typedef uint8_t uint_least8_t;
+typedef uint16_t uint_least16_t;
+
+typedef uint24_t uint_least24_t;
+
+typedef uint32_t uint_least32_t;
+
+typedef uint64_t uint_least64_t;
+# 139 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/stdint.h" 1 3
+typedef int32_t int_fast16_t;
+typedef int32_t int_fast32_t;
+typedef uint32_t uint_fast16_t;
+typedef uint32_t uint_fast32_t;
+# 139 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 2 3
+# 6 "./GPIOsparcA1.h" 2
+
+
+void GPIO_init_PORTA(void);
+# 80 "./GPIOsparcA1.h"
+void GPIO_init_PORTB(void);
+# 142 "./GPIOsparcA1.h"
+void GPIO_init_PORTC(void);
+# 204 "./GPIOsparcA1.h"
+void GPIO_init_PORTD(void);
+# 286 "./GPIOsparcA1.h"
+void GPIO_init_PORTE(void);
+# 17 "main.c" 2
+
+# 1 "./User_Interface.h" 1
+
+
+
+
+
+
+
+void Usart_Interface_Off(char color);
+void Usart_Interface_ON(char color);
+void Usart_Interface_Flash(char color);
+# 18 "main.c" 2
+
 
 void main() {
     OSCCON = 0x72;
+    GPIO_init_PORTA();
+    GPIO_init_PORTB();
+   GPIO_init_PORTC();
+   GPIO_init_PORTD();
+    GPIO_init_PORTE();
     USART_Init(9600);
     Int_Ext();
     USART_TxS("WELCOME TO SPARC\n", sizeof ("WELCOME TO SPARC\n") - 1);
+    Usart_Interface_ON('A');
     USART_TxS("WAIT FOR HOME\n", sizeof ("WAIT FOR HOME\n") - 1);
     main_Home();
     USART_TxS("COMPLETED\n", sizeof ("COMPLETED\n") - 1);
-    USART_TxS("WAITING FOR CONTROL...\n", sizeof ("WAITING FOR CONTROL...\n") - 1);
-
+    Usart_Interface_Flash('V');
     Serial_Oupcode();
+
     return;
 }
-# 40 "main.c"
+
 void Int_Ext() {
     TRISD = 0x00;
     INTCON2bits.RBPU = 1;

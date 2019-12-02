@@ -5725,7 +5725,7 @@ void GPIO_init_PORTE(void);
 
 
 
-void GPIO_PORTA(void){
+void GPIO_init_PORTA(void){
     PORTA = 0x00;
     LATA = 0x00;
     ADCON1 = 0xD0;
@@ -5735,12 +5735,12 @@ void GPIO_PORTA(void){
 
 
     do { TRISAbits.TRISA4 = 1; } while(0);
-
+    do { TRISAbits.TRISA5 = 1; } while(0);
 
 
 }
 
-void GPIO_PORTB(void){
+void GPIO_init_PORTB(void){
     PORTB = 0x00;
     LATB = 0x00;
     ADCON1 = 0xD0;
@@ -5754,7 +5754,7 @@ void GPIO_PORTB(void){
     do { TRISBbits.TRISB7 = 0; } while(0);
 }
 
-void GPIO_PORTC(void){
+void GPIO_init_PORTC(void){
     PORTC = 0x00;
     LATC = 0x00;
     do { TRISCbits.TRISC0 = 1; } while(0);
@@ -5767,7 +5767,7 @@ void GPIO_PORTC(void){
     do { TRISCbits.TRISC7 = 1; } while(0);
 }
 
-void GPIO_PORTD(void){
+void GPIO_init_PORTD(void){
     PORTD = 0x00;
     LATD = 0x00;
     CMCON = 0x07;
@@ -5781,7 +5781,7 @@ void GPIO_PORTD(void){
 
 }
 
-void GPIO_PORTE(void){
+void GPIO_init_PORTE(void){
     PORTE = 0x00;
     LATE = 0x00;
     ADCON1 = 0xD0;

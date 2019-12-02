@@ -268,11 +268,12 @@ int CoordenadaXX=0;
 int CoordenadaYY=0;
 int coordenada_anteriorX=0;
 int coordenada_anteriorY=0;
+char Flag_Botones=0;
 int Motor_Conversion(int CoordenadaX);
 void Motor_Movimiento(char Oupcode,int CoordenadaX,int CoordenadaY);
 void Motor_Calcular_PasosX(int coordenada_actualX);
 void Motor_Calcular_PasosY(int coordenada_actualY);
-void Motor_MovimientoZ(char direccion);
+void Motor_MovimientoZ();
 void Motor_MovimientoZ_Init(char direccion);
 void Motor_Home();
 void Motor_Movimiento_Home(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY);
@@ -5976,14 +5977,17 @@ void Motor_MovimientoZ_Init(char direccion) {
     do { TRISDbits.TRISD4 = 0; } while(0);
 }
 
-void Motor_MovimientoZ(char direccion) {
+void Motor_MovimientoZ() {
     do { LATDbits.LATD4 = 1; } while(0);
-    if (direccion == '1') {
+    if (PORTCbits.RC5==1) {
         do { LATDbits.LATD5 = 1; } while(0);
         do { LATDbits.LATD6 = 0; } while(0);
-    } else if (direccion == '0') {
+    } else if (PORTCbits.RC6==1) {
         do { LATDbits.LATD5 = 0; } while(0);
         do { LATDbits.LATD6 = 1; } while(0);
+    } if (PORTCbits.RC5==0 &&PORTCbits.RC6==0){
+        do { LATDbits.LATD5 = 0; } while(0);
+        do { LATDbits.LATD6 = 0; } while(0);
     }
     return;
 }

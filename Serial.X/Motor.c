@@ -65,14 +65,17 @@ void Motor_MovimientoZ_Init(char direccion) {
     GPIO_RD4_SetDigitalOutput();
 }
 
-void Motor_MovimientoZ(char direccion) {
+void Motor_MovimientoZ() {
     GPIO_RD4_SetHigh();
-    if (direccion == '1') { //Aqui se va a comprobar el estado del boton en dado caso
+    if (PORTCbits.RC5==1) { //Aqui se va a comprobar el estado del boton en dado caso
         GPIO_RD5_SetHigh();
         GPIO_RD6_SetLow();
-    } else if (direccion == '0') { //Aqui se va a comprobar el estado del boton en dado caso
+    } else if (PORTCbits.RC6==1) { //Aqui se va a comprobar el estado del boton en dado caso
         GPIO_RD5_SetLow();
         GPIO_RD6_SetHigh();
+    } if (PORTCbits.RC5==0 &&PORTCbits.RC6==0){
+        GPIO_RD5_SetLow();
+        GPIO_RD6_SetLow();
     }
     return;
 }

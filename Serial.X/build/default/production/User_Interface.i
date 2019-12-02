@@ -1,4 +1,4 @@
-# 1 "serial.c"
+# 1 "User_Interface.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "serial.c" 2
+# 1 "User_Interface.c" 2
 
 
 
@@ -171,7 +171,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 8 "serial.c" 2
+# 8 "User_Interface.c" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdlib.h" 1 3
 # 21 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdlib.h" 3
@@ -231,7 +231,12 @@ uldiv_t uldiv (unsigned long, unsigned long);
 
 
 size_t __ctype_get_mb_cur_max(void);
-# 9 "serial.c" 2
+# 9 "User_Interface.c" 2
+
+# 1 "./GPIOsparcA1.h" 1
+
+
+
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
@@ -5756,184 +5761,7 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 10 "serial.c" 2
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\string.h" 1 3
-# 25 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\string.h" 3
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 411 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct __locale_struct * locale_t;
-# 25 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\string.h" 2 3
-
-
-void *memcpy (void *restrict, const void *restrict, size_t);
-void *memmove (void *, const void *, size_t);
-void *memset (void *, int, size_t);
-int memcmp (const void *, const void *, size_t);
-void *memchr (const void *, int, size_t);
-
-char *strcpy (char *restrict, const char *restrict);
-char *strncpy (char *restrict, const char *restrict, size_t);
-
-char *strcat (char *restrict, const char *restrict);
-char *strncat (char *restrict, const char *restrict, size_t);
-
-int strcmp (const char *, const char *);
-int strncmp (const char *, const char *, size_t);
-
-int strcoll (const char *, const char *);
-size_t strxfrm (char *restrict, const char *restrict, size_t);
-
-char *strchr (const char *, int);
-char *strrchr (const char *, int);
-
-size_t strcspn (const char *, const char *);
-size_t strspn (const char *, const char *);
-char *strpbrk (const char *, const char *);
-char *strstr (const char *, const char *);
-char *strtok (char *restrict, const char *restrict);
-
-size_t strlen (const char *);
-
-char *strerror (int);
-# 65 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\string.h" 3
-char *strtok_r (char *restrict, const char *restrict, char **restrict);
-int strerror_r (int, char *, size_t);
-char *stpcpy(char *restrict, const char *restrict);
-char *stpncpy(char *restrict, const char *restrict, size_t);
-size_t strnlen (const char *, size_t);
-char *strdup (const char *);
-char *strndup (const char *, size_t);
-char *strsignal(int);
-char *strerror_l (int, locale_t);
-int strcoll_l (const char *, const char *, locale_t);
-size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
-
-
-
-
-void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 11 "serial.c" 2
-
-
-# 1 "./configuration.h" 1
-# 13 "serial.c" 2
-
-# 1 "./UART.h" 1
-
-
-
-
-
-
-
-void USART_Init(long BAUD);
-void USART_TxC(char data);
-char USART_RxC();
-void USARTStr(char *Output, unsigned int size);
-void USART_TxSP(char Str[]);
-void USART_RxS (char lenght, char* pointer );
-char USART_TxS(char str[], int length);
-# 14 "serial.c" 2
-
-# 1 "./serial.h" 1
-
-
-
-
-
-
-
-    void Serial_DecodificacionX(char string_coordenada[], int *pointerCX);
-    void Serial_DecodificacionY(char string_coordenada[], int *pointerCY);
-    void Serial_DecodificacionZ(char string_coordenada[], int *pointerCZ);
-    void Serial_Lectura_MemoriaX(char direccion, int *pointerCX) ;
-    void Serial_Lectura_MemoriaY(char direccion, int *pointerCY) ;
-    void Serial_Lectura_MemoriaZ(char direccion, int *pointerCZ) ;
-    void Serial_RangosCoordenadas(int C);
-    void Serial_Oupcode();
-
-
-    void Serial_Escritura_Memoria(char direccion,char string_setpoint[]);
-    char Seria_Decodificacion_Memoria(char direccion);
-    int CoordenadaX;
-    int CoordenadaY;
-    int CoordenadaZ;
-    char C[3];
-    char coordenada_array[7];
-    char coordenada_setpoint[11];
-    char Direccion_Memoria;
-    char Coordenadas_fuera=0;
-    char Coordenadas_mal=0;
-# 15 "serial.c" 2
-
-# 1 "./PWM.h" 1
-
-
-
-
-
-
-char oneshotX=0;
-char oneshotY=0;
-char BanderaX=0;
-char BanderaY=0;
-void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
-void PWM_Pulsos_Home(char banderaX, char banderaY);
-int PWM_OneshotX ();
-int PWM_OneshotY ();
-void PWM_InitF();
-void PWM_InitS();
-# 16 "serial.c" 2
-
-# 1 "./motor.h" 1
-
-
-
-
-
-
-int pasos_convertidos=0;
-int PasosX=0;
-int PasosY=0;
-int DeltaX=0;
-int DeltaY=0;
-int CoordenadaXX=0;
-int CoordenadaYY=0;
-int coordenada_anteriorX=0;
-int coordenada_anteriorY=0;
-char Flag_Botones=0;
-int Motor_Conversion(int CoordenadaX);
-void Motor_Movimiento(char Oupcode,int CoordenadaX,int CoordenadaY);
-void Motor_Calcular_PasosX(int coordenada_actualX);
-void Motor_Calcular_PasosY(int coordenada_actualY);
-void Motor_MovimientoZ();
-void Motor_MovimientoZ_Init(char direccion);
-void Motor_Home();
-void Motor_Movimiento_Home(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY);
-# 17 "serial.c" 2
-
-# 1 "./Actuator.h" 1
-# 11 "./Actuator.h"
-void Actuator_Ini();
-void Actuator_Touch();
-void Actuator_Hold();
-void Actuator_Retract();
-# 18 "serial.c" 2
-
-# 1 "./EEPROM.h" 1
-# 10 "./EEPROM.h"
-char EEPROM_Rx(char direccion);
-void EEPROM_Tx(char direccion, char dato);
-void EEMPROM_Init();
-char data;
-# 19 "serial.c" 2
-
-# 1 "./GPIOsparcA1.h" 1
-
-
-
-
+# 5 "./GPIOsparcA1.h" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 1 3
 # 22 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 3
@@ -6030,303 +5858,59 @@ void GPIO_init_PORTC(void);
 void GPIO_init_PORTD(void);
 # 286 "./GPIOsparcA1.h"
 void GPIO_init_PORTE(void);
-# 20 "serial.c" 2
+# 10 "User_Interface.c" 2
+
+# 1 "./User_Interface.h" 1
 
 
-void Serial_Oupcode() {
-
-    TRISDbits.TRISD0 = 0;
-    TRISDbits.TRISD2 = 0;
-    TRISDbits.TRISD1 = 0;
-    TRISDbits.TRISD3 = 0;
-    PORTDbits.RD0 = 1;
-    PORTDbits.RD0 = 1;
-    TRISCbits.RC1 = 0;
-    TRISCbits.RC2 = 0;
-    PORTCbits.RC1 = 0;
-    char instruction_counter = 0;
-    USART_TxS("PLEASE INSERT THE INSTRUCTION OF SETPOINT\n", sizeof ("PLEASE INSERT THE INSTRUCTION OF SETPOINT\n") - 1);
-    while (1) {
-        if (instruction_counter == 0) {
-            USART_TxS("WAITING FOR INSTRUCTION\n", sizeof ("WAITING FOR INSTRUCTION\n") - 1);
-            instruction_counter = 1;
-        }
-        char Oupcode = USART_RxC();
-        switch (Oupcode) {
-            case 'F':
-                USART_RxS(7, coordenada_array);
-                USART_TxS("WAIT UNTIL COMPLETE...", sizeof ("WAIT UNTIL COMPLETE...") - 1);
-                Serial_DecodificacionX(coordenada_array, &CoordenadaX);
-                Serial_DecodificacionY(coordenada_array, &CoordenadaY);
-                Serial_RangosCoordenadas(CoordenadaX);
-                Serial_RangosCoordenadas(CoordenadaY);
-                if (Coordenadas_fuera == 1 ) {
-                     USART_TxS("ERROR CORDINATES OUTSIDE THE RANGE\n", sizeof ("ERROR CORDINATES OUTSIDE THE RANGE\n") - 1);
-                    Coordenadas_fuera = 0;
-                }else if (Coordenadas_mal==1){
-                    USART_TxS("ERROR CARACTERS INGRESED WRONG\n", sizeof ("ERROR CARACTERS INGRESED WRONG\n") - 1);
-                    Coordenadas_mal=0;
-                } else {
-                    Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
-                }
-                break;
-            case 'S':
-                USART_RxS(7, coordenada_array);
-                USART_TxS("WAIT UNTIL COMPLETE...", sizeof ("WAIT UNTIL COMPLETE...") - 1);
-                Serial_DecodificacionX(coordenada_array, &CoordenadaX);
-                Serial_DecodificacionY(coordenada_array, &CoordenadaY);
-                Serial_RangosCoordenadas(CoordenadaX);
-                Serial_RangosCoordenadas(CoordenadaY);
-               if (Coordenadas_fuera == 1 ) {
-                     USART_TxS("ERROR CORDINATES OUTSIDE THE RANGE\n", sizeof ("ERROR CORDINATES OUTSIDE THE RANGE\n") - 1);
-                    Coordenadas_fuera = 0;
-                }else if (Coordenadas_mal==1){
-                    USART_TxS("ERROR CARACTERS INGRESED WRONG\n", sizeof ("ERROR CARACTERS INGRESED WRONG\n") - 1);
-                    Coordenadas_mal=0;
-                } else {
-                    Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
-                }
-                break;
-            case 'T':
-                USART_TxS("WAIT UNTIL COMPLETE...", sizeof ("WAIT UNTIL COMPLETE...") - 1);
-                Actuator_Touch();
-                break;
-            case 'H':
-                USART_TxS("WAIT UNTIL COMPLETE...", sizeof ("WAIT UNTIL COMPLETE...") - 1);
-                Actuator_Hold();
-                break;
-            case 'R':
-                USART_TxS("WAIT UNTIL COMPLETE...", sizeof ("WAIT UNTIL COMPLETE...") - 1);
-                Actuator_Retract();
-                break;
-            case 'O':
-                USART_TxS("WAIT UNTIL COMPLETE...\n", sizeof ("WAIT UNTIL COMPLETE...\n") - 1);
-                Direccion_Memoria = USART_RxC();
-                Direccion_Memoria = Seria_Decodificacion_Memoria(Direccion_Memoria);
-                Serial_Lectura_MemoriaX(Direccion_Memoria,&CoordenadaX);
-                Serial_Lectura_MemoriaY(Direccion_Memoria,&CoordenadaY);
-                Serial_Lectura_MemoriaZ(Direccion_Memoria,&CoordenadaZ);
-                if (Coordenadas_fuera == 1 ) {
-                     USART_TxS("ERROR CORDINATES OUTSIDE THE RANGE\n", sizeof ("ERROR CORDINATES OUTSIDE THE RANGE\n") - 1);
-                    USART_TxS("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n", sizeof ("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n") - 1);
-                    Coordenadas_fuera = 0;
-                }else if (Coordenadas_mal==1){
-                    USART_TxS("ERROR CARACTERS INGRESED WRONG\n", sizeof ("ERROR CARACTERS INGRESED WRONG\n") - 1);
-                     USART_TxS("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n", sizeof ("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n") - 1);
-                    Coordenadas_mal=0;
-                } else {
-
-                    Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
 
 
-                }
-                break;
-            case 'M':
-                Direccion_Memoria = USART_RxC();
-                USART_RxS(11, coordenada_setpoint);
-                USART_TxS("WAIT UNTIL COMPLETE...\n", sizeof ("WAIT UNTIL COMPLETE...\n") - 1);
-                Direccion_Memoria = Seria_Decodificacion_Memoria(Direccion_Memoria);
-                Serial_Escritura_Memoria(Direccion_Memoria, coordenada_setpoint);
-                break;
-             case 'A':
-                 while(PORTAbits.RA5==0){
-                     Motor_MovimientoZ();
-                 }
-        }
+
+
+
+void Usart_Interface_Off(char color);
+void Usart_Interface_ON(char color);
+void Usart_Interface_Flash(char color);
+# 11 "User_Interface.c" 2
+
+# 1 "./configuration.h" 1
+# 12 "User_Interface.c" 2
+
+
+void Usart_Interface_Off(char color){
+    if (color=='A'){
+        do { LATBbits.LATB7 = 0; } while(0);
+    }else if (color=='V'){
+        do { LATBbits.LATB6 = 0; } while(0);
+    } else if (color=='R'){
+        do { LATBbits.LATB5 = 0; } while(0);
     }
-}
-
-void Serial_DecodificacionX(char string_coordenada[], int *pointerCX) {
-    char coordenadaX[3];
-    for (int i = 0; i < 3; i++) {
-        coordenadaX[i] = string_coordenada[i];
-    }
-    for (int i=0;i<3;i++){
-    if (!(coordenadaX[i] >= 48 && coordenadaX[i] <= 57)) {
-        Coordenadas_mal = 1;
-    }
-    }
-    *pointerCX = atoi(coordenadaX);
     return;
 }
-
-void Serial_DecodificacionY(char string_coordenada[], int *pointerCY) {
-   char coordenadaY[3];
-    for (int i = 0; i < 3; i++) {
-        coordenadaY[i] = string_coordenada[4 + i];
-    }
-   for (int i=0;i<3;i++){
-    if (!(coordenadaY[i] >= 48 && coordenadaY[i] <= 57)) {
-        Coordenadas_mal = 1;
-    }
-    }
-    *pointerCY = atoi(coordenadaY);
-    return;
-}
-
-void Serial_DecodificacionZ(char string_coordenada[], int *pointerCZ) {
-    char coordenadaZ[3];
-    for (int i = 0; i < 3; i++) {
-        coordenadaZ[i] = string_coordenada[8 + i];
-    }
-    for (int i=0;i<3;i++){
-    if (!(coordenadaZ[i] >= 48 && coordenadaZ[i] <= 57)) {
-        Coordenadas_mal = 1;
-    }
-    }
-    *pointerCZ = atoi(coordenadaZ);
-    return;
-}
-void Serial_RangosCoordenadas(int C) {
-    if (C > 300 || C < 0) {
-        Coordenadas_fuera = 1;
+void Usart_Interface_ON(char color){
+    if (color=='A'){
+        do { LATBbits.LATB7 = 1; } while(0);
+    }else if (color=='V'){
+        do { LATBbits.LATB6 = 1; } while(0);
+    } else if (color=='R'){
+        do { LATBbits.LATB5 = 1; } while(0);
     }
     return;
 }
 
-char Seria_Decodificacion_Memoria(char direccion) {
-    switch (direccion) {
-        case '0':
-            direccion = 0x00;
-            USART_TxS("COORDINATE OF SETPOINT 0:\n", sizeof ("COORDINATE OF SETPOINT 0:\n") - 1);
-            break;
-        case '1':
-            direccion = 0x10;
-            USART_TxS("COORDINATE OF SETPOINT 1:\n", sizeof ("COORDINATE OF SETPOINT 1\n") - 1);
-            break;
-        case '2':
-            direccion = 0x20;
-            USART_TxS("COORDINATE OF SETPOINT 2:\n", sizeof ("COORDINATE OF SETPOINT 2:\n") - 1);
-            break;
-        case '3':
-            direccion = 0x30;
-            USART_TxS("COORDINATE OF SETPOINT 3:\n", sizeof ("COORDINATE OF SETPOINT 3:\n") - 1);
-            break;
-        case '4':
-            direccion = 0x40;
-            USART_TxS("COORDINATE OF SETPOINT 4:\n", sizeof ("COORDINATE OF SETPOINT 4:\n") - 1);
-            break;
-        case '5':
-            direccion = 0x50;
-            USART_TxS("COORDINATE OF SETPOINT 5:\n", sizeof ("COORDINATE OF SETPOINT 5:\n") - 1);
-            break;
-        case '6':
-            direccion = 0x60;
-            USART_TxS("COORDINATE OF SETPOINT 6:\n", sizeof ("COORDINATE OF SETPOINT 6:\n") - 1);
-            break;
-        case '7':
-            direccion = 0x70;
-            USART_TxS("COORDINATE OF SETPOINT 7:\n", sizeof ("COORDINATE OF SETPOINT 7:\n") - 1);
-            break;
-        case '8':
-            direccion = 0x80;
-            USART_TxS("COORDINATE OF SETPOINT 8:\n", sizeof ("COORDINATE OF SETPOINT 8:\n") - 1);
-            break;
-        case '9':
-            direccion = 0x90;
-            USART_TxS("COORDINATE OF SETPOINT 9:\n", sizeof ("COORDINATE OF SETPOINT 9:\n") - 1);
-            break;
-        case 'A':
-            direccion = 0xA0;
-            USART_TxS("COORDINATE OF SETPOINT 10:\n", sizeof ("COORDINATE OF SETPOINT 10:\n") - 1);
-            break;
-        case 'B':
-            direccion = 0xB0;
-            USART_TxS("COORDINATE OF SETPOINT 11:\n", sizeof ("COORDINATE OF SETPOINT 11:\n") - 1);
-            break;
-        case 'C':
-            direccion = 0xC0;
-            USART_TxS("COORDINATE OF SETPOINT 12:\n", sizeof ("COORDINATE OF SETPOINT 12:\n") - 1);
-            break;
-        case 'D':
-            direccion = 0xD0;
-            USART_TxS("COORDINATE OF SETPOINT 13:\n", sizeof ("COORDINATE OF SETPOINT 13:\n") - 1);
-            break;
-        case 'E':
-            direccion = 0xE0;
-            USART_TxS("COORDINATE OF SETPOINT 14:\n", sizeof ("COORDINATE OF SETPOINT 14:\n") - 1);
-            break;
-        case 'F':
-            direccion = 0xF0;
-            USART_TxS("COORDINATE OF SETPOINT 15:\n", sizeof ("COORDINATE OF SETPOINT 15:\n") - 1);
-            break;
+void Usart_Interface_Flash(char color){
+      if (color=='A'){
+        do { LATBbits.LATB7 = 1; } while(0);
+        _delay((unsigned long)((200)*(8000000/4000.0)));
+        do { LATBbits.LATB7 = 0; } while(0);
+    }else if (color=='V'){
+        do { LATBbits.LATB6 = 1; } while(0);
+        _delay((unsigned long)((200)*(8000000/4000.0)));
+        do { LATBbits.LATB6 = 0; } while(0);
+    } else if (color=='R'){
+        do { LATBbits.LATB5 = 1; } while(0);
+        _delay((unsigned long)((200)*(8000000/4000.0)));
+        do { LATBbits.LATB5 = 0; } while(0);
     }
-    return direccion;
-}
-
-void Serial_Lectura_MemoriaX(char direccion, int *pointerCX) {
-    char coordenadaX[3];
-    char direccionX;
-    for (int i = 0; i < 3; i++) {
-        direccionX = direccion + i;
-        coordenadaX[i] = EEPROM_Rx(direccionX);
-    }
-   for (int i=0;i<3;i++){
-    if (!(coordenadaX[i] >= 48 && coordenadaX[i] <= 57)) {
-        Coordenadas_mal = 1;
-    }
-    }
-    *pointerCX = atoi(coordenadaX);
-    USART_TxS("COORDINATE X:", sizeof ("COORDINATE X:") - 1);
-    USART_TxS(coordenadaX, sizeof (coordenadaX));
-    Serial_RangosCoordenadas(CoordenadaX);
-    return;
-}
-
-void Serial_Lectura_MemoriaY(char direccion, int *pointerCY) {
-    char coordenadaY[3];
-    char direccionY;
-    for (int i = 0; i < 3; i++) {
-        direccionY = direccion + i + 3;
-        coordenadaY[i] = EEPROM_Rx(direccionY);
-    }
-    for (int i=0;i<3;i++){
-    if (!(coordenadaY[i] >= 48 && coordenadaY[i] <= 57)) {
-        Coordenadas_mal = 1;
-    }
-    }
-    *pointerCY = atoi(coordenadaY);
-    USART_TxS("\nCOORDINATE Y:", sizeof ("\nCOORDINATE Y:") - 1);
-    USART_TxS(coordenadaY, sizeof (coordenadaY));
-    Serial_RangosCoordenadas(CoordenadaY);
-    return;
-}
-
-void Serial_Lectura_MemoriaZ(char direccion, int *pointerCZ) {
-    char coordenadaZ[3];
-    char direccionZ;
-    for (int i = 0; i < 3; i++) {
-        direccionZ = direccion + i + 6;
-        coordenadaZ[i] = EEPROM_Rx(direccionZ);
-    }
-   for (int i=0;i<3;i++){
-    if (!(coordenadaZ[i] >= 48 && coordenadaZ[i] <= 57)) {
-        Coordenadas_mal = 1;
-    }
-    }
-    *pointerCZ = atoi(coordenadaZ);
-    USART_TxS("\nCOORDINATE Z:", sizeof ("\nCOORDINATE Z:") - 1);
-    USART_TxS(coordenadaZ, sizeof (coordenadaZ));
-    Serial_RangosCoordenadas(CoordenadaZ);
-    return;
-}
-
-void Serial_Escritura_Memoria(char direccion, char string_setpoint[]) {
-    char direccionFinal;
-    for (int i = 0; i < 3; i++) {
-        direccionFinal = direccion + i;
-        EEPROM_Tx(direccionFinal, string_setpoint[i]);
-    }
-    USART_TxS("COORDINATE X SAVED\n", sizeof ("COORDINATE X SAVED\n") - 1);
-    for (int i = 0; i < 3; i++) {
-        direccionFinal = direccion + i + 3;
-        EEPROM_Tx(direccionFinal, string_setpoint[i + 4]);
-    }
-    USART_TxS("COORDINATE Y SAVED\n", sizeof ("COORDINATE Y SAVED\n") - 1);
-    for (int i = 0; i < 3; i++) {
-        direccionFinal = direccion + i + 6;
-        EEPROM_Tx(direccionFinal, string_setpoint[i + 8]);
-    }
-    USART_TxS("COORDINATE Z SAVED\n", sizeof ("COORDINATE Z SAVED\n") - 1);
-    return;
+      return;
 }

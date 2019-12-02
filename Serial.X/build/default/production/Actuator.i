@@ -5888,16 +5888,16 @@ void Actuator_Ini(){
    do { TRISCbits.TRISC0 = 0; } while(0);
 }
 void Actuator_Touch(){
-    do { LATCbits.LATC0 = 1; } while(0);
-    _delay((unsigned long)((100)*(8000000/4000.0)));
     do { LATCbits.LATC0 = 0; } while(0);
+    _delay((unsigned long)((100)*(8000000/4000.0)));
+    do { LATCbits.LATC0 = 1; } while(0);
     USART_TxS("TOUCH\n",sizeof("TOUCH\n")-1);
 }
-void Actuator_Hold(){
+void Actuator_Retract(){
     do { LATCbits.LATC0 = 1; } while(0);
     USART_TxS("COMPLETE\n",sizeof("COMPLETE\n")-1);
 }
-void Actuator_Retract(){
+void Actuator_Hold(){
     do { LATCbits.LATC0 = 0; } while(0);
      USART_TxS("COMPLETE\n",sizeof("COMPLETE\n")-1);
 }

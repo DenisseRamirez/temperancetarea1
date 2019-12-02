@@ -6,4 +6,6 @@ ControlZ.h  \
 UART.h  \
 motor.h  \
 PWM.h  \
-serial.h 
+serial.h  \
+GPIOsparcA1.h  \
+User_Interface.h 

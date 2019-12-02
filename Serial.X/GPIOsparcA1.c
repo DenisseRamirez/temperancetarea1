@@ -2,7 +2,7 @@
 #include <xc.h>
 #include <stdint.h>
 
-void GPIO_PORTA(void){
+void GPIO_init_PORTA(void){
     PORTA = 0x00; 
     LATA = 0x00;                    
     ADCON1 = 0xD0;                  
@@ -12,12 +12,12 @@ void GPIO_PORTA(void){
     //RA2 has NOT been assigned
     //RA3 has NOT been assigned
     GPIO_RA4_SetDigitalInput();    //RA4 is physically connected to RC1
-    //RA5 has NOT been assigned
+    GPIO_RA5_SetDigitalInput();   //RA5 is OKAY button
     //RA6 has NOT been assigned
     //RA7 is not available
 }
 
-void GPIO_PORTB(void){
+void GPIO_init_PORTB(void){
     PORTB = 0x00; 
     LATB = 0x00;                    
     ADCON1 = 0xD0;                  //Datasheet initializing PORTB as IO
@@ -31,7 +31,7 @@ void GPIO_PORTB(void){
     GPIO_RB7_SetDigitalOutput();    //RB7 has been assigned as BLUE LED
 }
 
-void GPIO_PORTC(void){
+void GPIO_init_PORTC(void){
     PORTC = 0x00; 
     LATC = 0x00;                    //Datasheet initializing PORTC as IO
     GPIO_RC0_SetDigitalInput();     //RC0 is physically connected to RC2
@@ -44,7 +44,7 @@ void GPIO_PORTC(void){
     GPIO_RC7_SetDigitalInput();     //RC7 has been assigned as RX
 }
 
-void GPIO_PORTD(void){
+void GPIO_init_PORTD(void){
     PORTD = 0x00; 
     LATD = 0x00;                    
     CMCON = 0x07;                   //Datasheet initializing PORTC as IO
@@ -58,7 +58,7 @@ void GPIO_PORTD(void){
     //RD7 has NOT been assigned
 }
 
-void GPIO_PORTE(void){
+void GPIO_init_PORTE(void){
     PORTE = 0x00; 
     LATE = 0x00;                    
     ADCON1 = 0xD0;                  
@@ -68,7 +68,7 @@ void GPIO_PORTE(void){
     //RE2 has NOT been assigned
     //RE3 is MCLR
     //RE4 is not available
-    //RE5 is not available
+    //RE5 is not available+
     //RE6 is not available
     //RE7 is not available
 }

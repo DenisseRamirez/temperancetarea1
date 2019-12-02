@@ -3,6 +3,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7986 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7986: extern volatile unsigned char OSCCON __attribute__((address(0xFD3)));
 [v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
+"8 ./GPIOsparcA1.h
+[; ;./GPIOsparcA1.h: 8: void GPIO_init_PORTA(void);
+[v _GPIO_init_PORTA `(v ~T0 @X0 0 ef ]
+"80
+[; ;./GPIOsparcA1.h: 80: void GPIO_init_PORTB(void);
+[v _GPIO_init_PORTB `(v ~T0 @X0 0 ef ]
+"142
+[; ;./GPIOsparcA1.h: 142: void GPIO_init_PORTC(void);
+[v _GPIO_init_PORTC `(v ~T0 @X0 0 ef ]
+"204
+[; ;./GPIOsparcA1.h: 204: void GPIO_init_PORTD(void);
+[v _GPIO_init_PORTD `(v ~T0 @X0 0 ef ]
+"286
+[; ;./GPIOsparcA1.h: 286: void GPIO_init_PORTE(void);
+[v _GPIO_init_PORTE `(v ~T0 @X0 0 ef ]
 "8 ./UART.h
 [; ;./UART.h: 8: void USART_Init(long BAUD);
 [v _USART_Init `(v ~T0 @X0 0 ef1`l ]
@@ -12,9 +27,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "14 ./UART.h
 [; ;./UART.h: 14: char USART_TxS(char str[], int length);
 [v _USART_TxS `(uc ~T0 @X0 0 ef2`*uc`i ]
+"9 ./User_Interface.h
+[; ;./User_Interface.h: 9: void Usart_Interface_ON(char color);
+[v _Usart_Interface_ON `(v ~T0 @X0 0 ef1`uc ]
 "16 ./main.h
 [; ;./main.h: 16: void main_Home();
 [v _main_Home `(v ~T0 @X0 0 e? ]
+"10 ./User_Interface.h
+[; ;./User_Interface.h: 10: void Usart_Interface_Flash(char color);
+[v _Usart_Interface_Flash `(v ~T0 @X0 0 ef1`uc ]
 "15 ./serial.h
 [; ;./serial.h: 15:     void Serial_Oupcode();
 [v _Serial_Oupcode `(v ~T0 @X0 0 e? ]
@@ -162,11 +183,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2736
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2736: extern volatile PORTDbits_t PORTDbits __attribute__((address(0xF83)));
 [v _PORTDbits `VS116 ~T0 @X0 0 e@3971 ]
-"23 ./motor.h
-[; ;./motor.h: 23: void Motor_Movimiento_Home(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY);
+"24 ./motor.h
+[; ;./motor.h: 24: void Motor_Movimiento_Home(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY);
 [v _Motor_Movimiento_Home `(v ~T0 @X0 0 ef3`uc`i`i ]
-"22
-[; ;./motor.h: 22: void Motor_Home();
+"23
+[; ;./motor.h: 23: void Motor_Home();
 [v _Motor_Home `(v ~T0 @X0 0 e? ]
 "7206 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7206:     struct {
@@ -757,6 +778,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _coordenada_anteriorY
 -> 0 `i
 ]
+"16
+[; ;./motor.h: 16: char Flag_Botones=0;
+[v _Flag_Botones `uc ~T0 @X0 1 e ]
+[i _Flag_Botones
+-> -> 0 `i `uc
+]
 "7 ./PWM.h
 [; ;./PWM.h: 7: char oneshotX=0;
 [v _oneshotX `uc ~T0 @X0 1 e ]
@@ -815,44 +842,62 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"18 main.c
-[; ;main.c: 18: void main() {
+"20 main.c
+[; ;main.c: 20: void main() {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"19
-[; ;main.c: 19:     OSCCON = 0x72;
-[e = _OSCCON -> -> 114 `i `uc ]
-"20
-[; ;main.c: 20:     USART_Init(9600);
-[e ( _USART_Init (1 -> -> 9600 `i `l ]
 "21
-[; ;main.c: 21:     Int_Ext();
-[e ( _Int_Ext ..  ]
+[; ;main.c: 21:     OSCCON = 0x72;
+[e = _OSCCON -> -> 114 `i `uc ]
 "22
-[; ;main.c: 22:     USART_TxS("WELCOME TO SPARC\n", sizeof ("WELCOME TO SPARC\n") - 1);
-[e ( _USART_TxS (2 , :s 1C -> - -> 18 `ui -> -> 1 `i `ui `i ]
+[; ;main.c: 22:     GPIO_init_PORTA();
+[e ( _GPIO_init_PORTA ..  ]
 "23
-[; ;main.c: 23:     USART_TxS("WAIT FOR HOME\n", sizeof ("WAIT FOR HOME\n") - 1);
-[e ( _USART_TxS (2 , :s 2C -> - -> 15 `ui -> -> 1 `i `ui `i ]
+[; ;main.c: 23:     GPIO_init_PORTB();
+[e ( _GPIO_init_PORTB ..  ]
 "24
-[; ;main.c: 24:     main_Home();
-[e ( _main_Home ..  ]
+[; ;main.c: 24:    GPIO_init_PORTC();
+[e ( _GPIO_init_PORTC ..  ]
 "25
-[; ;main.c: 25:     USART_TxS("COMPLETED\n", sizeof ("COMPLETED\n") - 1);
-[e ( _USART_TxS (2 , :s 3C -> - -> 11 `ui -> -> 1 `i `ui `i ]
+[; ;main.c: 25:    GPIO_init_PORTD();
+[e ( _GPIO_init_PORTD ..  ]
 "26
-[; ;main.c: 26:     USART_TxS("WAITING FOR CONTROL...\n", sizeof ("WAITING FOR CONTROL...\n") - 1);
-[e ( _USART_TxS (2 , :s 4C -> - -> 24 `ui -> -> 1 `i `ui `i ]
+[; ;main.c: 26:     GPIO_init_PORTE();
+[e ( _GPIO_init_PORTE ..  ]
+"27
+[; ;main.c: 27:     USART_Init(9600);
+[e ( _USART_Init (1 -> -> 9600 `i `l ]
 "28
-[; ;main.c: 28:     Serial_Oupcode();
-[e ( _Serial_Oupcode ..  ]
+[; ;main.c: 28:     Int_Ext();
+[e ( _Int_Ext ..  ]
 "29
-[; ;main.c: 29:     return;
-[e $UE 369  ]
+[; ;main.c: 29:     USART_TxS("WELCOME TO SPARC\n", sizeof ("WELCOME TO SPARC\n") - 1);
+[e ( _USART_TxS (2 , :s 1C -> - -> 18 `ui -> -> 1 `i `ui `i ]
 "30
-[; ;main.c: 30: }
+[; ;main.c: 30:     Usart_Interface_ON('A');
+[e ( _Usart_Interface_ON (1 -> -> 65 `ui `uc ]
+"31
+[; ;main.c: 31:     USART_TxS("WAIT FOR HOME\n", sizeof ("WAIT FOR HOME\n") - 1);
+[e ( _USART_TxS (2 , :s 2C -> - -> 15 `ui -> -> 1 `i `ui `i ]
+"32
+[; ;main.c: 32:     main_Home();
+[e ( _main_Home ..  ]
+"33
+[; ;main.c: 33:     USART_TxS("COMPLETED\n", sizeof ("COMPLETED\n") - 1);
+[e ( _USART_TxS (2 , :s 3C -> - -> 11 `ui -> -> 1 `i `ui `i ]
+"34
+[; ;main.c: 34:     Usart_Interface_Flash('V');
+[e ( _Usart_Interface_Flash (1 -> -> 86 `ui `uc ]
+"35
+[; ;main.c: 35:     Serial_Oupcode();
+[e ( _Serial_Oupcode ..  ]
+"37
+[; ;main.c: 37:     return;
+[e $UE 369  ]
+"38
+[; ;main.c: 38: }
 [e :UE 369 ]
 }
 "40
@@ -1144,4 +1189,3 @@ Version 4.0 HI-TECH Software Intermediate Code
 [a 2C 87 65 73 84 32 70 79 82 32 72 79 77 69 10 0 ]
 [a 3C 67 79 77 80 76 69 84 69 68 10 0 ]
 [a 1C 87 69 76 67 79 77 69 32 84 79 32 83 80 65 82 67 10 0 ]
-[a 4C 87 65 73 84 73 78 71 32 70 79 82 32 67 79 78 84 82 79 76 46 46 46 10 0 ]

@@ -1,9 +1,9 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"18 ./motor.h
-[; ;./motor.h: 18: void Motor_Calcular_PasosX(int coordenada_actualX);
+"19 ./motor.h
+[; ;./motor.h: 19: void Motor_Calcular_PasosX(int coordenada_actualX);
 [v _Motor_Calcular_PasosX `(v ~T0 @X0 0 ef1`i ]
-"19
-[; ;./motor.h: 19: void Motor_Calcular_PasosY(int coordenada_actualY);
+"20
+[; ;./motor.h: 20: void Motor_Calcular_PasosY(int coordenada_actualY);
 [v _Motor_Calcular_PasosY `(v ~T0 @X0 0 ef1`i ]
 "11 ./PWM.h
 [; ;./PWM.h: 11: void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
@@ -60,6 +60,33 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3290
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3290: extern volatile LATDbits_t LATDbits __attribute__((address(0xF8C)));
 [v _LATDbits `VS137 ~T0 @X0 0 e@3980 ]
+"2569
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2569:     struct {
+[s S113 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S113 . RC0 RC1 RC2 . RC4 RC5 RC6 RC7 ]
+"2579
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2579:     struct {
+[s S114 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S114 . T1OSO T1OSI CCP1 . TX RX ]
+"2587
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2587:     struct {
+[s S115 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S115 . T13CKI . P1A . CK DT ]
+"2595
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2595:     struct {
+[s S116 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S116 . . CCP2 PA1 ]
+"2600
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2600:     struct {
+[s S117 :1 `uc 1 :1 `uc 1 ]
+[n S117 . . PA2 ]
+"2568
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2568: typedef union {
+[u S112 `S113 1 `S114 1 `S115 1 `S116 1 `S117 1 ]
+[n S112 . . . . . . ]
+"2605
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2605: extern volatile PORTCbits_t PORTCbits __attribute__((address(0xF82)));
+[v _PORTCbits `VS112 ~T0 @X0 0 e@3970 ]
 "16 ./PWM.h
 [; ;./PWM.h: 16: void PWM_InitS();
 [v _PWM_InitS `(v ~T0 @X0 0 e? ]
@@ -159,6 +186,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _coordenada_anteriorY `i ~T0 @X0 1 e ]
 [i _coordenada_anteriorY
 -> 0 `i
+]
+"16
+[; ;./motor.h: 16: char Flag_Botones=0;
+[v _Flag_Botones `uc ~T0 @X0 1 e ]
+[i _Flag_Botones
+-> -> 0 `i `uc
 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
@@ -851,11 +884,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 383 ]
 }
 "68
-[; ;Motor.c: 68: void Motor_MovimientoZ(char direccion) {
-[v _Motor_MovimientoZ `(v ~T0 @X0 1 ef1`uc ]
+[; ;Motor.c: 68: void Motor_MovimientoZ() {
+[v _Motor_MovimientoZ `(v ~T0 @X0 1 ef ]
 {
 [e :U _Motor_MovimientoZ ]
-[v _direccion `uc ~T0 @X0 1 r1 ]
 [f ]
 "69
 [; ;Motor.c: 69:     do { LATDbits.LATD4 = 1; } while(0);
@@ -865,8 +897,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 389 ]
 "70
-[; ;Motor.c: 70:     if (direccion == '1') {
-[e $ ! == -> _direccion `ui -> 49 `ui 391  ]
+[; ;Motor.c: 70:     if (PORTCbits.RC5==1) {
+[e $ ! == -> . . _PORTCbits 0 5 `i -> 1 `i 391  ]
 {
 "71
 [; ;Motor.c: 71:         do { LATDbits.LATD5 = 1; } while(0);
@@ -883,11 +915,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 396 ]
 "73
-[; ;Motor.c: 73:     } else if (direccion == '0') {
+[; ;Motor.c: 73:     } else if (PORTCbits.RC6==1) {
 }
 [e $U 398  ]
 [e :U 391 ]
-[e $ ! == -> _direccion `ui -> 48 `ui 399  ]
+[e $ ! == -> . . _PORTCbits 0 6 `i -> 1 `i 399  ]
 {
 "74
 [; ;Motor.c: 74:         do { LATDbits.LATD5 = 0; } while(0);
@@ -904,41 +936,61 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 404 ]
 "76
-[; ;Motor.c: 76:     }
+[; ;Motor.c: 76:     } if (PORTCbits.RC5==0 &&PORTCbits.RC6==0){
 }
 [e :U 399 ]
 [e :U 398 ]
+[e $ ! && == -> . . _PORTCbits 0 5 `i -> 0 `i == -> . . _PORTCbits 0 6 `i -> 0 `i 406  ]
+{
 "77
-[; ;Motor.c: 77:     return;
-[e $UE 387  ]
+[; ;Motor.c: 77:         do { LATDbits.LATD5 = 0; } while(0);
+[e :U 409 ]
+{
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
+}
+[e :U 408 ]
 "78
-[; ;Motor.c: 78: }
+[; ;Motor.c: 78:         do { LATDbits.LATD6 = 0; } while(0);
+[e :U 412 ]
+{
+[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
+}
+[e :U 411 ]
+"79
+[; ;Motor.c: 79:     }
+}
+[e :U 406 ]
+"80
+[; ;Motor.c: 80:     return;
+[e $UE 387  ]
+"81
+[; ;Motor.c: 81: }
 [e :UE 387 ]
 }
-"79
-[; ;Motor.c: 79: void Motor_Home(){
+"82
+[; ;Motor.c: 82: void Motor_Home(){
 [v _Motor_Home `(v ~T0 @X0 1 ef ]
 {
 [e :U _Motor_Home ]
 [f ]
-"80
-[; ;Motor.c: 80:     PORTDbits.RD1 = 1;
-[e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
-"81
-[; ;Motor.c: 81:     PORTDbits.RD3 = 1;
-[e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
-"82
-[; ;Motor.c: 82:     PWM_InitS();
-[e ( _PWM_InitS ..  ]
 "83
-[; ;Motor.c: 83:     T2CONbits.TMR2ON = 1;
-[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
+[; ;Motor.c: 83:     PORTDbits.RD1 = 1;
+[e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
 "84
-[; ;Motor.c: 84: }
-[e :UE 406 ]
-}
+[; ;Motor.c: 84:     PORTDbits.RD3 = 1;
+[e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
 "85
-[; ;Motor.c: 85: void Motor_Movimiento_Home(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY) {
+[; ;Motor.c: 85:     PWM_InitS();
+[e ( _PWM_InitS ..  ]
+"86
+[; ;Motor.c: 86:     T2CONbits.TMR2ON = 1;
+[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
+"87
+[; ;Motor.c: 87: }
+[e :UE 413 ]
+}
+"88
+[; ;Motor.c: 88: void Motor_Movimiento_Home(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY) {
 [v _Motor_Movimiento_Home `(v ~T0 @X0 1 ef3`uc`i`i ]
 {
 [e :U _Motor_Movimiento_Home ]
@@ -946,29 +998,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _Motor_CoordenadaX `i ~T0 @X0 1 r2 ]
 [v _Motor_CoordenadaY `i ~T0 @X0 1 r3 ]
 [f ]
-"86
-[; ;Motor.c: 86:     T2CONbits.TMR2ON =0 ;
-[e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
-"87
-[; ;Motor.c: 87:     PORTDbits.RD1 = 0;
-[e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
-"88
-[; ;Motor.c: 88:     PORTDbits.RD3 = 0;
-[e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
 "89
-[; ;Motor.c: 89:     PasosX = Motor_Conversion(Motor_CoordenadaX);
-[e = _PasosX ( _Motor_Conversion (1 _Motor_CoordenadaX ]
+[; ;Motor.c: 89:     T2CONbits.TMR2ON =0 ;
+[e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
 "90
-[; ;Motor.c: 90:     PasosY = Motor_Conversion(Motor_CoordenadaY);
-[e = _PasosY ( _Motor_Conversion (1 _Motor_CoordenadaY ]
+[; ;Motor.c: 90:     PORTDbits.RD1 = 0;
+[e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
 "91
-[; ;Motor.c: 91:     PWM_GeneratePulsos(Oupcode, PasosX, PasosY);
-[e ( _PWM_GeneratePulsos (3 , , _Oupcode _PasosX _PasosY ]
+[; ;Motor.c: 91:     PORTDbits.RD3 = 0;
+[e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
 "92
-[; ;Motor.c: 92:     return;
-[e $UE 407  ]
+[; ;Motor.c: 92:     PasosX = Motor_Conversion(Motor_CoordenadaX);
+[e = _PasosX ( _Motor_Conversion (1 _Motor_CoordenadaX ]
 "93
-[; ;Motor.c: 93: }
-[e :UE 407 ]
+[; ;Motor.c: 93:     PasosY = Motor_Conversion(Motor_CoordenadaY);
+[e = _PasosY ( _Motor_Conversion (1 _Motor_CoordenadaY ]
+"94
+[; ;Motor.c: 94:     PWM_GeneratePulsos(Oupcode, PasosX, PasosY);
+[e ( _PWM_GeneratePulsos (3 , , _Oupcode _PasosX _PasosY ]
+"95
+[; ;Motor.c: 95:     return;
+[e $UE 414  ]
+"96
+[; ;Motor.c: 96: }
+[e :UE 414 ]
 }
 [a 1C 67 79 77 80 76 69 84 69 68 10 0 ]

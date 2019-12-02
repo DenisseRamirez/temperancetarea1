@@ -621,10 +621,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "5 GPIOsparcA1.c
-[; ;GPIOsparcA1.c: 5: void GPIO_PORTA(void){
-[v _GPIO_PORTA `(v ~T0 @X0 1 ef ]
+[; ;GPIOsparcA1.c: 5: void GPIO_init_PORTA(void){
+[v _GPIO_init_PORTA `(v ~T0 @X0 1 ef ]
 {
-[e :U _GPIO_PORTA ]
+[e :U _GPIO_init_PORTA ]
 [f ]
 "6
 [; ;GPIOsparcA1.c: 6:     PORTA = 0x00;
@@ -645,15 +645,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _TRISAbits 0 4 -> -> 1 `i `uc ]
 }
 [e :U 369 ]
+"15
+[; ;GPIOsparcA1.c: 15:     do { TRISAbits.TRISA5 = 1; } while(0);
+[e :U 373 ]
+{
+[e = . . _TRISAbits 0 5 -> -> 1 `i `uc ]
+}
+[e :U 372 ]
 "18
 [; ;GPIOsparcA1.c: 18: }
 [e :UE 367 ]
 }
 "20
-[; ;GPIOsparcA1.c: 20: void GPIO_PORTB(void){
-[v _GPIO_PORTB `(v ~T0 @X0 1 ef ]
+[; ;GPIOsparcA1.c: 20: void GPIO_init_PORTB(void){
+[v _GPIO_init_PORTB `(v ~T0 @X0 1 ef ]
 {
-[e :U _GPIO_PORTB ]
+[e :U _GPIO_init_PORTB ]
 [f ]
 "21
 [; ;GPIOsparcA1.c: 21:     PORTB = 0x00;
@@ -666,55 +673,55 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _ADCON1 -> -> 208 `i `uc ]
 "24
 [; ;GPIOsparcA1.c: 24:     do { TRISBbits.TRISB0 = 1; } while(0);
-[e :U 374 ]
+[e :U 377 ]
 {
 [e = . . _TRISBbits 0 0 -> -> 1 `i `uc ]
 }
-[e :U 373 ]
+[e :U 376 ]
 "25
 [; ;GPIOsparcA1.c: 25:     do { TRISBbits.TRISB1 = 1; } while(0);
-[e :U 377 ]
+[e :U 380 ]
 {
 [e = . . _TRISBbits 0 1 -> -> 1 `i `uc ]
 }
-[e :U 376 ]
+[e :U 379 ]
 "26
 [; ;GPIOsparcA1.c: 26:     do { TRISBbits.TRISB2 = 1; } while(0);
-[e :U 380 ]
+[e :U 383 ]
 {
 [e = . . _TRISBbits 0 2 -> -> 1 `i `uc ]
 }
-[e :U 379 ]
+[e :U 382 ]
 "29
 [; ;GPIOsparcA1.c: 29:     do { TRISBbits.TRISB5 = 0; } while(0);
-[e :U 383 ]
+[e :U 386 ]
 {
 [e = . . _TRISBbits 0 5 -> -> 0 `i `uc ]
 }
-[e :U 382 ]
+[e :U 385 ]
 "30
 [; ;GPIOsparcA1.c: 30:     do { TRISBbits.TRISB6 = 0; } while(0);
-[e :U 386 ]
+[e :U 389 ]
 {
 [e = . . _TRISBbits 0 6 -> -> 0 `i `uc ]
 }
-[e :U 385 ]
+[e :U 388 ]
 "31
 [; ;GPIOsparcA1.c: 31:     do { TRISBbits.TRISB7 = 0; } while(0);
-[e :U 389 ]
+[e :U 392 ]
 {
 [e = . . _TRISBbits 0 7 -> -> 0 `i `uc ]
 }
-[e :U 388 ]
+[e :U 391 ]
 "32
 [; ;GPIOsparcA1.c: 32: }
-[e :UE 371 ]
+[e :UE 374 ]
 }
 "34
-[; ;GPIOsparcA1.c: 34: void GPIO_PORTC(void){
-[v _GPIO_PORTC `(v ~T0 @X0 1 ef ]
+[; ;GPIOsparcA1.c: 34: void GPIO_init_PORTC(void){
+[v _GPIO_init_PORTC `(v ~T0 @X0 1 ef ]
 {
-[e :U _GPIO_PORTC ]
+[e :U _GPIO_init_PORTC ]
 [f ]
 "35
 [; ;GPIOsparcA1.c: 35:     PORTC = 0x00;
@@ -724,48 +731,48 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _LATC -> -> 0 `i `uc ]
 "37
 [; ;GPIOsparcA1.c: 37:     do { TRISCbits.TRISC0 = 1; } while(0);
-[e :U 393 ]
+[e :U 396 ]
 {
 [e = . . _TRISCbits 0 0 -> -> 1 `i `uc ]
 }
-[e :U 392 ]
+[e :U 395 ]
 "38
 [; ;GPIOsparcA1.c: 38:     do { TRISCbits.TRISC1 = 0; } while(0);
-[e :U 396 ]
+[e :U 399 ]
 {
 [e = . . _TRISCbits 0 1 -> -> 0 `i `uc ]
 }
-[e :U 395 ]
+[e :U 398 ]
 "39
 [; ;GPIOsparcA1.c: 39:     do { TRISCbits.TRISC2 = 0; } while(0);
-[e :U 399 ]
+[e :U 402 ]
 {
 [e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
 }
-[e :U 398 ]
+[e :U 401 ]
 "43
 [; ;GPIOsparcA1.c: 43:     do { TRISCbits.TRISC6 = 0; } while(0);
-[e :U 402 ]
+[e :U 405 ]
 {
 [e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
 }
-[e :U 401 ]
+[e :U 404 ]
 "44
 [; ;GPIOsparcA1.c: 44:     do { TRISCbits.TRISC7 = 1; } while(0);
-[e :U 405 ]
+[e :U 408 ]
 {
 [e = . . _TRISCbits 0 5 -> -> 1 `i `uc ]
 }
-[e :U 404 ]
+[e :U 407 ]
 "45
 [; ;GPIOsparcA1.c: 45: }
-[e :UE 390 ]
+[e :UE 393 ]
 }
 "47
-[; ;GPIOsparcA1.c: 47: void GPIO_PORTD(void){
-[v _GPIO_PORTD `(v ~T0 @X0 1 ef ]
+[; ;GPIOsparcA1.c: 47: void GPIO_init_PORTD(void){
+[v _GPIO_init_PORTD `(v ~T0 @X0 1 ef ]
 {
-[e :U _GPIO_PORTD ]
+[e :U _GPIO_init_PORTD ]
 [f ]
 "48
 [; ;GPIOsparcA1.c: 48:     PORTD = 0x00;
@@ -778,62 +785,62 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _CMCON -> -> 7 `i `uc ]
 "51
 [; ;GPIOsparcA1.c: 51:     do { TRISDbits.TRISD0 = 0; } while(0);
-[e :U 409 ]
+[e :U 412 ]
 {
 [e = . . _TRISDbits 0 0 -> -> 0 `i `uc ]
 }
-[e :U 408 ]
+[e :U 411 ]
 "52
 [; ;GPIOsparcA1.c: 52:     do { TRISDbits.TRISD1 = 0; } while(0);
-[e :U 412 ]
+[e :U 415 ]
 {
 [e = . . _TRISDbits 0 1 -> -> 0 `i `uc ]
 }
-[e :U 411 ]
+[e :U 414 ]
 "53
 [; ;GPIOsparcA1.c: 53:     do { TRISDbits.TRISD2 = 0; } while(0);
-[e :U 415 ]
+[e :U 418 ]
 {
 [e = . . _TRISDbits 0 2 -> -> 0 `i `uc ]
 }
-[e :U 414 ]
+[e :U 417 ]
 "54
 [; ;GPIOsparcA1.c: 54:     do { TRISDbits.TRISD3 = 0; } while(0);
-[e :U 418 ]
+[e :U 421 ]
 {
 [e = . . _TRISDbits 0 3 -> -> 0 `i `uc ]
 }
-[e :U 417 ]
+[e :U 420 ]
 "55
 [; ;GPIOsparcA1.c: 55:     do { TRISDbits.TRISD4 = 0; } while(0);
-[e :U 421 ]
+[e :U 424 ]
 {
 [e = . . _TRISDbits 0 4 -> -> 0 `i `uc ]
 }
-[e :U 420 ]
+[e :U 423 ]
 "56
 [; ;GPIOsparcA1.c: 56:     do { TRISDbits.TRISD5 = 0; } while(0);
-[e :U 424 ]
+[e :U 427 ]
 {
 [e = . . _TRISDbits 0 5 -> -> 0 `i `uc ]
 }
-[e :U 423 ]
+[e :U 426 ]
 "57
 [; ;GPIOsparcA1.c: 57:     do { TRISDbits.TRISD6 = 0; } while(0);
-[e :U 427 ]
+[e :U 430 ]
 {
 [e = . . _TRISDbits 0 6 -> -> 0 `i `uc ]
 }
-[e :U 426 ]
+[e :U 429 ]
 "59
 [; ;GPIOsparcA1.c: 59: }
-[e :UE 406 ]
+[e :UE 409 ]
 }
 "61
-[; ;GPIOsparcA1.c: 61: void GPIO_PORTE(void){
-[v _GPIO_PORTE `(v ~T0 @X0 1 ef ]
+[; ;GPIOsparcA1.c: 61: void GPIO_init_PORTE(void){
+[v _GPIO_init_PORTE `(v ~T0 @X0 1 ef ]
 {
-[e :U _GPIO_PORTE ]
+[e :U _GPIO_init_PORTE ]
 [f ]
 "62
 [; ;GPIOsparcA1.c: 62:     PORTE = 0x00;
@@ -849,12 +856,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _CMCON -> -> 7 `i `uc ]
 "66
 [; ;GPIOsparcA1.c: 66:     do { TRISEbits.TRISE0 = 0; } while(0);
-[e :U 431 ]
+[e :U 434 ]
 {
 [e = . . _TRISEbits 0 0 -> -> 0 `i `uc ]
 }
-[e :U 430 ]
+[e :U 433 ]
 "74
 [; ;GPIOsparcA1.c: 74: }
-[e :UE 428 ]
+[e :UE 431 ]
 }
