@@ -1,3 +1,9 @@
 build/default/production/main.p1:  \
 main.c  \
-main.h 
+main.h  \
+configuration.h  \
+ControlZ.h  \
+UART.h  \
+motor.h  \
+PWM.h  \
+serial.h 

@@ -5850,6 +5850,7 @@ char USART_TxS(char str[], int length);
     void Serial_Lectura_MemoriaY(char direccion, int *pointerCY) ;
     void Serial_Lectura_MemoriaZ(char direccion, int *pointerCZ) ;
     void Serial_RangosCoordenadas(int C);
+    void Serial_Oupcode();
 
 
     void Serial_Escritura_Memoria(char direccion,char string_setpoint[]);
@@ -5874,7 +5875,10 @@ char USART_TxS(char str[], int length);
 
 char oneshotX=0;
 char oneshotY=0;
+char BanderaX=0;
+char BanderaY=0;
 void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
+void PWM_Pulsos_Home(char banderaX, char banderaY);
 int PWM_OneshotX ();
 int PWM_OneshotY ();
 void PWM_InitF();
@@ -5903,6 +5907,8 @@ void Motor_Calcular_PasosX(int coordenada_actualX);
 void Motor_Calcular_PasosY(int coordenada_actualY);
 void Motor_MovimientoZ(char direccion);
 void Motor_MovimientoZ_Init(char direccion);
+void Motor_Home();
+void Motor_Movimiento_Home(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY);
 # 16 "serial.c" 2
 
 # 1 "./Actuator.h" 1
@@ -6025,9 +6031,8 @@ void GPIO_init_PORTE(void);
 # 19 "serial.c" 2
 
 
-void main() {
-    OSCCON = 0x72;
-    USART_Init(9600);
+void Serial_Oupcode() {
+
     TRISDbits.TRISD0 = 0;
     TRISDbits.TRISD2 = 0;
     TRISDbits.TRISD1 = 0;

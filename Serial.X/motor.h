@@ -19,6 +19,9 @@ void Motor_Calcular_PasosX(int coordenada_actualX);
 void Motor_Calcular_PasosY(int coordenada_actualY);
 void Motor_MovimientoZ(char direccion);
 void Motor_MovimientoZ_Init(char direccion);
+void Motor_Home();
+void Motor_Movimiento_Home(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY);
+
 #ifdef	__cplusplus
 }
 #endif

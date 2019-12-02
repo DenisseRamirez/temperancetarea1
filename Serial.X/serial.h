@@ -12,6 +12,7 @@ extern "C" {
     void Serial_Lectura_MemoriaY(char direccion, int *pointerCY) ;
     void Serial_Lectura_MemoriaZ(char direccion, int *pointerCZ) ;
     void Serial_RangosCoordenadas(int C);
+    void Serial_Oupcode();
    // void Serial_FiltroCaracteres(char C[]);
    // void Serial_Lectura_Memoria(char direccion, int *pointerCX, int *pointerCY, int *pointerCZ);
     void Serial_Escritura_Memoria(char direccion,char string_setpoint[]);

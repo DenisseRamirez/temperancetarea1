@@ -1,11 +1,4 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
-"7986 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7986: extern volatile unsigned char OSCCON __attribute__((address(0xFD3)));
-[v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
-"8 ./UART.h
-[; ;./UART.h: 8: void USART_Init(long BAUD);
-[v _USART_Init `(v ~T0 @X0 0 ef1`l ]
 "4012 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4012:     struct {
 [s S162 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -112,8 +105,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "14
 [; ;./Actuator.h: 14: void Actuator_Retract();
 [v _Actuator_Retract `(v ~T0 @X0 0 e? ]
-"18 ./serial.h
-[; ;./serial.h: 18:     char Seria_Decodificacion_Memoria(char direccion);
+"19 ./serial.h
+[; ;./serial.h: 19:     char Seria_Decodificacion_Memoria(char direccion);
 [v _Seria_Decodificacion_Memoria `(uc ~T0 @X0 0 ef1`uc ]
 "11
 [; ;./serial.h: 11:     void Serial_Lectura_MemoriaX(char direccion, int *pointerCX) ;
@@ -124,8 +117,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13
 [; ;./serial.h: 13:     void Serial_Lectura_MemoriaZ(char direccion, int *pointerCZ) ;
 [v _Serial_Lectura_MemoriaZ `(v ~T0 @X0 0 ef2`uc`*i ]
-"17
-[; ;./serial.h: 17:     void Serial_Escritura_Memoria(char direccion,char string_setpoint[]);
+"18
+[; ;./serial.h: 18:     void Serial_Escritura_Memoria(char direccion,char string_setpoint[]);
 [v _Serial_Escritura_Memoria `(v ~T0 @X0 0 ef2`uc`*uc ]
 "23 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\stdlib.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\stdlib.h: 23: int atoi (const char *);
@@ -646,35 +639,35 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8893
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"19 ./serial.h
-[; ;./serial.h: 19:     int CoordenadaX;
+"20 ./serial.h
+[; ;./serial.h: 20:     int CoordenadaX;
 [v _CoordenadaX `i ~T0 @X0 1 e ]
-"20
-[; ;./serial.h: 20:     int CoordenadaY;
-[v _CoordenadaY `i ~T0 @X0 1 e ]
 "21
-[; ;./serial.h: 21:     int CoordenadaZ;
-[v _CoordenadaZ `i ~T0 @X0 1 e ]
+[; ;./serial.h: 21:     int CoordenadaY;
+[v _CoordenadaY `i ~T0 @X0 1 e ]
 "22
-[; ;./serial.h: 22:     char C[3];
-[v _C `uc ~T0 @X0 -> 3 `i e ]
+[; ;./serial.h: 22:     int CoordenadaZ;
+[v _CoordenadaZ `i ~T0 @X0 1 e ]
 "23
-[; ;./serial.h: 23:     char coordenada_array[7];
-[v _coordenada_array `uc ~T0 @X0 -> 7 `i e ]
+[; ;./serial.h: 23:     char C[3];
+[v _C `uc ~T0 @X0 -> 3 `i e ]
 "24
-[; ;./serial.h: 24:     char coordenada_setpoint[11];
-[v _coordenada_setpoint `uc ~T0 @X0 -> 11 `i e ]
+[; ;./serial.h: 24:     char coordenada_array[7];
+[v _coordenada_array `uc ~T0 @X0 -> 7 `i e ]
 "25
-[; ;./serial.h: 25:     char Direccion_Memoria;
-[v _Direccion_Memoria `uc ~T0 @X0 1 e ]
+[; ;./serial.h: 25:     char coordenada_setpoint[11];
+[v _coordenada_setpoint `uc ~T0 @X0 -> 11 `i e ]
 "26
-[; ;./serial.h: 26:     char Coordenadas_fuera=0;
+[; ;./serial.h: 26:     char Direccion_Memoria;
+[v _Direccion_Memoria `uc ~T0 @X0 1 e ]
+"27
+[; ;./serial.h: 27:     char Coordenadas_fuera=0;
 [v _Coordenadas_fuera `uc ~T0 @X0 1 e ]
 [i _Coordenadas_fuera
 -> -> 0 `i `uc
 ]
-"27
-[; ;./serial.h: 27:     char Coordenadas_mal=0;
+"28
+[; ;./serial.h: 28:     char Coordenadas_mal=0;
 [v _Coordenadas_mal `uc ~T0 @X0 1 e ]
 [i _Coordenadas_mal
 -> -> 0 `i `uc
@@ -689,6 +682,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./PWM.h: 8: char oneshotY=0;
 [v _oneshotY `uc ~T0 @X0 1 e ]
 [i _oneshotY
+-> -> 0 `i `uc
+]
+"9
+[; ;./PWM.h: 9: char BanderaX=0;
+[v _BanderaX `uc ~T0 @X0 1 e ]
+[i _BanderaX
+-> -> 0 `i `uc
+]
+"10
+[; ;./PWM.h: 10: char BanderaY=0;
+[v _BanderaY `uc ~T0 @X0 1 e ]
+[i _BanderaY
 -> -> 0 `i `uc
 ]
 "7 ./motor.h
@@ -748,330 +753,323 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13 ./EEPROM.h
 [; ;./EEPROM.h: 13: char data;
 [v _data `uc ~T0 @X0 1 e ]
-[v $root$_main `(v ~T0 @X0 0 e ]
 "21 serial.c
-[; ;serial.c: 21: void main() {
-[v _main `(v ~T0 @X0 1 ef ]
+[; ;serial.c: 21: void Serial_Oupcode() {
+[v _Serial_Oupcode `(v ~T0 @X0 1 ef ]
 {
-[e :U _main ]
+[e :U _Serial_Oupcode ]
 [f ]
-"22
-[; ;serial.c: 22:     OSCCON = 0x72;
-[e = _OSCCON -> -> 114 `i `uc ]
 "23
-[; ;serial.c: 23:     USART_Init(9600);
-[e ( _USART_Init (1 -> -> 9600 `i `l ]
-"24
-[; ;serial.c: 24:     TRISDbits.TRISD0 = 0;
+[; ;serial.c: 23:     TRISDbits.TRISD0 = 0;
 [e = . . _TRISDbits 0 0 -> -> 0 `i `uc ]
-"25
-[; ;serial.c: 25:     TRISDbits.TRISD2 = 0;
+"24
+[; ;serial.c: 24:     TRISDbits.TRISD2 = 0;
 [e = . . _TRISDbits 0 2 -> -> 0 `i `uc ]
-"26
-[; ;serial.c: 26:     TRISDbits.TRISD1 = 0;
+"25
+[; ;serial.c: 25:     TRISDbits.TRISD1 = 0;
 [e = . . _TRISDbits 0 1 -> -> 0 `i `uc ]
-"27
-[; ;serial.c: 27:     TRISDbits.TRISD3 = 0;
+"26
+[; ;serial.c: 26:     TRISDbits.TRISD3 = 0;
 [e = . . _TRISDbits 0 3 -> -> 0 `i `uc ]
+"27
+[; ;serial.c: 27:     PORTDbits.RD0 = 1;
+[e = . . _PORTDbits 0 0 -> -> 1 `i `uc ]
 "28
 [; ;serial.c: 28:     PORTDbits.RD0 = 1;
 [e = . . _PORTDbits 0 0 -> -> 1 `i `uc ]
 "29
-[; ;serial.c: 29:     PORTDbits.RD0 = 1;
-[e = . . _PORTDbits 0 0 -> -> 1 `i `uc ]
-"30
-[; ;serial.c: 30:     TRISCbits.RC1 = 0;
+[; ;serial.c: 29:     TRISCbits.RC1 = 0;
 [e = . . _TRISCbits 1 1 -> -> 0 `i `uc ]
-"31
-[; ;serial.c: 31:     TRISCbits.RC2 = 0;
+"30
+[; ;serial.c: 30:     TRISCbits.RC2 = 0;
 [e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
-"32
-[; ;serial.c: 32:     PORTCbits.RC1 = 0;
+"31
+[; ;serial.c: 31:     PORTCbits.RC1 = 0;
 [e = . . _PORTCbits 0 1 -> -> 0 `i `uc ]
-"33
-[; ;serial.c: 33:     char instruction_counter = 0;
+"32
+[; ;serial.c: 32:     char instruction_counter = 0;
 [v _instruction_counter `uc ~T0 @X0 1 a ]
 [e = _instruction_counter -> -> 0 `i `uc ]
-"34
-[; ;serial.c: 34:     USART_TxS("WELCOME TO SPARC\n", sizeof ("WELCOME TO SPARC\n") - 1);
+"33
+[; ;serial.c: 33:     USART_TxS("WELCOME TO SPARC\n", sizeof ("WELCOME TO SPARC\n") - 1);
 [e ( _USART_TxS (2 , :s 1C -> - -> 18 `ui -> -> 1 `i `ui `i ]
-"35
-[; ;serial.c: 35:     USART_TxS("PLEASE INSERT THE INSTRUCTION OF SETPOINT\n", sizeof ("PLEASE INSERT THE INSTRUCTION OF SETPOINT\n") - 1);
+"34
+[; ;serial.c: 34:     USART_TxS("PLEASE INSERT THE INSTRUCTION OF SETPOINT\n", sizeof ("PLEASE INSERT THE INSTRUCTION OF SETPOINT\n") - 1);
 [e ( _USART_TxS (2 , :s 2C -> - -> 43 `ui -> -> 1 `i `ui `i ]
-"36
-[; ;serial.c: 36:     while (1) {
+"35
+[; ;serial.c: 35:     while (1) {
 [e :U 372 ]
 {
-"37
-[; ;serial.c: 37:         if (instruction_counter == 0) {
+"36
+[; ;serial.c: 36:         if (instruction_counter == 0) {
 [e $ ! == -> _instruction_counter `i -> 0 `i 374  ]
 {
-"38
-[; ;serial.c: 38:             USART_TxS("WAITING FOR INSTRUCTION\n", sizeof ("WAITING FOR INSTRUCTION\n") - 1);
+"37
+[; ;serial.c: 37:             USART_TxS("WAITING FOR INSTRUCTION\n", sizeof ("WAITING FOR INSTRUCTION\n") - 1);
 [e ( _USART_TxS (2 , :s 3C -> - -> 25 `ui -> -> 1 `i `ui `i ]
-"39
-[; ;serial.c: 39:             instruction_counter = 1;
+"38
+[; ;serial.c: 38:             instruction_counter = 1;
 [e = _instruction_counter -> -> 1 `i `uc ]
-"40
-[; ;serial.c: 40:         }
+"39
+[; ;serial.c: 39:         }
 }
 [e :U 374 ]
-"41
-[; ;serial.c: 41:         char Oupcode = USART_RxC();
+"40
+[; ;serial.c: 40:         char Oupcode = USART_RxC();
 [v _Oupcode `uc ~T0 @X0 1 a ]
 [e = _Oupcode ( _USART_RxC ..  ]
-"42
-[; ;serial.c: 42:         switch (Oupcode) {
+"41
+[; ;serial.c: 41:         switch (Oupcode) {
 [e $U 376  ]
 {
-"43
-[; ;serial.c: 43:             case 'F':
+"42
+[; ;serial.c: 42:             case 'F':
 [e :U 377 ]
-"44
-[; ;serial.c: 44:                 USART_RxS(7, coordenada_array);
+"43
+[; ;serial.c: 43:                 USART_RxS(7, coordenada_array);
 [e ( _USART_RxS (2 , -> -> 7 `i `uc &U _coordenada_array ]
-"45
-[; ;serial.c: 45:                 USART_TxS("WAIT UNTIL COMPLETE...", sizeof ("WAIT UNTIL COMPLETE...") - 1);
+"44
+[; ;serial.c: 44:                 USART_TxS("WAIT UNTIL COMPLETE...", sizeof ("WAIT UNTIL COMPLETE...") - 1);
 [e ( _USART_TxS (2 , :s 4C -> - -> 23 `ui -> -> 1 `i `ui `i ]
-"46
-[; ;serial.c: 46:                 Serial_DecodificacionX(coordenada_array, &CoordenadaX);
+"45
+[; ;serial.c: 45:                 Serial_DecodificacionX(coordenada_array, &CoordenadaX);
 [e ( _Serial_DecodificacionX (2 , &U _coordenada_array &U _CoordenadaX ]
-"47
-[; ;serial.c: 47:                 Serial_DecodificacionY(coordenada_array, &CoordenadaY);
+"46
+[; ;serial.c: 46:                 Serial_DecodificacionY(coordenada_array, &CoordenadaY);
 [e ( _Serial_DecodificacionY (2 , &U _coordenada_array &U _CoordenadaY ]
-"48
-[; ;serial.c: 48:                 Serial_RangosCoordenadas(CoordenadaX);
+"47
+[; ;serial.c: 47:                 Serial_RangosCoordenadas(CoordenadaX);
 [e ( _Serial_RangosCoordenadas (1 _CoordenadaX ]
-"49
-[; ;serial.c: 49:                 Serial_RangosCoordenadas(CoordenadaY);
+"48
+[; ;serial.c: 48:                 Serial_RangosCoordenadas(CoordenadaY);
 [e ( _Serial_RangosCoordenadas (1 _CoordenadaY ]
-"50
-[; ;serial.c: 50:                 if (Coordenadas_fuera == 1 ) {
+"49
+[; ;serial.c: 49:                 if (Coordenadas_fuera == 1 ) {
 [e $ ! == -> _Coordenadas_fuera `i -> 1 `i 378  ]
 {
-"51
-[; ;serial.c: 51:                      USART_TxS("ERROR CORDINATES OUTSIDE THE RANGE\n", sizeof ("ERROR CORDINATES OUTSIDE THE RANGE\n") - 1);
+"50
+[; ;serial.c: 50:                      USART_TxS("ERROR CORDINATES OUTSIDE THE RANGE\n", sizeof ("ERROR CORDINATES OUTSIDE THE RANGE\n") - 1);
 [e ( _USART_TxS (2 , :s 5C -> - -> 36 `ui -> -> 1 `i `ui `i ]
-"52
-[; ;serial.c: 52:                     Coordenadas_fuera = 0;
+"51
+[; ;serial.c: 51:                     Coordenadas_fuera = 0;
 [e = _Coordenadas_fuera -> -> 0 `i `uc ]
-"53
-[; ;serial.c: 53:                 }else if (Coordenadas_mal==1){
+"52
+[; ;serial.c: 52:                 }else if (Coordenadas_mal==1){
 }
 [e $U 379  ]
 [e :U 378 ]
 [e $ ! == -> _Coordenadas_mal `i -> 1 `i 380  ]
 {
-"54
-[; ;serial.c: 54:                     USART_TxS("ERROR CARACTERS INGRESED WRONG\n", sizeof ("ERROR CARACTERS INGRESED WRONG\n") - 1);
+"53
+[; ;serial.c: 53:                     USART_TxS("ERROR CARACTERS INGRESED WRONG\n", sizeof ("ERROR CARACTERS INGRESED WRONG\n") - 1);
 [e ( _USART_TxS (2 , :s 6C -> - -> 32 `ui -> -> 1 `i `ui `i ]
-"55
-[; ;serial.c: 55:                     Coordenadas_mal=0;
+"54
+[; ;serial.c: 54:                     Coordenadas_mal=0;
 [e = _Coordenadas_mal -> -> 0 `i `uc ]
-"56
-[; ;serial.c: 56:                 } else {
+"55
+[; ;serial.c: 55:                 } else {
 }
 [e $U 381  ]
 [e :U 380 ]
 {
-"57
-[; ;serial.c: 57:                     Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
+"56
+[; ;serial.c: 56:                     Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
 [e ( _Motor_Movimiento (3 , , _Oupcode _CoordenadaX _CoordenadaY ]
-"58
-[; ;serial.c: 58:                 }
+"57
+[; ;serial.c: 57:                 }
 }
 [e :U 381 ]
 [e :U 379 ]
-"59
-[; ;serial.c: 59:                 break;
+"58
+[; ;serial.c: 58:                 break;
 [e $U 375  ]
-"60
-[; ;serial.c: 60:             case 'S':
+"59
+[; ;serial.c: 59:             case 'S':
 [e :U 382 ]
-"61
-[; ;serial.c: 61:                 USART_RxS(7, coordenada_array);
+"60
+[; ;serial.c: 60:                 USART_RxS(7, coordenada_array);
 [e ( _USART_RxS (2 , -> -> 7 `i `uc &U _coordenada_array ]
-"62
-[; ;serial.c: 62:                 USART_TxS("WAIT UNTIL COMPLETE...", sizeof ("WAIT UNTIL COMPLETE...") - 1);
+"61
+[; ;serial.c: 61:                 USART_TxS("WAIT UNTIL COMPLETE...", sizeof ("WAIT UNTIL COMPLETE...") - 1);
 [e ( _USART_TxS (2 , :s 7C -> - -> 23 `ui -> -> 1 `i `ui `i ]
-"63
-[; ;serial.c: 63:                 Serial_DecodificacionX(coordenada_array, &CoordenadaX);
+"62
+[; ;serial.c: 62:                 Serial_DecodificacionX(coordenada_array, &CoordenadaX);
 [e ( _Serial_DecodificacionX (2 , &U _coordenada_array &U _CoordenadaX ]
-"64
-[; ;serial.c: 64:                 Serial_DecodificacionY(coordenada_array, &CoordenadaY);
+"63
+[; ;serial.c: 63:                 Serial_DecodificacionY(coordenada_array, &CoordenadaY);
 [e ( _Serial_DecodificacionY (2 , &U _coordenada_array &U _CoordenadaY ]
-"65
-[; ;serial.c: 65:                 Serial_RangosCoordenadas(CoordenadaX);
+"64
+[; ;serial.c: 64:                 Serial_RangosCoordenadas(CoordenadaX);
 [e ( _Serial_RangosCoordenadas (1 _CoordenadaX ]
-"66
-[; ;serial.c: 66:                 Serial_RangosCoordenadas(CoordenadaY);
+"65
+[; ;serial.c: 65:                 Serial_RangosCoordenadas(CoordenadaY);
 [e ( _Serial_RangosCoordenadas (1 _CoordenadaY ]
-"67
-[; ;serial.c: 67:                if (Coordenadas_fuera == 1 ) {
+"66
+[; ;serial.c: 66:                if (Coordenadas_fuera == 1 ) {
 [e $ ! == -> _Coordenadas_fuera `i -> 1 `i 383  ]
 {
-"68
-[; ;serial.c: 68:                      USART_TxS("ERROR CORDINATES OUTSIDE THE RANGE\n", sizeof ("ERROR CORDINATES OUTSIDE THE RANGE\n") - 1);
+"67
+[; ;serial.c: 67:                      USART_TxS("ERROR CORDINATES OUTSIDE THE RANGE\n", sizeof ("ERROR CORDINATES OUTSIDE THE RANGE\n") - 1);
 [e ( _USART_TxS (2 , :s 8C -> - -> 36 `ui -> -> 1 `i `ui `i ]
-"69
-[; ;serial.c: 69:                     Coordenadas_fuera = 0;
+"68
+[; ;serial.c: 68:                     Coordenadas_fuera = 0;
 [e = _Coordenadas_fuera -> -> 0 `i `uc ]
-"70
-[; ;serial.c: 70:                 }else if (Coordenadas_mal==1){
+"69
+[; ;serial.c: 69:                 }else if (Coordenadas_mal==1){
 }
 [e $U 384  ]
 [e :U 383 ]
 [e $ ! == -> _Coordenadas_mal `i -> 1 `i 385  ]
 {
-"71
-[; ;serial.c: 71:                     USART_TxS("ERROR CARACTERS INGRESED WRONG\n", sizeof ("ERROR CARACTERS INGRESED WRONG\n") - 1);
+"70
+[; ;serial.c: 70:                     USART_TxS("ERROR CARACTERS INGRESED WRONG\n", sizeof ("ERROR CARACTERS INGRESED WRONG\n") - 1);
 [e ( _USART_TxS (2 , :s 9C -> - -> 32 `ui -> -> 1 `i `ui `i ]
-"72
-[; ;serial.c: 72:                     Coordenadas_mal=0;
+"71
+[; ;serial.c: 71:                     Coordenadas_mal=0;
 [e = _Coordenadas_mal -> -> 0 `i `uc ]
-"73
-[; ;serial.c: 73:                 } else {
+"72
+[; ;serial.c: 72:                 } else {
 }
 [e $U 386  ]
 [e :U 385 ]
 {
-"74
-[; ;serial.c: 74:                     Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
+"73
+[; ;serial.c: 73:                     Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
 [e ( _Motor_Movimiento (3 , , _Oupcode _CoordenadaX _CoordenadaY ]
-"75
-[; ;serial.c: 75:                 }
+"74
+[; ;serial.c: 74:                 }
 }
 [e :U 386 ]
 [e :U 384 ]
+"75
+[; ;serial.c: 75:                 break;
+[e $U 375  ]
 "76
-[; ;serial.c: 76:                 break;
-[e $U 375  ]
-"77
-[; ;serial.c: 77:             case 'T':
+[; ;serial.c: 76:             case 'T':
 [e :U 387 ]
-"78
-[; ;serial.c: 78:                 USART_TxS("WAIT UNTIL COMPLETE...", sizeof ("WAIT UNTIL COMPLETE...") - 1);
+"77
+[; ;serial.c: 77:                 USART_TxS("WAIT UNTIL COMPLETE...", sizeof ("WAIT UNTIL COMPLETE...") - 1);
 [e ( _USART_TxS (2 , :s 10C -> - -> 23 `ui -> -> 1 `i `ui `i ]
-"79
-[; ;serial.c: 79:                 Actuator_Touch();
+"78
+[; ;serial.c: 78:                 Actuator_Touch();
 [e ( _Actuator_Touch ..  ]
+"79
+[; ;serial.c: 79:                 break;
+[e $U 375  ]
 "80
-[; ;serial.c: 80:                 break;
-[e $U 375  ]
-"81
-[; ;serial.c: 81:             case 'H':
+[; ;serial.c: 80:             case 'H':
 [e :U 388 ]
-"82
-[; ;serial.c: 82:                 USART_TxS("WAIT UNTIL COMPLETE...", sizeof ("WAIT UNTIL COMPLETE...") - 1);
+"81
+[; ;serial.c: 81:                 USART_TxS("WAIT UNTIL COMPLETE...", sizeof ("WAIT UNTIL COMPLETE...") - 1);
 [e ( _USART_TxS (2 , :s 11C -> - -> 23 `ui -> -> 1 `i `ui `i ]
-"83
-[; ;serial.c: 83:                 Actuator_Hold();
+"82
+[; ;serial.c: 82:                 Actuator_Hold();
 [e ( _Actuator_Hold ..  ]
+"83
+[; ;serial.c: 83:                 break;
+[e $U 375  ]
 "84
-[; ;serial.c: 84:                 break;
-[e $U 375  ]
-"85
-[; ;serial.c: 85:             case 'R':
+[; ;serial.c: 84:             case 'R':
 [e :U 389 ]
-"86
-[; ;serial.c: 86:                 USART_TxS("WAIT UNTIL COMPLETE...", sizeof ("WAIT UNTIL COMPLETE...") - 1);
+"85
+[; ;serial.c: 85:                 USART_TxS("WAIT UNTIL COMPLETE...", sizeof ("WAIT UNTIL COMPLETE...") - 1);
 [e ( _USART_TxS (2 , :s 12C -> - -> 23 `ui -> -> 1 `i `ui `i ]
-"87
-[; ;serial.c: 87:                 Actuator_Retract();
+"86
+[; ;serial.c: 86:                 Actuator_Retract();
 [e ( _Actuator_Retract ..  ]
-"88
-[; ;serial.c: 88:                 break;
+"87
+[; ;serial.c: 87:                 break;
 [e $U 375  ]
-"89
-[; ;serial.c: 89:             case 'O':
+"88
+[; ;serial.c: 88:             case 'O':
 [e :U 390 ]
-"90
-[; ;serial.c: 90:                 USART_TxS("WAIT UNTIL COMPLETE...\n", sizeof ("WAIT UNTIL COMPLETE...\n") - 1);
+"89
+[; ;serial.c: 89:                 USART_TxS("WAIT UNTIL COMPLETE...\n", sizeof ("WAIT UNTIL COMPLETE...\n") - 1);
 [e ( _USART_TxS (2 , :s 13C -> - -> 24 `ui -> -> 1 `i `ui `i ]
-"91
-[; ;serial.c: 91:                 Direccion_Memoria = USART_RxC();
+"90
+[; ;serial.c: 90:                 Direccion_Memoria = USART_RxC();
 [e = _Direccion_Memoria ( _USART_RxC ..  ]
-"92
-[; ;serial.c: 92:                 Direccion_Memoria = Seria_Decodificacion_Memoria(Direccion_Memoria);
+"91
+[; ;serial.c: 91:                 Direccion_Memoria = Seria_Decodificacion_Memoria(Direccion_Memoria);
 [e = _Direccion_Memoria ( _Seria_Decodificacion_Memoria (1 _Direccion_Memoria ]
-"93
-[; ;serial.c: 93:                 Serial_Lectura_MemoriaX(Direccion_Memoria,&CoordenadaX);
+"92
+[; ;serial.c: 92:                 Serial_Lectura_MemoriaX(Direccion_Memoria,&CoordenadaX);
 [e ( _Serial_Lectura_MemoriaX (2 , _Direccion_Memoria &U _CoordenadaX ]
-"94
-[; ;serial.c: 94:                 Serial_Lectura_MemoriaY(Direccion_Memoria,&CoordenadaY);
+"93
+[; ;serial.c: 93:                 Serial_Lectura_MemoriaY(Direccion_Memoria,&CoordenadaY);
 [e ( _Serial_Lectura_MemoriaY (2 , _Direccion_Memoria &U _CoordenadaY ]
-"95
-[; ;serial.c: 95:                 Serial_Lectura_MemoriaZ(Direccion_Memoria,&CoordenadaZ);
+"94
+[; ;serial.c: 94:                 Serial_Lectura_MemoriaZ(Direccion_Memoria,&CoordenadaZ);
 [e ( _Serial_Lectura_MemoriaZ (2 , _Direccion_Memoria &U _CoordenadaZ ]
-"96
-[; ;serial.c: 96:                 if (Coordenadas_fuera == 1 ) {
+"95
+[; ;serial.c: 95:                 if (Coordenadas_fuera == 1 ) {
 [e $ ! == -> _Coordenadas_fuera `i -> 1 `i 391  ]
 {
-"97
-[; ;serial.c: 97:                      USART_TxS("ERROR CORDINATES OUTSIDE THE RANGE\n", sizeof ("ERROR CORDINATES OUTSIDE THE RANGE\n") - 1);
+"96
+[; ;serial.c: 96:                      USART_TxS("ERROR CORDINATES OUTSIDE THE RANGE\n", sizeof ("ERROR CORDINATES OUTSIDE THE RANGE\n") - 1);
 [e ( _USART_TxS (2 , :s 14C -> - -> 36 `ui -> -> 1 `i `ui `i ]
-"98
-[; ;serial.c: 98:                     USART_TxS("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n", sizeof ("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n") - 1);
+"97
+[; ;serial.c: 97:                     USART_TxS("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n", sizeof ("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n") - 1);
 [e ( _USART_TxS (2 , :s 15C -> - -> 42 `ui -> -> 1 `i `ui `i ]
-"99
-[; ;serial.c: 99:                     Coordenadas_fuera = 0;
+"98
+[; ;serial.c: 98:                     Coordenadas_fuera = 0;
 [e = _Coordenadas_fuera -> -> 0 `i `uc ]
-"100
-[; ;serial.c: 100:                 }else if (Coordenadas_mal==1){
+"99
+[; ;serial.c: 99:                 }else if (Coordenadas_mal==1){
 }
 [e $U 392  ]
 [e :U 391 ]
 [e $ ! == -> _Coordenadas_mal `i -> 1 `i 393  ]
 {
-"101
-[; ;serial.c: 101:                     USART_TxS("ERROR CARACTERS INGRESED WRONG\n", sizeof ("ERROR CARACTERS INGRESED WRONG\n") - 1);
+"100
+[; ;serial.c: 100:                     USART_TxS("ERROR CARACTERS INGRESED WRONG\n", sizeof ("ERROR CARACTERS INGRESED WRONG\n") - 1);
 [e ( _USART_TxS (2 , :s 16C -> - -> 32 `ui -> -> 1 `i `ui `i ]
-"102
-[; ;serial.c: 102:                      USART_TxS("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n", sizeof ("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n") - 1);
+"101
+[; ;serial.c: 101:                      USART_TxS("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n", sizeof ("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n") - 1);
 [e ( _USART_TxS (2 , :s 17C -> - -> 42 `ui -> -> 1 `i `ui `i ]
-"103
-[; ;serial.c: 103:                     Coordenadas_mal=0;
+"102
+[; ;serial.c: 102:                     Coordenadas_mal=0;
 [e = _Coordenadas_mal -> -> 0 `i `uc ]
-"104
-[; ;serial.c: 104:                 } else {
+"103
+[; ;serial.c: 103:                 } else {
 }
 [e $U 394  ]
 [e :U 393 ]
 {
-"106
-[; ;serial.c: 106:                     Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
+"105
+[; ;serial.c: 105:                     Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
 [e ( _Motor_Movimiento (3 , , _Oupcode _CoordenadaX _CoordenadaY ]
-"107
-[; ;serial.c: 107:                 }
+"106
+[; ;serial.c: 106:                 }
 }
 [e :U 394 ]
 [e :U 392 ]
+"107
+[; ;serial.c: 107:                 break;
+[e $U 375  ]
 "108
-[; ;serial.c: 108:                 break;
-[e $U 375  ]
-"109
-[; ;serial.c: 109:             case 'M':
+[; ;serial.c: 108:             case 'M':
 [e :U 395 ]
-"110
-[; ;serial.c: 110:                 Direccion_Memoria = USART_RxC();
+"109
+[; ;serial.c: 109:                 Direccion_Memoria = USART_RxC();
 [e = _Direccion_Memoria ( _USART_RxC ..  ]
-"111
-[; ;serial.c: 111:                 USART_RxS(11, coordenada_setpoint);
+"110
+[; ;serial.c: 110:                 USART_RxS(11, coordenada_setpoint);
 [e ( _USART_RxS (2 , -> -> 11 `i `uc &U _coordenada_setpoint ]
-"112
-[; ;serial.c: 112:                 USART_TxS("WAIT UNTIL COMPLETE...\n", sizeof ("WAIT UNTIL COMPLETE...\n") - 1);
+"111
+[; ;serial.c: 111:                 USART_TxS("WAIT UNTIL COMPLETE...\n", sizeof ("WAIT UNTIL COMPLETE...\n") - 1);
 [e ( _USART_TxS (2 , :s 18C -> - -> 24 `ui -> -> 1 `i `ui `i ]
-"113
-[; ;serial.c: 113:                 Direccion_Memoria = Seria_Decodificacion_Memoria(Direccion_Memoria);
+"112
+[; ;serial.c: 112:                 Direccion_Memoria = Seria_Decodificacion_Memoria(Direccion_Memoria);
 [e = _Direccion_Memoria ( _Seria_Decodificacion_Memoria (1 _Direccion_Memoria ]
-"114
-[; ;serial.c: 114:                 Serial_Escritura_Memoria(Direccion_Memoria, coordenada_setpoint);
+"113
+[; ;serial.c: 113:                 Serial_Escritura_Memoria(Direccion_Memoria, coordenada_setpoint);
 [e ( _Serial_Escritura_Memoria (2 , _Direccion_Memoria &U _coordenada_setpoint ]
-"115
-[; ;serial.c: 115:                 break;
+"114
+[; ;serial.c: 114:                 break;
 [e $U 375  ]
-"116
-[; ;serial.c: 116:         }
+"115
+[; ;serial.c: 115:         }
 }
 [e $U 375  ]
 [e :U 376 ]
@@ -1084,29 +1082,29 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> -> 77 `ui `i 395
  375 ]
 [e :U 375 ]
-"117
-[; ;serial.c: 117:     }
+"116
+[; ;serial.c: 116:     }
 }
 [e :U 371 ]
 [e $U 372  ]
 [e :U 373 ]
-"118
-[; ;serial.c: 118: }
+"117
+[; ;serial.c: 117: }
 [e :UE 370 ]
 }
-"120
-[; ;serial.c: 120: void Serial_DecodificacionX(char string_coordenada[], int *pointerCX) {
+"119
+[; ;serial.c: 119: void Serial_DecodificacionX(char string_coordenada[], int *pointerCX) {
 [v _Serial_DecodificacionX `(v ~T0 @X0 1 ef2`*uc`*i ]
 {
 [e :U _Serial_DecodificacionX ]
 [v _string_coordenada `*uc ~T0 @X0 1 r1 ]
 [v _pointerCX `*i ~T0 @X0 1 r2 ]
 [f ]
-"121
-[; ;serial.c: 121:     char coordenadaX[3];
+"120
+[; ;serial.c: 120:     char coordenadaX[3];
 [v _coordenadaX `uc ~T0 @X0 -> 3 `i a ]
-"122
-[; ;serial.c: 122:     for (int i = 0; i < 3; i++) {
+"121
+[; ;serial.c: 121:     for (int i = 0; i < 3; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -1114,18 +1112,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 398  ]
 [e :U 397 ]
 {
-"123
-[; ;serial.c: 123:         coordenadaX[i] = string_coordenada[i];
+"122
+[; ;serial.c: 122:         coordenadaX[i] = string_coordenada[i];
 [e = *U + &U _coordenadaX * -> -> _i `ui `ux -> -> # *U &U _coordenadaX `ui `ux *U + _string_coordenada * -> _i `x -> -> # *U _string_coordenada `i `x ]
-"124
-[; ;serial.c: 124:     }
+"123
+[; ;serial.c: 123:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 3 `i 397  ]
 [e :U 398 ]
 }
-"125
-[; ;serial.c: 125:     for (int i=0;i<3;i++){
+"124
+[; ;serial.c: 124:     for (int i=0;i<3;i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -1133,47 +1131,47 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 401  ]
 [e :U 400 ]
 {
-"126
-[; ;serial.c: 126:     if (!(coordenadaX[i] >= 48 && coordenadaX[i] <= 57)) {
+"125
+[; ;serial.c: 125:     if (!(coordenadaX[i] >= 48 && coordenadaX[i] <= 57)) {
 [e $ ! ! && >= -> *U + &U _coordenadaX * -> -> _i `ui `ux -> -> # *U &U _coordenadaX `ui `ux `i -> 48 `i <= -> *U + &U _coordenadaX * -> -> _i `ui `ux -> -> # *U &U _coordenadaX `ui `ux `i -> 57 `i 403  ]
 {
-"127
-[; ;serial.c: 127:         Coordenadas_mal = 1;
+"126
+[; ;serial.c: 126:         Coordenadas_mal = 1;
 [e = _Coordenadas_mal -> -> 1 `i `uc ]
-"128
-[; ;serial.c: 128:     }
+"127
+[; ;serial.c: 127:     }
 }
 [e :U 403 ]
-"129
-[; ;serial.c: 129:     }
+"128
+[; ;serial.c: 128:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 3 `i 400  ]
 [e :U 401 ]
 }
-"130
-[; ;serial.c: 130:     *pointerCX = atoi(coordenadaX);
+"129
+[; ;serial.c: 129:     *pointerCX = atoi(coordenadaX);
 [e = *U _pointerCX ( _atoi (1 -> &U _coordenadaX `*Cuc ]
-"131
-[; ;serial.c: 131:     return;
+"130
+[; ;serial.c: 130:     return;
 [e $UE 396  ]
-"132
-[; ;serial.c: 132: }
+"131
+[; ;serial.c: 131: }
 [e :UE 396 ]
 }
-"134
-[; ;serial.c: 134: void Serial_DecodificacionY(char string_coordenada[], int *pointerCY) {
+"133
+[; ;serial.c: 133: void Serial_DecodificacionY(char string_coordenada[], int *pointerCY) {
 [v _Serial_DecodificacionY `(v ~T0 @X0 1 ef2`*uc`*i ]
 {
 [e :U _Serial_DecodificacionY ]
 [v _string_coordenada `*uc ~T0 @X0 1 r1 ]
 [v _pointerCY `*i ~T0 @X0 1 r2 ]
 [f ]
-"135
-[; ;serial.c: 135:    char coordenadaY[3];
+"134
+[; ;serial.c: 134:    char coordenadaY[3];
 [v _coordenadaY `uc ~T0 @X0 -> 3 `i a ]
-"136
-[; ;serial.c: 136:     for (int i = 0; i < 3; i++) {
+"135
+[; ;serial.c: 135:     for (int i = 0; i < 3; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -1181,18 +1179,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 406  ]
 [e :U 405 ]
 {
-"137
-[; ;serial.c: 137:         coordenadaY[i] = string_coordenada[4 + i];
+"136
+[; ;serial.c: 136:         coordenadaY[i] = string_coordenada[4 + i];
 [e = *U + &U _coordenadaY * -> -> _i `ui `ux -> -> # *U &U _coordenadaY `ui `ux *U + _string_coordenada * -> + -> 4 `i _i `x -> -> # *U _string_coordenada `i `x ]
-"138
-[; ;serial.c: 138:     }
+"137
+[; ;serial.c: 137:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 3 `i 405  ]
 [e :U 406 ]
 }
-"139
-[; ;serial.c: 139:    for (int i=0;i<3;i++){
+"138
+[; ;serial.c: 138:    for (int i=0;i<3;i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -1200,47 +1198,47 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 409  ]
 [e :U 408 ]
 {
-"140
-[; ;serial.c: 140:     if (!(coordenadaY[i] >= 48 && coordenadaY[i] <= 57)) {
+"139
+[; ;serial.c: 139:     if (!(coordenadaY[i] >= 48 && coordenadaY[i] <= 57)) {
 [e $ ! ! && >= -> *U + &U _coordenadaY * -> -> _i `ui `ux -> -> # *U &U _coordenadaY `ui `ux `i -> 48 `i <= -> *U + &U _coordenadaY * -> -> _i `ui `ux -> -> # *U &U _coordenadaY `ui `ux `i -> 57 `i 411  ]
 {
-"141
-[; ;serial.c: 141:         Coordenadas_mal = 1;
+"140
+[; ;serial.c: 140:         Coordenadas_mal = 1;
 [e = _Coordenadas_mal -> -> 1 `i `uc ]
-"142
-[; ;serial.c: 142:     }
+"141
+[; ;serial.c: 141:     }
 }
 [e :U 411 ]
-"143
-[; ;serial.c: 143:     }
+"142
+[; ;serial.c: 142:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 3 `i 408  ]
 [e :U 409 ]
 }
-"144
-[; ;serial.c: 144:     *pointerCY = atoi(coordenadaY);
+"143
+[; ;serial.c: 143:     *pointerCY = atoi(coordenadaY);
 [e = *U _pointerCY ( _atoi (1 -> &U _coordenadaY `*Cuc ]
-"145
-[; ;serial.c: 145:     return;
+"144
+[; ;serial.c: 144:     return;
 [e $UE 404  ]
-"146
-[; ;serial.c: 146: }
+"145
+[; ;serial.c: 145: }
 [e :UE 404 ]
 }
-"148
-[; ;serial.c: 148: void Serial_DecodificacionZ(char string_coordenada[], int *pointerCZ) {
+"147
+[; ;serial.c: 147: void Serial_DecodificacionZ(char string_coordenada[], int *pointerCZ) {
 [v _Serial_DecodificacionZ `(v ~T0 @X0 1 ef2`*uc`*i ]
 {
 [e :U _Serial_DecodificacionZ ]
 [v _string_coordenada `*uc ~T0 @X0 1 r1 ]
 [v _pointerCZ `*i ~T0 @X0 1 r2 ]
 [f ]
-"149
-[; ;serial.c: 149:     char coordenadaZ[3];
+"148
+[; ;serial.c: 148:     char coordenadaZ[3];
 [v _coordenadaZ `uc ~T0 @X0 -> 3 `i a ]
-"150
-[; ;serial.c: 150:     for (int i = 0; i < 3; i++) {
+"149
+[; ;serial.c: 149:     for (int i = 0; i < 3; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -1248,18 +1246,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 414  ]
 [e :U 413 ]
 {
-"151
-[; ;serial.c: 151:         coordenadaZ[i] = string_coordenada[8 + i];
+"150
+[; ;serial.c: 150:         coordenadaZ[i] = string_coordenada[8 + i];
 [e = *U + &U _coordenadaZ * -> -> _i `ui `ux -> -> # *U &U _coordenadaZ `ui `ux *U + _string_coordenada * -> + -> 8 `i _i `x -> -> # *U _string_coordenada `i `x ]
-"152
-[; ;serial.c: 152:     }
+"151
+[; ;serial.c: 151:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 3 `i 413  ]
 [e :U 414 ]
 }
-"153
-[; ;serial.c: 153:     for (int i=0;i<3;i++){
+"152
+[; ;serial.c: 152:     for (int i=0;i<3;i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -1267,264 +1265,264 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 417  ]
 [e :U 416 ]
 {
-"154
-[; ;serial.c: 154:     if (!(coordenadaZ[i] >= 48 && coordenadaZ[i] <= 57)) {
+"153
+[; ;serial.c: 153:     if (!(coordenadaZ[i] >= 48 && coordenadaZ[i] <= 57)) {
 [e $ ! ! && >= -> *U + &U _coordenadaZ * -> -> _i `ui `ux -> -> # *U &U _coordenadaZ `ui `ux `i -> 48 `i <= -> *U + &U _coordenadaZ * -> -> _i `ui `ux -> -> # *U &U _coordenadaZ `ui `ux `i -> 57 `i 419  ]
 {
-"155
-[; ;serial.c: 155:         Coordenadas_mal = 1;
+"154
+[; ;serial.c: 154:         Coordenadas_mal = 1;
 [e = _Coordenadas_mal -> -> 1 `i `uc ]
-"156
-[; ;serial.c: 156:     }
+"155
+[; ;serial.c: 155:     }
 }
 [e :U 419 ]
-"157
-[; ;serial.c: 157:     }
+"156
+[; ;serial.c: 156:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 3 `i 416  ]
 [e :U 417 ]
 }
-"158
-[; ;serial.c: 158:     *pointerCZ = atoi(coordenadaZ);
+"157
+[; ;serial.c: 157:     *pointerCZ = atoi(coordenadaZ);
 [e = *U _pointerCZ ( _atoi (1 -> &U _coordenadaZ `*Cuc ]
-"159
-[; ;serial.c: 159:     return;
+"158
+[; ;serial.c: 158:     return;
 [e $UE 412  ]
-"160
-[; ;serial.c: 160: }
+"159
+[; ;serial.c: 159: }
 [e :UE 412 ]
 }
-"161
-[; ;serial.c: 161: void Serial_RangosCoordenadas(int C) {
+"160
+[; ;serial.c: 160: void Serial_RangosCoordenadas(int C) {
 [v _Serial_RangosCoordenadas `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _Serial_RangosCoordenadas ]
 [v _C `i ~T0 @X0 1 r1 ]
 [f ]
-"162
-[; ;serial.c: 162:     if (C > 300 || C < 0) {
+"161
+[; ;serial.c: 161:     if (C > 300 || C < 0) {
 [e $ ! || > _C -> 300 `i < _C -> 0 `i 421  ]
 {
-"163
-[; ;serial.c: 163:         Coordenadas_fuera = 1;
+"162
+[; ;serial.c: 162:         Coordenadas_fuera = 1;
 [e = _Coordenadas_fuera -> -> 1 `i `uc ]
-"164
-[; ;serial.c: 164:     }
+"163
+[; ;serial.c: 163:     }
 }
 [e :U 421 ]
-"165
-[; ;serial.c: 165:     return;
+"164
+[; ;serial.c: 164:     return;
 [e $UE 420  ]
-"166
-[; ;serial.c: 166: }
+"165
+[; ;serial.c: 165: }
 [e :UE 420 ]
 }
-"168
-[; ;serial.c: 168: char Seria_Decodificacion_Memoria(char direccion) {
+"167
+[; ;serial.c: 167: char Seria_Decodificacion_Memoria(char direccion) {
 [v _Seria_Decodificacion_Memoria `(uc ~T0 @X0 1 ef1`uc ]
 {
 [e :U _Seria_Decodificacion_Memoria ]
 [v _direccion `uc ~T0 @X0 1 r1 ]
 [f ]
-"169
-[; ;serial.c: 169:     switch (direccion) {
+"168
+[; ;serial.c: 168:     switch (direccion) {
 [e $U 424  ]
 {
-"170
-[; ;serial.c: 170:         case '0':
+"169
+[; ;serial.c: 169:         case '0':
 [e :U 425 ]
-"171
-[; ;serial.c: 171:             direccion = 0x00;
+"170
+[; ;serial.c: 170:             direccion = 0x00;
 [e = _direccion -> -> 0 `i `uc ]
-"172
-[; ;serial.c: 172:             USART_TxS("COORDINATE OF SETPOINT 0:\n", sizeof ("COORDINATE OF SETPOINT 0:\n") - 1);
+"171
+[; ;serial.c: 171:             USART_TxS("COORDINATE OF SETPOINT 0:\n", sizeof ("COORDINATE OF SETPOINT 0:\n") - 1);
 [e ( _USART_TxS (2 , :s 19C -> - -> 27 `ui -> -> 1 `i `ui `i ]
+"172
+[; ;serial.c: 172:             break;
+[e $U 423  ]
 "173
-[; ;serial.c: 173:             break;
-[e $U 423  ]
-"174
-[; ;serial.c: 174:         case '1':
+[; ;serial.c: 173:         case '1':
 [e :U 426 ]
-"175
-[; ;serial.c: 175:             direccion = 0x10;
+"174
+[; ;serial.c: 174:             direccion = 0x10;
 [e = _direccion -> -> 16 `i `uc ]
-"176
-[; ;serial.c: 176:             USART_TxS("COORDINATE OF SETPOINT 1:\n", sizeof ("COORDINATE OF SETPOINT 1\n") - 1);
+"175
+[; ;serial.c: 175:             USART_TxS("COORDINATE OF SETPOINT 1:\n", sizeof ("COORDINATE OF SETPOINT 1\n") - 1);
 [e ( _USART_TxS (2 , :s 20C -> - -> 26 `ui -> -> 1 `i `ui `i ]
+"176
+[; ;serial.c: 176:             break;
+[e $U 423  ]
 "177
-[; ;serial.c: 177:             break;
-[e $U 423  ]
-"178
-[; ;serial.c: 178:         case '2':
+[; ;serial.c: 177:         case '2':
 [e :U 427 ]
-"179
-[; ;serial.c: 179:             direccion = 0x20;
+"178
+[; ;serial.c: 178:             direccion = 0x20;
 [e = _direccion -> -> 32 `i `uc ]
-"180
-[; ;serial.c: 180:             USART_TxS("COORDINATE OF SETPOINT 2:\n", sizeof ("COORDINATE OF SETPOINT 2:\n") - 1);
+"179
+[; ;serial.c: 179:             USART_TxS("COORDINATE OF SETPOINT 2:\n", sizeof ("COORDINATE OF SETPOINT 2:\n") - 1);
 [e ( _USART_TxS (2 , :s 21C -> - -> 27 `ui -> -> 1 `i `ui `i ]
+"180
+[; ;serial.c: 180:             break;
+[e $U 423  ]
 "181
-[; ;serial.c: 181:             break;
-[e $U 423  ]
-"182
-[; ;serial.c: 182:         case '3':
+[; ;serial.c: 181:         case '3':
 [e :U 428 ]
-"183
-[; ;serial.c: 183:             direccion = 0x30;
+"182
+[; ;serial.c: 182:             direccion = 0x30;
 [e = _direccion -> -> 48 `i `uc ]
-"184
-[; ;serial.c: 184:             USART_TxS("COORDINATE OF SETPOINT 3:\n", sizeof ("COORDINATE OF SETPOINT 3:\n") - 1);
+"183
+[; ;serial.c: 183:             USART_TxS("COORDINATE OF SETPOINT 3:\n", sizeof ("COORDINATE OF SETPOINT 3:\n") - 1);
 [e ( _USART_TxS (2 , :s 22C -> - -> 27 `ui -> -> 1 `i `ui `i ]
+"184
+[; ;serial.c: 184:             break;
+[e $U 423  ]
 "185
-[; ;serial.c: 185:             break;
-[e $U 423  ]
-"186
-[; ;serial.c: 186:         case '4':
+[; ;serial.c: 185:         case '4':
 [e :U 429 ]
-"187
-[; ;serial.c: 187:             direccion = 0x40;
+"186
+[; ;serial.c: 186:             direccion = 0x40;
 [e = _direccion -> -> 64 `i `uc ]
-"188
-[; ;serial.c: 188:             USART_TxS("COORDINATE OF SETPOINT 4:\n", sizeof ("COORDINATE OF SETPOINT 4:\n") - 1);
+"187
+[; ;serial.c: 187:             USART_TxS("COORDINATE OF SETPOINT 4:\n", sizeof ("COORDINATE OF SETPOINT 4:\n") - 1);
 [e ( _USART_TxS (2 , :s 23C -> - -> 27 `ui -> -> 1 `i `ui `i ]
+"188
+[; ;serial.c: 188:             break;
+[e $U 423  ]
 "189
-[; ;serial.c: 189:             break;
-[e $U 423  ]
-"190
-[; ;serial.c: 190:         case '5':
+[; ;serial.c: 189:         case '5':
 [e :U 430 ]
-"191
-[; ;serial.c: 191:             direccion = 0x50;
+"190
+[; ;serial.c: 190:             direccion = 0x50;
 [e = _direccion -> -> 80 `i `uc ]
-"192
-[; ;serial.c: 192:             USART_TxS("COORDINATE OF SETPOINT 5:\n", sizeof ("COORDINATE OF SETPOINT 5:\n") - 1);
+"191
+[; ;serial.c: 191:             USART_TxS("COORDINATE OF SETPOINT 5:\n", sizeof ("COORDINATE OF SETPOINT 5:\n") - 1);
 [e ( _USART_TxS (2 , :s 24C -> - -> 27 `ui -> -> 1 `i `ui `i ]
+"192
+[; ;serial.c: 192:             break;
+[e $U 423  ]
 "193
-[; ;serial.c: 193:             break;
-[e $U 423  ]
-"194
-[; ;serial.c: 194:         case '6':
+[; ;serial.c: 193:         case '6':
 [e :U 431 ]
-"195
-[; ;serial.c: 195:             direccion = 0x60;
+"194
+[; ;serial.c: 194:             direccion = 0x60;
 [e = _direccion -> -> 96 `i `uc ]
-"196
-[; ;serial.c: 196:             USART_TxS("COORDINATE OF SETPOINT 6:\n", sizeof ("COORDINATE OF SETPOINT 6:\n") - 1);
+"195
+[; ;serial.c: 195:             USART_TxS("COORDINATE OF SETPOINT 6:\n", sizeof ("COORDINATE OF SETPOINT 6:\n") - 1);
 [e ( _USART_TxS (2 , :s 25C -> - -> 27 `ui -> -> 1 `i `ui `i ]
+"196
+[; ;serial.c: 196:             break;
+[e $U 423  ]
 "197
-[; ;serial.c: 197:             break;
-[e $U 423  ]
-"198
-[; ;serial.c: 198:         case '7':
+[; ;serial.c: 197:         case '7':
 [e :U 432 ]
-"199
-[; ;serial.c: 199:             direccion = 0x70;
+"198
+[; ;serial.c: 198:             direccion = 0x70;
 [e = _direccion -> -> 112 `i `uc ]
-"200
-[; ;serial.c: 200:             USART_TxS("COORDINATE OF SETPOINT 7:\n", sizeof ("COORDINATE OF SETPOINT 7:\n") - 1);
+"199
+[; ;serial.c: 199:             USART_TxS("COORDINATE OF SETPOINT 7:\n", sizeof ("COORDINATE OF SETPOINT 7:\n") - 1);
 [e ( _USART_TxS (2 , :s 26C -> - -> 27 `ui -> -> 1 `i `ui `i ]
+"200
+[; ;serial.c: 200:             break;
+[e $U 423  ]
 "201
-[; ;serial.c: 201:             break;
-[e $U 423  ]
-"202
-[; ;serial.c: 202:         case '8':
+[; ;serial.c: 201:         case '8':
 [e :U 433 ]
-"203
-[; ;serial.c: 203:             direccion = 0x80;
+"202
+[; ;serial.c: 202:             direccion = 0x80;
 [e = _direccion -> -> 128 `i `uc ]
-"204
-[; ;serial.c: 204:             USART_TxS("COORDINATE OF SETPOINT 8:\n", sizeof ("COORDINATE OF SETPOINT 8:\n") - 1);
+"203
+[; ;serial.c: 203:             USART_TxS("COORDINATE OF SETPOINT 8:\n", sizeof ("COORDINATE OF SETPOINT 8:\n") - 1);
 [e ( _USART_TxS (2 , :s 27C -> - -> 27 `ui -> -> 1 `i `ui `i ]
+"204
+[; ;serial.c: 204:             break;
+[e $U 423  ]
 "205
-[; ;serial.c: 205:             break;
-[e $U 423  ]
-"206
-[; ;serial.c: 206:         case '9':
+[; ;serial.c: 205:         case '9':
 [e :U 434 ]
-"207
-[; ;serial.c: 207:             direccion = 0x90;
+"206
+[; ;serial.c: 206:             direccion = 0x90;
 [e = _direccion -> -> 144 `i `uc ]
-"208
-[; ;serial.c: 208:             USART_TxS("COORDINATE OF SETPOINT 9:\n", sizeof ("COORDINATE OF SETPOINT 9:\n") - 1);
+"207
+[; ;serial.c: 207:             USART_TxS("COORDINATE OF SETPOINT 9:\n", sizeof ("COORDINATE OF SETPOINT 9:\n") - 1);
 [e ( _USART_TxS (2 , :s 28C -> - -> 27 `ui -> -> 1 `i `ui `i ]
+"208
+[; ;serial.c: 208:             break;
+[e $U 423  ]
 "209
-[; ;serial.c: 209:             break;
-[e $U 423  ]
-"210
-[; ;serial.c: 210:         case 'A':
+[; ;serial.c: 209:         case 'A':
 [e :U 435 ]
-"211
-[; ;serial.c: 211:             direccion = 0xA0;
+"210
+[; ;serial.c: 210:             direccion = 0xA0;
 [e = _direccion -> -> 160 `i `uc ]
-"212
-[; ;serial.c: 212:             USART_TxS("COORDINATE OF SETPOINT 10:\n", sizeof ("COORDINATE OF SETPOINT 10:\n") - 1);
+"211
+[; ;serial.c: 211:             USART_TxS("COORDINATE OF SETPOINT 10:\n", sizeof ("COORDINATE OF SETPOINT 10:\n") - 1);
 [e ( _USART_TxS (2 , :s 29C -> - -> 28 `ui -> -> 1 `i `ui `i ]
+"212
+[; ;serial.c: 212:             break;
+[e $U 423  ]
 "213
-[; ;serial.c: 213:             break;
-[e $U 423  ]
-"214
-[; ;serial.c: 214:         case 'B':
+[; ;serial.c: 213:         case 'B':
 [e :U 436 ]
-"215
-[; ;serial.c: 215:             direccion = 0xB0;
+"214
+[; ;serial.c: 214:             direccion = 0xB0;
 [e = _direccion -> -> 176 `i `uc ]
-"216
-[; ;serial.c: 216:             USART_TxS("COORDINATE OF SETPOINT 11:\n", sizeof ("COORDINATE OF SETPOINT 11:\n") - 1);
+"215
+[; ;serial.c: 215:             USART_TxS("COORDINATE OF SETPOINT 11:\n", sizeof ("COORDINATE OF SETPOINT 11:\n") - 1);
 [e ( _USART_TxS (2 , :s 30C -> - -> 28 `ui -> -> 1 `i `ui `i ]
+"216
+[; ;serial.c: 216:             break;
+[e $U 423  ]
 "217
-[; ;serial.c: 217:             break;
-[e $U 423  ]
-"218
-[; ;serial.c: 218:         case 'C':
+[; ;serial.c: 217:         case 'C':
 [e :U 437 ]
-"219
-[; ;serial.c: 219:             direccion = 0xC0;
+"218
+[; ;serial.c: 218:             direccion = 0xC0;
 [e = _direccion -> -> 192 `i `uc ]
-"220
-[; ;serial.c: 220:             USART_TxS("COORDINATE OF SETPOINT 12:\n", sizeof ("COORDINATE OF SETPOINT 12:\n") - 1);
+"219
+[; ;serial.c: 219:             USART_TxS("COORDINATE OF SETPOINT 12:\n", sizeof ("COORDINATE OF SETPOINT 12:\n") - 1);
 [e ( _USART_TxS (2 , :s 31C -> - -> 28 `ui -> -> 1 `i `ui `i ]
+"220
+[; ;serial.c: 220:             break;
+[e $U 423  ]
 "221
-[; ;serial.c: 221:             break;
-[e $U 423  ]
-"222
-[; ;serial.c: 222:         case 'D':
+[; ;serial.c: 221:         case 'D':
 [e :U 438 ]
-"223
-[; ;serial.c: 223:             direccion = 0xD0;
+"222
+[; ;serial.c: 222:             direccion = 0xD0;
 [e = _direccion -> -> 208 `i `uc ]
-"224
-[; ;serial.c: 224:             USART_TxS("COORDINATE OF SETPOINT 13:\n", sizeof ("COORDINATE OF SETPOINT 13:\n") - 1);
+"223
+[; ;serial.c: 223:             USART_TxS("COORDINATE OF SETPOINT 13:\n", sizeof ("COORDINATE OF SETPOINT 13:\n") - 1);
 [e ( _USART_TxS (2 , :s 32C -> - -> 28 `ui -> -> 1 `i `ui `i ]
+"224
+[; ;serial.c: 224:             break;
+[e $U 423  ]
 "225
-[; ;serial.c: 225:             break;
-[e $U 423  ]
-"226
-[; ;serial.c: 226:         case 'E':
+[; ;serial.c: 225:         case 'E':
 [e :U 439 ]
-"227
-[; ;serial.c: 227:             direccion = 0xE0;
+"226
+[; ;serial.c: 226:             direccion = 0xE0;
 [e = _direccion -> -> 224 `i `uc ]
-"228
-[; ;serial.c: 228:             USART_TxS("COORDINATE OF SETPOINT 14:\n", sizeof ("COORDINATE OF SETPOINT 14:\n") - 1);
+"227
+[; ;serial.c: 227:             USART_TxS("COORDINATE OF SETPOINT 14:\n", sizeof ("COORDINATE OF SETPOINT 14:\n") - 1);
 [e ( _USART_TxS (2 , :s 33C -> - -> 28 `ui -> -> 1 `i `ui `i ]
+"228
+[; ;serial.c: 228:             break;
+[e $U 423  ]
 "229
-[; ;serial.c: 229:             break;
-[e $U 423  ]
-"230
-[; ;serial.c: 230:         case 'F':
+[; ;serial.c: 229:         case 'F':
 [e :U 440 ]
-"231
-[; ;serial.c: 231:             direccion = 0xF0;
+"230
+[; ;serial.c: 230:             direccion = 0xF0;
 [e = _direccion -> -> 240 `i `uc ]
-"232
-[; ;serial.c: 232:             USART_TxS("COORDINATE OF SETPOINT 15:\n", sizeof ("COORDINATE OF SETPOINT 15:\n") - 1);
+"231
+[; ;serial.c: 231:             USART_TxS("COORDINATE OF SETPOINT 15:\n", sizeof ("COORDINATE OF SETPOINT 15:\n") - 1);
 [e ( _USART_TxS (2 , :s 34C -> - -> 28 `ui -> -> 1 `i `ui `i ]
-"233
-[; ;serial.c: 233:             break;
+"232
+[; ;serial.c: 232:             break;
 [e $U 423  ]
-"234
-[; ;serial.c: 234:     }
+"233
+[; ;serial.c: 233:     }
 }
 [e $U 423  ]
 [e :U 424 ]
@@ -1546,30 +1544,30 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> -> 70 `ui `i 440
  423 ]
 [e :U 423 ]
-"235
-[; ;serial.c: 235:     return direccion;
+"234
+[; ;serial.c: 234:     return direccion;
 [e ) _direccion ]
 [e $UE 422  ]
-"236
-[; ;serial.c: 236: }
+"235
+[; ;serial.c: 235: }
 [e :UE 422 ]
 }
-"238
-[; ;serial.c: 238: void Serial_Lectura_MemoriaX(char direccion, int *pointerCX) {
+"237
+[; ;serial.c: 237: void Serial_Lectura_MemoriaX(char direccion, int *pointerCX) {
 [v _Serial_Lectura_MemoriaX `(v ~T0 @X0 1 ef2`uc`*i ]
 {
 [e :U _Serial_Lectura_MemoriaX ]
 [v _direccion `uc ~T0 @X0 1 r1 ]
 [v _pointerCX `*i ~T0 @X0 1 r2 ]
 [f ]
-"239
-[; ;serial.c: 239:     char coordenadaX[3];
+"238
+[; ;serial.c: 238:     char coordenadaX[3];
 [v _coordenadaX `uc ~T0 @X0 -> 3 `i a ]
-"240
-[; ;serial.c: 240:     char direccionX;
+"239
+[; ;serial.c: 239:     char direccionX;
 [v _direccionX `uc ~T0 @X0 1 a ]
-"241
-[; ;serial.c: 241:     for (int i = 0; i < 3; i++) {
+"240
+[; ;serial.c: 240:     for (int i = 0; i < 3; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -1577,21 +1575,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 443  ]
 [e :U 442 ]
 {
-"242
-[; ;serial.c: 242:         direccionX = direccion + i;
+"241
+[; ;serial.c: 241:         direccionX = direccion + i;
 [e = _direccionX -> + -> _direccion `i _i `uc ]
-"243
-[; ;serial.c: 243:         coordenadaX[i] = EEPROM_Rx(direccionX);
+"242
+[; ;serial.c: 242:         coordenadaX[i] = EEPROM_Rx(direccionX);
 [e = *U + &U _coordenadaX * -> -> _i `ui `ux -> -> # *U &U _coordenadaX `ui `ux ( _EEPROM_Rx (1 _direccionX ]
-"244
-[; ;serial.c: 244:     }
+"243
+[; ;serial.c: 243:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 3 `i 442  ]
 [e :U 443 ]
 }
-"245
-[; ;serial.c: 245:    for (int i=0;i<3;i++){
+"244
+[; ;serial.c: 244:    for (int i=0;i<3;i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -1599,59 +1597,59 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 446  ]
 [e :U 445 ]
 {
-"246
-[; ;serial.c: 246:     if (!(coordenadaX[i] >= 48 && coordenadaX[i] <= 57)) {
+"245
+[; ;serial.c: 245:     if (!(coordenadaX[i] >= 48 && coordenadaX[i] <= 57)) {
 [e $ ! ! && >= -> *U + &U _coordenadaX * -> -> _i `ui `ux -> -> # *U &U _coordenadaX `ui `ux `i -> 48 `i <= -> *U + &U _coordenadaX * -> -> _i `ui `ux -> -> # *U &U _coordenadaX `ui `ux `i -> 57 `i 448  ]
 {
-"247
-[; ;serial.c: 247:         Coordenadas_mal = 1;
+"246
+[; ;serial.c: 246:         Coordenadas_mal = 1;
 [e = _Coordenadas_mal -> -> 1 `i `uc ]
-"248
-[; ;serial.c: 248:     }
+"247
+[; ;serial.c: 247:     }
 }
 [e :U 448 ]
-"249
-[; ;serial.c: 249:     }
+"248
+[; ;serial.c: 248:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 3 `i 445  ]
 [e :U 446 ]
 }
-"250
-[; ;serial.c: 250:     *pointerCX = atoi(coordenadaX);
+"249
+[; ;serial.c: 249:     *pointerCX = atoi(coordenadaX);
 [e = *U _pointerCX ( _atoi (1 -> &U _coordenadaX `*Cuc ]
-"251
-[; ;serial.c: 251:     USART_TxS("COORDINATE X:", sizeof ("COORDINATE X:") - 1);
+"250
+[; ;serial.c: 250:     USART_TxS("COORDINATE X:", sizeof ("COORDINATE X:") - 1);
 [e ( _USART_TxS (2 , :s 35C -> - -> 14 `ui -> -> 1 `i `ui `i ]
-"252
-[; ;serial.c: 252:     USART_TxS(coordenadaX, sizeof (coordenadaX));
+"251
+[; ;serial.c: 251:     USART_TxS(coordenadaX, sizeof (coordenadaX));
 [e ( _USART_TxS (2 , &U _coordenadaX -> -> # _coordenadaX `ui `i ]
-"253
-[; ;serial.c: 253:     Serial_RangosCoordenadas(CoordenadaX);
+"252
+[; ;serial.c: 252:     Serial_RangosCoordenadas(CoordenadaX);
 [e ( _Serial_RangosCoordenadas (1 _CoordenadaX ]
-"254
-[; ;serial.c: 254:     return;
+"253
+[; ;serial.c: 253:     return;
 [e $UE 441  ]
-"255
-[; ;serial.c: 255: }
+"254
+[; ;serial.c: 254: }
 [e :UE 441 ]
 }
-"257
-[; ;serial.c: 257: void Serial_Lectura_MemoriaY(char direccion, int *pointerCY) {
+"256
+[; ;serial.c: 256: void Serial_Lectura_MemoriaY(char direccion, int *pointerCY) {
 [v _Serial_Lectura_MemoriaY `(v ~T0 @X0 1 ef2`uc`*i ]
 {
 [e :U _Serial_Lectura_MemoriaY ]
 [v _direccion `uc ~T0 @X0 1 r1 ]
 [v _pointerCY `*i ~T0 @X0 1 r2 ]
 [f ]
-"258
-[; ;serial.c: 258:     char coordenadaY[3];
+"257
+[; ;serial.c: 257:     char coordenadaY[3];
 [v _coordenadaY `uc ~T0 @X0 -> 3 `i a ]
-"259
-[; ;serial.c: 259:     char direccionY;
+"258
+[; ;serial.c: 258:     char direccionY;
 [v _direccionY `uc ~T0 @X0 1 a ]
-"260
-[; ;serial.c: 260:     for (int i = 0; i < 3; i++) {
+"259
+[; ;serial.c: 259:     for (int i = 0; i < 3; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -1659,21 +1657,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 451  ]
 [e :U 450 ]
 {
-"261
-[; ;serial.c: 261:         direccionY = direccion + i + 3;
+"260
+[; ;serial.c: 260:         direccionY = direccion + i + 3;
 [e = _direccionY -> + + -> _direccion `i _i -> 3 `i `uc ]
-"262
-[; ;serial.c: 262:         coordenadaY[i] = EEPROM_Rx(direccionY);
+"261
+[; ;serial.c: 261:         coordenadaY[i] = EEPROM_Rx(direccionY);
 [e = *U + &U _coordenadaY * -> -> _i `ui `ux -> -> # *U &U _coordenadaY `ui `ux ( _EEPROM_Rx (1 _direccionY ]
-"263
-[; ;serial.c: 263:     }
+"262
+[; ;serial.c: 262:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 3 `i 450  ]
 [e :U 451 ]
 }
-"264
-[; ;serial.c: 264:     for (int i=0;i<3;i++){
+"263
+[; ;serial.c: 263:     for (int i=0;i<3;i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -1681,59 +1679,59 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 454  ]
 [e :U 453 ]
 {
-"265
-[; ;serial.c: 265:     if (!(coordenadaY[i] >= 48 && coordenadaY[i] <= 57)) {
+"264
+[; ;serial.c: 264:     if (!(coordenadaY[i] >= 48 && coordenadaY[i] <= 57)) {
 [e $ ! ! && >= -> *U + &U _coordenadaY * -> -> _i `ui `ux -> -> # *U &U _coordenadaY `ui `ux `i -> 48 `i <= -> *U + &U _coordenadaY * -> -> _i `ui `ux -> -> # *U &U _coordenadaY `ui `ux `i -> 57 `i 456  ]
 {
-"266
-[; ;serial.c: 266:         Coordenadas_mal = 1;
+"265
+[; ;serial.c: 265:         Coordenadas_mal = 1;
 [e = _Coordenadas_mal -> -> 1 `i `uc ]
-"267
-[; ;serial.c: 267:     }
+"266
+[; ;serial.c: 266:     }
 }
 [e :U 456 ]
-"268
-[; ;serial.c: 268:     }
+"267
+[; ;serial.c: 267:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 3 `i 453  ]
 [e :U 454 ]
 }
-"269
-[; ;serial.c: 269:     *pointerCY = atoi(coordenadaY);
+"268
+[; ;serial.c: 268:     *pointerCY = atoi(coordenadaY);
 [e = *U _pointerCY ( _atoi (1 -> &U _coordenadaY `*Cuc ]
-"270
-[; ;serial.c: 270:     USART_TxS("\nCOORDINATE Y:", sizeof ("\nCOORDINATE Y:") - 1);
+"269
+[; ;serial.c: 269:     USART_TxS("\nCOORDINATE Y:", sizeof ("\nCOORDINATE Y:") - 1);
 [e ( _USART_TxS (2 , :s 36C -> - -> 15 `ui -> -> 1 `i `ui `i ]
-"271
-[; ;serial.c: 271:     USART_TxS(coordenadaY, sizeof (coordenadaY));
+"270
+[; ;serial.c: 270:     USART_TxS(coordenadaY, sizeof (coordenadaY));
 [e ( _USART_TxS (2 , &U _coordenadaY -> -> # _coordenadaY `ui `i ]
-"272
-[; ;serial.c: 272:     Serial_RangosCoordenadas(CoordenadaY);
+"271
+[; ;serial.c: 271:     Serial_RangosCoordenadas(CoordenadaY);
 [e ( _Serial_RangosCoordenadas (1 _CoordenadaY ]
-"273
-[; ;serial.c: 273:     return;
+"272
+[; ;serial.c: 272:     return;
 [e $UE 449  ]
-"274
-[; ;serial.c: 274: }
+"273
+[; ;serial.c: 273: }
 [e :UE 449 ]
 }
-"276
-[; ;serial.c: 276: void Serial_Lectura_MemoriaZ(char direccion, int *pointerCZ) {
+"275
+[; ;serial.c: 275: void Serial_Lectura_MemoriaZ(char direccion, int *pointerCZ) {
 [v _Serial_Lectura_MemoriaZ `(v ~T0 @X0 1 ef2`uc`*i ]
 {
 [e :U _Serial_Lectura_MemoriaZ ]
 [v _direccion `uc ~T0 @X0 1 r1 ]
 [v _pointerCZ `*i ~T0 @X0 1 r2 ]
 [f ]
-"277
-[; ;serial.c: 277:     char coordenadaZ[3];
+"276
+[; ;serial.c: 276:     char coordenadaZ[3];
 [v _coordenadaZ `uc ~T0 @X0 -> 3 `i a ]
-"278
-[; ;serial.c: 278:     char direccionZ;
+"277
+[; ;serial.c: 277:     char direccionZ;
 [v _direccionZ `uc ~T0 @X0 1 a ]
-"279
-[; ;serial.c: 279:     for (int i = 0; i < 3; i++) {
+"278
+[; ;serial.c: 278:     for (int i = 0; i < 3; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -1741,21 +1739,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 459  ]
 [e :U 458 ]
 {
-"280
-[; ;serial.c: 280:         direccionZ = direccion + i + 6;
+"279
+[; ;serial.c: 279:         direccionZ = direccion + i + 6;
 [e = _direccionZ -> + + -> _direccion `i _i -> 6 `i `uc ]
-"281
-[; ;serial.c: 281:         coordenadaZ[i] = EEPROM_Rx(direccionZ);
+"280
+[; ;serial.c: 280:         coordenadaZ[i] = EEPROM_Rx(direccionZ);
 [e = *U + &U _coordenadaZ * -> -> _i `ui `ux -> -> # *U &U _coordenadaZ `ui `ux ( _EEPROM_Rx (1 _direccionZ ]
-"282
-[; ;serial.c: 282:     }
+"281
+[; ;serial.c: 281:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 3 `i 458  ]
 [e :U 459 ]
 }
-"283
-[; ;serial.c: 283:    for (int i=0;i<3;i++){
+"282
+[; ;serial.c: 282:    for (int i=0;i<3;i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -1763,56 +1761,56 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 462  ]
 [e :U 461 ]
 {
-"284
-[; ;serial.c: 284:     if (!(coordenadaZ[i] >= 48 && coordenadaZ[i] <= 57)) {
+"283
+[; ;serial.c: 283:     if (!(coordenadaZ[i] >= 48 && coordenadaZ[i] <= 57)) {
 [e $ ! ! && >= -> *U + &U _coordenadaZ * -> -> _i `ui `ux -> -> # *U &U _coordenadaZ `ui `ux `i -> 48 `i <= -> *U + &U _coordenadaZ * -> -> _i `ui `ux -> -> # *U &U _coordenadaZ `ui `ux `i -> 57 `i 464  ]
 {
-"285
-[; ;serial.c: 285:         Coordenadas_mal = 1;
+"284
+[; ;serial.c: 284:         Coordenadas_mal = 1;
 [e = _Coordenadas_mal -> -> 1 `i `uc ]
-"286
-[; ;serial.c: 286:     }
+"285
+[; ;serial.c: 285:     }
 }
 [e :U 464 ]
-"287
-[; ;serial.c: 287:     }
+"286
+[; ;serial.c: 286:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 3 `i 461  ]
 [e :U 462 ]
 }
-"288
-[; ;serial.c: 288:     *pointerCZ = atoi(coordenadaZ);
+"287
+[; ;serial.c: 287:     *pointerCZ = atoi(coordenadaZ);
 [e = *U _pointerCZ ( _atoi (1 -> &U _coordenadaZ `*Cuc ]
-"289
-[; ;serial.c: 289:     USART_TxS("\nCOORDINATE Z:", sizeof ("\nCOORDINATE Z:") - 1);
+"288
+[; ;serial.c: 288:     USART_TxS("\nCOORDINATE Z:", sizeof ("\nCOORDINATE Z:") - 1);
 [e ( _USART_TxS (2 , :s 37C -> - -> 15 `ui -> -> 1 `i `ui `i ]
-"290
-[; ;serial.c: 290:     USART_TxS(coordenadaZ, sizeof (coordenadaZ));
+"289
+[; ;serial.c: 289:     USART_TxS(coordenadaZ, sizeof (coordenadaZ));
 [e ( _USART_TxS (2 , &U _coordenadaZ -> -> # _coordenadaZ `ui `i ]
-"291
-[; ;serial.c: 291:     Serial_RangosCoordenadas(CoordenadaZ);
+"290
+[; ;serial.c: 290:     Serial_RangosCoordenadas(CoordenadaZ);
 [e ( _Serial_RangosCoordenadas (1 _CoordenadaZ ]
-"292
-[; ;serial.c: 292:     return;
+"291
+[; ;serial.c: 291:     return;
 [e $UE 457  ]
-"293
-[; ;serial.c: 293: }
+"292
+[; ;serial.c: 292: }
 [e :UE 457 ]
 }
-"295
-[; ;serial.c: 295: void Serial_Escritura_Memoria(char direccion, char string_setpoint[]) {
+"294
+[; ;serial.c: 294: void Serial_Escritura_Memoria(char direccion, char string_setpoint[]) {
 [v _Serial_Escritura_Memoria `(v ~T0 @X0 1 ef2`uc`*uc ]
 {
 [e :U _Serial_Escritura_Memoria ]
 [v _direccion `uc ~T0 @X0 1 r1 ]
 [v _string_setpoint `*uc ~T0 @X0 1 r2 ]
 [f ]
-"296
-[; ;serial.c: 296:     char direccionFinal;
+"295
+[; ;serial.c: 295:     char direccionFinal;
 [v _direccionFinal `uc ~T0 @X0 1 a ]
-"297
-[; ;serial.c: 297:     for (int i = 0; i < 3; i++) {
+"296
+[; ;serial.c: 296:     for (int i = 0; i < 3; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -1820,24 +1818,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 467  ]
 [e :U 466 ]
 {
-"298
-[; ;serial.c: 298:         direccionFinal = direccion + i;
+"297
+[; ;serial.c: 297:         direccionFinal = direccion + i;
 [e = _direccionFinal -> + -> _direccion `i _i `uc ]
-"299
-[; ;serial.c: 299:         EEPROM_Tx(direccionFinal, string_setpoint[i]);
+"298
+[; ;serial.c: 298:         EEPROM_Tx(direccionFinal, string_setpoint[i]);
 [e ( _EEPROM_Tx (2 , _direccionFinal *U + _string_setpoint * -> _i `x -> -> # *U _string_setpoint `i `x ]
-"300
-[; ;serial.c: 300:     }
+"299
+[; ;serial.c: 299:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 3 `i 466  ]
 [e :U 467 ]
 }
-"301
-[; ;serial.c: 301:     USART_TxS("COORDINATE X SAVED\n", sizeof ("COORDINATE X SAVED\n") - 1);
+"300
+[; ;serial.c: 300:     USART_TxS("COORDINATE X SAVED\n", sizeof ("COORDINATE X SAVED\n") - 1);
 [e ( _USART_TxS (2 , :s 38C -> - -> 20 `ui -> -> 1 `i `ui `i ]
-"302
-[; ;serial.c: 302:     for (int i = 0; i < 3; i++) {
+"301
+[; ;serial.c: 301:     for (int i = 0; i < 3; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -1845,24 +1843,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 470  ]
 [e :U 469 ]
 {
-"303
-[; ;serial.c: 303:         direccionFinal = direccion + i + 3;
+"302
+[; ;serial.c: 302:         direccionFinal = direccion + i + 3;
 [e = _direccionFinal -> + + -> _direccion `i _i -> 3 `i `uc ]
-"304
-[; ;serial.c: 304:         EEPROM_Tx(direccionFinal, string_setpoint[i + 4]);
+"303
+[; ;serial.c: 303:         EEPROM_Tx(direccionFinal, string_setpoint[i + 4]);
 [e ( _EEPROM_Tx (2 , _direccionFinal *U + _string_setpoint * -> + _i -> 4 `i `x -> -> # *U _string_setpoint `i `x ]
-"305
-[; ;serial.c: 305:     }
+"304
+[; ;serial.c: 304:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 3 `i 469  ]
 [e :U 470 ]
 }
-"306
-[; ;serial.c: 306:     USART_TxS("COORDINATE Y SAVED\n", sizeof ("COORDINATE Y SAVED\n") - 1);
+"305
+[; ;serial.c: 305:     USART_TxS("COORDINATE Y SAVED\n", sizeof ("COORDINATE Y SAVED\n") - 1);
 [e ( _USART_TxS (2 , :s 39C -> - -> 20 `ui -> -> 1 `i `ui `i ]
-"307
-[; ;serial.c: 307:     for (int i = 0; i < 3; i++) {
+"306
+[; ;serial.c: 306:     for (int i = 0; i < 3; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -1870,27 +1868,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 473  ]
 [e :U 472 ]
 {
-"308
-[; ;serial.c: 308:         direccionFinal = direccion + i + 6;
+"307
+[; ;serial.c: 307:         direccionFinal = direccion + i + 6;
 [e = _direccionFinal -> + + -> _direccion `i _i -> 6 `i `uc ]
-"309
-[; ;serial.c: 309:         EEPROM_Tx(direccionFinal, string_setpoint[i + 8]);
+"308
+[; ;serial.c: 308:         EEPROM_Tx(direccionFinal, string_setpoint[i + 8]);
 [e ( _EEPROM_Tx (2 , _direccionFinal *U + _string_setpoint * -> + _i -> 8 `i `x -> -> # *U _string_setpoint `i `x ]
-"310
-[; ;serial.c: 310:     }
+"309
+[; ;serial.c: 309:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 3 `i 472  ]
 [e :U 473 ]
 }
-"311
-[; ;serial.c: 311:     USART_TxS("COORDINATE Z SAVED\n", sizeof ("COORDINATE Z SAVED\n") - 1);
+"310
+[; ;serial.c: 310:     USART_TxS("COORDINATE Z SAVED\n", sizeof ("COORDINATE Z SAVED\n") - 1);
 [e ( _USART_TxS (2 , :s 40C -> - -> 20 `ui -> -> 1 `i `ui `i ]
-"312
-[; ;serial.c: 312:     return;
+"311
+[; ;serial.c: 311:     return;
 [e $UE 465  ]
-"313
-[; ;serial.c: 313: }
+"312
+[; ;serial.c: 312: }
 [e :UE 465 ]
 }
 [a 37C 10 67 79 79 82 68 73 78 65 84 69 32 90 58 0 ]

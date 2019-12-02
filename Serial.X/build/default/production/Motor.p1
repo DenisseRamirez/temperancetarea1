@@ -5,8 +5,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19
 [; ;./motor.h: 19: void Motor_Calcular_PasosY(int coordenada_actualY);
 [v _Motor_Calcular_PasosY `(v ~T0 @X0 0 ef1`i ]
-"9 ./PWM.h
-[; ;./PWM.h: 9: void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
+"11 ./PWM.h
+[; ;./PWM.h: 11: void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
 [v _PWM_GeneratePulsos `(v ~T0 @X0 0 ef3`uc`i`i ]
 "14 ./UART.h
 [; ;./UART.h: 14: char USART_TxS(char str[], int length);
@@ -60,6 +60,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3290
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3290: extern volatile LATDbits_t LATDbits __attribute__((address(0xF8C)));
 [v _LATDbits `VS137 ~T0 @X0 0 e@3980 ]
+"16 ./PWM.h
+[; ;./PWM.h: 16: void PWM_InitS();
+[v _PWM_InitS `(v ~T0 @X0 0 e? ]
+"7206 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7206:     struct {
+[s S303 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S303 . T2CKPS TMR2ON TOUTPS ]
+"7211
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7211:     struct {
+[s S304 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S304 . T2CKPS0 T2CKPS1 . T2OUTPS0 T2OUTPS1 T2OUTPS2 T2OUTPS3 ]
+"7220
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7220:     struct {
+[s S305 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S305 . . TOUTPS0 TOUTPS1 TOUTPS2 TOUTPS3 ]
+"7205
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7205: typedef union {
+[u S302 `S303 1 `S304 1 `S305 1 ]
+[n S302 . . . . ]
+"7228
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7228: extern volatile T2CONbits_t T2CONbits __attribute__((address(0xFCA)));
+[v _T2CONbits `VS302 ~T0 @X0 0 e@4042 ]
 "7 ./PWM.h
 [; ;./PWM.h: 7: char oneshotX=0;
 [v _oneshotX `uc ~T0 @X0 1 e ]
@@ -70,6 +92,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./PWM.h: 8: char oneshotY=0;
 [v _oneshotY `uc ~T0 @X0 1 e ]
 [i _oneshotY
+-> -> 0 `i `uc
+]
+"9
+[; ;./PWM.h: 9: char BanderaX=0;
+[v _BanderaX `uc ~T0 @X0 1 e ]
+[i _BanderaX
+-> -> 0 `i `uc
+]
+"10
+[; ;./PWM.h: 10: char BanderaY=0;
+[v _BanderaY `uc ~T0 @X0 1 e ]
+[i _BanderaY
 -> -> 0 `i `uc
 ]
 "7 ./motor.h
@@ -710,8 +744,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! < _coordenada_actualX _coordenada_anteriorX 372  ]
 {
 "39
-[; ;Motor.c: 39:         PORTDbits.RD1 = 0;
-[e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
+[; ;Motor.c: 39:         PORTDbits.RD1 = 1;
+[e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
 "40
 [; ;Motor.c: 40:         DeltaX = coordenada_anteriorX - coordenada_actualX;
 [e = _DeltaX - _coordenada_anteriorX _coordenada_actualX ]
@@ -723,8 +757,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! > _coordenada_actualX _coordenada_anteriorX 374  ]
 {
 "43
-[; ;Motor.c: 43:         PORTDbits.RD1 = 1;
-[e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
+[; ;Motor.c: 43:         PORTDbits.RD1 = 0;
+[e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
 "44
 [; ;Motor.c: 44:         DeltaX = coordenada_actualX - coordenada_anteriorX;
 [e = _DeltaX - _coordenada_actualX _coordenada_anteriorX ]
@@ -760,8 +794,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! < _coordenada_actualY _coordenada_anteriorY 378  ]
 {
 "53
-[; ;Motor.c: 53:         PORTDbits.RD3 = 0;
-[e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
+[; ;Motor.c: 53:         PORTDbits.RD3 = 1;
+[e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
 "54
 [; ;Motor.c: 54:         DeltaY = coordenada_anteriorY - coordenada_actualY;
 [e = _DeltaY - _coordenada_anteriorY _coordenada_actualY ]
@@ -773,8 +807,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! > _coordenada_actualY _coordenada_anteriorY 380  ]
 {
 "57
-[; ;Motor.c: 57:         PORTDbits.RD3 = 1;
-[e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
+[; ;Motor.c: 57:         PORTDbits.RD3 = 0;
+[e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
 "58
 [; ;Motor.c: 58:         DeltaY = coordenada_actualY - coordenada_anteriorY;
 [e = _DeltaY - _coordenada_actualY _coordenada_anteriorY ]
@@ -880,5 +914,61 @@ Version 4.0 HI-TECH Software Intermediate Code
 "78
 [; ;Motor.c: 78: }
 [e :UE 387 ]
+}
+"79
+[; ;Motor.c: 79: void Motor_Home(){
+[v _Motor_Home `(v ~T0 @X0 1 ef ]
+{
+[e :U _Motor_Home ]
+[f ]
+"80
+[; ;Motor.c: 80:     PORTDbits.RD1 = 1;
+[e = . . _PORTDbits 0 1 -> -> 1 `i `uc ]
+"81
+[; ;Motor.c: 81:     PORTDbits.RD3 = 1;
+[e = . . _PORTDbits 0 3 -> -> 1 `i `uc ]
+"82
+[; ;Motor.c: 82:     PWM_InitS();
+[e ( _PWM_InitS ..  ]
+"83
+[; ;Motor.c: 83:     T2CONbits.TMR2ON = 1;
+[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
+"84
+[; ;Motor.c: 84: }
+[e :UE 406 ]
+}
+"85
+[; ;Motor.c: 85: void Motor_Movimiento_Home(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY) {
+[v _Motor_Movimiento_Home `(v ~T0 @X0 1 ef3`uc`i`i ]
+{
+[e :U _Motor_Movimiento_Home ]
+[v _Oupcode `uc ~T0 @X0 1 r1 ]
+[v _Motor_CoordenadaX `i ~T0 @X0 1 r2 ]
+[v _Motor_CoordenadaY `i ~T0 @X0 1 r3 ]
+[f ]
+"86
+[; ;Motor.c: 86:     T2CONbits.TMR2ON =0 ;
+[e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
+"87
+[; ;Motor.c: 87:     PORTDbits.RD1 = 0;
+[e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
+"88
+[; ;Motor.c: 88:     PORTDbits.RD3 = 0;
+[e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
+"89
+[; ;Motor.c: 89:     PasosX = Motor_Conversion(Motor_CoordenadaX);
+[e = _PasosX ( _Motor_Conversion (1 _Motor_CoordenadaX ]
+"90
+[; ;Motor.c: 90:     PasosY = Motor_Conversion(Motor_CoordenadaY);
+[e = _PasosY ( _Motor_Conversion (1 _Motor_CoordenadaY ]
+"91
+[; ;Motor.c: 91:     PWM_GeneratePulsos(Oupcode, PasosX, PasosY);
+[e ( _PWM_GeneratePulsos (3 , , _Oupcode _PasosX _PasosY ]
+"92
+[; ;Motor.c: 92:     return;
+[e $UE 407  ]
+"93
+[; ;Motor.c: 93: }
+[e :UE 407 ]
 }
 [a 1C 67 79 77 80 76 69 84 69 68 10 0 ]

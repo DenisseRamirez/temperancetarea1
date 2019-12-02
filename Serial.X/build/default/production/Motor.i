@@ -242,7 +242,10 @@ size_t __ctype_get_mb_cur_max(void);
 
 char oneshotX=0;
 char oneshotY=0;
+char BanderaX=0;
+char BanderaY=0;
 void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
+void PWM_Pulsos_Home(char banderaX, char banderaY);
 int PWM_OneshotX ();
 int PWM_OneshotY ();
 void PWM_InitF();
@@ -271,6 +274,8 @@ void Motor_Calcular_PasosX(int coordenada_actualX);
 void Motor_Calcular_PasosY(int coordenada_actualY);
 void Motor_MovimientoZ(char direccion);
 void Motor_MovimientoZ_Init(char direccion);
+void Motor_Home();
+void Motor_Movimiento_Home(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY);
 # 11 "Motor.c" 2
 
 # 1 "./GPIOsparcA1.h" 1
@@ -5942,11 +5947,11 @@ void Motor_Movimiento(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY)
 void Motor_Calcular_PasosX(int coordenada_actualX) {
     if (coordenada_actualX < coordenada_anteriorX) {
 
-        PORTDbits.RD1 = 0;
+        PORTDbits.RD1 = 1;
         DeltaX = coordenada_anteriorX - coordenada_actualX;
     } else if (coordenada_actualX > coordenada_anteriorX) {
 
-        PORTDbits.RD1 = 1;
+        PORTDbits.RD1 = 0;
         DeltaX = coordenada_actualX - coordenada_anteriorX;
     } else if (coordenada_actualX == coordenada_anteriorX) {
         DeltaX = 0;
@@ -5956,11 +5961,11 @@ void Motor_Calcular_PasosX(int coordenada_actualX) {
 void Motor_Calcular_PasosY(int coordenada_actualY) {
     if (coordenada_actualY < coordenada_anteriorY) {
 
-        PORTDbits.RD3 = 0;
+        PORTDbits.RD3 = 1;
         DeltaY = coordenada_anteriorY - coordenada_actualY;
     } else if (coordenada_actualY > coordenada_anteriorY) {
 
-        PORTDbits.RD3 = 1;
+        PORTDbits.RD3 = 0;
         DeltaY = coordenada_actualY - coordenada_anteriorY;
     } else if (coordenada_actualY == coordenada_anteriorY) {
         DeltaY=0;
@@ -5980,5 +5985,20 @@ void Motor_MovimientoZ(char direccion) {
         do { LATDbits.LATD5 = 0; } while(0);
         do { LATDbits.LATD6 = 1; } while(0);
     }
+    return;
+}
+void Motor_Home(){
+    PORTDbits.RD1 = 1;
+    PORTDbits.RD3 = 1;
+    PWM_InitS();
+    T2CONbits.TMR2ON = 1;
+}
+void Motor_Movimiento_Home(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY) {
+    T2CONbits.TMR2ON =0 ;
+    PORTDbits.RD1 = 0;
+    PORTDbits.RD3 = 0;
+    PasosX = Motor_Conversion(Motor_CoordenadaX);
+    PasosY = Motor_Conversion(Motor_CoordenadaY);
+    PWM_GeneratePulsos(Oupcode, PasosX, PasosY);
     return;
 }

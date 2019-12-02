@@ -5633,7 +5633,10 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 char oneshotX=0;
 char oneshotY=0;
+char BanderaX=0;
+char BanderaY=0;
 void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
+void PWM_Pulsos_Home(char banderaX, char banderaY);
 int PWM_OneshotX ();
 int PWM_OneshotY ();
 void PWM_InitF();
@@ -5651,10 +5654,16 @@ void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY) {
     PORTDbits.RD2 = 0;
     int countX = 0;
     int countY = 0;
+    if (pulsosX==0){
+        PORTDbits.RD0 = 1;
+    }
+    if (pulsosY==0){
+        PORTDbits.RD2 = 1;
+    }
     T2CONbits.TMR2ON = 1;
     while ((countX < pulsosX) || (countY < pulsosY)) {
         if (countX < pulsosX) {
-            if (PORTCbits.RC2 == 1) {
+            if (PORTCbits.RC1 == 1) {
                 countX = PWM_OneshotX(countX);
             } else {
                 oneshotX = 0;
@@ -5663,7 +5672,7 @@ void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY) {
             PORTDbits.RD0 = 1;
         }
         if (countY < pulsosY) {
-            if (PORTCbits.RC1 == 1) {
+            if (PORTCbits.RC2 == 1) {
                 countY = PWM_OneshotY(countY);
             } else {
                 oneshotY = 0;
@@ -5677,6 +5686,27 @@ void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY) {
     countY = 0;
     oneshotY = 0;
     T2CONbits.TMR2ON = 0;
+    return;
+}
+void PWM_Pulsos_Home(char banderaX, char banderaY){
+    PWM_InitS();
+    if(banderaX==1 && banderaY==1){
+        PORTDbits.RD0 = 1;
+    PORTDbits.RD2 = 1;
+    T2CONbits.TMR2ON = 0;
+    return;
+    }
+    if (banderaX==1){
+    PORTDbits.RD0 = 1;
+    PORTDbits.RD2 = 0;
+    }else if(banderaY==1){
+       PORTDbits.RD0 = 0;
+    PORTDbits.RD2 = 1;
+    } else {
+        PORTDbits.RD0 = 0;
+    PORTDbits.RD2 =0 ;
+    }
+     T2CONbits.TMR2ON = 1;
     return;
 }
 
@@ -5709,7 +5739,7 @@ void PWM_InitS() {
 }
 
 int PWM_OneshotX(int countX) {
-    if (PORTCbits.RC2 == 1 & oneshotX == 0) {
+    if (PORTCbits.RC1 == 1 & oneshotX == 0) {
         countX++;
         oneshotX = 1;
     }
@@ -5717,7 +5747,7 @@ int PWM_OneshotX(int countX) {
 }
 
 int PWM_OneshotY(int countY) {
-    if (PORTCbits.RC1 == 1 & oneshotY == 0) {
+    if (PORTCbits.RC2 == 1 & oneshotY == 0) {
         countY++;
         oneshotY = 1;
     }

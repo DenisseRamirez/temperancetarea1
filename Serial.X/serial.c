@@ -18,9 +18,8 @@
 #include "EEPROM.h"
 #include "GPIOsparcA1.h"
 
-void main() {
-    OSCCON = 0x72; // Defines el valor del oscilador interno
-    USART_Init(9600);
+void Serial_Oupcode() {
+    //OSCCON = 0x72; // Defines el valor del oscilador interno
     GPIO_RD0_TRIS = 0;
     GPIO_RD2_TRIS = 0;
     GPIO_RD1_TRIS = 0;
