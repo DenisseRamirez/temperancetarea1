@@ -30,8 +30,10 @@ Be sure to contact Support first. A desired new feature may be satisifed with th
 
 Requests for software updates must done by filling the request template provided [here]().
 
+Update requests should be sent to: saenz_jorge_33@hotmail.com.
+
 Reports on software bugs must done by filling the report template provided [here]().
 
-Either complete template with the related attachments should be sent to: saenz_jorge_33@hotmail.com.
+Create an Issue, provide a meaningful title, and attach the report along with any other related attachment. 
 ## Software release 
 https://github.com/DenisseRamirez/temperancetarea1/releases
