@@ -66,18 +66,24 @@ void Motor_MovimientoZ_Init(char direccion) {
 }
 
 void Motor_MovimientoZ() {
-    GPIO_RD4_SetHigh();
-    if (PORTCbits.RC5==1) { //Aqui se va a comprobar el estado del boton en dado caso
+    if (GPIO_RC4_GetValue() ==1){ //Aqui se va a comprobar el estado del boton en dado caso
+        USART_TxC('U');
+        GPIO_RD4_SetHigh();
         GPIO_RD5_SetHigh();
         GPIO_RD6_SetLow();
-    } else if (PORTCbits.RC6==1) { //Aqui se va a comprobar el estado del boton en dado caso
+    } 
+    else if(GPIO_RC5_GetValue() ==1) { //Aqui se va a comprobar el estado del boton en dado caso
+           USART_TxC('D');
+           GPIO_RD4_SetHigh();
         GPIO_RD5_SetLow();
         GPIO_RD6_SetHigh();
-    } if (PORTCbits.RC5==0 &&PORTCbits.RC6==0){
+    } 
+    while (GPIO_RC5_GetValue() ==0 && GPIO_RC4_GetValue() ==0){
         GPIO_RD5_SetLow();
         GPIO_RD6_SetLow();
-    }
+        GPIO_RD4_SetLow();
     return;
+    }
 }
 void Motor_Home(){
     Direction_DriverX = 1;

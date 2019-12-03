@@ -668,70 +668,79 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;User_Interface.c: 38:         _delay((unsigned long)((200)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "39
-[; ;User_Interface.c: 39:         do { LATBbits.LATB7 = 0; } while(0);
+[; ;User_Interface.c: 39:           _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"40
+[; ;User_Interface.c: 40:         do { LATBbits.LATB7 = 0; } while(0);
 [e :U 406 ]
 {
 [e = . . _LATBbits 0 7 -> -> 0 `i `uc ]
 }
 [e :U 405 ]
-"40
-[; ;User_Interface.c: 40:     }else if (color=='V'){
+"41
+[; ;User_Interface.c: 41:     }else if (color=='V'){
 }
 [e $U 407  ]
 [e :U 400 ]
 [e $ ! == -> _color `ui -> 86 `ui 408  ]
 {
-"41
-[; ;User_Interface.c: 41:         do { LATBbits.LATB6 = 1; } while(0);
+"42
+[; ;User_Interface.c: 42:         do { LATBbits.LATB6 = 1; } while(0);
 [e :U 411 ]
 {
 [e = . . _LATBbits 0 6 -> -> 1 `i `uc ]
 }
 [e :U 410 ]
-"42
-[; ;User_Interface.c: 42:         _delay((unsigned long)((200)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "43
-[; ;User_Interface.c: 43:         do { LATBbits.LATB6 = 0; } while(0);
+[; ;User_Interface.c: 43:         _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"44
+[; ;User_Interface.c: 44:           _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"45
+[; ;User_Interface.c: 45:         do { LATBbits.LATB6 = 0; } while(0);
 [e :U 414 ]
 {
 [e = . . _LATBbits 0 6 -> -> 0 `i `uc ]
 }
 [e :U 413 ]
-"44
-[; ;User_Interface.c: 44:     } else if (color=='R'){
+"46
+[; ;User_Interface.c: 46:     } else if (color=='R'){
 }
 [e $U 415  ]
 [e :U 408 ]
 [e $ ! == -> _color `ui -> 82 `ui 416  ]
 {
-"45
-[; ;User_Interface.c: 45:         do { LATBbits.LATB5 = 1; } while(0);
+"47
+[; ;User_Interface.c: 47:         do { LATBbits.LATB5 = 1; } while(0);
 [e :U 419 ]
 {
 [e = . . _LATBbits 0 5 -> -> 1 `i `uc ]
 }
 [e :U 418 ]
-"46
-[; ;User_Interface.c: 46:         _delay((unsigned long)((200)*(8000000/4000.0)));
+"48
+[; ;User_Interface.c: 48:         _delay((unsigned long)((200)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"47
-[; ;User_Interface.c: 47:         do { LATBbits.LATB5 = 0; } while(0);
+"49
+[; ;User_Interface.c: 49:           _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"50
+[; ;User_Interface.c: 50:         do { LATBbits.LATB5 = 0; } while(0);
 [e :U 422 ]
 {
 [e = . . _LATBbits 0 5 -> -> 0 `i `uc ]
 }
 [e :U 421 ]
-"48
-[; ;User_Interface.c: 48:     }
+"51
+[; ;User_Interface.c: 51:     }
 }
 [e :U 416 ]
 [e :U 415 ]
 [e :U 407 ]
-"49
-[; ;User_Interface.c: 49:       return;
+"52
+[; ;User_Interface.c: 52:       return;
 [e $UE 399  ]
-"50
-[; ;User_Interface.c: 50: }
+"53
+[; ;User_Interface.c: 53: }
 [e :UE 399 ]
 }

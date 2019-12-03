@@ -5978,18 +5978,24 @@ void Motor_MovimientoZ_Init(char direccion) {
 }
 
 void Motor_MovimientoZ() {
-    do { LATDbits.LATD4 = 1; } while(0);
-    if (PORTCbits.RC5==1) {
+    if (PORTCbits.RC4 ==1){
+        USART_TxC('U');
+        do { LATDbits.LATD4 = 1; } while(0);
         do { LATDbits.LATD5 = 1; } while(0);
         do { LATDbits.LATD6 = 0; } while(0);
-    } else if (PORTCbits.RC6==1) {
+    }
+    else if(PORTCbits.RC5 ==1) {
+           USART_TxC('D');
+           do { LATDbits.LATD4 = 1; } while(0);
         do { LATDbits.LATD5 = 0; } while(0);
         do { LATDbits.LATD6 = 1; } while(0);
-    } if (PORTCbits.RC5==0 &&PORTCbits.RC6==0){
+    }
+    while (PORTCbits.RC5 ==0 && PORTCbits.RC4 ==0){
         do { LATDbits.LATD5 = 0; } while(0);
         do { LATDbits.LATD6 = 0; } while(0);
-    }
+        do { LATDbits.LATD4 = 0; } while(0);
     return;
+    }
 }
 void Motor_Home(){
     PORTDbits.RD1 = 1;

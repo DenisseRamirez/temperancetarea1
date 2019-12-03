@@ -1,5 +1,35 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"2314 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
+"654 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 654:     struct {
+[s S36 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S36 . . SUSPND RESUME USBEN PKTDIS SE0 PPBRST ]
+"653
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 653: typedef union {
+[u S35 `S36 1 ]
+[n S35 . . ]
+"664
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 664: extern volatile UCONbits_t UCONbits __attribute__((address(0xF6D)));
+[v _UCONbits `VS35 ~T0 @X0 0 e@3949 ]
+"769
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 769:     struct {
+[s S41 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S41 . PPB FSEN UTRDIS UPUEN . UOEMON UTEYE ]
+"778
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 778:     struct {
+[s S42 :1 `uc 1 :1 `uc 1 ]
+[n S42 . PPB0 PPB1 ]
+"782
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 782:     struct {
+[s S43 :1 `uc 1 :1 `uc 1 ]
+[n S43 . UPP0 UPP1 ]
+"768
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 768: typedef union {
+[u S40 `S41 1 `S42 1 `S43 1 ]
+[n S40 . . . . ]
+"787
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 787: extern volatile UCFGbits_t UCFGbits __attribute__((address(0xF6F)));
+[v _UCFGbits `VS40 ~T0 @X0 0 e@3951 ]
+"2314
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2314: extern volatile unsigned char PORTA __attribute__((address(0xF80)));
 [v _PORTA `Vuc ~T0 @X0 0 e@3968 ]
 "2973
@@ -621,247 +651,256 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "5 GPIOsparcA1.c
-[; ;GPIOsparcA1.c: 5: void GPIO_init_PORTA(void){
+[; ;GPIOsparcA1.c: 5: void GPIO_init_PORTA(void) {
 [v _GPIO_init_PORTA `(v ~T0 @X0 1 ef ]
 {
 [e :U _GPIO_init_PORTA ]
 [f ]
 "6
-[; ;GPIOsparcA1.c: 6:     PORTA = 0x00;
-[e = _PORTA -> -> 0 `i `uc ]
+[; ;GPIOsparcA1.c: 6:     UCONbits.USBEN = 0;
+[e = . . _UCONbits 0 3 -> -> 0 `i `uc ]
 "7
-[; ;GPIOsparcA1.c: 7:     LATA = 0x00;
-[e = _LATA -> -> 0 `i `uc ]
+[; ;GPIOsparcA1.c: 7:     UCONbits.SUSPND = 0;
+[e = . . _UCONbits 0 1 -> -> 0 `i `uc ]
 "8
-[; ;GPIOsparcA1.c: 8:     ADCON1 = 0xD0;
-[e = _ADCON1 -> -> 208 `i `uc ]
+[; ;GPIOsparcA1.c: 8:     UCFGbits.UTRDIS = 1;
+[e = . . _UCFGbits 0 2 -> -> 1 `i `uc ]
 "9
-[; ;GPIOsparcA1.c: 9:     CMCON = 0x07;
+[; ;GPIOsparcA1.c: 9:     PORTA = 0x00;
+[e = _PORTA -> -> 0 `i `uc ]
+"10
+[; ;GPIOsparcA1.c: 10:     LATA = 0x00;
+[e = _LATA -> -> 0 `i `uc ]
+"11
+[; ;GPIOsparcA1.c: 11:     ADCON1 = 0x0E;
+[e = _ADCON1 -> -> 14 `i `uc ]
+"12
+[; ;GPIOsparcA1.c: 12:     CMCON = 0x07;
 [e = _CMCON -> -> 7 `i `uc ]
-"14
-[; ;GPIOsparcA1.c: 14:     do { TRISAbits.TRISA4 = 1; } while(0);
+"17
+[; ;GPIOsparcA1.c: 17:     do { TRISAbits.TRISA4 = 1; } while(0);
 [e :U 370 ]
 {
 [e = . . _TRISAbits 0 4 -> -> 1 `i `uc ]
 }
 [e :U 369 ]
-"15
-[; ;GPIOsparcA1.c: 15:     do { TRISAbits.TRISA5 = 1; } while(0);
+"18
+[; ;GPIOsparcA1.c: 18:     do { TRISAbits.TRISA5 = 1; } while(0);
 [e :U 373 ]
 {
 [e = . . _TRISAbits 0 5 -> -> 1 `i `uc ]
 }
 [e :U 372 ]
-"18
-[; ;GPIOsparcA1.c: 18: }
+"21
+[; ;GPIOsparcA1.c: 21: }
 [e :UE 367 ]
 }
-"20
-[; ;GPIOsparcA1.c: 20: void GPIO_init_PORTB(void){
+"23
+[; ;GPIOsparcA1.c: 23: void GPIO_init_PORTB(void) {
 [v _GPIO_init_PORTB `(v ~T0 @X0 1 ef ]
 {
 [e :U _GPIO_init_PORTB ]
 [f ]
-"21
-[; ;GPIOsparcA1.c: 21:     PORTB = 0x00;
-[e = _PORTB -> -> 0 `i `uc ]
-"22
-[; ;GPIOsparcA1.c: 22:     LATB = 0x00;
-[e = _LATB -> -> 0 `i `uc ]
-"23
-[; ;GPIOsparcA1.c: 23:     ADCON1 = 0xD0;
-[e = _ADCON1 -> -> 208 `i `uc ]
 "24
-[; ;GPIOsparcA1.c: 24:     do { TRISBbits.TRISB0 = 1; } while(0);
+[; ;GPIOsparcA1.c: 24:     PORTB = 0x00;
+[e = _PORTB -> -> 0 `i `uc ]
+"25
+[; ;GPIOsparcA1.c: 25:     LATB = 0x00;
+[e = _LATB -> -> 0 `i `uc ]
+"26
+[; ;GPIOsparcA1.c: 26:     ADCON1 = 0x0E;
+[e = _ADCON1 -> -> 14 `i `uc ]
+"27
+[; ;GPIOsparcA1.c: 27:     do { TRISBbits.TRISB0 = 1; } while(0);
 [e :U 377 ]
 {
 [e = . . _TRISBbits 0 0 -> -> 1 `i `uc ]
 }
 [e :U 376 ]
-"25
-[; ;GPIOsparcA1.c: 25:     do { TRISBbits.TRISB1 = 1; } while(0);
+"28
+[; ;GPIOsparcA1.c: 28:     do { TRISBbits.TRISB1 = 1; } while(0);
 [e :U 380 ]
 {
 [e = . . _TRISBbits 0 1 -> -> 1 `i `uc ]
 }
 [e :U 379 ]
-"26
-[; ;GPIOsparcA1.c: 26:     do { TRISBbits.TRISB2 = 1; } while(0);
+"29
+[; ;GPIOsparcA1.c: 29:     do { TRISBbits.TRISB2 = 1; } while(0);
 [e :U 383 ]
 {
 [e = . . _TRISBbits 0 2 -> -> 1 `i `uc ]
 }
 [e :U 382 ]
-"29
-[; ;GPIOsparcA1.c: 29:     do { TRISBbits.TRISB5 = 0; } while(0);
+"32
+[; ;GPIOsparcA1.c: 32:     do { TRISBbits.TRISB5 = 0; } while(0);
 [e :U 386 ]
 {
 [e = . . _TRISBbits 0 5 -> -> 0 `i `uc ]
 }
 [e :U 385 ]
-"30
-[; ;GPIOsparcA1.c: 30:     do { TRISBbits.TRISB6 = 0; } while(0);
+"33
+[; ;GPIOsparcA1.c: 33:     do { TRISBbits.TRISB6 = 0; } while(0);
 [e :U 389 ]
 {
 [e = . . _TRISBbits 0 6 -> -> 0 `i `uc ]
 }
 [e :U 388 ]
-"31
-[; ;GPIOsparcA1.c: 31:     do { TRISBbits.TRISB7 = 0; } while(0);
+"34
+[; ;GPIOsparcA1.c: 34:     do { TRISBbits.TRISB7 = 0; } while(0);
 [e :U 392 ]
 {
 [e = . . _TRISBbits 0 7 -> -> 0 `i `uc ]
 }
 [e :U 391 ]
-"32
-[; ;GPIOsparcA1.c: 32: }
+"35
+[; ;GPIOsparcA1.c: 35: }
 [e :UE 374 ]
 }
-"34
-[; ;GPIOsparcA1.c: 34: void GPIO_init_PORTC(void){
+"37
+[; ;GPIOsparcA1.c: 37: void GPIO_init_PORTC(void) {
 [v _GPIO_init_PORTC `(v ~T0 @X0 1 ef ]
 {
 [e :U _GPIO_init_PORTC ]
 [f ]
-"35
-[; ;GPIOsparcA1.c: 35:     PORTC = 0x00;
+"38
+[; ;GPIOsparcA1.c: 38:     PORTC = 0x00;
 [e = _PORTC -> -> 0 `i `uc ]
-"36
-[; ;GPIOsparcA1.c: 36:     LATC = 0x00;
+"39
+[; ;GPIOsparcA1.c: 39:     LATC = 0x00;
 [e = _LATC -> -> 0 `i `uc ]
-"37
-[; ;GPIOsparcA1.c: 37:     do { TRISCbits.TRISC0 = 1; } while(0);
+"40
+[; ;GPIOsparcA1.c: 40:     do { TRISCbits.TRISC0 = 1; } while(0);
 [e :U 396 ]
 {
 [e = . . _TRISCbits 0 0 -> -> 1 `i `uc ]
 }
 [e :U 395 ]
-"38
-[; ;GPIOsparcA1.c: 38:     do { TRISCbits.TRISC1 = 0; } while(0);
+"41
+[; ;GPIOsparcA1.c: 41:     do { TRISCbits.TRISC1 = 0; } while(0);
 [e :U 399 ]
 {
 [e = . . _TRISCbits 0 1 -> -> 0 `i `uc ]
 }
 [e :U 398 ]
-"39
-[; ;GPIOsparcA1.c: 39:     do { TRISCbits.TRISC2 = 0; } while(0);
+"42
+[; ;GPIOsparcA1.c: 42:     do { TRISCbits.TRISC2 = 0; } while(0);
 [e :U 402 ]
 {
 [e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
 }
 [e :U 401 ]
-"43
-[; ;GPIOsparcA1.c: 43:     do { TRISCbits.TRISC6 = 0; } while(0);
+"46
+[; ;GPIOsparcA1.c: 46:     do { TRISCbits.TRISC6 = 0; } while(0);
 [e :U 405 ]
 {
 [e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
 }
 [e :U 404 ]
-"44
-[; ;GPIOsparcA1.c: 44:     do { TRISCbits.TRISC7 = 1; } while(0);
+"47
+[; ;GPIOsparcA1.c: 47:     do { TRISCbits.TRISC7 = 1; } while(0);
 [e :U 408 ]
 {
 [e = . . _TRISCbits 0 5 -> -> 1 `i `uc ]
 }
 [e :U 407 ]
-"45
-[; ;GPIOsparcA1.c: 45: }
+"48
+[; ;GPIOsparcA1.c: 48: }
 [e :UE 393 ]
 }
-"47
-[; ;GPIOsparcA1.c: 47: void GPIO_init_PORTD(void){
+"50
+[; ;GPIOsparcA1.c: 50: void GPIO_init_PORTD(void) {
 [v _GPIO_init_PORTD `(v ~T0 @X0 1 ef ]
 {
 [e :U _GPIO_init_PORTD ]
 [f ]
-"48
-[; ;GPIOsparcA1.c: 48:     PORTD = 0x00;
-[e = _PORTD -> -> 0 `i `uc ]
-"49
-[; ;GPIOsparcA1.c: 49:     LATD = 0x00;
-[e = _LATD -> -> 0 `i `uc ]
-"50
-[; ;GPIOsparcA1.c: 50:     CMCON = 0x07;
-[e = _CMCON -> -> 7 `i `uc ]
 "51
-[; ;GPIOsparcA1.c: 51:     do { TRISDbits.TRISD0 = 0; } while(0);
+[; ;GPIOsparcA1.c: 51:     PORTD = 0x00;
+[e = _PORTD -> -> 0 `i `uc ]
+"52
+[; ;GPIOsparcA1.c: 52:     LATD = 0x00;
+[e = _LATD -> -> 0 `i `uc ]
+"53
+[; ;GPIOsparcA1.c: 53:     CMCON = 0x07;
+[e = _CMCON -> -> 7 `i `uc ]
+"54
+[; ;GPIOsparcA1.c: 54:     do { TRISDbits.TRISD0 = 0; } while(0);
 [e :U 412 ]
 {
 [e = . . _TRISDbits 0 0 -> -> 0 `i `uc ]
 }
 [e :U 411 ]
-"52
-[; ;GPIOsparcA1.c: 52:     do { TRISDbits.TRISD1 = 0; } while(0);
+"55
+[; ;GPIOsparcA1.c: 55:     do { TRISDbits.TRISD1 = 0; } while(0);
 [e :U 415 ]
 {
 [e = . . _TRISDbits 0 1 -> -> 0 `i `uc ]
 }
 [e :U 414 ]
-"53
-[; ;GPIOsparcA1.c: 53:     do { TRISDbits.TRISD2 = 0; } while(0);
+"56
+[; ;GPIOsparcA1.c: 56:     do { TRISDbits.TRISD2 = 0; } while(0);
 [e :U 418 ]
 {
 [e = . . _TRISDbits 0 2 -> -> 0 `i `uc ]
 }
 [e :U 417 ]
-"54
-[; ;GPIOsparcA1.c: 54:     do { TRISDbits.TRISD3 = 0; } while(0);
+"57
+[; ;GPIOsparcA1.c: 57:     do { TRISDbits.TRISD3 = 0; } while(0);
 [e :U 421 ]
 {
 [e = . . _TRISDbits 0 3 -> -> 0 `i `uc ]
 }
 [e :U 420 ]
-"55
-[; ;GPIOsparcA1.c: 55:     do { TRISDbits.TRISD4 = 0; } while(0);
+"58
+[; ;GPIOsparcA1.c: 58:     do { TRISDbits.TRISD4 = 0; } while(0);
 [e :U 424 ]
 {
 [e = . . _TRISDbits 0 4 -> -> 0 `i `uc ]
 }
 [e :U 423 ]
-"56
-[; ;GPIOsparcA1.c: 56:     do { TRISDbits.TRISD5 = 0; } while(0);
+"59
+[; ;GPIOsparcA1.c: 59:     do { TRISDbits.TRISD5 = 0; } while(0);
 [e :U 427 ]
 {
 [e = . . _TRISDbits 0 5 -> -> 0 `i `uc ]
 }
 [e :U 426 ]
-"57
-[; ;GPIOsparcA1.c: 57:     do { TRISDbits.TRISD6 = 0; } while(0);
+"60
+[; ;GPIOsparcA1.c: 60:     do { TRISDbits.TRISD6 = 0; } while(0);
 [e :U 430 ]
 {
 [e = . . _TRISDbits 0 6 -> -> 0 `i `uc ]
 }
 [e :U 429 ]
-"59
-[; ;GPIOsparcA1.c: 59: }
+"62
+[; ;GPIOsparcA1.c: 62: }
 [e :UE 409 ]
 }
-"61
-[; ;GPIOsparcA1.c: 61: void GPIO_init_PORTE(void){
+"64
+[; ;GPIOsparcA1.c: 64: void GPIO_init_PORTE(void) {
 [v _GPIO_init_PORTE `(v ~T0 @X0 1 ef ]
 {
 [e :U _GPIO_init_PORTE ]
 [f ]
-"62
-[; ;GPIOsparcA1.c: 62:     PORTE = 0x00;
-[e = _PORTE -> -> 0 `i `uc ]
-"63
-[; ;GPIOsparcA1.c: 63:     LATE = 0x00;
-[e = _LATE -> -> 0 `i `uc ]
-"64
-[; ;GPIOsparcA1.c: 64:     ADCON1 = 0xD0;
-[e = _ADCON1 -> -> 208 `i `uc ]
 "65
-[; ;GPIOsparcA1.c: 65:     CMCON = 0x07;
-[e = _CMCON -> -> 7 `i `uc ]
+[; ;GPIOsparcA1.c: 65:     PORTE = 0x00;
+[e = _PORTE -> -> 0 `i `uc ]
 "66
-[; ;GPIOsparcA1.c: 66:     do { TRISEbits.TRISE0 = 0; } while(0);
+[; ;GPIOsparcA1.c: 66:     LATE = 0x00;
+[e = _LATE -> -> 0 `i `uc ]
+"67
+[; ;GPIOsparcA1.c: 67:     ADCON1 = 0x0E;
+[e = _ADCON1 -> -> 14 `i `uc ]
+"68
+[; ;GPIOsparcA1.c: 68:     CMCON = 0x07;
+[e = _CMCON -> -> 7 `i `uc ]
+"69
+[; ;GPIOsparcA1.c: 69:     do { TRISEbits.TRISE0 = 0; } while(0);
 [e :U 434 ]
 {
 [e = . . _TRISEbits 0 0 -> -> 0 `i `uc ]
 }
 [e :U 433 ]
-"74
-[; ;GPIOsparcA1.c: 74: }
+"77
+[; ;GPIOsparcA1.c: 77: }
 [e :UE 431 ]
 }

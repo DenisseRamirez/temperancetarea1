@@ -5902,14 +5902,17 @@ void Usart_Interface_Flash(char color){
       if (color=='A'){
         do { LATBbits.LATB7 = 1; } while(0);
         _delay((unsigned long)((200)*(8000000/4000.0)));
+          _delay((unsigned long)((200)*(8000000/4000.0)));
         do { LATBbits.LATB7 = 0; } while(0);
     }else if (color=='V'){
         do { LATBbits.LATB6 = 1; } while(0);
         _delay((unsigned long)((200)*(8000000/4000.0)));
+          _delay((unsigned long)((200)*(8000000/4000.0)));
         do { LATBbits.LATB6 = 0; } while(0);
     } else if (color=='R'){
         do { LATBbits.LATB5 = 1; } while(0);
         _delay((unsigned long)((200)*(8000000/4000.0)));
+          _delay((unsigned long)((200)*(8000000/4000.0)));
         do { LATBbits.LATB5 = 0; } while(0);
     }
       return;

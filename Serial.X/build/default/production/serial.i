@@ -6129,9 +6129,12 @@ void Serial_Oupcode() {
                 Serial_Escritura_Memoria(Direccion_Memoria, coordenada_setpoint);
                 break;
              case 'A':
-                 while(PORTAbits.RA5==0){
+                 USART_TxC('A');
+                 while(PORTAbits.RA5 ==0){
                      Motor_MovimientoZ();
                  }
+                  USART_TxC('E');
+                  break;
         }
     }
 }

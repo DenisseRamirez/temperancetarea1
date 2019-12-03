@@ -6015,14 +6015,23 @@ void main() {
    GPIO_init_PORTC();
    GPIO_init_PORTD();
     GPIO_init_PORTE();
+    do { LATDbits.LATD4 = 0; } while(0);
     USART_Init(9600);
-    Int_Ext();
+
     USART_TxS("WELCOME TO SPARC\n", sizeof ("WELCOME TO SPARC\n") - 1);
-    Usart_Interface_ON('A');
+   Usart_Interface_ON('A');
     USART_TxS("WAIT FOR HOME\n", sizeof ("WAIT FOR HOME\n") - 1);
-    main_Home();
+
+    _delay((unsigned long)((200)*(8000000/4000.0)));
+    _delay((unsigned long)((200)*(8000000/4000.0)));
+    _delay((unsigned long)((200)*(8000000/4000.0)));
+    Usart_Interface_ON('V');
+     _delay((unsigned long)((200)*(8000000/4000.0)));
+    _delay((unsigned long)((200)*(8000000/4000.0)));
+    _delay((unsigned long)((200)*(8000000/4000.0)));
+     Usart_Interface_Flash('R');
     USART_TxS("COMPLETED\n", sizeof ("COMPLETED\n") - 1);
-    Usart_Interface_Flash('V');
+
     Serial_Oupcode();
 
     return;
