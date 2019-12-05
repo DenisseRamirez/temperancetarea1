@@ -537,6 +537,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8893
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
+"16 ./UART.h
+[; ;./UART.h: 16: char Conexion_perdida=0;
+[v _Conexion_perdida `uc ~T0 @X0 1 e ]
+[i _Conexion_perdida
+-> -> 0 `i `uc
+]
 "18 Actuator.c
 [; ;Actuator.c: 18: void Actuator_Touch() {
 [v _Actuator_Touch `(v ~T0 @X0 1 ef ]

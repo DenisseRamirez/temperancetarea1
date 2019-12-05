@@ -5834,6 +5834,8 @@ void USARTStr(char *Output, unsigned int size);
 
 void USART_RxS (char lenght, char* pointer );
 char USART_TxS(char str[], int length);
+void USART_Overflow(void) ;
+char Conexion_perdida=0;
 # 14 "serial.c" 2
 
 # 1 "./serial.h" 1
@@ -6072,6 +6074,11 @@ void Serial_Oupcode() {
         switch (Oupcode) {
             case 'F':
                 USART_RxS(7, coordenada_array);
+                if (Conexion_perdida==1){
+                    USART_TxS("E3\n", sizeof ("E3\n") - 1);
+                    Conexion_perdida=0;
+                    break;
+                }else {
                 USART_TxS("W\n", sizeof ("W\n") - 1);
                 Usart_Interface_OFF('V');
                 Usart_Interface_ON('A');
@@ -6091,10 +6098,15 @@ void Serial_Oupcode() {
                     Coordenadas_mal = 0;
                 } else {
                     Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
-                }
+                }}
                 break;
             case 'S':
                 USART_RxS(7, coordenada_array);
+                if (Conexion_perdida==1){
+                    USART_TxS("E3\n", sizeof ("E3\n") - 1);
+                    Conexion_perdida=0;
+                    break;
+                }else {
                 USART_TxS("W\n", sizeof ("W\n") - 1);
                 Usart_Interface_OFF('V');
                 Usart_Interface_ON('A');
@@ -6114,7 +6126,7 @@ void Serial_Oupcode() {
                     Coordenadas_mal = 0;
                 } else {
                     Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
-                }
+                }}
                 break;
             case 'T':
                 USART_TxS("W\n", sizeof ("W\n") - 1);
@@ -6168,6 +6180,8 @@ void Serial_Oupcode() {
                         USART_TxS("R\n", sizeof ("R\n") - 1);
                         Usart_Interface_ON('V');
                         Usart_Interface_OFF('A');
+                        _delay((unsigned long)((200)*(8000000/4000.0)));
+                        Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
                     } else {
                         Control_Z(CoordenadaZ);
                         _delay((unsigned long)((200)*(8000000/4000.0)));
@@ -6179,11 +6193,17 @@ void Serial_Oupcode() {
             case 'M':
                 Direccion_Memoria = USART_RxC();
                 USART_RxS(11, coordenada_setpoint);
+                 if (Conexion_perdida==1){
+                    USART_TxS("E3\n", sizeof ("E3\n") - 1);
+                    Conexion_perdida=0;
+                    break;
+                }else {
                 USART_TxS("W\n", sizeof ("W\n") - 1);
                 Usart_Interface_OFF('V');
                 Usart_Interface_ON('A');
                 Direccion_Memoria = Seria_Decodificacion_Memoria(Direccion_Memoria);
                 Serial_Escritura_Memoria(Direccion_Memoria, coordenada_setpoint);
+                }
                 break;
             case 'A':
                 USART_TxS("W\n", sizeof ("W\n") - 1);
@@ -6203,6 +6223,7 @@ void Serial_Oupcode() {
                 return;
                 break;
         }
+
     }
 }
 
@@ -6233,7 +6254,7 @@ void Serial_DecodificacionY(char string_coordenada[], int *pointerCY) {
     *pointerCY = atoi(coordenadaY);
     return;
 }
-# 223 "serial.c"
+# 242 "serial.c"
 void Serial_RangosCoordenadas(int C) {
     if (C > 300 || C < 0) {
         Coordenadas_fuera = 1;

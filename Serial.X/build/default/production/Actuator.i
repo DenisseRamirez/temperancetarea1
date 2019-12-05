@@ -5878,6 +5878,8 @@ void USARTStr(char *Output, unsigned int size);
 
 void USART_RxS (char lenght, char* pointer );
 char USART_TxS(char str[], int length);
+void USART_Overflow(void) ;
+char Conexion_perdida=0;
 # 12 "Actuator.c" 2
 
 # 1 "./User_Interface.h" 1

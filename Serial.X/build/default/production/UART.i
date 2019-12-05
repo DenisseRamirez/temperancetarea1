@@ -5696,6 +5696,8 @@ void USARTStr(char *Output, unsigned int size);
 
 void USART_RxS (char lenght, char* pointer );
 char USART_TxS(char str[], int length);
+void USART_Overflow(void) ;
+char Conexion_perdida=0;
 # 5 "UART.c" 2
 
 void USART_Init(long BAUD){
@@ -5723,6 +5725,7 @@ void USART_TxC(char data){
 }
 
 char USART_RxC(){
+    USART_Overflow();
     while(!PIR1bits.RCIF);
     return RCREG;
 }
@@ -5732,11 +5735,44 @@ char USART_TxS(char str[], int length){
     TXREG = str[i];
     }
 }
-# 49 "UART.c"
+# 50 "UART.c"
 void USART_RxS (char length, char* pointer ){
+    USART_Overflow();
+    long count=0;
+    Conexion_perdida=0;
     for (int i = 0; i < (length); i++)
         {
-            while (!RCIF);
+            while (!RCIF){
+                count++;
+                if (count>250000){
+                    Conexion_perdida=1;
+                    count=0;
+                    return;
+                }
+            }
             pointer[i] = RCREG;
         }
+}
+void USART_Overflow(void) {
+    char temp;
+    if(OERR) {
+
+        do
+        {
+            temp = RCREG;
+            temp = RCREG;
+            temp = RCREG;
+            CREN = 0;
+            CREN = 1;
+
+        } while(OERR);
+    }
+
+    if(FERR)
+    {
+        temp = RCREG;
+        TXEN = 0;
+        TXEN = 1;
+    }
+    USART_TxS("E4\n",sizeof("E4\n")-1);
 }

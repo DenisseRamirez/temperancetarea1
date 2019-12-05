@@ -39,7 +39,7 @@ void main() {
      Usart_Interface_ON('V');
     Serial_Oupcode();
     USART_TxS("F", sizeof ("F") - 1);
-    return;
+    while(1);
 }
 
 void Int_Ext() {

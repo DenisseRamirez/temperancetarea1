@@ -5921,6 +5921,8 @@ void USARTStr(char *Output, unsigned int size);
 
 void USART_RxS (char lenght, char* pointer );
 char USART_TxS(char str[], int length);
+void USART_Overflow(void) ;
+char Conexion_perdida=0;
 # 13 "Motor.c" 2
 
 # 1 "./User_Interface.h" 1
@@ -5934,6 +5936,7 @@ char USART_TxS(char str[], int length);
 void Usart_Interface_OFF(char color);
 void Usart_Interface_ON(char color);
 # 14 "Motor.c" 2
+
 
 
 
@@ -5986,16 +5989,14 @@ void Motor_Calcular_PasosY(int coordenada_actualY) {
     }
 }
 
-
 void Motor_MovimientoZ() {
     if (PORTCbits.RC4 == 1) {
-        USART_TxC('U');
+
         do { LATDbits.LATD4 = 1; } while(0);
         do { LATDbits.LATD5 = 1; } while(0);
         do { LATDbits.LATD6 = 0; } while(0);
-    }
-    else if (PORTCbits.RC5 == 1) {
-        USART_TxC('D');
+    } else if (PORTCbits.RC5 == 1) {
+
         do { LATDbits.LATD4 = 1; } while(0);
         do { LATDbits.LATD5 = 0; } while(0);
         do { LATDbits.LATD6 = 1; } while(0);

@@ -89,12 +89,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5402
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 5402: extern volatile unsigned char TXREG __attribute__((address(0xFAD)));
 [v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
-"5414
+"15 ./UART.h
+[; ;./UART.h: 15: void USART_Overflow(void) ;
+[v _USART_Overflow `(v ~T0 @X0 0 ef ]
+"5414 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 5414: extern volatile unsigned char RCREG __attribute__((address(0xFAE)));
 [v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
 "10443
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 10443: extern volatile __bit RCIF __attribute__((address(0x7CF5)));
 [v _RCIF `Vb ~T0 @X0 0 e@31989 ]
+"10176
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 10176: extern volatile __bit OERR __attribute__((address(0x7D59)));
+[v _OERR `Vb ~T0 @X0 0 e@32089 ]
+"9201
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 9201: extern volatile __bit CREN __attribute__((address(0x7D5C)));
+[v _CREN `Vb ~T0 @X0 0 e@32092 ]
+"9693
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 9693: extern volatile __bit FERR __attribute__((address(0x7D5A)));
+[v _FERR `Vb ~T0 @X0 0 e@32090 ]
+"11034
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 11034: extern volatile __bit TXEN __attribute__((address(0x7D65)));
+[v _TXEN `Vb ~T0 @X0 0 e@32101 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -605,6 +620,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8893
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
+"16 ./UART.h
+[; ;./UART.h: 16: char Conexion_perdida=0;
+[v _Conexion_perdida `uc ~T0 @X0 1 e ]
+[i _Conexion_perdida
+-> -> 0 `i `uc
+]
 "6 UART.c
 [; ;UART.c: 6: void USART_Init(long BAUD){
 [v _USART_Init `(v ~T0 @X0 1 ef1`l ]
@@ -674,95 +695,204 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _USART_RxC ]
 [f ]
 "31
-[; ;UART.c: 31:     while(!PIR1bits.RCIF);
+[; ;UART.c: 31:     USART_Overflow();
+[e ( _USART_Overflow ..  ]
+"32
+[; ;UART.c: 32:     while(!PIR1bits.RCIF);
 [e $U 374  ]
 [e :U 375 ]
 [e :U 374 ]
 [e $ ! != -> . . _PIR1bits 0 5 `i -> 0 `i 375  ]
 [e :U 376 ]
-"32
-[; ;UART.c: 32:     return RCREG;
+"33
+[; ;UART.c: 33:     return RCREG;
 [e ) -> _RCREG `uc ]
 [e $UE 373  ]
-"33
-[; ;UART.c: 33: }
+"34
+[; ;UART.c: 34: }
 [e :UE 373 ]
 }
-"34
-[; ;UART.c: 34: char USART_TxS(char str[], int length){
+"35
+[; ;UART.c: 35: char USART_TxS(char str[], int length){
 [v _USART_TxS `(uc ~T0 @X0 1 ef2`*uc`i ]
 {
 [e :U _USART_TxS ]
 [v _str `*uc ~T0 @X0 1 r1 ]
 [v _length `i ~T0 @X0 1 r2 ]
 [f ]
-"35
-[; ;UART.c: 35:     for (int i=0;i<length;i++){
+"36
+[; ;UART.c: 36:     for (int i=0;i<length;i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [e $U 381  ]
 [e :U 378 ]
 {
-"36
-[; ;UART.c: 36:     while(!PIR1bits.TXIF);
+"37
+[; ;UART.c: 37:     while(!PIR1bits.TXIF);
 [e $U 382  ]
 [e :U 383 ]
 [e :U 382 ]
 [e $ ! != -> . . _PIR1bits 0 4 `i -> 0 `i 383  ]
 [e :U 384 ]
-"37
-[; ;UART.c: 37:     TXREG = str[i];
-[e = _TXREG -> *U + _str * -> _i `x -> -> # *U _str `i `x `uc ]
 "38
-[; ;UART.c: 38:     }
+[; ;UART.c: 38:     TXREG = str[i];
+[e = _TXREG -> *U + _str * -> _i `x -> -> # *U _str `i `x `uc ]
+"39
+[; ;UART.c: 39:     }
 }
 [e ++ _i -> 1 `i ]
 [e :U 381 ]
 [e $ < _i _length 378  ]
 [e :U 379 ]
 }
-"39
-[; ;UART.c: 39: }
+"40
+[; ;UART.c: 40: }
 [e :UE 377 ]
 }
-"49
-[; ;UART.c: 49: void USART_RxS (char length, char* pointer ){
+"50
+[; ;UART.c: 50: void USART_RxS (char length, char* pointer ){
 [v _USART_RxS `(v ~T0 @X0 1 ef2`uc`*uc ]
 {
 [e :U _USART_RxS ]
 [v _length `uc ~T0 @X0 1 r1 ]
 [v _pointer `*uc ~T0 @X0 1 r2 ]
 [f ]
-"50
-[; ;UART.c: 50:     for (int i = 0; i < (length); i++)
+"51
+[; ;UART.c: 51:     USART_Overflow();
+[e ( _USART_Overflow ..  ]
+"52
+[; ;UART.c: 52:     long count=0;
+[v _count `l ~T0 @X0 1 a ]
+[e = _count -> -> 0 `i `l ]
+"53
+[; ;UART.c: 53:     Conexion_perdida=0;
+[e = _Conexion_perdida -> -> 0 `i `uc ]
+"54
+[; ;UART.c: 54:     for (int i = 0; i < (length); i++)
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [e $U 389  ]
 [e :U 386 ]
-"51
-[; ;UART.c: 51:         {
+"55
+[; ;UART.c: 55:         {
 {
-"52
-[; ;UART.c: 52:             while (!RCIF);
+"56
+[; ;UART.c: 56:             while (!RCIF){
 [e $U 390  ]
 [e :U 391 ]
+{
+"57
+[; ;UART.c: 57:                 count++;
+[e ++ _count -> -> 1 `i `l ]
+"58
+[; ;UART.c: 58:                 if (count>250000){
+[e $ ! > _count -> 250000 `l 393  ]
+{
+"59
+[; ;UART.c: 59:                     Conexion_perdida=1;
+[e = _Conexion_perdida -> -> 1 `i `uc ]
+"60
+[; ;UART.c: 60:                     count=0;
+[e = _count -> -> 0 `i `l ]
+"61
+[; ;UART.c: 61:                     return;
+[e $UE 385  ]
+"62
+[; ;UART.c: 62:                 }
+}
+[e :U 393 ]
+"63
+[; ;UART.c: 63:             }
+}
 [e :U 390 ]
+"56
+[; ;UART.c: 56:             while (!RCIF){
 [e $ ! _RCIF 391  ]
 [e :U 392 ]
-"53
-[; ;UART.c: 53:             pointer[i] = RCREG;
+"64
+[; ;UART.c: 64:             pointer[i] = RCREG;
 [e = *U + _pointer * -> _i `x -> -> # *U _pointer `i `x -> _RCREG `uc ]
-"54
-[; ;UART.c: 54:         }
+"65
+[; ;UART.c: 65:         }
 }
 [e ++ _i -> 1 `i ]
 [e :U 389 ]
 [e $ < _i -> _length `i 386  ]
 [e :U 387 ]
 }
-"55
-[; ;UART.c: 55: }
+"66
+[; ;UART.c: 66: }
 [e :UE 385 ]
 }
+"67
+[; ;UART.c: 67: void USART_Overflow(void) {
+[v _USART_Overflow `(v ~T0 @X0 1 ef ]
+{
+[e :U _USART_Overflow ]
+[f ]
+"68
+[; ;UART.c: 68:     char temp;
+[v _temp `uc ~T0 @X0 1 a ]
+"69
+[; ;UART.c: 69:     if(OERR) {
+[e $ ! _OERR 395  ]
+{
+"71
+[; ;UART.c: 71:         do
+[e :U 398 ]
+"72
+[; ;UART.c: 72:         {
+{
+"73
+[; ;UART.c: 73:             temp = RCREG;
+[e = _temp -> _RCREG `uc ]
+"74
+[; ;UART.c: 74:             temp = RCREG;
+[e = _temp -> _RCREG `uc ]
+"75
+[; ;UART.c: 75:             temp = RCREG;
+[e = _temp -> _RCREG `uc ]
+"76
+[; ;UART.c: 76:             CREN = 0;
+[e = _CREN -> -> 0 `i `b ]
+"77
+[; ;UART.c: 77:             CREN = 1;
+[e = _CREN -> -> 1 `i `b ]
+"79
+[; ;UART.c: 79:         } while(OERR);
+}
+[e $ _OERR 398  ]
+[e :U 397 ]
+"80
+[; ;UART.c: 80:     }
+}
+[e :U 395 ]
+"82
+[; ;UART.c: 82:     if(FERR)
+[e $ ! _FERR 399  ]
+"83
+[; ;UART.c: 83:     {
+{
+"84
+[; ;UART.c: 84:         temp = RCREG;
+[e = _temp -> _RCREG `uc ]
+"85
+[; ;UART.c: 85:         TXEN = 0;
+[e = _TXEN -> -> 0 `i `b ]
+"86
+[; ;UART.c: 86:         TXEN = 1;
+[e = _TXEN -> -> 1 `i `b ]
+"87
+[; ;UART.c: 87:     }
+}
+[e :U 399 ]
+"88
+[; ;UART.c: 88:     USART_TxS("E4\n",sizeof("E4\n")-1);
+[e ( _USART_TxS (2 , :s 1C -> - -> 4 `ui -> -> 1 `i `ui `i ]
+"89
+[; ;UART.c: 89: }
+[e :UE 394 ]
+}
+[a 1C 69 52 10 0 ]

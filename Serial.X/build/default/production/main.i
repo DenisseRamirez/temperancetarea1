@@ -5814,6 +5814,8 @@ void USARTStr(char *Output, unsigned int size);
 
 void USART_RxS (char lenght, char* pointer );
 char USART_TxS(char str[], int length);
+void USART_Overflow(void) ;
+char Conexion_perdida=0;
 # 13 "main.c" 2
 
 # 1 "./motor.h" 1
@@ -6039,7 +6041,7 @@ void main() {
      Usart_Interface_ON('V');
     Serial_Oupcode();
     USART_TxS("F", sizeof ("F") - 1);
-    return;
+    while(1);
 }
 
 void Int_Ext() {

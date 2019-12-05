@@ -28,6 +28,7 @@ void USART_TxC(char data){
 }
 
 char USART_RxC(){
+    USART_Overflow();
     while(!PIR1bits.RCIF);
     return RCREG; 
 }
@@ -47,9 +48,42 @@ void USART_TxSP(char Str[]){
 }*/
 
 void USART_RxS (char length, char* pointer ){//funcion pa leer string
+    USART_Overflow();
+    long count=0;
+    Conexion_perdida=0;
     for (int i = 0; i < (length); i++) 
         {
-            while (!RCIF);
+            while (!RCIF){
+                count++;
+                if (count>250000){
+                    Conexion_perdida=1;
+                    count=0;
+                    return;
+                }
+            }
             pointer[i] = RCREG;
         }
+}
+void USART_Overflow(void) {
+    char temp;
+    if(OERR) {//¿hubo desborde?
+    
+        do
+        {
+            temp = RCREG;//limpia pila
+            temp = RCREG;//limpia pila
+            temp = RCREG;//limpia pila
+            CREN = 0;//deshabilita la recepcion
+            CREN = 1;//habilita la recepcion
+
+        } while(OERR);
+    }
+
+    if(FERR)
+    {
+        temp = RCREG;
+        TXEN = 0;
+        TXEN = 1;
+    }
+    USART_TxS("E4\n",sizeof("E4\n")-1);
 }

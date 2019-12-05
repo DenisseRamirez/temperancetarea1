@@ -12,6 +12,7 @@
 #include "GPIOsparcA1.h"
 #include "UART.h"
 #include "User_Interface.h"
+
 /*
  * 
  */
@@ -63,16 +64,14 @@ void Motor_Calcular_PasosY(int coordenada_actualY) {
     }
 }
 
-
 void Motor_MovimientoZ() {
     if (GPIO_RC4_GetValue() == 1) { //Aqui se va a comprobar el estado del boton en dado caso
-        USART_TxC('U');
+
         GPIO_RD4_SetHigh();
         GPIO_RD5_SetHigh();
         GPIO_RD6_SetLow();
-    }
-    else if (GPIO_RC5_GetValue() == 1) { //Aqui se va a comprobar el estado del boton en dado caso
-        USART_TxC('D');
+    } else if (GPIO_RC5_GetValue() == 1) { //Aqui se va a comprobar el estado del boton en dado caso
+
         GPIO_RD4_SetHigh();
         GPIO_RD5_SetLow();
         GPIO_RD6_SetHigh();

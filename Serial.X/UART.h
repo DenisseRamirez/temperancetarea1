@@ -12,6 +12,8 @@ void USARTStr(char *Output, unsigned int size);
 //void USART_TxSP(char Str[]);
 void USART_RxS (char lenght, char* pointer );
 char USART_TxS(char str[], int length);
+void USART_Overflow(void) ;
+char Conexion_perdida=0;
 
 #ifdef	__cplusplus
 }

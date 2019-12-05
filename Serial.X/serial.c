@@ -44,6 +44,11 @@ void Serial_Oupcode() {
         switch (Oupcode) { // Checa el Opcode que llega para saber a que funcion del serial llamar para decodificar lo que llega
             case 'F'://Movimiento a coordenada rapido 
                 USART_RxS(7, coordenada_array); //Lectura de las coordenadas
+                if (Conexion_perdida==1){
+                    USART_TxS("E3\n", sizeof ("E3\n") - 1);
+                    Conexion_perdida=0;
+                    break;
+                }else {
                 USART_TxS("W\n", sizeof ("W\n") - 1);
                 Usart_Interface_OFF('V');
                 Usart_Interface_ON('A');
@@ -63,10 +68,15 @@ void Serial_Oupcode() {
                     Coordenadas_mal = 0;
                 } else {
                     Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
-                }
+                }}
                 break;
             case 'S':
                 USART_RxS(7, coordenada_array); //Lectura de las coordenadas
+                if (Conexion_perdida==1){
+                    USART_TxS("E3\n", sizeof ("E3\n") - 1);
+                    Conexion_perdida=0;
+                    break;
+                }else {
                 USART_TxS("W\n", sizeof ("W\n") - 1);
                 Usart_Interface_OFF('V');
                 Usart_Interface_ON('A');
@@ -86,7 +96,7 @@ void Serial_Oupcode() {
                     Coordenadas_mal = 0;
                 } else {
                     Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
-                }
+                }}
                 break;
             case 'T':
                 USART_TxS("W\n", sizeof ("W\n") - 1);
@@ -140,6 +150,8 @@ void Serial_Oupcode() {
                         USART_TxS("R\n", sizeof ("R\n") - 1);
                         Usart_Interface_ON('V');
                         Usart_Interface_OFF('A');
+                        __delay_ms(200);
+                        Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
                     } else {
                         Control_Z(CoordenadaZ);
                         __delay_ms(200);
@@ -151,11 +163,17 @@ void Serial_Oupcode() {
             case 'M':
                 Direccion_Memoria = USART_RxC();
                 USART_RxS(11, coordenada_setpoint); //Lectura de las coordenadas
+                 if (Conexion_perdida==1){
+                    USART_TxS("E3\n", sizeof ("E3\n") - 1);
+                    Conexion_perdida=0;
+                    break;
+                }else {
                 USART_TxS("W\n", sizeof ("W\n") - 1);
                 Usart_Interface_OFF('V');
                 Usart_Interface_ON('A');
                 Direccion_Memoria = Seria_Decodificacion_Memoria(Direccion_Memoria);
                 Serial_Escritura_Memoria(Direccion_Memoria, coordenada_setpoint);
+                }
                 break;
             case 'A'://Movimiento con botones 
                 USART_TxS("W\n", sizeof ("W\n") - 1);
@@ -175,6 +193,7 @@ void Serial_Oupcode() {
                 return;
                 break;
         }
+        
     }
 }
 
