@@ -1,5 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"4855 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
+"4929 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4929: extern volatile unsigned char EEADR __attribute__((address(0xFA9)));
+[v _EEADR `Vuc ~T0 @X0 0 e@4009 ]
+"4855
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4855:     struct {
 [s S193 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S193 . RD WR WREN WRERR FREE . CFGS EEPGD ]
@@ -14,9 +17,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4870
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4870: extern volatile EECON1bits_t EECON1bits __attribute__((address(0xFA6)));
 [v _EECON1bits `VS192 ~T0 @X0 0 e@4006 ]
-"4929
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4929: extern volatile unsigned char EEADR __attribute__((address(0xFA9)));
-[v _EEADR `Vuc ~T0 @X0 0 e@4009 ]
 "4922
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4922: extern volatile unsigned char EEDATA __attribute__((address(0xFA8)));
 [v _EEDATA `Vuc ~T0 @X0 0 e@4008 ]
@@ -570,26 +570,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13 ./EEPROM.h
 [; ;./EEPROM.h: 13: char data;
 [v _data `uc ~T0 @X0 1 e ]
-"11 EEPROM.c
-[; ;EEPROM.c: 11: void EEPROM_Init(){
-[v _EEPROM_Init `(v ~T0 @X0 1 ef ]
-{
-[e :U _EEPROM_Init ]
-[f ]
-"12
-[; ;EEPROM.c: 12:     EECON1bits.CFGS=0;
-[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
-"13
-[; ;EEPROM.c: 13:     EECON1bits.EEPGD=0;
-[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
-"14
-[; ;EEPROM.c: 14:     EECON1bits.WREN=1;
-[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
-"15
-[; ;EEPROM.c: 15: }
-[e :UE 367 ]
-}
-"16
+"16 EEPROM.c
 [; ;EEPROM.c: 16: char EEPROM_Rx(char direccion){
 [v _EEPROM_Rx `(uc ~T0 @X0 1 ef1`uc ]
 {
@@ -614,10 +595,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "22
 [; ;EEPROM.c: 22:       return data;
 [e ) _data ]
-[e $UE 368  ]
+[e $UE 367  ]
 "23
 [; ;EEPROM.c: 23: }
-[e :UE 368 ]
+[e :UE 367 ]
 }
 "24
 [; ;EEPROM.c: 24: void EEPROM_Tx(char direccion, char dato){
@@ -659,11 +640,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 "36
 [; ;EEPROM.c: 36:       while(!PIR2bits.EEIF);
-[e $U 370  ]
-[e :U 371 ]
+[e $U 369  ]
 [e :U 370 ]
-[e $ ! != -> . . _PIR2bits 0 4 `i -> 0 `i 371  ]
-[e :U 372 ]
+[e :U 369 ]
+[e $ ! != -> . . _PIR2bits 0 4 `i -> 0 `i 370  ]
+[e :U 371 ]
 "37
 [; ;EEPROM.c: 37:       PIR2bits.EEIF=0;
 [e = . . _PIR2bits 0 4 -> -> 0 `i `uc ]
@@ -672,5 +653,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
 "40
 [; ;EEPROM.c: 40: }
-[e :UE 369 ]
+[e :UE 368 ]
 }

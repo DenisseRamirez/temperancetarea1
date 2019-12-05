@@ -14,10 +14,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3100
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3100: extern volatile LATBbits_t LATBbits __attribute__((address(0xF8A)));
 [v _LATBbits `VS131 ~T0 @X0 0 e@3978 ]
-[v F3470 `(v ~T0 @X0 1 tf1`ul ]
-"187 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18.h
-[v __delay `JF3470 ~T0 @X0 0 e ]
-[p i __delay ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -529,10 +525,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "14 User_Interface.c
-[; ;User_Interface.c: 14: void Usart_Interface_Off(char color){
-[v _Usart_Interface_Off `(v ~T0 @X0 1 ef1`uc ]
+[; ;User_Interface.c: 14: void Usart_Interface_OFF(char color){
+[v _Usart_Interface_OFF `(v ~T0 @X0 1 ef1`uc ]
 {
-[e :U _Usart_Interface_Off ]
+[e :U _Usart_Interface_OFF ]
 [v _color `uc ~T0 @X0 1 r1 ]
 [f ]
 "15
@@ -645,102 +641,4 @@ Version 4.0 HI-TECH Software Intermediate Code
 "33
 [; ;User_Interface.c: 33: }
 [e :UE 384 ]
-}
-"35
-[; ;User_Interface.c: 35: void Usart_Interface_Flash(char color){
-[v _Usart_Interface_Flash `(v ~T0 @X0 1 ef1`uc ]
-{
-[e :U _Usart_Interface_Flash ]
-[v _color `uc ~T0 @X0 1 r1 ]
-[f ]
-"36
-[; ;User_Interface.c: 36:       if (color=='A'){
-[e $ ! == -> _color `ui -> 65 `ui 400  ]
-{
-"37
-[; ;User_Interface.c: 37:         do { LATBbits.LATB7 = 1; } while(0);
-[e :U 403 ]
-{
-[e = . . _LATBbits 0 7 -> -> 1 `i `uc ]
-}
-[e :U 402 ]
-"38
-[; ;User_Interface.c: 38:         _delay((unsigned long)((200)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"39
-[; ;User_Interface.c: 39:           _delay((unsigned long)((200)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"40
-[; ;User_Interface.c: 40:         do { LATBbits.LATB7 = 0; } while(0);
-[e :U 406 ]
-{
-[e = . . _LATBbits 0 7 -> -> 0 `i `uc ]
-}
-[e :U 405 ]
-"41
-[; ;User_Interface.c: 41:     }else if (color=='V'){
-}
-[e $U 407  ]
-[e :U 400 ]
-[e $ ! == -> _color `ui -> 86 `ui 408  ]
-{
-"42
-[; ;User_Interface.c: 42:         do { LATBbits.LATB6 = 1; } while(0);
-[e :U 411 ]
-{
-[e = . . _LATBbits 0 6 -> -> 1 `i `uc ]
-}
-[e :U 410 ]
-"43
-[; ;User_Interface.c: 43:         _delay((unsigned long)((200)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"44
-[; ;User_Interface.c: 44:           _delay((unsigned long)((200)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"45
-[; ;User_Interface.c: 45:         do { LATBbits.LATB6 = 0; } while(0);
-[e :U 414 ]
-{
-[e = . . _LATBbits 0 6 -> -> 0 `i `uc ]
-}
-[e :U 413 ]
-"46
-[; ;User_Interface.c: 46:     } else if (color=='R'){
-}
-[e $U 415  ]
-[e :U 408 ]
-[e $ ! == -> _color `ui -> 82 `ui 416  ]
-{
-"47
-[; ;User_Interface.c: 47:         do { LATBbits.LATB5 = 1; } while(0);
-[e :U 419 ]
-{
-[e = . . _LATBbits 0 5 -> -> 1 `i `uc ]
-}
-[e :U 418 ]
-"48
-[; ;User_Interface.c: 48:         _delay((unsigned long)((200)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"49
-[; ;User_Interface.c: 49:           _delay((unsigned long)((200)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"50
-[; ;User_Interface.c: 50:         do { LATBbits.LATB5 = 0; } while(0);
-[e :U 422 ]
-{
-[e = . . _LATBbits 0 5 -> -> 0 `i `uc ]
-}
-[e :U 421 ]
-"51
-[; ;User_Interface.c: 51:     }
-}
-[e :U 416 ]
-[e :U 415 ]
-[e :U 407 ]
-"52
-[; ;User_Interface.c: 52:       return;
-[e $UE 399  ]
-"53
-[; ;User_Interface.c: 53: }
-[e :UE 399 ]
 }

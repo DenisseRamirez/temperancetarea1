@@ -726,71 +726,43 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;UART.c: 39: }
 [e :UE 377 ]
 }
-"41
-[; ;UART.c: 41: void USART_TxSP(char Str[]){
-[v _USART_TxSP `(v ~T0 @X0 1 ef1`*uc ]
-{
-[e :U _USART_TxSP ]
-[v _Str `*uc ~T0 @X0 1 r1 ]
-[f ]
-"42
-[; ;UART.c: 42:     int Strindex = 0;
-[v _Strindex `i ~T0 @X0 1 a ]
-[e = _Strindex -> 0 `i ]
-"43
-[; ;UART.c: 43:     while(Str[Strindex] != 0);
-[e $U 386  ]
-[e :U 387 ]
-[e :U 386 ]
-[e $ != -> *U + _Str * -> _Strindex `x -> -> # *U _Str `i `x `i -> 0 `i 387  ]
-[e :U 388 ]
-"44
-[; ;UART.c: 44:     USART_TxC(Str[Strindex]);
-[e ( _USART_TxC (1 *U + _Str * -> _Strindex `x -> -> # *U _Str `i `x ]
-"45
-[; ;UART.c: 45:     Strindex++;
-[e ++ _Strindex -> 1 `i ]
-"46
-[; ;UART.c: 46: }
-[e :UE 385 ]
-}
-"48
-[; ;UART.c: 48: void USART_RxS (char length, char* pointer ){
+"49
+[; ;UART.c: 49: void USART_RxS (char length, char* pointer ){
 [v _USART_RxS `(v ~T0 @X0 1 ef2`uc`*uc ]
 {
 [e :U _USART_RxS ]
 [v _length `uc ~T0 @X0 1 r1 ]
 [v _pointer `*uc ~T0 @X0 1 r2 ]
 [f ]
-"49
-[; ;UART.c: 49:     for (int i = 0; i < (length); i++)
+"50
+[; ;UART.c: 50:     for (int i = 0; i < (length); i++)
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 393  ]
-[e :U 390 ]
-"50
-[; ;UART.c: 50:         {
-{
+[e $U 389  ]
+[e :U 386 ]
 "51
-[; ;UART.c: 51:             while (!RCIF);
-[e $U 394  ]
-[e :U 395 ]
-[e :U 394 ]
-[e $ ! _RCIF 395  ]
-[e :U 396 ]
+[; ;UART.c: 51:         {
+{
 "52
-[; ;UART.c: 52:             pointer[i] = RCREG;
-[e = *U + _pointer * -> _i `x -> -> # *U _pointer `i `x -> _RCREG `uc ]
+[; ;UART.c: 52:             while (!RCIF);
+[e $U 390  ]
+[e :U 391 ]
+[e :U 390 ]
+[e $ ! _RCIF 391  ]
+[e :U 392 ]
 "53
-[; ;UART.c: 53:         }
+[; ;UART.c: 53:             pointer[i] = RCREG;
+[e = *U + _pointer * -> _i `x -> -> # *U _pointer `i `x -> _RCREG `uc ]
+"54
+[; ;UART.c: 54:         }
 }
 [e ++ _i -> 1 `i ]
-[e :U 393 ]
-[e $ < _i -> _length `i 390  ]
-[e :U 391 ]
+[e :U 389 ]
+[e $ < _i -> _length `i 386  ]
+[e :U 387 ]
 }
-"54
-[; ;UART.c: 54: }
-[e :UE 389 ]
+"55
+[; ;UART.c: 55: }
+[e :UE 385 ]
 }

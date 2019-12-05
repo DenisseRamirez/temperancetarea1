@@ -255,7 +255,7 @@ void ADC_Init() ;
 
 
 
-void ControlZ ();
+void Control_Z (int Referencia);
 char controlZ;
 float error;
 # 11 "ControlZ.c" 2
@@ -6270,13 +6270,31 @@ void GPIO_init_PORTD(void);
 void GPIO_init_PORTE(void);
 # 15 "ControlZ.c" 2
 
+# 1 "./UART.h" 1
 
 
 
 
-void ControlZ (int CoordenadaZ){
+
+
+
+void USART_Init(long BAUD);
+void USART_TxC(char data);
+char USART_RxC();
+void USARTStr(char *Output, unsigned int size);
+
+void USART_RxS (char lenght, char* pointer );
+char USART_TxS(char str[], int length);
+# 16 "ControlZ.c" 2
+
+
+
+
+
+void Control_Z (int Referencia){
+    USART_TxS("W\n", sizeof ("W\n") - 1);
      ADC_Init();
-     CoordenadaZ=CoordenadaZ+47;
+     Referencia=Referencia+47;
      controlZ=0;
     do { LATDbits.LATD4 = 0; } while(0);
    do { LATDbits.LATD5 = 0; } while(0);
@@ -6284,13 +6302,13 @@ void ControlZ (int CoordenadaZ){
     while (controlZ < 10) {
         LecturaFiltro = ADC_LecturaFiltro(50);
          ADC_ConvertirDistancia(LecturaFiltro);
-        if (CoordenadaZ > Distancia) {
-            error = CoordenadaZ - Distancia;
+        if (Referencia > Distancia) {
+            error = Referencia - Distancia;
             do { LATDbits.LATD4 = 0; } while(0);
            do { LATDbits.LATD5 = 1; } while(0);
             do { LATDbits.LATD6 = 0; } while(0);
-        } else if (CoordenadaZ < Distancia) {
-              error = CoordenadaZ - Distancia;
+        } else if (Referencia < Distancia) {
+              error = Referencia - Distancia;
             do { LATDbits.LATD5 = 0; } while(0);
             do { LATDbits.LATD6 = 1; } while(0);
         }

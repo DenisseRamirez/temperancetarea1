@@ -7,5 +7,6 @@ UART.h  \
 motor.h  \
 PWM.h  \
 serial.h  \
+Actuator.h  \
 GPIOsparcA1.h  \
 User_Interface.h 

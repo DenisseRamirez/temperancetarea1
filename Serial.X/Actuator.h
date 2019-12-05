@@ -8,7 +8,6 @@
 
 #endif
 
-void Actuator_Ini();
 void Actuator_Touch();
 void Actuator_Hold();
 void Actuator_Retract();

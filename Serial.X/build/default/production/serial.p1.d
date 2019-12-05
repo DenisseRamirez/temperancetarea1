@@ -7,4 +7,6 @@ PWM.h  \
 motor.h  \
 Actuator.h  \
 EEPROM.h  \
-GPIOsparcA1.h 
+GPIOsparcA1.h  \
+ControlZ.h  \
+User_Interface.h 

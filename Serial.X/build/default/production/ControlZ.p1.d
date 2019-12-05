@@ -3,4 +3,5 @@ ControlZ.c  \
 ADC.h  \
 ControlZ.h  \
 configuration.h  \
-GPIOsparcA1.h 
+GPIOsparcA1.h  \
+UART.h 

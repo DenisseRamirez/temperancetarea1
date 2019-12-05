@@ -5,9 +5,9 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
-void Usart_Interface_Off(char color);
+void Usart_Interface_OFF(char color);
 void Usart_Interface_ON(char color);
-void Usart_Interface_Flash(char color);
+//void Usart_Interface_Flash(char color);
 
 #ifdef	__cplusplus
 }

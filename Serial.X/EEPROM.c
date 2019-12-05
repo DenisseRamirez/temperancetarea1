@@ -7,12 +7,12 @@
 
 #include <xc.h>
 #include "EEPROM.h"
-
+/*
 void EEPROM_Init(){
     EECON1bits.CFGS=0;
     EECON1bits.EEPGD=0;//SELECCIONAR DATA EEPROM
     EECON1bits.WREN=1;//PERMITIR WRITE OPERATION
-}
+}*/
 char EEPROM_Rx(char direccion){
     EEADR=direccion;//DIRECCION A LEER
     EECON1bits.EEPGD=0;//SELECCIONAR DATA EEPROM

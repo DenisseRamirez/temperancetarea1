@@ -5631,16 +5631,16 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 10 "./EEPROM.h"
 char EEPROM_Rx(char direccion);
 void EEPROM_Tx(char direccion, char dato);
-void EEMPROM_Init();
+
 char data;
 # 9 "EEPROM.c" 2
 
 
-void EEPROM_Init(){
-    EECON1bits.CFGS=0;
-    EECON1bits.EEPGD=0;
-    EECON1bits.WREN=1;
-}
+
+
+
+
+
 char EEPROM_Rx(char direccion){
     EEADR=direccion;
     EECON1bits.EEPGD=0;

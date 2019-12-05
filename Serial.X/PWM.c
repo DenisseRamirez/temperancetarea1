@@ -47,6 +47,7 @@ void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY) {
     T2CONbits.TMR2ON = 0; // Timer OFF
     return;
 }
+/*
 void PWM_Pulsos_Home(char banderaX, char banderaY){
     PWM_InitS();
     if(banderaX==1 && banderaY==1){
@@ -67,7 +68,7 @@ void PWM_Pulsos_Home(char banderaX, char banderaY){
     }
      T2CONbits.TMR2ON = 1; // Timer ON
     return;
-}
+}*/
 
 void PWM_InitF() {
 

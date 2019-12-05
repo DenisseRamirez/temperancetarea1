@@ -5794,7 +5794,7 @@ void maain_interrrupt();
 
 
 
-void ControlZ ();
+void Control_Z (int Referencia);
 char controlZ;
 float error;
 # 12 "main.c" 2
@@ -5811,7 +5811,7 @@ void USART_Init(long BAUD);
 void USART_TxC(char data);
 char USART_RxC();
 void USARTStr(char *Output, unsigned int size);
-void USART_TxSP(char Str[]);
+
 void USART_RxS (char lenght, char* pointer );
 char USART_TxS(char str[], int length);
 # 13 "main.c" 2
@@ -5838,7 +5838,7 @@ void Motor_Movimiento(char Oupcode,int CoordenadaX,int CoordenadaY);
 void Motor_Calcular_PasosX(int coordenada_actualX);
 void Motor_Calcular_PasosY(int coordenada_actualY);
 void Motor_MovimientoZ();
-void Motor_MovimientoZ_Init(char direccion);
+
 void Motor_Home();
 void Motor_Movimiento_Home(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY);
 # 14 "main.c" 2
@@ -5855,7 +5855,7 @@ char oneshotY=0;
 char BanderaX=0;
 char BanderaY=0;
 void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
-void PWM_Pulsos_Home(char banderaX, char banderaY);
+
 int PWM_OneshotX ();
 int PWM_OneshotY ();
 void PWM_InitF();
@@ -5872,11 +5872,12 @@ void PWM_InitS();
 
     void Serial_DecodificacionX(char string_coordenada[], int *pointerCX);
     void Serial_DecodificacionY(char string_coordenada[], int *pointerCY);
-    void Serial_DecodificacionZ(char string_coordenada[], int *pointerCZ);
+
     void Serial_Lectura_MemoriaX(char direccion, int *pointerCX) ;
     void Serial_Lectura_MemoriaY(char direccion, int *pointerCY) ;
     void Serial_Lectura_MemoriaZ(char direccion, int *pointerCZ) ;
     void Serial_RangosCoordenadas(int C);
+    void Serial_RangosControl(int C);
     void Serial_Oupcode();
 
 
@@ -5891,7 +5892,15 @@ void PWM_InitS();
     char Direccion_Memoria;
     char Coordenadas_fuera=0;
     char Coordenadas_mal=0;
+    char Coordenadas_control_fuera =0;
 # 16 "main.c" 2
+
+# 1 "./Actuator.h" 1
+# 11 "./Actuator.h"
+void Actuator_Touch();
+void Actuator_Hold();
+void Actuator_Retract();
+# 17 "main.c" 2
 
 # 1 "./GPIOsparcA1.h" 1
 
@@ -5994,7 +6003,7 @@ void GPIO_init_PORTC(void);
 void GPIO_init_PORTD(void);
 # 286 "./GPIOsparcA1.h"
 void GPIO_init_PORTE(void);
-# 17 "main.c" 2
+# 18 "main.c" 2
 
 # 1 "./User_Interface.h" 1
 
@@ -6004,10 +6013,9 @@ void GPIO_init_PORTE(void);
 
 
 
-void Usart_Interface_Off(char color);
+void Usart_Interface_OFF(char color);
 void Usart_Interface_ON(char color);
-void Usart_Interface_Flash(char color);
-# 18 "main.c" 2
+# 19 "main.c" 2
 
 
 void main() {
@@ -6018,24 +6026,19 @@ void main() {
    GPIO_init_PORTD();
     GPIO_init_PORTE();
     do { LATDbits.LATD4 = 0; } while(0);
+    PORTDbits.RD0 = 1;
+    PORTDbits.RD0 = 1;
     USART_Init(9600);
     Int_Ext();
     USART_TxS("WELCOME TO SPARC\n", sizeof ("WELCOME TO SPARC\n") - 1);
    Usart_Interface_ON('A');
     USART_TxS("W\n", sizeof ("W\n") - 1);
     main_Home();
-    _delay((unsigned long)((200)*(8000000/4000.0)));
-    _delay((unsigned long)((200)*(8000000/4000.0)));
-    _delay((unsigned long)((200)*(8000000/4000.0)));
-    Usart_Interface_ON('V');
-     _delay((unsigned long)((200)*(8000000/4000.0)));
-    _delay((unsigned long)((200)*(8000000/4000.0)));
-    _delay((unsigned long)((200)*(8000000/4000.0)));
-     Usart_Interface_Flash('R');
+    Usart_Interface_OFF('A');
     USART_TxS("C\n", sizeof ("C\n") - 1);
-
+     Usart_Interface_ON('V');
     Serial_Oupcode();
-
+    USART_TxS("F", sizeof ("F") - 1);
     return;
 }
 
@@ -6089,7 +6092,7 @@ void INT1_ACTION(void) {
     PORTDbits.RD2 = 1;
     _delay((unsigned long)((100)*(8000000/4000.0)));
     if (BanderaX == 0) {
-        Motor_Movimiento_Home('S', 30, 0);
+        Motor_Movimiento_Home('S', 10, 0);
     }
     BanderaX = 1;
     return;
@@ -6100,7 +6103,7 @@ void INT2_ACTION(void) {
     PORTDbits.RD2 = 1;
     _delay((unsigned long)((100)*(8000000/4000.0)));
     if (BanderaY == 0) {
-        Motor_Movimiento_Home('S', 0, 30);
+        Motor_Movimiento_Home('S', 0, 10);
     }
     BanderaY = 1;
     return;

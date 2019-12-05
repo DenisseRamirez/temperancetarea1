@@ -38,12 +38,13 @@ char USART_TxS(char str[], int length){
     }
 }
 
+/*
 void USART_TxSP(char Str[]){
     int Strindex = 0;
     while(Str[Strindex] != 0);
     USART_TxC(Str[Strindex]);
     Strindex++;
-}
+}*/
 
 void USART_RxS (char length, char* pointer ){//funcion pa leer string
     for (int i = 0; i < (length); i++) 

@@ -18,9 +18,11 @@
 #include "Actuator.h"
 #include "EEPROM.h"
 #include "GPIOsparcA1.h"
+#include "ControlZ.h"
+#include "User_Interface.h"
 
 void Serial_Oupcode() {
-    //OSCCON = 0x72; // Defines el valor del oscilador interno
+    /*OSCCON = 0x72; // Defines el valor del oscilador interno
     GPIO_RD0_TRIS = 0;
     GPIO_RD2_TRIS = 0;
     GPIO_RD1_TRIS = 0;
@@ -30,8 +32,9 @@ void Serial_Oupcode() {
     TRISCbits.RC1 = 0;
     TRISCbits.RC2 = 0;
     PORTCbits.RC1 = 0;
+     */
     char instruction_counter = 0;
-   // USART_TxS("PLEASE INSERT  INSTRUCTION OF SETPOINT\n", sizeof ("PLEASE INSERT  INSTRUCTION OF SETPOINT\n") - 1);
+    // USART_TxS("PLEASE INSERT  INSTRUCTION OF SETPOINT\n", sizeof ("PLEASE INSERT  INSTRUCTION OF SETPOINT\n") - 1);
     while (1) {
         if (instruction_counter == 0) {
             USART_TxS("R\n", sizeof ("R\n") - 1);
@@ -42,15 +45,21 @@ void Serial_Oupcode() {
             case 'F'://Movimiento a coordenada rapido 
                 USART_RxS(7, coordenada_array); //Lectura de las coordenadas
                 USART_TxS("W\n", sizeof ("W\n") - 1);
+                Usart_Interface_OFF('V');
+                Usart_Interface_ON('A');
                 Serial_DecodificacionX(coordenada_array, &CoordenadaX); // LLamar a serial de decodificacion Coordenada LAS VARIABLES CX Y CY YA SE ENCUENTRAN CON VALORES
                 Serial_DecodificacionY(coordenada_array, &CoordenadaY); // LLamar a serial de decodificacion Coordenada LAS VARIABLES CX Y CY YA SE ENCUENTRAN CON VALORES
                 Serial_RangosCoordenadas(CoordenadaX);
                 Serial_RangosCoordenadas(CoordenadaY);
                 if (Coordenadas_fuera == 1) {//En caso de Coordenada ingresada fuera del rango no comenzar
                     USART_TxS("E1\n", sizeof ("E1\n") - 1);
+                    Usart_Interface_OFF('V');
+                    Usart_Interface_OFF('A');
                     Coordenadas_fuera = 0;
                 } else if (Coordenadas_mal == 1) {
                     USART_TxS("E2\n", sizeof ("E2\n") - 1);
+                    Usart_Interface_OFF('V');
+                    Usart_Interface_OFF('A');
                     Coordenadas_mal = 0;
                 } else {
                     Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
@@ -59,15 +68,21 @@ void Serial_Oupcode() {
             case 'S':
                 USART_RxS(7, coordenada_array); //Lectura de las coordenadas
                 USART_TxS("W\n", sizeof ("W\n") - 1);
+                Usart_Interface_OFF('V');
+                Usart_Interface_ON('A');
                 Serial_DecodificacionX(coordenada_array, &CoordenadaX); // LLamar a serial de decodificacion Coordenada LAS VARIABLES CX Y CY YA SE ENCUENTRAN CON VALORES
                 Serial_DecodificacionY(coordenada_array, &CoordenadaY); // LLamar a serial de decodificacion Coordenada LAS VARIABLES CX Y CY YA SE ENCUENTRAN CON VALORES
                 Serial_RangosCoordenadas(CoordenadaX); //Checar las coordenadas
                 Serial_RangosCoordenadas(CoordenadaY); //Checar las coordenadas
                 if (Coordenadas_fuera == 1) {//En caso de Coordenada ingresada fuera del rango no comenzar
                     USART_TxS("E1\n", sizeof ("E1\n") - 1);
+                    Usart_Interface_OFF('V');
+                    Usart_Interface_OFF('A');
                     Coordenadas_fuera = 0;
                 } else if (Coordenadas_mal == 1) {
                     USART_TxS("E2\n", sizeof ("E2\n") - 1);
+                    Usart_Interface_OFF('V');
+                    Usart_Interface_OFF('A');
                     Coordenadas_mal = 0;
                 } else {
                     Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
@@ -75,18 +90,26 @@ void Serial_Oupcode() {
                 break;
             case 'T':
                 USART_TxS("W\n", sizeof ("W\n") - 1);
+                Usart_Interface_OFF('V');
+                Usart_Interface_ON('A');
                 Actuator_Touch();
                 break;
             case 'H':
                 USART_TxS("W\n", sizeof ("W\n") - 1);
+                Usart_Interface_OFF('V');
+                Usart_Interface_ON('A');
                 Actuator_Hold();
                 break;
             case 'R':
                 USART_TxS("W\n", sizeof ("W\n") - 1);
+                Usart_Interface_OFF('V');
+                Usart_Interface_ON('A');
                 Actuator_Retract();
                 break;
             case 'O':
                 USART_TxS("W\n", sizeof ("W\n") - 1);
+                Usart_Interface_OFF('V');
+                Usart_Interface_ON('A');
                 Direccion_Memoria = USART_RxC();
                 Direccion_Memoria = Seria_Decodificacion_Memoria(Direccion_Memoria);
                 Serial_Lectura_MemoriaX(Direccion_Memoria, &CoordenadaX);
@@ -94,35 +117,61 @@ void Serial_Oupcode() {
                 Serial_Lectura_MemoriaZ(Direccion_Memoria, &CoordenadaZ);
                 if (Coordenadas_fuera == 1) {//En caso de Coordenada ingresada fuera del rango no comenzar
                     USART_TxS("E1\n", sizeof ("E1\n") - 1);
-                   // USART_TxS("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n", sizeof ("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n") - 1);
+                    Usart_Interface_OFF('V');
+                    Usart_Interface_OFF('A');
+                    // USART_TxS("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n", sizeof ("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n") - 1);
                     Coordenadas_fuera = 0;
                 } else if (Coordenadas_mal == 1) {
                     USART_TxS("E2\n", sizeof ("E2\n") - 1);
-                   // USART_TxS("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n", sizeof ("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n") - 1);
+                    Usart_Interface_OFF('V');
+                    Usart_Interface_OFF('A');
+                    // USART_TxS("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n", sizeof ("PLEASE MODIFY THE SETPOINT AND TRY AGAIN\n") - 1);
                     Coordenadas_mal = 0;
                 } else {
-                    //Iniciar control Manadando Variable CZ
-                    Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
-                    //APAGAR AZUL
-                    //PRENDER VERDE
+                    if (Coordenadas_control_fuera == 1) {
+                        Coordenadas_control_fuera = 0;
+                        USART_TxS("A\n", sizeof ("A\n") - 1);
+                        Usart_Interface_ON('V');
+                        Usart_Interface_OFF('A');
+                        __delay_ms(200);
+                        while (GPIO_RA5_GetValue() == 0) {
+                            Motor_MovimientoZ();
+                        }
+                        USART_TxS("R\n", sizeof ("R\n") - 1);
+                        Usart_Interface_ON('V');
+                        Usart_Interface_OFF('A');
+                    } else {
+                        Control_Z(CoordenadaZ);
+                        __delay_ms(200);
+                        Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
+                    }
+
                 }
                 break;
             case 'M':
                 Direccion_Memoria = USART_RxC();
                 USART_RxS(11, coordenada_setpoint); //Lectura de las coordenadas
                 USART_TxS("W\n", sizeof ("W\n") - 1);
+                Usart_Interface_OFF('V');
+                Usart_Interface_ON('A');
                 Direccion_Memoria = Seria_Decodificacion_Memoria(Direccion_Memoria);
                 Serial_Escritura_Memoria(Direccion_Memoria, coordenada_setpoint);
                 break;
             case 'A'://Movimiento con botones 
-                 USART_TxS("W\n", sizeof ("W\n") - 1);
+                USART_TxS("W\n", sizeof ("W\n") - 1);
+                Usart_Interface_OFF('V');
+                Usart_Interface_ON('A');
                 while (GPIO_RA5_GetValue() == 0) {
                     Motor_MovimientoZ();
                 }
-                 USART_TxS("R\n", sizeof ("R\n") - 1);
+                USART_TxS("R\n", sizeof ("R\n") - 1);
+                Usart_Interface_ON('V');
+                Usart_Interface_OFF('A');
                 break;
             case 'E':
                 USART_TxS("F", sizeof ("F") - 1);
+                Usart_Interface_OFF('V');
+                Usart_Interface_OFF('A');
                 return;
                 break;
         }
@@ -156,7 +205,7 @@ void Serial_DecodificacionY(char string_coordenada[], int *pointerCY) {//Convier
     *pointerCY = atoi(coordenadaY); //Cambia el valor de string a una variable int, por lo que se deja el valor de la coordenada y
     return;
 }
-
+/*
 void Serial_DecodificacionZ(char string_coordenada[], int *pointerCZ) {//Convierte la coordenada en str a int
     char coordenadaZ[3];
     for (int i = 0; i < 3; i++) {
@@ -170,10 +219,17 @@ void Serial_DecodificacionZ(char string_coordenada[], int *pointerCZ) {//Convier
     *pointerCZ = atoi(coordenadaZ); //Cambia el valor de string a una variable int, por lo que se deja el valor de la coordenada y
     return;
 }
-
+*/
 void Serial_RangosCoordenadas(int C) {//Funcion que checa que las coordenadas se encuentren dentro del rango
     if (C > 300 || C < 0) {//En caso de Coordenada ingresada fuera del rango prender banderra y enviar error
         Coordenadas_fuera = 1;
+    }
+    return;
+}
+
+void Serial_RangosControl(int C) {
+    if (C > 170 || C < 139) {//En caso de Coordenada ingresada fuera del rango prender banderra y enviar error
+        Coordenadas_control_fuera = 1;
     }
     return;
 }
@@ -302,6 +358,7 @@ void Serial_Lectura_MemoriaZ(char direccion, int *pointerCZ) {
     USART_TxS("CZ", sizeof ("CZ") - 1);
     USART_TxS(coordenadaZ, sizeof (coordenadaZ));
     Serial_RangosCoordenadas(CoordenadaZ);
+    Serial_RangosControl(CoordenadaZ);
     return;
 }
 

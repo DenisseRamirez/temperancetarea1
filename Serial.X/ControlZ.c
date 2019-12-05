@@ -13,13 +13,15 @@
 #include "configuration.h"
 #include "math.h"
 #include "GPIOsparcA1.h"
+#include "UART.h"
 
 /*
  * 
  */
-void ControlZ (int CoordenadaZ){
+void Control_Z (int Referencia){
+    USART_TxS("W\n", sizeof ("W\n") - 1);
      ADC_Init();
-     CoordenadaZ=CoordenadaZ+47;
+     Referencia=Referencia+47;
      controlZ=0;
     GPIO_RD4_SetLow(); //Puente H activado enable
    GPIO_RD5_SetLow(); //Inputs de puente H en sto
@@ -27,13 +29,13 @@ void ControlZ (int CoordenadaZ){
     while (controlZ < 10) {
         LecturaFiltro = ADC_LecturaFiltro(50);
          ADC_ConvertirDistancia(LecturaFiltro);
-        if (CoordenadaZ > Distancia) {
-            error = CoordenadaZ - Distancia;
+        if (Referencia > Distancia) {
+            error = Referencia - Distancia;
             GPIO_RD4_SetLow(); //Puente H activado
            GPIO_RD5_SetHigh(); //Inputs de puente H con direccion hacia arriba
             GPIO_RD6_SetLow(); //Input puente H
-        } else if (CoordenadaZ < Distancia) {
-              error = CoordenadaZ - Distancia;
+        } else if (Referencia < Distancia) {
+              error = Referencia - Distancia;
             GPIO_RD5_SetLow(); //Inputs de puente H con direccion hacia abajo
             GPIO_RD6_SetHigh(); //Input puente H
         }  

@@ -11,7 +11,7 @@
 #include "User_Interface.h"
 #include "configuration.h"
 
-void Usart_Interface_Off(char color){
+void Usart_Interface_OFF(char color){
     if (color=='A'){
         GPIO_RB7_SetLow();
     }else if (color=='V'){
@@ -31,7 +31,7 @@ void Usart_Interface_ON(char color){
     }
     return;
 }
-
+/*
 void Usart_Interface_Flash(char color){
       if (color=='A'){
         GPIO_RB7_SetHigh();
@@ -50,4 +50,4 @@ void Usart_Interface_Flash(char color){
         GPIO_RB5_SetLow();
     }
       return;
-}
+}*/

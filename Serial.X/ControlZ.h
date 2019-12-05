@@ -5,7 +5,7 @@
 
 #endif
 
-void ControlZ ();
+void Control_Z (int Referencia);
 char controlZ;
 float error;
 

@@ -7,11 +7,12 @@ extern "C" {
 
     void Serial_DecodificacionX(char string_coordenada[], int *pointerCX);
     void Serial_DecodificacionY(char string_coordenada[], int *pointerCY);
-    void Serial_DecodificacionZ(char string_coordenada[], int *pointerCZ);
+   // void Serial_DecodificacionZ(char string_coordenada[], int *pointerCZ);
     void Serial_Lectura_MemoriaX(char direccion, int *pointerCX) ;
     void Serial_Lectura_MemoriaY(char direccion, int *pointerCY) ;
     void Serial_Lectura_MemoriaZ(char direccion, int *pointerCZ) ;
     void Serial_RangosCoordenadas(int C);
+    void  Serial_RangosControl(int C);
     void Serial_Oupcode();
    // void Serial_FiltroCaracteres(char C[]);
    // void Serial_Lectura_Memoria(char direccion, int *pointerCX, int *pointerCY, int *pointerCZ);
@@ -26,6 +27,7 @@ extern "C" {
     char Direccion_Memoria;
     char Coordenadas_fuera=0;
     char Coordenadas_mal=0;
+    char Coordenadas_control_fuera =0;
 #ifdef	__cplusplus
 }
 #endif

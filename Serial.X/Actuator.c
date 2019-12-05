@@ -10,25 +10,31 @@
 #include "GPIOsparcA1.h"
 #include "configuration.h"
 #include "UART.h"
-
+#include "User_Interface.h"
 /*
  *
  */
-void Actuator_Ini(){
-   GPIO_RC0_SetDigitalOutput();
-}
-void Actuator_Touch(){
+
+void Actuator_Touch() {
     GPIO_RC0_SetLow();
     __delay_ms(100);
     GPIO_RC0_SetHigh();
-    USART_TxS("C\n",sizeof("C\n")-1);
+    USART_TxS("C\n", sizeof ("C\n") - 1);
+    Usart_Interface_ON('V');
+    Usart_Interface_OFF('A');
 }
-void Actuator_Retract(){
+
+void Actuator_Retract() {
     GPIO_RC0_SetHigh();
-    USART_TxS("C\n",sizeof("C\n")-1);
+    USART_TxS("C\n", sizeof ("C\n") - 1);
+    Usart_Interface_ON('V');
+    Usart_Interface_OFF('A');
 }
-void Actuator_Hold(){
+
+void Actuator_Hold() {
     GPIO_RC0_SetLow();
-     USART_TxS("C\n",sizeof("C\n")-1);
+    USART_TxS("C\n", sizeof ("C\n") - 1);
+    Usart_Interface_ON('V');
+    Usart_Interface_OFF('A');
 }
 

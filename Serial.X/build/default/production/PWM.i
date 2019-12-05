@@ -5636,7 +5636,7 @@ char oneshotY=0;
 char BanderaX=0;
 char BanderaY=0;
 void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
-void PWM_Pulsos_Home(char banderaX, char banderaY);
+
 int PWM_OneshotX ();
 int PWM_OneshotY ();
 void PWM_InitF();
@@ -5688,28 +5688,7 @@ void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY) {
     T2CONbits.TMR2ON = 0;
     return;
 }
-void PWM_Pulsos_Home(char banderaX, char banderaY){
-    PWM_InitS();
-    if(banderaX==1 && banderaY==1){
-        PORTDbits.RD0 = 1;
-    PORTDbits.RD2 = 1;
-    T2CONbits.TMR2ON = 0;
-    return;
-    }
-    if (banderaX==1){
-    PORTDbits.RD0 = 1;
-    PORTDbits.RD2 = 0;
-    }else if(banderaY==1){
-       PORTDbits.RD0 = 0;
-    PORTDbits.RD2 = 1;
-    } else {
-        PORTDbits.RD0 = 0;
-    PORTDbits.RD2 =0 ;
-    }
-     T2CONbits.TMR2ON = 1;
-    return;
-}
-
+# 73 "PWM.c"
 void PWM_InitF() {
 
     PR2 = 0X7C;

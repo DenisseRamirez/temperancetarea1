@@ -9,7 +9,7 @@
 
 char EEPROM_Rx(char direccion);
 void EEPROM_Tx(char direccion, char dato);
-void EEMPROM_Init();
+//void EEMPROM_Init();
 char data;
 
 #ifdef	__cplusplus

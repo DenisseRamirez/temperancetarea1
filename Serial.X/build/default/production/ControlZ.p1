@@ -1,4 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"14 ./UART.h
+[; ;./UART.h: 14: char USART_TxS(char str[], int length);
+[v _USART_TxS `(uc ~T0 @X0 0 ef2`*uc`i ]
 "19 ./ADC.h
 [; ;./ADC.h: 19: void ADC_Init() ;
 [v _ADC_Init `(v ~T0 @X0 0 e? ]
@@ -26,9 +29,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "162 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\math.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\math.h: 162: float fabsf(float);
 [v _fabsf `(f ~T0 @X0 0 ef1`f ]
-[v F3487 `(v ~T0 @X0 1 tf1`ul ]
+[v F3488 `(v ~T0 @X0 1 tf1`ul ]
 "187 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18.h
-[v __delay `JF3487 ~T0 @X0 0 e ]
+[v __delay `JF3488 ~T0 @X0 0 e ]
 [p i __delay ]
 "10 ./ADC.h
 [; ;./ADC.h: 10: char bites_menosS;
@@ -564,175 +567,179 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8893
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"20 ControlZ.c
-[; ;ControlZ.c: 20: void ControlZ (int CoordenadaZ){
-[v _ControlZ `(v ~T0 @X0 1 ef1`i ]
+"21 ControlZ.c
+[; ;ControlZ.c: 21: void Control_Z (int Referencia){
+[v _Control_Z `(v ~T0 @X0 1 ef1`i ]
 {
-[e :U _ControlZ ]
-[v _CoordenadaZ `i ~T0 @X0 1 r1 ]
+[e :U _Control_Z ]
+[v _Referencia `i ~T0 @X0 1 r1 ]
 [f ]
-"21
-[; ;ControlZ.c: 21:      ADC_Init();
-[e ( _ADC_Init ..  ]
 "22
-[; ;ControlZ.c: 22:      CoordenadaZ=CoordenadaZ+47;
-[e = _CoordenadaZ + _CoordenadaZ -> 47 `i ]
+[; ;ControlZ.c: 22:     USART_TxS("W\n", sizeof ("W\n") - 1);
+[e ( _USART_TxS (2 , :s 1C -> - -> 3 `ui -> -> 1 `i `ui `i ]
 "23
-[; ;ControlZ.c: 23:      controlZ=0;
-[e = _controlZ -> -> 0 `i `uc ]
+[; ;ControlZ.c: 23:      ADC_Init();
+[e ( _ADC_Init ..  ]
 "24
-[; ;ControlZ.c: 24:     do { LATDbits.LATD4 = 0; } while(0);
+[; ;ControlZ.c: 24:      Referencia=Referencia+47;
+[e = _Referencia + _Referencia -> 47 `i ]
+"25
+[; ;ControlZ.c: 25:      controlZ=0;
+[e = _controlZ -> -> 0 `i `uc ]
+"26
+[; ;ControlZ.c: 26:     do { LATDbits.LATD4 = 0; } while(0);
 [e :U 372 ]
 {
 [e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
 }
 [e :U 371 ]
-"25
-[; ;ControlZ.c: 25:    do { LATDbits.LATD5 = 0; } while(0);
+"27
+[; ;ControlZ.c: 27:    do { LATDbits.LATD5 = 0; } while(0);
 [e :U 375 ]
 {
 [e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 }
 [e :U 374 ]
-"26
-[; ;ControlZ.c: 26:     do { LATDbits.LATD6 = 0; } while(0);
+"28
+[; ;ControlZ.c: 28:     do { LATDbits.LATD6 = 0; } while(0);
 [e :U 378 ]
 {
 [e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
 }
 [e :U 377 ]
-"27
-[; ;ControlZ.c: 27:     while (controlZ < 10) {
+"29
+[; ;ControlZ.c: 29:     while (controlZ < 10) {
 [e $U 379  ]
 [e :U 380 ]
 {
-"28
-[; ;ControlZ.c: 28:         LecturaFiltro = ADC_LecturaFiltro(50);
-[e = _LecturaFiltro ( _ADC_LecturaFiltro (1 -> 50 `i ]
-"29
-[; ;ControlZ.c: 29:          ADC_ConvertirDistancia(LecturaFiltro);
-[e ( _ADC_ConvertirDistancia (1 _LecturaFiltro ]
 "30
-[; ;ControlZ.c: 30:         if (CoordenadaZ > Distancia) {
-[e $ ! > -> _CoordenadaZ `f _Distancia 382  ]
-{
+[; ;ControlZ.c: 30:         LecturaFiltro = ADC_LecturaFiltro(50);
+[e = _LecturaFiltro ( _ADC_LecturaFiltro (1 -> 50 `i ]
 "31
-[; ;ControlZ.c: 31:             error = CoordenadaZ - Distancia;
-[e = _error - -> _CoordenadaZ `f _Distancia ]
+[; ;ControlZ.c: 31:          ADC_ConvertirDistancia(LecturaFiltro);
+[e ( _ADC_ConvertirDistancia (1 _LecturaFiltro ]
 "32
-[; ;ControlZ.c: 32:             do { LATDbits.LATD4 = 0; } while(0);
+[; ;ControlZ.c: 32:         if (Referencia > Distancia) {
+[e $ ! > -> _Referencia `f _Distancia 382  ]
+{
+"33
+[; ;ControlZ.c: 33:             error = Referencia - Distancia;
+[e = _error - -> _Referencia `f _Distancia ]
+"34
+[; ;ControlZ.c: 34:             do { LATDbits.LATD4 = 0; } while(0);
 [e :U 385 ]
 {
 [e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
 }
 [e :U 384 ]
-"33
-[; ;ControlZ.c: 33:            do { LATDbits.LATD5 = 1; } while(0);
+"35
+[; ;ControlZ.c: 35:            do { LATDbits.LATD5 = 1; } while(0);
 [e :U 388 ]
 {
 [e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 }
 [e :U 387 ]
-"34
-[; ;ControlZ.c: 34:             do { LATDbits.LATD6 = 0; } while(0);
+"36
+[; ;ControlZ.c: 36:             do { LATDbits.LATD6 = 0; } while(0);
 [e :U 391 ]
 {
 [e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
 }
 [e :U 390 ]
-"35
-[; ;ControlZ.c: 35:         } else if (CoordenadaZ < Distancia) {
+"37
+[; ;ControlZ.c: 37:         } else if (Referencia < Distancia) {
 }
 [e $U 392  ]
 [e :U 382 ]
-[e $ ! < -> _CoordenadaZ `f _Distancia 393  ]
+[e $ ! < -> _Referencia `f _Distancia 393  ]
 {
-"36
-[; ;ControlZ.c: 36:               error = CoordenadaZ - Distancia;
-[e = _error - -> _CoordenadaZ `f _Distancia ]
-"37
-[; ;ControlZ.c: 37:             do { LATDbits.LATD5 = 0; } while(0);
+"38
+[; ;ControlZ.c: 38:               error = Referencia - Distancia;
+[e = _error - -> _Referencia `f _Distancia ]
+"39
+[; ;ControlZ.c: 39:             do { LATDbits.LATD5 = 0; } while(0);
 [e :U 396 ]
 {
 [e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 }
 [e :U 395 ]
-"38
-[; ;ControlZ.c: 38:             do { LATDbits.LATD6 = 1; } while(0);
+"40
+[; ;ControlZ.c: 40:             do { LATDbits.LATD6 = 1; } while(0);
 [e :U 399 ]
 {
 [e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
 }
 [e :U 398 ]
-"39
-[; ;ControlZ.c: 39:         }
+"41
+[; ;ControlZ.c: 41:         }
 }
 [e :U 393 ]
 [e :U 392 ]
-"40
-[; ;ControlZ.c: 40:         if (((fabsf(error))>0) &&((fabsf(error))<2)) {
+"42
+[; ;ControlZ.c: 42:         if (((fabsf(error))>0) &&((fabsf(error))<2)) {
 [e $ ! && > ( _fabsf (1 _error -> -> 0 `i `f < ( _fabsf (1 _error -> -> 2 `i `f 400  ]
 {
-"41
-[; ;ControlZ.c: 41:             controlZ++;
+"43
+[; ;ControlZ.c: 43:             controlZ++;
 [e ++ _controlZ -> -> 1 `i `uc ]
-"42
-[; ;ControlZ.c: 42:         }
+"44
+[; ;ControlZ.c: 44:         }
 }
 [e :U 400 ]
-"43
-[; ;ControlZ.c: 43:          _delay((unsigned long)((5)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "45
-[; ;ControlZ.c: 45:     }
+[; ;ControlZ.c: 45:          _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"47
+[; ;ControlZ.c: 47:     }
 }
 [e :U 379 ]
-"27
-[; ;ControlZ.c: 27:     while (controlZ < 10) {
+"29
+[; ;ControlZ.c: 29:     while (controlZ < 10) {
 [e $ < -> _controlZ `i -> 10 `i 380  ]
 [e :U 381 ]
-"46
-[; ;ControlZ.c: 46:             do { LATDbits.LATD5 = 1; } while(0);
+"48
+[; ;ControlZ.c: 48:             do { LATDbits.LATD5 = 1; } while(0);
 [e :U 403 ]
 {
 [e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 }
 [e :U 402 ]
-"47
-[; ;ControlZ.c: 47:             do { LATDbits.LATD6 = 0; } while(0);
+"49
+[; ;ControlZ.c: 49:             do { LATDbits.LATD6 = 0; } while(0);
 [e :U 406 ]
 {
 [e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
 }
 [e :U 405 ]
-"48
-[; ;ControlZ.c: 48:             _delay((unsigned long)((100)*(8000000/4000.0)));
+"50
+[; ;ControlZ.c: 50:             _delay((unsigned long)((100)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"49
-[; ;ControlZ.c: 49:             do { LATDbits.LATD5 = 0; } while(0);
+"51
+[; ;ControlZ.c: 51:             do { LATDbits.LATD5 = 0; } while(0);
 [e :U 409 ]
 {
 [e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 }
 [e :U 408 ]
-"50
-[; ;ControlZ.c: 50:             do { LATDbits.LATD6 = 0; } while(0);
+"52
+[; ;ControlZ.c: 52:             do { LATDbits.LATD6 = 0; } while(0);
 [e :U 412 ]
 {
 [e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
 }
 [e :U 411 ]
-"51
-[; ;ControlZ.c: 51:             do { LATDbits.LATD4 = 1; } while(0);
+"53
+[; ;ControlZ.c: 53:             do { LATDbits.LATD4 = 1; } while(0);
 [e :U 415 ]
 {
 [e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
 }
 [e :U 414 ]
-"52
-[; ;ControlZ.c: 52:           _delay((unsigned long)((50)*(8000000/4000.0)));
+"54
+[; ;ControlZ.c: 54:           _delay((unsigned long)((50)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"53
-[; ;ControlZ.c: 53: }
+"55
+[; ;ControlZ.c: 55: }
 [e :UE 369 ]
 }
+[a 1C 87 10 0 ]

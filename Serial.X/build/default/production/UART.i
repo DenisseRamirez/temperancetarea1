@@ -5693,7 +5693,7 @@ void USART_Init(long BAUD);
 void USART_TxC(char data);
 char USART_RxC();
 void USARTStr(char *Output, unsigned int size);
-void USART_TxSP(char Str[]);
+
 void USART_RxS (char lenght, char* pointer );
 char USART_TxS(char str[], int length);
 # 5 "UART.c" 2
@@ -5732,14 +5732,7 @@ char USART_TxS(char str[], int length){
     TXREG = str[i];
     }
 }
-
-void USART_TxSP(char Str[]){
-    int Strindex = 0;
-    while(Str[Strindex] != 0);
-    USART_TxC(Str[Strindex]);
-    Strindex++;
-}
-
+# 49 "UART.c"
 void USART_RxS (char length, char* pointer ){
     for (int i = 0; i < (length); i++)
         {

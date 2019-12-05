@@ -5868,16 +5868,15 @@ void GPIO_init_PORTE(void);
 
 
 
-void Usart_Interface_Off(char color);
+void Usart_Interface_OFF(char color);
 void Usart_Interface_ON(char color);
-void Usart_Interface_Flash(char color);
 # 11 "User_Interface.c" 2
 
 # 1 "./configuration.h" 1
 # 12 "User_Interface.c" 2
 
 
-void Usart_Interface_Off(char color){
+void Usart_Interface_OFF(char color){
     if (color=='A'){
         do { LATBbits.LATB7 = 0; } while(0);
     }else if (color=='V'){
@@ -5896,24 +5895,4 @@ void Usart_Interface_ON(char color){
         do { LATBbits.LATB5 = 1; } while(0);
     }
     return;
-}
-
-void Usart_Interface_Flash(char color){
-      if (color=='A'){
-        do { LATBbits.LATB7 = 1; } while(0);
-        _delay((unsigned long)((200)*(8000000/4000.0)));
-          _delay((unsigned long)((200)*(8000000/4000.0)));
-        do { LATBbits.LATB7 = 0; } while(0);
-    }else if (color=='V'){
-        do { LATBbits.LATB6 = 1; } while(0);
-        _delay((unsigned long)((200)*(8000000/4000.0)));
-          _delay((unsigned long)((200)*(8000000/4000.0)));
-        do { LATBbits.LATB6 = 0; } while(0);
-    } else if (color=='R'){
-        do { LATBbits.LATB5 = 1; } while(0);
-        _delay((unsigned long)((200)*(8000000/4000.0)));
-          _delay((unsigned long)((200)*(8000000/4000.0)));
-        do { LATBbits.LATB5 = 0; } while(0);
-    }
-      return;
 }

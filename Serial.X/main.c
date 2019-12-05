@@ -14,6 +14,7 @@
 #include "motor.h"
 #include "PWM.h"
 #include "serial.h"
+#include "Actuator.h"
 #include "GPIOsparcA1.h"
 #include "User_Interface.h"
 
@@ -25,17 +26,18 @@ void main() {
    GPIO_init_PORTD();
     GPIO_init_PORTE();
     GPIO_RD4_SetLow();
+    Enable_DriverX = 1;
+    Enable_DriverX = 1;
     USART_Init(9600);
     Int_Ext();
     USART_TxS("WELCOME TO SPARC\n", sizeof ("WELCOME TO SPARC\n") - 1);
    Usart_Interface_ON('A');
     USART_TxS("W\n", sizeof ("W\n") - 1);
     main_Home();
-    Usart_Interface_ON('A');
-     Usart_Interface_Flash('R');
+    Usart_Interface_OFF('A');
     USART_TxS("C\n", sizeof ("C\n") - 1);
-   // Usart_Interface_Flash('V');
-    Serial_Oupcode();]
+     Usart_Interface_ON('V');
+    Serial_Oupcode();
     USART_TxS("F", sizeof ("F") - 1);
     return;
 }
@@ -90,7 +92,7 @@ void INT1_ACTION(void) {
     Enable_DriverY = 1;
     __delay_ms(100);
     if (BanderaX == 0) {
-        Motor_Movimiento_Home('S', 30, 0);
+        Motor_Movimiento_Home('S', 10, 0);
     }
     BanderaX = 1;
     return;
@@ -101,7 +103,7 @@ void INT2_ACTION(void) {
     Enable_DriverY = 1;
     __delay_ms(100);
     if (BanderaY == 0) {
-        Motor_Movimiento_Home('S', 0, 30);
+        Motor_Movimiento_Home('S', 0, 10);
     }
     BanderaY = 1;
     return;

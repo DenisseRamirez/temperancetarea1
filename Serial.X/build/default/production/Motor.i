@@ -245,7 +245,7 @@ char oneshotY=0;
 char BanderaX=0;
 char BanderaY=0;
 void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
-void PWM_Pulsos_Home(char banderaX, char banderaY);
+
 int PWM_OneshotX ();
 int PWM_OneshotY ();
 void PWM_InitF();
@@ -274,7 +274,7 @@ void Motor_Movimiento(char Oupcode,int CoordenadaX,int CoordenadaY);
 void Motor_Calcular_PasosX(int coordenada_actualX);
 void Motor_Calcular_PasosY(int coordenada_actualY);
 void Motor_MovimientoZ();
-void Motor_MovimientoZ_Init(char direccion);
+
 void Motor_Home();
 void Motor_Movimiento_Home(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY);
 # 11 "Motor.c" 2
@@ -5918,11 +5918,22 @@ void USART_Init(long BAUD);
 void USART_TxC(char data);
 char USART_RxC();
 void USARTStr(char *Output, unsigned int size);
-void USART_TxSP(char Str[]);
+
 void USART_RxS (char lenght, char* pointer );
 char USART_TxS(char str[], int length);
 # 13 "Motor.c" 2
 
+# 1 "./User_Interface.h" 1
+
+
+
+
+
+
+
+void Usart_Interface_OFF(char color);
+void Usart_Interface_ON(char color);
+# 14 "Motor.c" 2
 
 
 
@@ -5933,15 +5944,17 @@ int Motor_Conversion(int Coordenada) {
     return pasos_convertidos;
 }
 
-void Motor_Movimiento(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY) {
+void Motor_Movimiento(char Oupcode, int Motor_CoordenadaX, int Motor_CoordenadaY) {
     Motor_Calcular_PasosX(Motor_CoordenadaX);
     Motor_Calcular_PasosY(Motor_CoordenadaY);
     PasosX = Motor_Conversion(DeltaX);
     PasosY = Motor_Conversion(DeltaY);
-    coordenada_anteriorX=Motor_CoordenadaX;
-    coordenada_anteriorY=Motor_CoordenadaY;
+    coordenada_anteriorX = Motor_CoordenadaX;
+    coordenada_anteriorY = Motor_CoordenadaY;
     PWM_GeneratePulsos(Oupcode, PasosX, PasosY);
-    USART_TxS("C\n",sizeof("C\n")-1);
+    USART_TxS("C\n", sizeof ("C\n") - 1);
+    Usart_Interface_ON('V');
+    Usart_Interface_OFF('A');
     return;
 }
 
@@ -5969,42 +5982,41 @@ void Motor_Calcular_PasosY(int coordenada_actualY) {
         PORTDbits.RD3 = 0;
         DeltaY = coordenada_actualY - coordenada_anteriorY;
     } else if (coordenada_actualY == coordenada_anteriorY) {
-        DeltaY=0;
+        DeltaY = 0;
     }
 }
 
-void Motor_MovimientoZ_Init(char direccion) {
-    do { TRISDbits.TRISD4 = 0; } while(0);
-}
 
 void Motor_MovimientoZ() {
-    if (PORTCbits.RC4 ==1){
+    if (PORTCbits.RC4 == 1) {
         USART_TxC('U');
         do { LATDbits.LATD4 = 1; } while(0);
         do { LATDbits.LATD5 = 1; } while(0);
         do { LATDbits.LATD6 = 0; } while(0);
     }
-    else if(PORTCbits.RC5 ==1) {
-           USART_TxC('D');
-           do { LATDbits.LATD4 = 1; } while(0);
+    else if (PORTCbits.RC5 == 1) {
+        USART_TxC('D');
+        do { LATDbits.LATD4 = 1; } while(0);
         do { LATDbits.LATD5 = 0; } while(0);
         do { LATDbits.LATD6 = 1; } while(0);
     }
-    while (PORTCbits.RC5 ==0 && PORTCbits.RC4 ==0){
+    while (PORTCbits.RC5 == 0 && PORTCbits.RC4 == 0) {
         do { LATDbits.LATD5 = 0; } while(0);
         do { LATDbits.LATD6 = 0; } while(0);
         do { LATDbits.LATD4 = 0; } while(0);
-    return;
+        return;
     }
 }
-void Motor_Home(){
+
+void Motor_Home() {
     PORTDbits.RD1 = 1;
     PORTDbits.RD3 = 1;
     PWM_InitS();
     T2CONbits.TMR2ON = 1;
 }
-void Motor_Movimiento_Home(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY) {
-    T2CONbits.TMR2ON =0 ;
+
+void Motor_Movimiento_Home(char Oupcode, int Motor_CoordenadaX, int Motor_CoordenadaY) {
+    T2CONbits.TMR2ON = 0;
     PORTDbits.RD1 = 0;
     PORTDbits.RD3 = 0;
     PasosX = Motor_Conversion(Motor_CoordenadaX);
