@@ -26,23 +26,17 @@ void main() {
     GPIO_init_PORTE();
     GPIO_RD4_SetLow();
     USART_Init(9600);
-    //Int_Ext();
+    Int_Ext();
     USART_TxS("WELCOME TO SPARC\n", sizeof ("WELCOME TO SPARC\n") - 1);
    Usart_Interface_ON('A');
-    USART_TxS("WAIT FOR HOME\n", sizeof ("WAIT FOR HOME\n") - 1);
-   // main_Home();
-    __delay_ms(200);
-    __delay_ms(200);
-    __delay_ms(200);
-    Usart_Interface_ON('V');
-     __delay_ms(200);
-    __delay_ms(200);
-    __delay_ms(200);
+    USART_TxS("W\n", sizeof ("W\n") - 1);
+    main_Home();
+    Usart_Interface_ON('A');
      Usart_Interface_Flash('R');
-    USART_TxS("COMPLETED\n", sizeof ("COMPLETED\n") - 1);
+    USART_TxS("C\n", sizeof ("C\n") - 1);
    // Usart_Interface_Flash('V');
-    Serial_Oupcode();
-    //LLamar a control
+    Serial_Oupcode();]
+    USART_TxS("F", sizeof ("F") - 1);
     return;
 }
 

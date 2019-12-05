@@ -19,6 +19,7 @@
 
 void ADC_ConvertirDistancia(int Volts) {
     Distancia = 3143 * pow(Volts, -1.0610) + .3;
+    Distancia = Distancia * 10; // COnvertir cm a mm
 }
 
 int ADC_InsertBits(char Bmenos, char Bmas) {
@@ -31,23 +32,23 @@ int ADC_InsertBits(char Bmenos, char Bmas) {
 
 int ADC_LecturaFiltro(int n) {
     int lectura = 0;
-    Suma=0;
+    Suma = 0;
     ADCON0bits.GO_DONE = 1; //Inicia la COnversió AD.
     for (int i = 0; i < n; i++) {
-       while (ADCON0bits.GO_DONE); 
-            bites_menosS = ADRESL; //Guardas los 8 bits menos significativos de la lectura
-            bites_masS = ADRESH; //Guardas los 2 bits mas significativos de la lectura
+        while (ADCON0bits.GO_DONE);
+        bites_menosS = ADRESL; //Guardas los 8 bits menos significativos de la lectura
+        bites_masS = ADRESH; //Guardas los 2 bits mas significativos de la lectura
         lectura = ADC_InsertBits(bites_menosS, bites_masS);
         Suma = Suma + lectura;
     }
     return (Suma / n);
 }
-void ADC_Init() {  
-    TRISAbits.RA0=1;//RA0 COMO ENTRADA
+void ADC_Init() {
+    TRISAbits.RA0 = 1; //RA0 COMO ENTRADA
     ADCON1bits.PCFG = 0b1110; //  Configura el Puerto como Entrada Analógica.
     ADCON1bits.VCFG = 0b00; //  Selecciona Voltajes de Referencia (5v-0v).
     ADCON0bits.CHS = 0b0000; //  Selecciona el Canal Analógico.
-   ADCON2bits.ACQT = 4; //TADQ =X DE 8
+    ADCON2bits.ACQT = 4; //TADQ =X DE 8
     ADCON2bits.ADCS = 4; //4TOSC
     ADCON2bits.ADFM = 1; //  Justificación derecha (modo-10bits).
     ADCON0bits.ADON = 1; //  Habilita el Módulo AD.
@@ -58,4 +59,13 @@ void ADC_Init() {
             value_adc = (value_adc << 8) + ADRESL;
             adcre1 = (value_adc*0.249266862);
             adcsend = adcre1;*/
-
+/*
+void ADC_DecodificacionZ(char string_coordenada[], int *pointerCX) { //Convierte la coordenada en str a int
+    char coordenadaX[3];
+    for (int i = 0; i < 3; i++) {
+        coordenadaX[i] = string_coordenada[i];
+    }
+    USART_TxS(coordenadaX, sizeof(coordenadaX));
+    *pointerCX = atoi(coordenadaX); //Cambia el valor de string a una variable int, por lo que se deja el valor de la coordenada x
+    return;
+}*/

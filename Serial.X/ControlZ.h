@@ -6,6 +6,8 @@
 #endif
 
 void ControlZ ();
+char controlZ;
+float error;
 
 #ifdef	__cplusplus
 

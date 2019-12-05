@@ -587,8 +587,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 378 ]
 "24
-[; ;Actuator.c: 24:     USART_TxS("TOUCH\n",sizeof("TOUCH\n")-1);
-[e ( _USART_TxS (2 , :s 1C -> - -> 7 `ui -> -> 1 `i `ui `i ]
+[; ;Actuator.c: 24:     USART_TxS("C\n",sizeof("C\n")-1);
+[e ( _USART_TxS (2 , :s 1C -> - -> 3 `ui -> -> 1 `i `ui `i ]
 "25
 [; ;Actuator.c: 25: }
 [e :UE 373 ]
@@ -607,8 +607,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 382 ]
 "28
-[; ;Actuator.c: 28:     USART_TxS("COMPLETE\n",sizeof("COMPLETE\n")-1);
-[e ( _USART_TxS (2 , :s 2C -> - -> 10 `ui -> -> 1 `i `ui `i ]
+[; ;Actuator.c: 28:     USART_TxS("C\n",sizeof("C\n")-1);
+[e ( _USART_TxS (2 , :s 2C -> - -> 3 `ui -> -> 1 `i `ui `i ]
 "29
 [; ;Actuator.c: 29: }
 [e :UE 380 ]
@@ -627,12 +627,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 386 ]
 "32
-[; ;Actuator.c: 32:      USART_TxS("COMPLETE\n",sizeof("COMPLETE\n")-1);
-[e ( _USART_TxS (2 , :s 3C -> - -> 10 `ui -> -> 1 `i `ui `i ]
+[; ;Actuator.c: 32:      USART_TxS("C\n",sizeof("C\n")-1);
+[e ( _USART_TxS (2 , :s 3C -> - -> 3 `ui -> -> 1 `i `ui `i ]
 "33
 [; ;Actuator.c: 33: }
 [e :UE 384 ]
 }
-[a 1C 84 79 85 67 72 10 0 ]
-[a 2C 67 79 77 80 76 69 84 69 10 0 ]
-[a 3C 67 79 77 80 76 69 84 69 10 0 ]
+[a 1C 67 10 0 ]
+[a 2C 67 10 0 ]
+[a 3C 67 10 0 ]

@@ -759,8 +759,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Motor.c: 31:     PWM_GeneratePulsos(Oupcode, PasosX, PasosY);
 [e ( _PWM_GeneratePulsos (3 , , _Oupcode _PasosX _PasosY ]
 "32
-[; ;Motor.c: 32:     USART_TxS("COMPLETED\n",sizeof("COMPLETED\n")-1);
-[e ( _USART_TxS (2 , :s 1C -> - -> 11 `ui -> -> 1 `i `ui `i ]
+[; ;Motor.c: 32:     USART_TxS("C\n",sizeof("C\n")-1);
+[e ( _USART_TxS (2 , :s 1C -> - -> 3 `ui -> -> 1 `i `ui `i ]
 "33
 [; ;Motor.c: 33:     return;
 [e $UE 370  ]
@@ -1055,4 +1055,4 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Motor.c: 102: }
 [e :UE 422 ]
 }
-[a 1C 67 79 77 80 76 69 84 69 68 10 0 ]
+[a 1C 67 10 0 ]

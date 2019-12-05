@@ -21,14 +21,14 @@ void Actuator_Touch(){
     GPIO_RC0_SetLow();
     __delay_ms(100);
     GPIO_RC0_SetHigh();
-    USART_TxS("TOUCH\n",sizeof("TOUCH\n")-1);
+    USART_TxS("C\n",sizeof("C\n")-1);
 }
 void Actuator_Retract(){
     GPIO_RC0_SetHigh();
-    USART_TxS("COMPLETE\n",sizeof("COMPLETE\n")-1);
+    USART_TxS("C\n",sizeof("C\n")-1);
 }
 void Actuator_Hold(){
     GPIO_RC0_SetLow();
-     USART_TxS("COMPLETE\n",sizeof("COMPLETE\n")-1);
+     USART_TxS("C\n",sizeof("C\n")-1);
 }
 

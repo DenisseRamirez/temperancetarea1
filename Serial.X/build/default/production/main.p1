@@ -36,12 +36,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8 ./UART.h
 [; ;./UART.h: 8: void USART_Init(long BAUD);
 [v _USART_Init `(v ~T0 @X0 0 ef1`l ]
-"14
+"12 ./main.h
+[; ;./main.h: 12: void Int_Ext(void);
+[v _Int_Ext `(v ~T0 @X0 0 ef ]
+"14 ./UART.h
 [; ;./UART.h: 14: char USART_TxS(char str[], int length);
 [v _USART_TxS `(uc ~T0 @X0 0 ef2`*uc`i ]
 "9 ./User_Interface.h
 [; ;./User_Interface.h: 9: void Usart_Interface_ON(char color);
 [v _Usart_Interface_ON `(v ~T0 @X0 0 ef1`uc ]
+"16 ./main.h
+[; ;./main.h: 16: void main_Home();
+[v _main_Home `(v ~T0 @X0 0 e? ]
 [v F3152 `(v ~T0 @X0 1 tf1`ul ]
 "187 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18.h
 [v __delay `JF3152 ~T0 @X0 0 e ]
@@ -173,9 +179,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13
 [; ;./main.h: 13: void INT0_ACTION(void);
 [v _INT0_ACTION `(v ~T0 @X0 0 ef ]
-"16
-[; ;./main.h: 16: void main_Home();
-[v _main_Home `(v ~T0 @X0 0 e? ]
 "2711 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2711:     struct {
 [s S117 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -736,6 +739,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _home
 -> -> 0 `i `uc
 ]
+"9 ./ControlZ.h
+[; ;./ControlZ.h: 9: char controlZ;
+[v _controlZ `uc ~T0 @X0 1 e ]
+"10
+[; ;./ControlZ.h: 10: float error;
+[v _error `f ~T0 @X0 1 e ]
 "7 ./motor.h
 [; ;./motor.h: 7: int pasos_convertidos=0;
 [v _pasos_convertidos `i ~T0 @X0 1 e ]
@@ -888,6 +897,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28
 [; ;main.c: 28:     USART_Init(9600);
 [e ( _USART_Init (1 -> -> 9600 `i `l ]
+"29
+[; ;main.c: 29:     Int_Ext();
+[e ( _Int_Ext ..  ]
 "30
 [; ;main.c: 30:     USART_TxS("WELCOME TO SPARC\n", sizeof ("WELCOME TO SPARC\n") - 1);
 [e ( _USART_TxS (2 , :s 1C -> - -> 18 `ui -> -> 1 `i `ui `i ]
@@ -895,8 +907,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 31:    Usart_Interface_ON('A');
 [e ( _Usart_Interface_ON (1 -> -> 65 `ui `uc ]
 "32
-[; ;main.c: 32:     USART_TxS("WAIT FOR HOME\n", sizeof ("WAIT FOR HOME\n") - 1);
-[e ( _USART_TxS (2 , :s 2C -> - -> 15 `ui -> -> 1 `i `ui `i ]
+[; ;main.c: 32:     USART_TxS("W\n", sizeof ("W\n") - 1);
+[e ( _USART_TxS (2 , :s 2C -> - -> 3 `ui -> -> 1 `i `ui `i ]
+"33
+[; ;main.c: 33:     main_Home();
+[e ( _main_Home ..  ]
 "34
 [; ;main.c: 34:     _delay((unsigned long)((200)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
@@ -922,8 +937,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 41:      Usart_Interface_Flash('R');
 [e ( _Usart_Interface_Flash (1 -> -> 82 `ui `uc ]
 "42
-[; ;main.c: 42:     USART_TxS("COMPLETED\n", sizeof ("COMPLETED\n") - 1);
-[e ( _USART_TxS (2 , :s 3C -> - -> 11 `ui -> -> 1 `i `ui `i ]
+[; ;main.c: 42:     USART_TxS("C\n", sizeof ("C\n") - 1);
+[e ( _USART_TxS (2 , :s 3C -> - -> 3 `ui -> -> 1 `i `ui `i ]
 "44
 [; ;main.c: 44:     Serial_Oupcode();
 [e ( _Serial_Oupcode ..  ]
@@ -1220,6 +1235,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 133: }
 [e :UE 383 ]
 }
-[a 2C 87 65 73 84 32 70 79 82 32 72 79 77 69 10 0 ]
-[a 3C 67 79 77 80 76 69 84 69 68 10 0 ]
+[a 2C 87 10 0 ]
 [a 1C 87 69 76 67 79 77 69 32 84 79 32 83 80 65 82 67 10 0 ]
+[a 3C 67 10 0 ]

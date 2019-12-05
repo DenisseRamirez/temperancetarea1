@@ -6176,6 +6176,7 @@ void ADC_Init() ;
 
 void ADC_ConvertirDistancia(int Volts) {
     Distancia = 3143 * powf(Volts,-1.0610) + .3;
+    Distancia = Distancia * 10;
 }
 
 int ADC_InsertBits(char Bmenos, char Bmas) {
@@ -6188,23 +6189,23 @@ int ADC_InsertBits(char Bmenos, char Bmas) {
 
 int ADC_LecturaFiltro(int n) {
     int lectura = 0;
-    Suma=0;
+    Suma = 0;
     ADCON0bits.GO_DONE = 1;
     for (int i = 0; i < n; i++) {
-       while (ADCON0bits.GO_DONE);
-            bites_menosS = ADRESL;
-            bites_masS = ADRESH;
+        while (ADCON0bits.GO_DONE);
+        bites_menosS = ADRESL;
+        bites_masS = ADRESH;
         lectura = ADC_InsertBits(bites_menosS, bites_masS);
         Suma = Suma + lectura;
     }
     return (Suma / n);
 }
 void ADC_Init() {
-    TRISAbits.RA0=1;
+    TRISAbits.RA0 = 1;
     ADCON1bits.PCFG = 0b1110;
     ADCON1bits.VCFG = 0b00;
     ADCON0bits.CHS = 0b0000;
-   ADCON2bits.ACQT = 4;
+    ADCON2bits.ACQT = 4;
     ADCON2bits.ADCS = 4;
     ADCON2bits.ADFM = 1;
     ADCON0bits.ADON = 1;

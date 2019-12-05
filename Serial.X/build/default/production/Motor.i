@@ -5941,7 +5941,7 @@ void Motor_Movimiento(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY)
     coordenada_anteriorX=Motor_CoordenadaX;
     coordenada_anteriorY=Motor_CoordenadaY;
     PWM_GeneratePulsos(Oupcode, PasosX, PasosY);
-    USART_TxS("COMPLETED\n",sizeof("COMPLETED\n")-1);
+    USART_TxS("C\n",sizeof("C\n")-1);
     return;
 }
 
