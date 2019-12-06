@@ -18,22 +18,22 @@
 #include "GPIOsparcA1.h"
 #include "User_Interface.h"
 
-void main() {
+void main(void) {
     OSCCON = 0x72;
     GPIO_init_PORTA();
     GPIO_init_PORTB();
    GPIO_init_PORTC();
    GPIO_init_PORTD();
     GPIO_init_PORTE();
-    GPIO_RD4_SetLow();
-    Enable_DriverX = 1;
-    Enable_DriverX = 1;
+    ENABLE_Z_SetLow();
+    ENABLE_X = 1;
+    ENABLE_Y = 1;
     USART_Init(9600);
     Int_Ext();
     USART_TxS("WELCOME TO SPARC\n", sizeof ("WELCOME TO SPARC\n") - 1);
    Usart_Interface_ON('A');
     USART_TxS("W\n", sizeof ("W\n") - 1);
-    main_Home();
+   main_Home();
     Usart_Interface_OFF('A');
     USART_TxS("C\n", sizeof ("C\n") - 1);
      Usart_Interface_ON('V');
@@ -42,7 +42,7 @@ void main() {
     while(1);
 }
 
-void Int_Ext() {
+void Int_Ext(void) {
     TRISD = 0x00;
     INTCON2bits.RBPU = 1; //Pull up resistors are not used
     TRISBbits.RB0 = 1; //RB0 as input Limit Switch OR
@@ -88,8 +88,8 @@ void INT0_ACTION(void) {
 }
 
 void INT1_ACTION(void) {
-    Enable_DriverX = 1;
-    Enable_DriverY = 1;
+    ENABLE_X = 1;
+    ENABLE_Y = 1;
     __delay_ms(100);
     if (BanderaX == 0) {
         Motor_Movimiento_Home('S', 10, 0);
@@ -99,8 +99,8 @@ void INT1_ACTION(void) {
 }
 
 void INT2_ACTION(void) {
-    Enable_DriverX = 1; //Habilita los drivers
-    Enable_DriverY = 1;
+    ENABLE_X = 1; //Habilita los drivers
+    ENABLE_Y = 1;
     __delay_ms(100);
     if (BanderaY == 0) {
         Motor_Movimiento_Home('S', 0, 10);
@@ -109,19 +109,19 @@ void INT2_ACTION(void) {
     return;
 }
 
-void main_Home() {
+void main_Home(void) {
     while (BanderaX == 0) {
-        Enable_DriverX = 0; //Habilita los drivers
-        Enable_DriverY = 1;
+        ENABLE_X = 0; //Habilita los drivers
+        ENABLE_Y = 1;
         Motor_Home();
     }
     while (BanderaY == 0) {
-        Enable_DriverX = 1; //Habilita los drivers
-        Enable_DriverY = 0;
+        ENABLE_X = 1; //Habilita los drivers
+        ENABLE_Y = 0;
         Motor_Home();
     }
-    Enable_DriverX = 1;
-    Enable_DriverY = 1;
+    ENABLE_X = 1;
+    ENABLE_Y = 1;
     T2CONbits.TMR2ON = 0;
     BanderaX = 0;
     BanderaY = 0;

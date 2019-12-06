@@ -837,10 +837,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 414 ]
 "56
-[; ;GPIOsparcA1.c: 56:     do { TRISDbits.TRISD2 = 0; } while(0);
+[; ;GPIOsparcA1.c: 56:     do { TRISDbits.TRISD3 = 0; } while(0);
 [e :U 418 ]
 {
-[e = . . _TRISDbits 0 2 -> -> 0 `i `uc ]
+[e = . . _TRISDbits 0 3 -> -> 0 `i `uc ]
 }
 [e :U 417 ]
 "57

@@ -246,10 +246,10 @@ char BanderaX=0;
 char BanderaY=0;
 void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
 
-int PWM_OneshotX ();
-int PWM_OneshotY ();
-void PWM_InitF();
-void PWM_InitS();
+int PWM_OneshotX(int countX);
+int PWM_OneshotY(int countY);
+void PWM_InitF(void);
+void PWM_InitS(void);
 # 10 "Motor.c" 2
 
 # 1 "./motor.h" 1
@@ -273,9 +273,9 @@ int Motor_Conversion(int CoordenadaX);
 void Motor_Movimiento(char Oupcode,int CoordenadaX,int CoordenadaY);
 void Motor_Calcular_PasosX(int coordenada_actualX);
 void Motor_Calcular_PasosY(int coordenada_actualY);
-void Motor_MovimientoZ();
+void Motor_MovimientoZ(void);
 
-void Motor_Home();
+void Motor_Home(void);
 void Motor_Movimiento_Home(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY);
 # 11 "Motor.c" 2
 
@@ -5916,7 +5916,7 @@ void GPIO_init_PORTE(void);
 
 void USART_Init(long BAUD);
 void USART_TxC(char data);
-char USART_RxC();
+char USART_RxC(void);
 void USARTStr(char *Output, unsigned int size);
 
 void USART_RxS (char lenght, char* pointer );
@@ -5989,7 +5989,7 @@ void Motor_Calcular_PasosY(int coordenada_actualY) {
     }
 }
 
-void Motor_MovimientoZ() {
+void Motor_MovimientoZ(void) {
     if (PORTCbits.RC4 == 1) {
 
         do { LATDbits.LATD4 = 1; } while(0);
@@ -6002,14 +6002,14 @@ void Motor_MovimientoZ() {
         do { LATDbits.LATD6 = 1; } while(0);
     }
     while (PORTCbits.RC5 == 0 && PORTCbits.RC4 == 0) {
-        do { LATDbits.LATD5 = 0; } while(0);
-        do { LATDbits.LATD6 = 0; } while(0);
+        do { LATDbits.LATD5 = 1; } while(0);
+        do { LATDbits.LATD6 = 1; } while(0);
         do { LATDbits.LATD4 = 0; } while(0);
         return;
     }
 }
 
-void Motor_Home() {
+void Motor_Home(void) {
     PORTDbits.RD1 = 1;
     PORTDbits.RD3 = 1;
     PWM_InitS();

@@ -7,7 +7,7 @@ extern "C" {
 
 void USART_Init(long BAUD);
 void USART_TxC(char data);
-char USART_RxC();
+char USART_RxC(void);
 void USARTStr(char *Output, unsigned int size);
 //void USART_TxSP(char Str[]);
 void USART_RxS (char lenght, char* pointer );

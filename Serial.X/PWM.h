@@ -10,14 +10,14 @@ char BanderaX=0;
 char BanderaY=0;
 void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
 //void PWM_Pulsos_Home(char banderaX, char banderaY);
-int PWM_OneshotX ();
-int PWM_OneshotY ();
-void PWM_InitF();
-void PWM_InitS();
-#define Enable_DriverX PORTDbits.RD0
-#define Enable_DriverY PORTDbits.RD2
-#define Direction_DriverX PORTDbits.RD1
-#define Direction_DriverY PORTDbits.RD3
+int PWM_OneshotX(int countX);
+int PWM_OneshotY(int countY);
+void PWM_InitF(void);
+void PWM_InitS(void);
+//#define ENABLE_X PORTDbits.RD0
+//#define ENABLE_Y PORTDbits.RD2
+//#define DIRECCION_X PORTDbits.RD1
+//#define DIRECCION_Y PORTDbits.RD3
 #ifdef	__cplusplus
 }
 #endif

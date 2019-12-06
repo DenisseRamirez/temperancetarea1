@@ -27,7 +27,7 @@ void USART_TxC(char data){
     TXREG = data;
 }
 
-char USART_RxC(){
+char USART_RxC(void){
     USART_Overflow();
     while(!PIR1bits.RCIF);
     return RCREG; 
@@ -77,6 +77,7 @@ void USART_Overflow(void) {
             CREN = 1;//habilita la recepcion
 
         } while(OERR);
+         USART_TxS("E4\n",sizeof("E4\n")-1);
     }
 
     if(FERR)
@@ -85,5 +86,4 @@ void USART_Overflow(void) {
         TXEN = 0;
         TXEN = 1;
     }
-    USART_TxS("E4\n",sizeof("E4\n")-1);
 }

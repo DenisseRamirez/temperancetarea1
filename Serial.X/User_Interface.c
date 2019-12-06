@@ -13,21 +13,21 @@
 
 void Usart_Interface_OFF(char color){
     if (color=='A'){
-        GPIO_RB7_SetLow();
+        LED_B_SetLow();
     }else if (color=='V'){
-        GPIO_RB6_SetLow();
+        LED_G_SetLow();
     } else if (color=='R'){
-        GPIO_RB5_SetLow();
+        LED_R_SetLow();
     }
     return;
 }
 void Usart_Interface_ON(char color){
     if (color=='A'){
-        GPIO_RB7_SetHigh();
+        LED_B_SetHigh();
     }else if (color=='V'){
-        GPIO_RB6_SetHigh();
+        LED_G_SetHigh();
     } else if (color=='R'){
-        GPIO_RB5_SetHigh();
+        LED_R_SetHigh();
     }
     return;
 }

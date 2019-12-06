@@ -16,7 +16,7 @@ float Distancia;
 void ADC_ConvertirDistancia(int Volts);
 int ADC_InsertBits(char Bmenos, char Bmas);
 int ADC_LecturaFiltro(int n);
-void ADC_Init() ;
+void ADC_Init(void) ;
 
 
 #ifdef	__cplusplus

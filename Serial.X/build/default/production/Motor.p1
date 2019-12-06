@@ -79,8 +79,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3290: extern volatile LATDbits_t LATDbits __attribute__((address(0xF8C)));
 [v _LATDbits `VS137 ~T0 @X0 0 e@3980 ]
 "16 ./PWM.h
-[; ;./PWM.h: 16: void PWM_InitS();
-[v _PWM_InitS `(v ~T0 @X0 0 e? ]
+[; ;./PWM.h: 16: void PWM_InitS(void);
+[v _PWM_InitS `(v ~T0 @X0 0 ef ]
 "7206 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7206:     struct {
 [s S303 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
@@ -869,7 +869,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 377 ]
 }
 "67
-[; ;Motor.c: 67: void Motor_MovimientoZ() {
+[; ;Motor.c: 67: void Motor_MovimientoZ(void) {
 [v _Motor_MovimientoZ `(v ~T0 @X0 1 ef ]
 {
 [e :U _Motor_MovimientoZ ]
@@ -938,17 +938,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 406 ]
 {
 "80
-[; ;Motor.c: 80:         do { LATDbits.LATD5 = 0; } while(0);
+[; ;Motor.c: 80:         do { LATDbits.LATD5 = 1; } while(0);
 [e :U 410 ]
 {
-[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 }
 [e :U 409 ]
 "81
-[; ;Motor.c: 81:         do { LATDbits.LATD6 = 0; } while(0);
+[; ;Motor.c: 81:         do { LATDbits.LATD6 = 1; } while(0);
 [e :U 413 ]
 {
-[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
 }
 [e :U 412 ]
 "82
@@ -974,7 +974,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 383 ]
 }
 "87
-[; ;Motor.c: 87: void Motor_Home() {
+[; ;Motor.c: 87: void Motor_Home(void) {
 [v _Motor_Home `(v ~T0 @X0 1 ef ]
 {
 [e :U _Motor_Home ]

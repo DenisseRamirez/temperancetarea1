@@ -39,11 +39,11 @@ void Motor_Movimiento(char Oupcode, int Motor_CoordenadaX, int Motor_CoordenadaY
 void Motor_Calcular_PasosX(int coordenada_actualX) {
     if (coordenada_actualX < coordenada_anteriorX) {
 
-        Direction_DriverX = 1;
+        DIRECCION_X = 1;
         DeltaX = coordenada_anteriorX - coordenada_actualX;
     } else if (coordenada_actualX > coordenada_anteriorX) {
 
-        Direction_DriverX = 0;
+        DIRECCION_X = 0;
         DeltaX = coordenada_actualX - coordenada_anteriorX;
     } else if (coordenada_actualX == coordenada_anteriorX) {
         DeltaX = 0;
@@ -53,48 +53,48 @@ void Motor_Calcular_PasosX(int coordenada_actualX) {
 void Motor_Calcular_PasosY(int coordenada_actualY) {
     if (coordenada_actualY < coordenada_anteriorY) {
 
-        Direction_DriverY = 1;
+        DIRECCION_Y = 1;
         DeltaY = coordenada_anteriorY - coordenada_actualY;
     } else if (coordenada_actualY > coordenada_anteriorY) {
 
-        Direction_DriverY = 0;
+        DIRECCION_Y = 0;
         DeltaY = coordenada_actualY - coordenada_anteriorY;
     } else if (coordenada_actualY == coordenada_anteriorY) {
         DeltaY = 0;
     }
 }
 
-void Motor_MovimientoZ() {
-    if (GPIO_RC4_GetValue() == 1) { //Aqui se va a comprobar el estado del boton en dado caso
+void Motor_MovimientoZ(void) {
+    if (BOTON_UP_GetValue() == 1) { //Aqui se va a comprobar el estado del boton en dado caso
 
-        GPIO_RD4_SetHigh();
-        GPIO_RD5_SetHigh();
-        GPIO_RD6_SetLow();
-    } else if (GPIO_RC5_GetValue() == 1) { //Aqui se va a comprobar el estado del boton en dado caso
+        ENABLE_Z_SetHigh();
+        INPUT_A_SetHigh();
+        INPUT_B_SetLow();
+    } else if (BOTON_DOWN_GetValue() == 1) { //Aqui se va a comprobar el estado del boton en dado caso
 
-        GPIO_RD4_SetHigh();
-        GPIO_RD5_SetLow();
-        GPIO_RD6_SetHigh();
+        ENABLE_Z_SetHigh();
+        INPUT_A_SetLow();
+        INPUT_B_SetHigh();
     }
-    while (GPIO_RC5_GetValue() == 0 && GPIO_RC4_GetValue() == 0) {
-        GPIO_RD5_SetLow();
-        GPIO_RD6_SetLow();
-        GPIO_RD4_SetLow();
+    while (BOTON_DOWN_GetValue() == 0 && BOTON_UP_GetValue() == 0) {
+        INPUT_A_SetHigh();
+        INPUT_B_SetHigh();
+        ENABLE_Z_SetLow();
         return;
     }
 }
 
-void Motor_Home() {
-    Direction_DriverX = 1;
-    Direction_DriverY = 1;
+void Motor_Home(void) {
+    DIRECCION_X = 1;
+    DIRECCION_Y = 1;
     PWM_InitS();
     T2CONbits.TMR2ON = 1;
 }
 
 void Motor_Movimiento_Home(char Oupcode, int Motor_CoordenadaX, int Motor_CoordenadaY) {
     T2CONbits.TMR2ON = 0;
-    Direction_DriverX = 0;
-    Direction_DriverY = 0;
+    DIRECCION_X = 0;
+    DIRECCION_Y = 0;
     PasosX = Motor_Conversion(Motor_CoordenadaX);
     PasosY = Motor_Conversion(Motor_CoordenadaY);
     PWM_GeneratePulsos(Oupcode, PasosX, PasosY);

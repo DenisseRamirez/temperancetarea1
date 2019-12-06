@@ -689,7 +689,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 369 ]
 }
 "30
-[; ;UART.c: 30: char USART_RxC(){
+[; ;UART.c: 30: char USART_RxC(void){
 [v _USART_RxC `(uc ~T0 @X0 1 ef ]
 {
 [e :U _USART_RxC ]
@@ -866,31 +866,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ _OERR 398  ]
 [e :U 397 ]
 "80
-[; ;UART.c: 80:     }
+[; ;UART.c: 80:          USART_TxS("E4\n",sizeof("E4\n")-1);
+[e ( _USART_TxS (2 , :s 1C -> - -> 4 `ui -> -> 1 `i `ui `i ]
+"81
+[; ;UART.c: 81:     }
 }
 [e :U 395 ]
-"82
-[; ;UART.c: 82:     if(FERR)
-[e $ ! _FERR 399  ]
 "83
-[; ;UART.c: 83:     {
-{
+[; ;UART.c: 83:     if(FERR)
+[e $ ! _FERR 399  ]
 "84
-[; ;UART.c: 84:         temp = RCREG;
-[e = _temp -> _RCREG `uc ]
+[; ;UART.c: 84:     {
+{
 "85
-[; ;UART.c: 85:         TXEN = 0;
-[e = _TXEN -> -> 0 `i `b ]
+[; ;UART.c: 85:         temp = RCREG;
+[e = _temp -> _RCREG `uc ]
 "86
-[; ;UART.c: 86:         TXEN = 1;
-[e = _TXEN -> -> 1 `i `b ]
+[; ;UART.c: 86:         TXEN = 0;
+[e = _TXEN -> -> 0 `i `b ]
 "87
-[; ;UART.c: 87:     }
+[; ;UART.c: 87:         TXEN = 1;
+[e = _TXEN -> -> 1 `i `b ]
+"88
+[; ;UART.c: 88:     }
 }
 [e :U 399 ]
-"88
-[; ;UART.c: 88:     USART_TxS("E4\n",sizeof("E4\n")-1);
-[e ( _USART_TxS (2 , :s 1C -> - -> 4 `ui -> -> 1 `i `ui `i ]
 "89
 [; ;UART.c: 89: }
 [e :UE 394 ]

@@ -5691,7 +5691,7 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 
 void USART_Init(long BAUD);
 void USART_TxC(char data);
-char USART_RxC();
+char USART_RxC(void);
 void USARTStr(char *Output, unsigned int size);
 
 void USART_RxS (char lenght, char* pointer );
@@ -5724,7 +5724,7 @@ void USART_TxC(char data){
     TXREG = data;
 }
 
-char USART_RxC(){
+char USART_RxC(void){
     USART_Overflow();
     while(!PIR1bits.RCIF);
     return RCREG;
@@ -5766,6 +5766,7 @@ void USART_Overflow(void) {
             CREN = 1;
 
         } while(OERR);
+         USART_TxS("E4\n",sizeof("E4\n")-1);
     }
 
     if(FERR)
@@ -5774,5 +5775,4 @@ void USART_Overflow(void) {
         TXEN = 0;
         TXEN = 1;
     }
-    USART_TxS("E4\n",sizeof("E4\n")-1);
 }

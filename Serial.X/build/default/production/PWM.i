@@ -5637,11 +5637,114 @@ char BanderaX=0;
 char BanderaY=0;
 void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
 
-int PWM_OneshotX ();
-int PWM_OneshotY ();
-void PWM_InitF();
-void PWM_InitS();
+int PWM_OneshotX(int countX);
+int PWM_OneshotY(int countY);
+void PWM_InitF(void);
+void PWM_InitS(void);
 # 4 "PWM.c" 2
+
+# 1 "./GPIOsparcA1.h" 1
+
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 1 3
+# 22 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 127 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long uintptr_t;
+# 142 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long intptr_t;
+# 158 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef signed char int8_t;
+
+
+
+
+typedef short int16_t;
+# 173 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long int32_t;
+
+
+
+
+
+typedef long long int64_t;
+# 188 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long intmax_t;
+
+
+
+
+
+typedef unsigned char uint8_t;
+
+
+
+
+typedef unsigned short uint16_t;
+# 209 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long uint32_t;
+
+
+
+
+
+typedef unsigned long long uint64_t;
+# 229 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef unsigned long long uintmax_t;
+# 22 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 2 3
+
+
+typedef int8_t int_fast8_t;
+
+typedef int64_t int_fast64_t;
+
+
+typedef int8_t int_least8_t;
+typedef int16_t int_least16_t;
+
+typedef int24_t int_least24_t;
+
+typedef int32_t int_least32_t;
+
+typedef int64_t int_least64_t;
+
+
+typedef uint8_t uint_fast8_t;
+
+typedef uint64_t uint_fast64_t;
+
+
+typedef uint8_t uint_least8_t;
+typedef uint16_t uint_least16_t;
+
+typedef uint24_t uint_least24_t;
+
+typedef uint32_t uint_least32_t;
+
+typedef uint64_t uint_least64_t;
+# 139 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 3
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\bits/stdint.h" 1 3
+typedef int32_t int_fast16_t;
+typedef int32_t int_fast32_t;
+typedef uint32_t uint_fast16_t;
+typedef uint32_t uint_fast32_t;
+# 139 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdint.h" 2 3
+# 6 "./GPIOsparcA1.h" 2
+
+
+void GPIO_init_PORTA(void);
+# 80 "./GPIOsparcA1.h"
+void GPIO_init_PORTB(void);
+# 142 "./GPIOsparcA1.h"
+void GPIO_init_PORTC(void);
+# 204 "./GPIOsparcA1.h"
+void GPIO_init_PORTD(void);
+# 286 "./GPIOsparcA1.h"
+void GPIO_init_PORTE(void);
+# 5 "PWM.c" 2
 
 
 void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY) {
@@ -5688,8 +5791,8 @@ void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY) {
     T2CONbits.TMR2ON = 0;
     return;
 }
-# 73 "PWM.c"
-void PWM_InitF() {
+# 74 "PWM.c"
+void PWM_InitF(void) {
 
     PR2 = 0X7C;
     CCPR1L = 0X3E;
@@ -5703,7 +5806,7 @@ void PWM_InitF() {
     return;
 }
 
-void PWM_InitS() {
+void PWM_InitS(void) {
 
     PR2 = 0XFF;
     CCPR1L = 0X3E;

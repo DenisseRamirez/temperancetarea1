@@ -244,7 +244,7 @@ float Distancia;
 void ADC_ConvertirDistancia(int Volts);
 int ADC_InsertBits(char Bmenos, char Bmas);
 int ADC_LecturaFiltro(int n);
-void ADC_Init() ;
+void ADC_Init(void) ;
 # 10 "ControlZ.c" 2
 
 # 1 "./ControlZ.h" 1
@@ -6280,7 +6280,7 @@ void GPIO_init_PORTE(void);
 
 void USART_Init(long BAUD);
 void USART_TxC(char data);
-char USART_RxC();
+char USART_RxC(void);
 void USARTStr(char *Output, unsigned int size);
 
 void USART_RxS (char lenght, char* pointer );

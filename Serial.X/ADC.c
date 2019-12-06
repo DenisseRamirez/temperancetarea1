@@ -43,7 +43,7 @@ int ADC_LecturaFiltro(int n) {
     }
     return (Suma / n);
 }
-void ADC_Init() {
+void ADC_Init(void) {
     TRISAbits.RA0 = 1; //RA0 COMO ENTRADA
     ADCON1bits.PCFG = 0b1110; //  Configura el Puerto como Entrada Analógica.
     ADCON1bits.VCFG = 0b00; //  Selecciona Voltajes de Referencia (5v-0v).

@@ -544,7 +544,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 "18 Actuator.c
-[; ;Actuator.c: 18: void Actuator_Touch() {
+[; ;Actuator.c: 18: void Actuator_Touch(void) {
 [v _Actuator_Touch `(v ~T0 @X0 1 ef ]
 {
 [e :U _Actuator_Touch ]
@@ -580,7 +580,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 369 ]
 }
 "27
-[; ;Actuator.c: 27: void Actuator_Retract() {
+[; ;Actuator.c: 27: void Actuator_Retract(void) {
 [v _Actuator_Retract `(v ~T0 @X0 1 ef ]
 {
 [e :U _Actuator_Retract ]
@@ -606,7 +606,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 376 ]
 }
 "34
-[; ;Actuator.c: 34: void Actuator_Hold() {
+[; ;Actuator.c: 34: void Actuator_Hold(void) {
 [v _Actuator_Hold `(v ~T0 @X0 1 ef ]
 {
 [e :U _Actuator_Hold ]

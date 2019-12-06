@@ -2,6 +2,7 @@
 #include <xc.h>
 #include "configuration.h"
 #include "PWM.h"
+#include "GPIOsparcA1.h"
 
 void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY) {
     if (Oupcode == 'S') {
@@ -9,15 +10,15 @@ void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY) {
     } else {
         PWM_InitF();
     }
-    Enable_DriverX = 0;//Habilita los drivers
-    Enable_DriverY = 0; //Habilita los drivers
+    ENABLE_X = 0;//Habilita los drivers
+    ENABLE_Y = 0; //Habilita los drivers
     int countX = 0;
     int countY = 0;
     if (pulsosX==0){
-        Enable_DriverX = 1;//En caso de que los pasos enviados sean 0 no mover
+        ENABLE_X = 1;//En caso de que los pasos enviados sean 0 no mover
     } 
     if (pulsosY==0){
-        Enable_DriverY = 1;////En caso de que los pasos enviados sean 0 no mover
+        ENABLE_Y = 1;////En caso de que los pasos enviados sean 0 no mover
     }
     T2CONbits.TMR2ON = 1; // Timer ON
     while ((countX < pulsosX) || (countY < pulsosY)) {
@@ -28,7 +29,7 @@ void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY) {
                 oneshotX = 0;
             }
         } else {
-            Enable_DriverX = 1;
+            ENABLE_X = 1;
         }
         if (countY < pulsosY) {
             if (PORTCbits.RC2 == 1) {
@@ -37,7 +38,7 @@ void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY) {
                 oneshotY = 0;
             }
         } else {
-            Enable_DriverY = 1;
+            ENABLE_Y = 1;
         }
     }
     countX = 0;
@@ -70,7 +71,7 @@ void PWM_Pulsos_Home(char banderaX, char banderaY){
     return;
 }*/
 
-void PWM_InitF() {
+void PWM_InitF(void) {
 
     PR2 = 0X7C;//FRECUENCIA DE 1000HZ
     CCPR1L = 0X3E;//DUTY CICLE 50
@@ -84,7 +85,7 @@ void PWM_InitF() {
     return;
 }
 
-void PWM_InitS() {
+void PWM_InitS(void) {
 
     PR2 = 0XFF;//FRECUENCIA DE 500HZ
     CCPR1L = 0X3E;//DUTY CICLE 50

@@ -5873,7 +5873,7 @@ void GPIO_init_PORTE(void);
 
 void USART_Init(long BAUD);
 void USART_TxC(char data);
-char USART_RxC();
+char USART_RxC(void);
 void USARTStr(char *Output, unsigned int size);
 
 void USART_RxS (char lenght, char* pointer );
@@ -5898,7 +5898,7 @@ void Usart_Interface_ON(char color);
 
 
 
-void Actuator_Touch() {
+void Actuator_Touch(void) {
     do { LATCbits.LATC0 = 0; } while(0);
     _delay((unsigned long)((100)*(8000000/4000.0)));
     do { LATCbits.LATC0 = 1; } while(0);
@@ -5907,14 +5907,14 @@ void Actuator_Touch() {
     Usart_Interface_OFF('A');
 }
 
-void Actuator_Retract() {
+void Actuator_Retract(void) {
     do { LATCbits.LATC0 = 1; } while(0);
     USART_TxS("C\n", sizeof ("C\n") - 1);
     Usart_Interface_ON('V');
     Usart_Interface_OFF('A');
 }
 
-void Actuator_Hold() {
+void Actuator_Hold(void) {
     do { LATCbits.LATC0 = 0; } while(0);
     USART_TxS("C\n", sizeof ("C\n") - 1);
     Usart_Interface_ON('V');

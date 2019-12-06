@@ -5770,12 +5770,12 @@ char *tempnam(const char *, const char *);
 # 1 "./main.h" 1
 # 10 "./main.h"
 void __attribute__((picinterrupt(("high_priority")))) INT_isr (void);
-void Int_Ext();
+void Int_Ext(void);
 void Int_Ext(void);
 void INT0_ACTION(void);
 void INT1_ACTION(void);
 void INT2_ACTION(void);
-void main_Home();
+void main_Home(void);
 char home=0;
 
 
@@ -5809,7 +5809,7 @@ float error;
 
 void USART_Init(long BAUD);
 void USART_TxC(char data);
-char USART_RxC();
+char USART_RxC(void);
 void USARTStr(char *Output, unsigned int size);
 
 void USART_RxS (char lenght, char* pointer );
@@ -5839,9 +5839,9 @@ int Motor_Conversion(int CoordenadaX);
 void Motor_Movimiento(char Oupcode,int CoordenadaX,int CoordenadaY);
 void Motor_Calcular_PasosX(int coordenada_actualX);
 void Motor_Calcular_PasosY(int coordenada_actualY);
-void Motor_MovimientoZ();
+void Motor_MovimientoZ(void);
 
-void Motor_Home();
+void Motor_Home(void);
 void Motor_Movimiento_Home(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY);
 # 14 "main.c" 2
 
@@ -5858,10 +5858,10 @@ char BanderaX=0;
 char BanderaY=0;
 void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
 
-int PWM_OneshotX ();
-int PWM_OneshotY ();
-void PWM_InitF();
-void PWM_InitS();
+int PWM_OneshotX(int countX);
+int PWM_OneshotY(int countY);
+void PWM_InitF(void);
+void PWM_InitS(void);
 # 15 "main.c" 2
 
 # 1 "./serial.h" 1
@@ -5880,7 +5880,7 @@ void PWM_InitS();
     void Serial_Lectura_MemoriaZ(char direccion, int *pointerCZ) ;
     void Serial_RangosCoordenadas(int C);
     void Serial_RangosControl(int C);
-    void Serial_Oupcode();
+    void Serial_Oupcode(void);
 
 
     void Serial_Escritura_Memoria(char direccion,char string_setpoint[]);
@@ -5899,9 +5899,9 @@ void PWM_InitS();
 
 # 1 "./Actuator.h" 1
 # 11 "./Actuator.h"
-void Actuator_Touch();
-void Actuator_Hold();
-void Actuator_Retract();
+void Actuator_Touch(void);
+void Actuator_Hold(void);
+void Actuator_Retract(void);
 # 17 "main.c" 2
 
 # 1 "./GPIOsparcA1.h" 1
@@ -6020,7 +6020,7 @@ void Usart_Interface_ON(char color);
 # 19 "main.c" 2
 
 
-void main() {
+void main(void) {
     OSCCON = 0x72;
     GPIO_init_PORTA();
     GPIO_init_PORTB();
@@ -6029,13 +6029,13 @@ void main() {
     GPIO_init_PORTE();
     do { LATDbits.LATD4 = 0; } while(0);
     PORTDbits.RD0 = 1;
-    PORTDbits.RD0 = 1;
+    PORTDbits.RD2 = 1;
     USART_Init(9600);
     Int_Ext();
     USART_TxS("WELCOME TO SPARC\n", sizeof ("WELCOME TO SPARC\n") - 1);
    Usart_Interface_ON('A');
     USART_TxS("W\n", sizeof ("W\n") - 1);
-    main_Home();
+   main_Home();
     Usart_Interface_OFF('A');
     USART_TxS("C\n", sizeof ("C\n") - 1);
      Usart_Interface_ON('V');
@@ -6044,7 +6044,7 @@ void main() {
     while(1);
 }
 
-void Int_Ext() {
+void Int_Ext(void) {
     TRISD = 0x00;
     INTCON2bits.RBPU = 1;
     TRISBbits.RB0 = 1;
@@ -6111,7 +6111,7 @@ void INT2_ACTION(void) {
     return;
 }
 
-void main_Home() {
+void main_Home(void) {
     while (BanderaX == 0) {
         PORTDbits.RD0 = 0;
         PORTDbits.RD2 = 1;

@@ -23,21 +23,21 @@ void Control_Z (int Referencia){
      ADC_Init();
      Referencia=Referencia+47;
      controlZ=0;
-    GPIO_RD4_SetLow(); //Puente H activado enable
-   GPIO_RD5_SetLow(); //Inputs de puente H en sto
-    GPIO_RD6_SetLow(); //Input puente 
+    ENABLE_Z_SetLow(); //Puente H activado enable
+   INPUT_A_SetLow(); //Inputs de puente H en sto
+    INPUT_B_SetLow(); //Input puente 
     while (controlZ < 10) {
         LecturaFiltro = ADC_LecturaFiltro(50);
          ADC_ConvertirDistancia(LecturaFiltro);
         if (Referencia > Distancia) {
             error = Referencia - Distancia;
-            GPIO_RD4_SetLow(); //Puente H activado
-           GPIO_RD5_SetHigh(); //Inputs de puente H con direccion hacia arriba
-            GPIO_RD6_SetLow(); //Input puente H
+            ENABLE_Z_SetLow(); //Puente H activado
+           INPUT_A_SetHigh(); //Inputs de puente H con direccion hacia arriba
+            INPUT_B_SetLow(); //Input puente H
         } else if (Referencia < Distancia) {
               error = Referencia - Distancia;
-            GPIO_RD5_SetLow(); //Inputs de puente H con direccion hacia abajo
-            GPIO_RD6_SetHigh(); //Input puente H
+            INPUT_A_SetLow(); //Inputs de puente H con direccion hacia abajo
+            INPUT_B_SetHigh(); //Input puente H
         }  
         if (((fabs(error))>0) &&((fabs(error))<2)) {//Si la platamorma se encuentra en rangos favorables
             controlZ++;
@@ -45,12 +45,12 @@ void Control_Z (int Referencia){
          __delay_ms(5);//Tiempo de control
          
     }
-            GPIO_RD5_SetHigh(); //Inputs de puente H en stop Fuerte
-            GPIO_RD6_SetLow(); //Input puente H
+            INPUT_A_SetHigh(); //Inputs de puente H en stop Fuerte
+            INPUT_B_SetLow(); //Input puente H
             __delay_ms(100);
-            GPIO_RD5_SetLow(); //Inputs de puente H en stop 
-            GPIO_RD6_SetLow(); //Input puente H
-            GPIO_RD4_SetHigh(); //Puente H desactivado
+            INPUT_A_SetLow(); //Inputs de puente H en stop 
+            INPUT_B_SetLow(); //Input puente H
+            ENABLE_Z_SetHigh(); //Puente H desactivado
           __delay_ms(50);
 }
 /*Referencia = 150

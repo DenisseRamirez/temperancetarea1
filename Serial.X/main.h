@@ -8,12 +8,12 @@
 #endif
 
 void __interrupt(high_priority) INT_isr (void);
-void Int_Ext();
+void Int_Ext(void);
 void Int_Ext(void);
 void INT0_ACTION(void);
 void INT1_ACTION(void);
 void INT2_ACTION(void);
-void main_Home();
+void main_Home(void);
 char home=0;
 //char oneshot=0;
 //void Oneshot();

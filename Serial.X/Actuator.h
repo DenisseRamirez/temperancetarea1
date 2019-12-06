@@ -8,9 +8,9 @@
 
 #endif
 
-void Actuator_Touch();
-void Actuator_Hold();
-void Actuator_Retract();
+void Actuator_Touch(void);
+void Actuator_Hold(void);
+void Actuator_Retract(void);
 
 
 #ifdef	__cplusplus

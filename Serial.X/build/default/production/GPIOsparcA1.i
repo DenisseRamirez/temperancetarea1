@@ -5776,7 +5776,7 @@ void GPIO_init_PORTD(void) {
     CMCON = 0x07;
     do { TRISDbits.TRISD0 = 0; } while(0);
     do { TRISDbits.TRISD1 = 0; } while(0);
-    do { TRISDbits.TRISD2 = 0; } while(0);
+    do { TRISDbits.TRISD3 = 0; } while(0);
     do { TRISDbits.TRISD3 = 0; } while(0);
     do { TRISDbits.TRISD4 = 0; } while(0);
     do { TRISDbits.TRISD5 = 0; } while(0);

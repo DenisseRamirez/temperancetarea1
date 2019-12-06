@@ -65,14 +65,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./User_Interface.h: 9: void Usart_Interface_ON(char color);
 [v _Usart_Interface_ON `(v ~T0 @X0 0 ef1`uc ]
 "16 ./main.h
-[; ;./main.h: 16: void main_Home();
-[v _main_Home `(v ~T0 @X0 0 e? ]
+[; ;./main.h: 16: void main_Home(void);
+[v _main_Home `(v ~T0 @X0 0 ef ]
 "8 ./User_Interface.h
 [; ;./User_Interface.h: 8: void Usart_Interface_OFF(char color);
 [v _Usart_Interface_OFF `(v ~T0 @X0 0 ef1`uc ]
 "16 ./serial.h
-[; ;./serial.h: 16:     void Serial_Oupcode();
-[v _Serial_Oupcode `(v ~T0 @X0 0 e? ]
+[; ;./serial.h: 16:     void Serial_Oupcode(void);
+[v _Serial_Oupcode `(v ~T0 @X0 0 ef ]
 "4001 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 4001: extern volatile unsigned char TRISD __attribute__((address(0xF95)));
 [v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
@@ -202,8 +202,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./motor.h: 24: void Motor_Movimiento_Home(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY);
 [v _Motor_Movimiento_Home `(v ~T0 @X0 0 ef3`uc`i`i ]
 "23
-[; ;./motor.h: 23: void Motor_Home();
-[v _Motor_Home `(v ~T0 @X0 0 e? ]
+[; ;./motor.h: 23: void Motor_Home(void);
+[v _Motor_Home `(v ~T0 @X0 0 ef ]
 "7206 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7206:     struct {
 [s S301 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
@@ -876,7 +876,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "21 main.c
-[; ;main.c: 21: void main() {
+[; ;main.c: 21: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
@@ -910,8 +910,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 29:     PORTDbits.RD0 = 1;
 [e = . . _PORTDbits 0 0 -> -> 1 `i `uc ]
 "30
-[; ;main.c: 30:     PORTDbits.RD0 = 1;
-[e = . . _PORTDbits 0 0 -> -> 1 `i `uc ]
+[; ;main.c: 30:     PORTDbits.RD2 = 1;
+[e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
 "31
 [; ;main.c: 31:     USART_Init(9600);
 [e ( _USART_Init (1 -> -> 9600 `i `l ]
@@ -928,7 +928,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 35:     USART_TxS("W\n", sizeof ("W\n") - 1);
 [e ( _USART_TxS (2 , :s 2C -> - -> 3 `ui -> -> 1 `i `ui `i ]
 "36
-[; ;main.c: 36:     main_Home();
+[; ;main.c: 36:    main_Home();
 [e ( _main_Home ..  ]
 "37
 [; ;main.c: 37:     Usart_Interface_OFF('A');
@@ -956,7 +956,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 369 ]
 }
 "45
-[; ;main.c: 45: void Int_Ext() {
+[; ;main.c: 45: void Int_Ext(void) {
 [v _Int_Ext `(v ~T0 @X0 1 ef ]
 {
 [e :U _Int_Ext ]
@@ -1170,7 +1170,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 384 ]
 }
 "112
-[; ;main.c: 112: void main_Home() {
+[; ;main.c: 112: void main_Home(void) {
 [v _main_Home `(v ~T0 @X0 1 ef ]
 {
 [e :U _main_Home ]
