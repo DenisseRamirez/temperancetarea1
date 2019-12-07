@@ -90,7 +90,7 @@ void PWM_InitF(void) {
 
 void PWM_InitS(void) {
 
-    PR2 = 0XF0;//FRECUENCIA DE 500HZ
+    PR2 = 0XF0;//FRECUENCIA DE 600hz aprox
     CCPR1L = 0X3E;//DUTY CICLE 50
     CCPR2L = 0X3E;
     TRISCbits.RC1 = 0;
