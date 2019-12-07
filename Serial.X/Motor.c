@@ -30,6 +30,8 @@ void Motor_Movimiento(char Oupcode, int Motor_CoordenadaX, int Motor_CoordenadaY
     coordenada_anteriorX = Motor_CoordenadaX;
     coordenada_anteriorY = Motor_CoordenadaY;
     PWM_GeneratePulsos(Oupcode, PasosX, PasosY);
+    ENABLE_X = 1;
+    ENABLE_Y = 1;
     USART_TxS("C\n", sizeof ("C\n") - 1);
     Usart_Interface_ON('V');
     Usart_Interface_OFF('A');

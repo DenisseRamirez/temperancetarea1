@@ -22,19 +22,7 @@
 #include "User_Interface.h"
 
 void Serial_Oupcode(void) {
-    /*OSCCON = 0x72; // Defines el valor del oscilador interno
-    GPIO_RD0_TRIS = 0;
-    GPIO_RD2_TRIS = 0;
-    GPIO_RD1_TRIS = 0;
-    GPIO_RD3_TRIS = 0;
-    Enable_DriverX = 1;
-    Enable_DriverX = 1;
-    TRISCbits.RC1 = 0;
-    TRISCbits.RC2 = 0;
-    PORTCbits.RC1 = 0;
-     */
     char instruction_counter = 0;
-    // USART_TxS("PLEASE INSERT  INSTRUCTION OF SETPOINT\n", sizeof ("PLEASE INSERT  INSTRUCTION OF SETPOINT\n") - 1);
     while (1) {
         if (instruction_counter == 0) {
             USART_TxS("R\n", sizeof ("R\n") - 1);

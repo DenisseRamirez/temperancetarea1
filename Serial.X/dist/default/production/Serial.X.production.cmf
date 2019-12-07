@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\saenz\AppData\Local\Temp\so44.o
+$C:\Users\saenz\AppData\Local\Temp\ssas.o
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 E E 4 1
 reset_vec CODE 0 0 0 4 1
@@ -145,7 +145,7 @@ MEDIUMCONST 6DDC-7EFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Serial.X.production.o
-8 intcode CODE >25482:C:\Users\saenz\AppData\Local\Temp\so44.s
+8 intcode CODE >25482:C:\Users\saenz\AppData\Local\Temp\ssas.s
 8 intcode CODE >65:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\main.c
 6CEA text79 CODE >88:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
 6CEA text79 CODE >90:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\PWM.c
@@ -1768,30 +1768,30 @@ F96 text40 CODE >176:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\
 60F4 text0 CODE >40:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\main.c
 60F8 text0 CODE >41:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\main.c
 610E text0 CODE >42:C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\Resideopracticas\trunk\Serial.X\main.c
-6B7C cinit CODE >4665:C:\Users\saenz\AppData\Local\Temp\so44.s
-6B7C cinit CODE >4667:C:\Users\saenz\AppData\Local\Temp\so44.s
-6B7C cinit CODE >4670:C:\Users\saenz\AppData\Local\Temp\so44.s
-6B7C cinit CODE >4800:C:\Users\saenz\AppData\Local\Temp\so44.s
-6B80 cinit CODE >4801:C:\Users\saenz\AppData\Local\Temp\so44.s
-6B82 cinit CODE >4802:C:\Users\saenz\AppData\Local\Temp\so44.s
-6B82 cinit CODE >4803:C:\Users\saenz\AppData\Local\Temp\so44.s
-6B84 cinit CODE >4804:C:\Users\saenz\AppData\Local\Temp\so44.s
-6B86 cinit CODE >4805:C:\Users\saenz\AppData\Local\Temp\so44.s
-6B88 cinit CODE >4808:C:\Users\saenz\AppData\Local\Temp\so44.s
-6B8A cinit CODE >4809:C:\Users\saenz\AppData\Local\Temp\so44.s
-6B8C cinit CODE >4812:C:\Users\saenz\AppData\Local\Temp\so44.s
-6B90 cinit CODE >4813:C:\Users\saenz\AppData\Local\Temp\so44.s
-6B92 cinit CODE >4814:C:\Users\saenz\AppData\Local\Temp\so44.s
-6B92 cinit CODE >4815:C:\Users\saenz\AppData\Local\Temp\so44.s
-6B94 cinit CODE >4816:C:\Users\saenz\AppData\Local\Temp\so44.s
-6B96 cinit CODE >4817:C:\Users\saenz\AppData\Local\Temp\so44.s
-6B98 cinit CODE >4823:C:\Users\saenz\AppData\Local\Temp\so44.s
-6B98 cinit CODE >4825:C:\Users\saenz\AppData\Local\Temp\so44.s
-6B9A cinit CODE >4826:C:\Users\saenz\AppData\Local\Temp\so44.s
-6B9C cinit CODE >4828:C:\Users\saenz\AppData\Local\Temp\so44.s
-6B9E cinit CODE >4829:C:\Users\saenz\AppData\Local\Temp\so44.s
-6BA0 cinit CODE >4830:C:\Users\saenz\AppData\Local\Temp\so44.s
-6BA2 cinit CODE >4831:C:\Users\saenz\AppData\Local\Temp\so44.s
+6B7C cinit CODE >4665:C:\Users\saenz\AppData\Local\Temp\ssas.s
+6B7C cinit CODE >4667:C:\Users\saenz\AppData\Local\Temp\ssas.s
+6B7C cinit CODE >4670:C:\Users\saenz\AppData\Local\Temp\ssas.s
+6B7C cinit CODE >4800:C:\Users\saenz\AppData\Local\Temp\ssas.s
+6B80 cinit CODE >4801:C:\Users\saenz\AppData\Local\Temp\ssas.s
+6B82 cinit CODE >4802:C:\Users\saenz\AppData\Local\Temp\ssas.s
+6B82 cinit CODE >4803:C:\Users\saenz\AppData\Local\Temp\ssas.s
+6B84 cinit CODE >4804:C:\Users\saenz\AppData\Local\Temp\ssas.s
+6B86 cinit CODE >4805:C:\Users\saenz\AppData\Local\Temp\ssas.s
+6B88 cinit CODE >4808:C:\Users\saenz\AppData\Local\Temp\ssas.s
+6B8A cinit CODE >4809:C:\Users\saenz\AppData\Local\Temp\ssas.s
+6B8C cinit CODE >4812:C:\Users\saenz\AppData\Local\Temp\ssas.s
+6B90 cinit CODE >4813:C:\Users\saenz\AppData\Local\Temp\ssas.s
+6B92 cinit CODE >4814:C:\Users\saenz\AppData\Local\Temp\ssas.s
+6B92 cinit CODE >4815:C:\Users\saenz\AppData\Local\Temp\ssas.s
+6B94 cinit CODE >4816:C:\Users\saenz\AppData\Local\Temp\ssas.s
+6B96 cinit CODE >4817:C:\Users\saenz\AppData\Local\Temp\ssas.s
+6B98 cinit CODE >4823:C:\Users\saenz\AppData\Local\Temp\ssas.s
+6B98 cinit CODE >4825:C:\Users\saenz\AppData\Local\Temp\ssas.s
+6B9A cinit CODE >4826:C:\Users\saenz\AppData\Local\Temp\ssas.s
+6B9C cinit CODE >4828:C:\Users\saenz\AppData\Local\Temp\ssas.s
+6B9E cinit CODE >4829:C:\Users\saenz\AppData\Local\Temp\ssas.s
+6BA0 cinit CODE >4830:C:\Users\saenz\AppData\Local\Temp\ssas.s
+6BA2 cinit CODE >4831:C:\Users\saenz\AppData\Local\Temp\ssas.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -1817,7 +1817,7 @@ ADC_InsertBits@Bmenos 65 0 BANK0 1 cstackBANK0 dist/default/production\Serial.X.
 __size_of_Serial_RangosCoordenadas 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\Serial.X.production.o
 _Actuator_Hold 6C1C 0 CODE 0 text54 dist/default/production\Serial.X.production.o
-__mediumconst 7F00 0 MEDIUMCONST 0 mediumconst C:\Users\saenz\AppData\Local\Temp\so44.o
+__mediumconst 7F00 0 MEDIUMCONST 0 mediumconst C:\Users\saenz\AppData\Local\Temp\ssas.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\Serial.X.production.o
 PWM_GeneratePulsos@countX 68 0 BANK0 1 cstackBANK0 dist/default/production\Serial.X.production.o
 PWM_GeneratePulsos@countY 6A 0 BANK0 1 cstackBANK0 dist/default/production\Serial.X.production.o
@@ -1837,7 +1837,7 @@ _OERR 7D59 0 ABS 0 - dist/default/production\Serial.X.production.o
 _RCIF 7CF5 0 ABS 0 - dist/default/production\Serial.X.production.o
 _Suma 40 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
 _TXEN 7D65 0 ABS 0 - dist/default/production\Serial.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\saenz\AppData\Local\Temp\so44.o
+___sp 0 0 STACK 2 stack C:\Users\saenz\AppData\Local\Temp\ssas.o
 _atoi 504E 0 CODE 0 text18 dist/default/production\Serial.X.production.o
 _data 58 0 COMRAM 1 bssCOMRAM dist/default/production\Serial.X.production.o
 _dp_h 7F09 0 MEDIUMCONST 0 mediumconst dist/default/production\Serial.X.production.o
@@ -1850,7 +1850,7 @@ btemp 5F 0 COMRAM 1 temp dist/default/production\Serial.X.production.o
 nanf@s 60 0 BANK0 1 cstackBANK0 dist/default/production\Serial.X.production.o
 nanf@u 64 0 BANK0 1 cstackBANK0 dist/default/production\Serial.X.production.o
 __size_of_INT1_ACTION 0 0 ABS 0 - dist/default/production\Serial.X.production.o
-start E 0 CODE 0 init C:\Users\saenz\AppData\Local\Temp\so44.o
+start E 0 CODE 0 init C:\Users\saenz\AppData\Local\Temp\ssas.o
 ___flmul@aexp 7F 0 BANK0 1 cstackBANK0 dist/default/production\Serial.X.production.o
 ___flmul@bexp 80 0 BANK0 1 cstackBANK0 dist/default/production\Serial.X.production.o
 ___flmul@prod 81 0 BANK0 1 cstackBANK0 dist/default/production\Serial.X.production.o
@@ -1906,11 +1906,11 @@ ttemp7 67 0 COMRAM 1 temp dist/default/production\Serial.X.production.o
 __size_of_ADC_Init 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 __end_of_Usart_Interface_OFF 673A 0 CODE 0 text56 dist/default/production\Serial.X.production.o
 Serial_Escritura_Memoria@string_setpoint 68 0 BANK0 1 cstackBANK0 dist/default/production\Serial.X.production.o
-__accesstop 60 0 ABS 0 - C:\Users\saenz\AppData\Local\Temp\so44.o
-intlevel0 0 0 CODE 0 text C:\Users\saenz\AppData\Local\Temp\so44.o
-intlevel1 0 0 CODE 0 text C:\Users\saenz\AppData\Local\Temp\so44.o
-intlevel2 0 0 CODE 0 text C:\Users\saenz\AppData\Local\Temp\so44.o
-intlevel3 0 0 CODE 0 text C:\Users\saenz\AppData\Local\Temp\so44.o
+__accesstop 60 0 ABS 0 - C:\Users\saenz\AppData\Local\Temp\ssas.o
+intlevel0 0 0 CODE 0 text C:\Users\saenz\AppData\Local\Temp\ssas.o
+intlevel1 0 0 CODE 0 text C:\Users\saenz\AppData\Local\Temp\ssas.o
+intlevel2 0 0 CODE 0 text C:\Users\saenz\AppData\Local\Temp\ssas.o
+intlevel3 0 0 CODE 0 text C:\Users\saenz\AppData\Local\Temp\ssas.o
 __end_ofi2___xxtofl 504E 0 CODE 0 text73 dist/default/production\Serial.X.production.o
 Serial_Lectura_MemoriaY@coordenadaY 7B 0 BANK0 1 cstackBANK0 dist/default/production\Serial.X.production.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\Serial.X.production.o
@@ -1948,9 +1948,9 @@ _ADCON1 FC1 0 ABS 0 - dist/default/production\Serial.X.production.o
 _ADRESH FC4 0 ABS 0 - dist/default/production\Serial.X.production.o
 _ADRESL FC3 0 ABS 0 - dist/default/production\Serial.X.production.o
 _Motor_Movimiento 61C6 0 CODE 0 text24 dist/default/production\Serial.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\saenz\AppData\Local\Temp\so44.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\saenz\AppData\Local\Temp\ssas.o
 __end_of_Serial_RangosCoordenadas 6A84 0 CODE 0 text12 dist/default/production\Serial.X.production.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\saenz\AppData\Local\Temp\so44.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\saenz\AppData\Local\Temp\ssas.o
 _Serial_DecodificacionX 5ED0 0 CODE 0 text17 dist/default/production\Serial.X.production.o
 _Serial_DecodificacionY 5DF6 0 CODE 0 text16 dist/default/production\Serial.X.production.o
 _EECON1bits FA6 0 ABS 0 - dist/default/production\Serial.X.production.o
@@ -2140,7 +2140,7 @@ __size_of___xxtofl 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 Serial_Lectura_MemoriaY@i_1417 80 0 BANK0 1 cstackBANK0 dist/default/production\Serial.X.production.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\Serial.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\Serial.X.production.o
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\saenz\AppData\Local\Temp\so44.o
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\saenz\AppData\Local\Temp\ssas.o
 _UCFGbits F6F 0 ABS 0 - dist/default/production\Serial.X.production.o
 __end_ofsqrtf@tiny 7F15 0 MEDIUMCONST 0 mediumconst dist/default/production\Serial.X.production.o
 ___xxtofl@arg 6A 0 BANK0 1 cstackBANK0 dist/default/production\Serial.X.production.o
@@ -2488,8 +2488,8 @@ _Seria_Decodificacion_Memoria 483A 0 CODE 0 text22 dist/default/production\Seria
 __CFG_CCP2MX$ON 0 0 ABS 0 - dist/default/production\Serial.X.production.o
 powf@yisint 150 0 BANK1 1 cstackBANK1 dist/default/production\Serial.X.production.o
 Serial_DecodificacionY@pointerCY 78 0 BANK0 1 cstackBANK0 dist/default/production\Serial.X.production.o
-stackhi 7FF 0 ABS 0 - C:\Users\saenz\AppData\Local\Temp\so44.o
-stacklo 1EE 0 ABS 0 - C:\Users\saenz\AppData\Local\Temp\so44.o
+stackhi 7FF 0 ABS 0 - C:\Users\saenz\AppData\Local\Temp\ssas.o
+stacklo 1EE 0 ABS 0 - C:\Users\saenz\AppData\Local\Temp\ssas.o
 _GPIO_init_PORTA 6D24 0 CODE 0 text63 dist/default/production\Serial.X.production.o
 _GPIO_init_PORTB 6D40 0 CODE 0 text62 dist/default/production\Serial.X.production.o
 _GPIO_init_PORTC 6DB0 0 CODE 0 text61 dist/default/production\Serial.X.production.o
@@ -2661,7 +2661,7 @@ __Ltext77 0 0 ABS 0 text77 dist/default/production\Serial.X.production.o
 __Ltext78 0 0 ABS 0 text78 dist/default/production\Serial.X.production.o
 __Ltext79 0 0 ABS 0 text79 dist/default/production\Serial.X.production.o
 _Serial_RangosCoordenadas 6A50 0 CODE 0 text12 dist/default/production\Serial.X.production.o
-__ramtop 800 0 RAM 0 ramtop C:\Users\saenz\AppData\Local\Temp\so44.o
+__ramtop 800 0 RAM 0 ramtop C:\Users\saenz\AppData\Local\Temp\ssas.o
 ___aldiv@dividend 60 0 BANK0 1 cstackBANK0 dist/default/production\Serial.X.production.o
 __end_of_INT1_ACTION 685A 0 CODE 0 text66 dist/default/production\Serial.X.production.o
 ?_scalbnf 87 0 BANK0 1 cstackBANK0 dist/default/production\Serial.X.production.o

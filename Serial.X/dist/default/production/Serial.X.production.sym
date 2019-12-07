@@ -1069,7 +1069,7 @@ cstackBANK1 100 1ED BANK1 100 1
 %locals
 dist/default/production\Serial.X.production.o
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-C:\Users\saenz\AppData\Local\Temp\so44.s
+C:\Users\saenz\AppData\Local\Temp\ssas.s
 4665 6B7C 0 CODE 0
 4667 6B7C 0 CODE 0
 4670 6B7C 0 CODE 0
@@ -2504,7 +2504,7 @@ GPIOsparcA1.c
 17 6D3A 0 CODE 0
 18 6D3C 0 CODE 0
 21 6D3E 0 CODE 0
-C:\Users\saenz\AppData\Local\Temp\so44.s
+C:\Users\saenz\AppData\Local\Temp\ssas.s
 25482 8 0 CODE 0
 main.c
 65 8 0 CODE 0

@@ -41,10 +41,13 @@ void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY) {
             ENABLE_Y = 1;
         }
     }
+    
     countX = 0;
     oneshotX = 0;
     countY = 0;
     oneshotY = 0;
+    ENABLE_Y = 1;
+     ENABLE_X = 1;
     T2CONbits.TMR2ON = 0; // Timer OFF
     return;
 }
@@ -81,13 +84,13 @@ void PWM_InitF(void) {
     T2CON = 0X03; //PREESCALER 16 TIMER 2
     CCP1CON = 0X0C;
     CCP2CON = 0X0C;
-    T2CONbits.TMR2ON = 0; // Timer ON
+    T2CONbits.TMR2ON = 0; 
     return;
 }
 
 void PWM_InitS(void) {
 
-    PR2 = 0XFF;//FRECUENCIA DE 500HZ
+    PR2 = 0XFA;//FRECUENCIA DE 500HZ
     CCPR1L = 0X3E;//DUTY CICLE 50
     CCPR2L = 0X3E;
     TRISCbits.RC1 = 0;
