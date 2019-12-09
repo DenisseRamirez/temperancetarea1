@@ -8,7 +8,7 @@ SPARC was originally intended as a complete solution which included mechanic, el
 
 Official updates will only be available [here](https://github.com/DenisseRamirez/temperancetarea1).
 ## Events
-SPARC will be formally presented on December, 6th 2019.
+SPARC will be formally presented on December, 12th 2019.
 ## Features
 The Temperance software has the following features:
 - Comprehensive list of commands to perform common human actions such as taps and gestures. 
