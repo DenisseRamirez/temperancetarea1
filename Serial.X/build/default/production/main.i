@@ -5769,18 +5769,8 @@ char *tempnam(const char *, const char *);
 
 # 1 "./main.h" 1
 # 10 "./main.h"
-void __attribute__((picinterrupt(("high_priority")))) INT_isr (void);
-void Int_Ext(void);
-void Int_Ext(void);
-void INT0_ACTION(void);
-void INT1_ACTION(void);
-void INT2_ACTION(void);
 void main_Home(void);
 char home=0;
-
-
-
-void maain_interrrupt();
 # 10 "main.c" 2
 
 # 1 "./configuration.h" 1
@@ -5795,8 +5785,15 @@ void maain_interrrupt();
 
 
 void Control_Z (int Referencia);
+void Control_ConvertirDistancia(int Volts);
+int Control_InsertBits(char Bmenos, char Bmas);
+int Control_LecturaFiltro(int n);
 char controlZ;
 float error;
+float Distancia;
+int Lectura;
+int LecturaFiltro;
+long Suma;
 # 12 "main.c" 2
 
 # 1 "./UART.h" 1
@@ -5854,8 +5851,6 @@ void Motor_Movimiento_Home(char Oupcode,int Motor_CoordenadaX, int Motor_Coorden
 
 char oneshotX=0;
 char oneshotY=0;
-char BanderaX=0;
-char BanderaY=0;
 void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
 
 int PWM_OneshotX(int countX);
@@ -6019,6 +6014,18 @@ void Usart_Interface_OFF(char color);
 void Usart_Interface_ON(char color);
 # 19 "main.c" 2
 
+# 1 "./Interrupt.h" 1
+# 10 "./Interrupt.h"
+void __attribute__((picinterrupt(("")))) INT_isr (void);
+void Int_Ext(void);
+void INT0_ACTION(void);
+void INT1_ACTION(void);
+void INT2_ACTION(void);
+void maain_interrrupt();
+char BanderaX=0;
+char BanderaY=0;
+# 20 "main.c" 2
+
 
 void main(void) {
     OSCCON = 0x72;
@@ -6044,72 +6051,7 @@ void main(void) {
     while(1);
 }
 
-void Int_Ext(void) {
-    TRISD = 0x00;
-    INTCON2bits.RBPU = 1;
-    TRISBbits.RB0 = 1;
-    TRISBbits.RB1 = 1;
-    TRISBbits.RB2 = 1;
-    RCONbits.IPEN = 0;
-    INTCONbits.GIE = 1;
-    INTCONbits.PEIE = 0;
-    INTCONbits.INT0IE = 1;
-    INTCON3bits.INT1IE = 1;
-    INTCON3bits.INT2IE = 1;
-    INTCON2bits.INTEDG0 = 1;
-    INTCON2bits.INTEDG1 = 1;
-    INTCON2bits.INTEDG2 = 1;
-    INTCONbits.INT0F = 0;
-    INTCON3bits.INT1IF = 0;
-    INTCON3bits.INT2IF = 0;
-}
 
-void __attribute__((picinterrupt(("")))) INT_isr(void) {
-
-    if (INTCON3bits.INT1IF == 1) {
-        INT1_ACTION();
-        _delay((unsigned long)((10)*(8000000/4000.0)));
-        INTCON3bits.INT1IF = 0;
-    }
-    if (INTCON3bits.INT2IF == 1) {
-        INT2_ACTION();
-        _delay((unsigned long)((10)*(8000000/4000.0)));
-        INTCON3bits.INT2IF = 0;
-    }
-    if (INTCONbits.INT0IF == 1) {
-        INT0_ACTION();
-        _delay((unsigned long)((10)*(8000000/4000.0)));
-        INTCONbits.INT0F = 0;
-    }
-}
-
-void INT0_ACTION(void) {
-    main_Home();
-    coordenada_anteriorX = 0;
-    coordenada_anteriorY = 0;
-}
-
-void INT1_ACTION(void) {
-    PORTDbits.RD0 = 1;
-    PORTDbits.RD2 = 1;
-    _delay((unsigned long)((100)*(8000000/4000.0)));
-    if (BanderaX == 0) {
-        Motor_Movimiento_Home('S', 10, 0);
-    }
-    BanderaX = 1;
-    return;
-}
-
-void INT2_ACTION(void) {
-    PORTDbits.RD0 = 1;
-    PORTDbits.RD2 = 1;
-    _delay((unsigned long)((100)*(8000000/4000.0)));
-    if (BanderaY == 0) {
-        Motor_Movimiento_Home('S', 0, 10);
-    }
-    BanderaY = 1;
-    return;
-}
 
 void main_Home(void) {
     while (BanderaX == 0) {

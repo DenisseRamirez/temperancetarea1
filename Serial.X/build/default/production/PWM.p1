@@ -1,9 +1,9 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"16 ./PWM.h
-[; ;./PWM.h: 16: void PWM_InitS(void);
+"14 ./PWM.h
+[; ;./PWM.h: 14: void PWM_InitS(void);
 [v _PWM_InitS `(v ~T0 @X0 0 ef ]
-"15
-[; ;./PWM.h: 15: void PWM_InitF(void);
+"13
+[; ;./PWM.h: 13: void PWM_InitF(void);
 [v _PWM_InitF `(v ~T0 @X0 0 ef ]
 "2711 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2711:     struct {
@@ -70,11 +70,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2605
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 2605: extern volatile PORTCbits_t PORTCbits __attribute__((address(0xF82)));
 [v _PORTCbits `VS110 ~T0 @X0 0 e@3970 ]
-"13 ./PWM.h
-[; ;./PWM.h: 13: int PWM_OneshotX(int countX);
+"11 ./PWM.h
+[; ;./PWM.h: 11: int PWM_OneshotX(int countX);
 [v _PWM_OneshotX `(i ~T0 @X0 0 ef1`i ]
-"14
-[; ;./PWM.h: 14: int PWM_OneshotY(int countY);
+"12
+[; ;./PWM.h: 12: int PWM_OneshotY(int countY);
 [v _PWM_OneshotY `(i ~T0 @X0 0 ef1`i ]
 "7298 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 7298: extern volatile unsigned char PR2 __attribute__((address(0xFCB)));
@@ -631,18 +631,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _oneshotY
 -> -> 0 `i `uc
 ]
-"9
-[; ;./PWM.h: 9: char BanderaX=0;
-[v _BanderaX `uc ~T0 @X0 1 e ]
-[i _BanderaX
--> -> 0 `i `uc
-]
-"10
-[; ;./PWM.h: 10: char BanderaY=0;
-[v _BanderaY `uc ~T0 @X0 1 e ]
-[i _BanderaY
--> -> 0 `i `uc
-]
 "7 PWM.c
 [; ;PWM.c: 7: void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY) {
 [v _PWM_GeneratePulsos `(v ~T0 @X0 1 ef3`uc`i`i ]
@@ -798,163 +786,169 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;PWM.c: 24:     while ((countX < pulsosX) || (countY < pulsosY)) {
 [e $ || < _countX _pulsosX < _countY _pulsosY 373  ]
 [e :U 374 ]
-"44
-[; ;PWM.c: 44:     countX = 0;
-[e = _countX -> 0 `i ]
 "45
-[; ;PWM.c: 45:     oneshotX = 0;
-[e = _oneshotX -> -> 0 `i `uc ]
+[; ;PWM.c: 45:     countX = 0;
+[e = _countX -> 0 `i ]
 "46
-[; ;PWM.c: 46:     countY = 0;
-[e = _countY -> 0 `i ]
+[; ;PWM.c: 46:     oneshotX = 0;
+[e = _oneshotX -> -> 0 `i `uc ]
 "47
-[; ;PWM.c: 47:     oneshotY = 0;
-[e = _oneshotY -> -> 0 `i `uc ]
+[; ;PWM.c: 47:     countY = 0;
+[e = _countY -> 0 `i ]
 "48
-[; ;PWM.c: 48:     T2CONbits.TMR2ON = 0;
-[e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
+[; ;PWM.c: 48:     oneshotY = 0;
+[e = _oneshotY -> -> 0 `i `uc ]
 "49
-[; ;PWM.c: 49:     return;
-[e $UE 367  ]
+[; ;PWM.c: 49:     PORTDbits.RD2 = 1;
+[e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
 "50
-[; ;PWM.c: 50: }
+[; ;PWM.c: 50:      PORTDbits.RD0 = 1;
+[e = . . _PORTDbits 0 0 -> -> 1 `i `uc ]
+"51
+[; ;PWM.c: 51:     T2CONbits.TMR2ON = 0;
+[e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
+"52
+[; ;PWM.c: 52:     return;
+[e $UE 367  ]
+"53
+[; ;PWM.c: 53: }
 [e :UE 367 ]
 }
-"74
-[; ;PWM.c: 74: void PWM_InitF(void) {
+"77
+[; ;PWM.c: 77: void PWM_InitF(void) {
 [v _PWM_InitF `(v ~T0 @X0 1 ef ]
 {
 [e :U _PWM_InitF ]
 [f ]
-"76
-[; ;PWM.c: 76:     PR2 = 0X7C;
-[e = _PR2 -> -> 124 `i `uc ]
-"77
-[; ;PWM.c: 77:     CCPR1L = 0X3E;
-[e = _CCPR1L -> -> 62 `i `uc ]
-"78
-[; ;PWM.c: 78:     CCPR2L = 0X3E;
-[e = _CCPR2L -> -> 62 `i `uc ]
 "79
-[; ;PWM.c: 79:     TRISCbits.RC1 = 0;
-[e = . . _TRISCbits 1 1 -> -> 0 `i `uc ]
+[; ;PWM.c: 79:     PR2 = 0X7C;
+[e = _PR2 -> -> 124 `i `uc ]
 "80
-[; ;PWM.c: 80:     TRISCbits.RC2 = 0;
-[e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
+[; ;PWM.c: 80:     CCPR1L = 0X3E;
+[e = _CCPR1L -> -> 62 `i `uc ]
 "81
-[; ;PWM.c: 81:     T2CON = 0X03;
-[e = _T2CON -> -> 3 `i `uc ]
+[; ;PWM.c: 81:     CCPR2L = 0X3E;
+[e = _CCPR2L -> -> 62 `i `uc ]
 "82
-[; ;PWM.c: 82:     CCP1CON = 0X0C;
-[e = _CCP1CON -> -> 12 `i `uc ]
+[; ;PWM.c: 82:     TRISCbits.RC1 = 0;
+[e = . . _TRISCbits 1 1 -> -> 0 `i `uc ]
 "83
-[; ;PWM.c: 83:     CCP2CON = 0X0C;
-[e = _CCP2CON -> -> 12 `i `uc ]
+[; ;PWM.c: 83:     TRISCbits.RC2 = 0;
+[e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
 "84
-[; ;PWM.c: 84:     T2CONbits.TMR2ON = 0;
-[e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
+[; ;PWM.c: 84:     T2CON = 0X03;
+[e = _T2CON -> -> 3 `i `uc ]
 "85
-[; ;PWM.c: 85:     return;
-[e $UE 383  ]
+[; ;PWM.c: 85:     CCP1CON = 0X0C;
+[e = _CCP1CON -> -> 12 `i `uc ]
 "86
-[; ;PWM.c: 86: }
+[; ;PWM.c: 86:     CCP2CON = 0X0C;
+[e = _CCP2CON -> -> 12 `i `uc ]
+"87
+[; ;PWM.c: 87:     T2CONbits.TMR2ON = 0;
+[e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
+"88
+[; ;PWM.c: 88:     return;
+[e $UE 383  ]
+"89
+[; ;PWM.c: 89: }
 [e :UE 383 ]
 }
-"88
-[; ;PWM.c: 88: void PWM_InitS(void) {
+"91
+[; ;PWM.c: 91: void PWM_InitS(void) {
 [v _PWM_InitS `(v ~T0 @X0 1 ef ]
 {
 [e :U _PWM_InitS ]
 [f ]
-"90
-[; ;PWM.c: 90:     PR2 = 0XFF;
-[e = _PR2 -> -> 255 `i `uc ]
-"91
-[; ;PWM.c: 91:     CCPR1L = 0X3E;
-[e = _CCPR1L -> -> 62 `i `uc ]
-"92
-[; ;PWM.c: 92:     CCPR2L = 0X3E;
-[e = _CCPR2L -> -> 62 `i `uc ]
 "93
-[; ;PWM.c: 93:     TRISCbits.RC1 = 0;
-[e = . . _TRISCbits 1 1 -> -> 0 `i `uc ]
+[; ;PWM.c: 93:     PR2 = 0XF0;
+[e = _PR2 -> -> 240 `i `uc ]
 "94
-[; ;PWM.c: 94:     TRISCbits.RC2 = 0;
-[e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
+[; ;PWM.c: 94:     CCPR1L = 0X3E;
+[e = _CCPR1L -> -> 62 `i `uc ]
 "95
-[; ;PWM.c: 95:     T2CON = 0X03;
-[e = _T2CON -> -> 3 `i `uc ]
+[; ;PWM.c: 95:     CCPR2L = 0X3E;
+[e = _CCPR2L -> -> 62 `i `uc ]
 "96
-[; ;PWM.c: 96:     CCP1CON = 0X0C;
-[e = _CCP1CON -> -> 12 `i `uc ]
+[; ;PWM.c: 96:     TRISCbits.RC1 = 0;
+[e = . . _TRISCbits 1 1 -> -> 0 `i `uc ]
 "97
-[; ;PWM.c: 97:     CCP2CON = 0X0C;
-[e = _CCP2CON -> -> 12 `i `uc ]
+[; ;PWM.c: 97:     TRISCbits.RC2 = 0;
+[e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
 "98
-[; ;PWM.c: 98:     T2CONbits.TMR2ON = 0;
-[e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
+[; ;PWM.c: 98:     T2CON = 0X03;
+[e = _T2CON -> -> 3 `i `uc ]
 "99
-[; ;PWM.c: 99:     return;
-[e $UE 384  ]
+[; ;PWM.c: 99:     CCP1CON = 0X0C;
+[e = _CCP1CON -> -> 12 `i `uc ]
 "100
-[; ;PWM.c: 100: }
+[; ;PWM.c: 100:     CCP2CON = 0X0C;
+[e = _CCP2CON -> -> 12 `i `uc ]
+"101
+[; ;PWM.c: 101:     T2CONbits.TMR2ON = 0;
+[e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
+"102
+[; ;PWM.c: 102:     return;
+[e $UE 384  ]
+"103
+[; ;PWM.c: 103: }
 [e :UE 384 ]
 }
-"102
-[; ;PWM.c: 102: int PWM_OneshotX(int countX) {
+"105
+[; ;PWM.c: 105: int PWM_OneshotX(int countX) {
 [v _PWM_OneshotX `(i ~T0 @X0 1 ef1`i ]
 {
 [e :U _PWM_OneshotX ]
 [v _countX `i ~T0 @X0 1 r1 ]
 [f ]
-"103
-[; ;PWM.c: 103:     if (PORTCbits.RC1 == 1 & oneshotX == 0) {
+"106
+[; ;PWM.c: 106:     if (PORTCbits.RC1 == 1 & oneshotX == 0) {
 [e $ ! & == -> . . _PORTCbits 0 1 `i -> 1 `i == -> _oneshotX `i -> 0 `i 386  ]
 {
-"104
-[; ;PWM.c: 104:         countX++;
+"107
+[; ;PWM.c: 107:         countX++;
 [e ++ _countX -> 1 `i ]
-"105
-[; ;PWM.c: 105:         oneshotX = 1;
+"108
+[; ;PWM.c: 108:         oneshotX = 1;
 [e = _oneshotX -> -> 1 `i `uc ]
-"106
-[; ;PWM.c: 106:     }
+"109
+[; ;PWM.c: 109:     }
 }
 [e :U 386 ]
-"107
-[; ;PWM.c: 107:     return countX;
+"110
+[; ;PWM.c: 110:     return countX;
 [e ) _countX ]
 [e $UE 385  ]
-"108
-[; ;PWM.c: 108: }
+"111
+[; ;PWM.c: 111: }
 [e :UE 385 ]
 }
-"110
-[; ;PWM.c: 110: int PWM_OneshotY(int countY) {
+"113
+[; ;PWM.c: 113: int PWM_OneshotY(int countY) {
 [v _PWM_OneshotY `(i ~T0 @X0 1 ef1`i ]
 {
 [e :U _PWM_OneshotY ]
 [v _countY `i ~T0 @X0 1 r1 ]
 [f ]
-"111
-[; ;PWM.c: 111:     if (PORTCbits.RC2 == 1 & oneshotY == 0) {
+"114
+[; ;PWM.c: 114:     if (PORTCbits.RC2 == 1 & oneshotY == 0) {
 [e $ ! & == -> . . _PORTCbits 0 2 `i -> 1 `i == -> _oneshotY `i -> 0 `i 388  ]
 {
-"112
-[; ;PWM.c: 112:         countY++;
+"115
+[; ;PWM.c: 115:         countY++;
 [e ++ _countY -> 1 `i ]
-"113
-[; ;PWM.c: 113:         oneshotY = 1;
+"116
+[; ;PWM.c: 116:         oneshotY = 1;
 [e = _oneshotY -> -> 1 `i `uc ]
-"114
-[; ;PWM.c: 114:     }
+"117
+[; ;PWM.c: 117:     }
 }
 [e :U 388 ]
-"115
-[; ;PWM.c: 115:     return countY;
+"118
+[; ;PWM.c: 118:     return countY;
 [e ) _countY ]
 [e $UE 387  ]
-"116
-[; ;PWM.c: 116: }
+"119
+[; ;PWM.c: 119: }
 [e :UE 387 ]
 }

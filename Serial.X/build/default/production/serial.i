@@ -5880,8 +5880,6 @@ char Conexion_perdida=0;
 
 char oneshotX=0;
 char oneshotY=0;
-char BanderaX=0;
-char BanderaY=0;
 void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
 
 int PWM_OneshotX(int countX);
@@ -6044,8 +6042,15 @@ void GPIO_init_PORTE(void);
 
 
 void Control_Z (int Referencia);
+void Control_ConvertirDistancia(int Volts);
+int Control_InsertBits(char Bmenos, char Bmas);
+int Control_LecturaFiltro(int n);
 char controlZ;
 float error;
+float Distancia;
+int Lectura;
+int LecturaFiltro;
+long Suma;
 # 21 "serial.c" 2
 
 # 1 "./User_Interface.h" 1
@@ -6062,9 +6067,7 @@ void Usart_Interface_ON(char color);
 
 
 void Serial_Oupcode(void) {
-# 36 "serial.c"
     char instruction_counter = 0;
-
     while (1) {
         if (instruction_counter == 0) {
             USART_TxS("R\n", sizeof ("R\n") - 1);
@@ -6258,7 +6261,7 @@ void Serial_DecodificacionY(char string_coordenada[], int *pointerCY) {
     *pointerCY = atoi(coordenadaY);
     return;
 }
-# 247 "serial.c"
+# 235 "serial.c"
 void Serial_RangosCoordenadas(int C) {
     if (C > 300 || C < 0) {
         Coordenadas_fuera = 1;

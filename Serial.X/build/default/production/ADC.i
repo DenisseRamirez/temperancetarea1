@@ -6155,50 +6155,17 @@ double yn(int, double);
 
 # 1 "./ADC.h" 1
 # 10 "./ADC.h"
+void ADC_Lectura(void);
+void ADC_Init(void) ;
 char bites_menosS;
 char bites_masS;
-int Lectura;
-int LecturaFiltro;
-long Suma;
-float Distancia;
-void ADC_ConvertirDistancia(int Volts);
-int ADC_InsertBits(char Bmenos, char Bmas);
-int ADC_LecturaFiltro(int n);
-void ADC_Init(void) ;
 # 12 "ADC.c" 2
-
-
-
-
-
-
-
-
-void ADC_ConvertirDistancia(int Volts) {
-    Distancia = 3143 * powf(Volts,-1.0610) + .3;
-    Distancia = Distancia * 10;
-}
-
-int ADC_InsertBits(char Bmenos, char Bmas) {
-    Bmas &= ~(0xC);
-    Lectura = Bmenos;
-    Lectura &= ~(0xFFFFFF << 8);
-    Lectura |= ((Bmas & 0x3) << 8);
-    return Lectura;
-}
-
-int ADC_LecturaFiltro(int n) {
-    int lectura = 0;
-    Suma = 0;
+# 21 "ADC.c"
+void ADC_Lectura(void) {
     ADCON0bits.GO_DONE = 1;
-    for (int i = 0; i < n; i++) {
-        while (ADCON0bits.GO_DONE);
-        bites_menosS = ADRESL;
-        bites_masS = ADRESH;
-        lectura = ADC_InsertBits(bites_menosS, bites_masS);
-        Suma = Suma + lectura;
-    }
-    return (Suma / n);
+    while (ADCON0bits.GO_DONE);
+    bites_menosS = ADRESL;
+    bites_masS = ADRESH;
 }
 void ADC_Init(void) {
     TRISAbits.RA0 = 1;

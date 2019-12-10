@@ -235,16 +235,10 @@ size_t __ctype_get_mb_cur_max(void);
 
 # 1 "./ADC.h" 1
 # 10 "./ADC.h"
+void ADC_Lectura(void);
+void ADC_Init(void) ;
 char bites_menosS;
 char bites_masS;
-int Lectura;
-int LecturaFiltro;
-long Suma;
-float Distancia;
-void ADC_ConvertirDistancia(int Volts);
-int ADC_InsertBits(char Bmenos, char Bmas);
-int ADC_LecturaFiltro(int n);
-void ADC_Init(void) ;
 # 10 "ControlZ.c" 2
 
 # 1 "./ControlZ.h" 1
@@ -256,8 +250,15 @@ void ADC_Init(void) ;
 
 
 void Control_Z (int Referencia);
+void Control_ConvertirDistancia(int Volts);
+int Control_InsertBits(char Bmenos, char Bmas);
+int Control_LecturaFiltro(int n);
 char controlZ;
 float error;
+float Distancia;
+int Lectura;
+int LecturaFiltro;
+long Suma;
 # 11 "ControlZ.c" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
@@ -6302,8 +6303,8 @@ void Control_Z (int Referencia){
    do { LATDbits.LATD5 = 0; } while(0);
     do { LATDbits.LATD6 = 0; } while(0);
     while (controlZ < 10) {
-        LecturaFiltro = ADC_LecturaFiltro(50);
-         ADC_ConvertirDistancia(LecturaFiltro);
+        LecturaFiltro = Control_LecturaFiltro(50);
+         Control_ConvertirDistancia(LecturaFiltro);
         if (Referencia > Distancia) {
             error = Referencia - Distancia;
             do { LATDbits.LATD4 = 0; } while(0);
@@ -6327,4 +6328,30 @@ void Control_Z (int Referencia){
             do { LATDbits.LATD6 = 0; } while(0);
             do { LATDbits.LATD4 = 1; } while(0);
           _delay((unsigned long)((50)*(8000000/4000.0)));
+}
+
+
+
+void Control_ConvertirDistancia(int Volts) {
+    Distancia = 3143 * powf(Volts,-1.0610) + .3;
+    Distancia = Distancia * 10;
+}
+
+int Control_InsertBits(char Bmenos, char Bmas) {
+    Bmas &= ~(0xC);
+    Lectura = Bmenos;
+    Lectura &= ~(0xFFFFFF << 8);
+    Lectura |= ((Bmas & 0x3) << 8);
+    return Lectura;
+}
+
+int Control_LecturaFiltro(int n) {
+    int lectura = 0;
+    Suma = 0;
+    for (int i = 0; i < n; i++) {
+        ADC_Lectura();
+        lectura = Control_InsertBits(bites_menosS, bites_masS);
+        Suma = Suma + lectura;
+    }
+    return (Suma / n);
 }

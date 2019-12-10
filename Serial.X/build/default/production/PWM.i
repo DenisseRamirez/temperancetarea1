@@ -5633,8 +5633,6 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 char oneshotX=0;
 char oneshotY=0;
-char BanderaX=0;
-char BanderaY=0;
 void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
 
 int PWM_OneshotX(int countX);
@@ -5784,14 +5782,17 @@ void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY) {
             PORTDbits.RD2 = 1;
         }
     }
+
     countX = 0;
     oneshotX = 0;
     countY = 0;
     oneshotY = 0;
+    PORTDbits.RD2 = 1;
+     PORTDbits.RD0 = 1;
     T2CONbits.TMR2ON = 0;
     return;
 }
-# 74 "PWM.c"
+# 77 "PWM.c"
 void PWM_InitF(void) {
 
     PR2 = 0X7C;
@@ -5808,7 +5809,7 @@ void PWM_InitF(void) {
 
 void PWM_InitS(void) {
 
-    PR2 = 0XFF;
+    PR2 = 0XF0;
     CCPR1L = 0X3E;
     CCPR2L = 0X3E;
     TRISCbits.RC1 = 0;

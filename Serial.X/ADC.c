@@ -17,31 +17,12 @@
 //X=4 4us
 
 
-void ADC_ConvertirDistancia(int Volts) {
-    Distancia = 3143 * pow(Volts, -1.0610) + .3;
-    Distancia = Distancia * 10; // COnvertir cm a mm
-}
 
-int ADC_InsertBits(char Bmenos, char Bmas) {
-    Bmas &= ~(0xC); //PONE EN 0 LOS 6 BITS MAS SIGNIFICATIVOS 
-    Lectura = Bmenos; // AGREGA LOS BITS MENOS SIGNIFICATIVOS A LA VARIABLE
-    Lectura &= ~(0xFFFFFF << 8); // LIMPIA LOS 6 BYTES MAS SIGNIFICATIVOS PARA POSTERIOR ESCRITURA
-    Lectura |= ((Bmas & 0x3) << 8); //Agrega los 2 bits mas significativos
-    return Lectura;
-}
-
-int ADC_LecturaFiltro(int n) {
-    int lectura = 0;
-    Suma = 0;
+void ADC_Lectura(void) {
     ADCON0bits.GO_DONE = 1; //Inicia la COnversió AD.
-    for (int i = 0; i < n; i++) {
-        while (ADCON0bits.GO_DONE);
-        bites_menosS = ADRESL; //Guardas los 8 bits menos significativos de la lectura
-        bites_masS = ADRESH; //Guardas los 2 bits mas significativos de la lectura
-        lectura = ADC_InsertBits(bites_menosS, bites_masS);
-        Suma = Suma + lectura;
-    }
-    return (Suma / n);
+    while (ADCON0bits.GO_DONE);
+    bites_menosS = ADRESL; //Guardas los 8 bits menos significativos de la lectura
+    bites_masS = ADRESH; //Guardas los 2 bits mas significativos de la lectura
 }
 void ADC_Init(void) {
     TRISAbits.RA0 = 1; //RA0 COMO ENTRADA

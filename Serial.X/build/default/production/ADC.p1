@@ -1,8 +1,4 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F3789 `(f ~T0 @X0 1 tf2`f`f ]
-"319 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\math.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\math.h: 319: __attribute__((nonreentrant)) float powf(float, float);
-[v _powf `JF3789 ~T0 @X0 0 e ]
 "6672 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 6672:     struct {
 [s S275 :1 `uc 1 :1 `uc 1 ]
@@ -607,160 +603,69 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8893
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"10 ./ADC.h
-[; ;./ADC.h: 10: char bites_menosS;
+"12 ./ADC.h
+[; ;./ADC.h: 12: char bites_menosS;
 [v _bites_menosS `uc ~T0 @X0 1 e ]
-"11
-[; ;./ADC.h: 11: char bites_masS;
-[v _bites_masS `uc ~T0 @X0 1 e ]
-"12
-[; ;./ADC.h: 12: int Lectura;
-[v _Lectura `i ~T0 @X0 1 e ]
 "13
-[; ;./ADC.h: 13: int LecturaFiltro;
-[v _LecturaFiltro `i ~T0 @X0 1 e ]
-"14
-[; ;./ADC.h: 14: long Suma;
-[v _Suma `l ~T0 @X0 1 e ]
-"15
-[; ;./ADC.h: 15: float Distancia;
-[v _Distancia `f ~T0 @X0 1 e ]
-"20 ADC.c
-[; ;ADC.c: 20: void ADC_ConvertirDistancia(int Volts) {
-[v _ADC_ConvertirDistancia `(v ~T0 @X0 1 ef1`i ]
+[; ;./ADC.h: 13: char bites_masS;
+[v _bites_masS `uc ~T0 @X0 1 e ]
+"21 ADC.c
+[; ;ADC.c: 21: void ADC_Lectura(void) {
+[v _ADC_Lectura `(v ~T0 @X0 1 ef ]
 {
-[e :U _ADC_ConvertirDistancia ]
-[v _Volts `i ~T0 @X0 1 r1 ]
+[e :U _ADC_Lectura ]
 [f ]
-"21
-[; ;ADC.c: 21:     Distancia = 3143 * powf(Volts,-1.0610) + .3;
-[e = _Distancia -> + -> * -> -> 3143 `i `f ( _powf (2 , -> _Volts `f -> -U .1.0610 `f `d .0.3 `f ]
 "22
-[; ;ADC.c: 22:     Distancia = Distancia * 10;
-[e = _Distancia * _Distancia -> -> 10 `i `f ]
+[; ;ADC.c: 22:     ADCON0bits.GO_DONE = 1;
+[e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
 "23
-[; ;ADC.c: 23: }
+[; ;ADC.c: 23:     while (ADCON0bits.GO_DONE);
+[e $U 370  ]
+[e :U 371 ]
+[e :U 370 ]
+[e $ != -> . . _ADCON0bits 2 1 `i -> 0 `i 371  ]
+[e :U 372 ]
+"24
+[; ;ADC.c: 24:     bites_menosS = ADRESL;
+[e = _bites_menosS -> _ADRESL `uc ]
+"25
+[; ;ADC.c: 25:     bites_masS = ADRESH;
+[e = _bites_masS -> _ADRESH `uc ]
+"26
+[; ;ADC.c: 26: }
 [e :UE 369 ]
 }
-"25
-[; ;ADC.c: 25: int ADC_InsertBits(char Bmenos, char Bmas) {
-[v _ADC_InsertBits `(i ~T0 @X0 1 ef2`uc`uc ]
-{
-[e :U _ADC_InsertBits ]
-[v _Bmenos `uc ~T0 @X0 1 r1 ]
-[v _Bmas `uc ~T0 @X0 1 r2 ]
-[f ]
-"26
-[; ;ADC.c: 26:     Bmas &= ~(0xC);
-[e =& _Bmas -> ~ -> 12 `i `uc ]
 "27
-[; ;ADC.c: 27:     Lectura = Bmenos;
-[e = _Lectura -> _Bmenos `i ]
-"28
-[; ;ADC.c: 28:     Lectura &= ~(0xFFFFFF << 8);
-[e =& _Lectura -> ~ << -> 16777215 `l -> 8 `i `i ]
-"29
-[; ;ADC.c: 29:     Lectura |= ((Bmas & 0x3) << 8);
-[e =| _Lectura << & -> _Bmas `i -> 3 `i -> 8 `i ]
-"30
-[; ;ADC.c: 30:     return Lectura;
-[e ) _Lectura ]
-[e $UE 370  ]
-"31
-[; ;ADC.c: 31: }
-[e :UE 370 ]
-}
-"33
-[; ;ADC.c: 33: int ADC_LecturaFiltro(int n) {
-[v _ADC_LecturaFiltro `(i ~T0 @X0 1 ef1`i ]
-{
-[e :U _ADC_LecturaFiltro ]
-[v _n `i ~T0 @X0 1 r1 ]
-[f ]
-"34
-[; ;ADC.c: 34:     int lectura = 0;
-[v _lectura `i ~T0 @X0 1 a ]
-[e = _lectura -> 0 `i ]
-"35
-[; ;ADC.c: 35:     Suma = 0;
-[e = _Suma -> -> 0 `i `l ]
-"36
-[; ;ADC.c: 36:     ADCON0bits.GO_DONE = 1;
-[e = . . _ADCON0bits 2 1 -> -> 1 `i `uc ]
-"37
-[; ;ADC.c: 37:     for (int i = 0; i < n; i++) {
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $U 375  ]
-[e :U 372 ]
-{
-"38
-[; ;ADC.c: 38:         while (ADCON0bits.GO_DONE);
-[e $U 376  ]
-[e :U 377 ]
-[e :U 376 ]
-[e $ != -> . . _ADCON0bits 2 1 `i -> 0 `i 377  ]
-[e :U 378 ]
-"39
-[; ;ADC.c: 39:         bites_menosS = ADRESL;
-[e = _bites_menosS -> _ADRESL `uc ]
-"40
-[; ;ADC.c: 40:         bites_masS = ADRESH;
-[e = _bites_masS -> _ADRESH `uc ]
-"41
-[; ;ADC.c: 41:         lectura = ADC_InsertBits(bites_menosS, bites_masS);
-[e = _lectura ( _ADC_InsertBits (2 , _bites_menosS _bites_masS ]
-"42
-[; ;ADC.c: 42:         Suma = Suma + lectura;
-[e = _Suma + _Suma -> _lectura `l ]
-"43
-[; ;ADC.c: 43:     }
-}
-[e ++ _i -> 1 `i ]
-[e :U 375 ]
-[e $ < _i _n 372  ]
-[e :U 373 ]
-}
-"44
-[; ;ADC.c: 44:     return (Suma / n);
-[e ) -> / _Suma -> _n `l `i ]
-[e $UE 371  ]
-"45
-[; ;ADC.c: 45: }
-[e :UE 371 ]
-}
-"46
-[; ;ADC.c: 46: void ADC_Init(void) {
+[; ;ADC.c: 27: void ADC_Init(void) {
 [v _ADC_Init `(v ~T0 @X0 1 ef ]
 {
 [e :U _ADC_Init ]
 [f ]
-"47
-[; ;ADC.c: 47:     TRISAbits.RA0 = 1;
+"28
+[; ;ADC.c: 28:     TRISAbits.RA0 = 1;
 [e = . . _TRISAbits 1 0 -> -> 1 `i `uc ]
-"48
-[; ;ADC.c: 48:     ADCON1bits.PCFG = 0b1110;
+"29
+[; ;ADC.c: 29:     ADCON1bits.PCFG = 0b1110;
 [e = . . _ADCON1bits 0 0 -> -> 14 `i `uc ]
-"49
-[; ;ADC.c: 49:     ADCON1bits.VCFG = 0b00;
+"30
+[; ;ADC.c: 30:     ADCON1bits.VCFG = 0b00;
 [e = . . _ADCON1bits 0 1 -> -> 0 `i `uc ]
-"50
-[; ;ADC.c: 50:     ADCON0bits.CHS = 0b0000;
+"31
+[; ;ADC.c: 31:     ADCON0bits.CHS = 0b0000;
 [e = . . _ADCON0bits 1 2 -> -> 0 `i `uc ]
-"51
-[; ;ADC.c: 51:     ADCON2bits.ACQT = 4;
+"32
+[; ;ADC.c: 32:     ADCON2bits.ACQT = 4;
 [e = . . _ADCON2bits 0 1 -> -> 4 `i `uc ]
-"52
-[; ;ADC.c: 52:     ADCON2bits.ADCS = 4;
+"33
+[; ;ADC.c: 33:     ADCON2bits.ADCS = 4;
 [e = . . _ADCON2bits 0 0 -> -> 4 `i `uc ]
-"53
-[; ;ADC.c: 53:     ADCON2bits.ADFM = 1;
+"34
+[; ;ADC.c: 34:     ADCON2bits.ADFM = 1;
 [e = . . _ADCON2bits 0 3 -> -> 1 `i `uc ]
-"54
-[; ;ADC.c: 54:     ADCON0bits.ADON = 1;
+"35
+[; ;ADC.c: 35:     ADCON0bits.ADON = 1;
 [e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
-"55
-[; ;ADC.c: 55: }
-[e :UE 379 ]
+"36
+[; ;ADC.c: 36: }
+[e :UE 373 ]
 }

@@ -27,8 +27,8 @@ void Control_Z (int Referencia){
    INPUT_A_SetLow(); //Inputs de puente H en sto
     INPUT_B_SetLow(); //Input puente 
     while (controlZ < 10) {
-        LecturaFiltro = ADC_LecturaFiltro(50);
-         ADC_ConvertirDistancia(LecturaFiltro);
+        LecturaFiltro = Control_LecturaFiltro(50);
+         Control_ConvertirDistancia(LecturaFiltro);
         if (Referencia > Distancia) {
             error = Referencia - Distancia;
             ENABLE_Z_SetLow(); //Puente H activado
@@ -52,6 +52,32 @@ void Control_Z (int Referencia){
             INPUT_B_SetLow(); //Input puente H
             ENABLE_Z_SetHigh(); //Puente H desactivado
           __delay_ms(50);
+}
+
+
+
+void Control_ConvertirDistancia(int Volts) {
+    Distancia = 3143 * pow(Volts, -1.0610) + .3;
+    Distancia = Distancia * 10; // COnvertir cm a mm
+}
+
+int Control_InsertBits(char Bmenos, char Bmas) {
+    Bmas &= ~(0xC); //PONE EN 0 LOS 6 BITS MAS SIGNIFICATIVOS 
+    Lectura = Bmenos; // AGREGA LOS BITS MENOS SIGNIFICATIVOS A LA VARIABLE
+    Lectura &= ~(0xFFFFFF << 8); // LIMPIA LOS 6 BYTES MAS SIGNIFICATIVOS PARA POSTERIOR ESCRITURA
+    Lectura |= ((Bmas & 0x3) << 8); //Agrega los 2 bits mas significativos
+    return Lectura;
+}
+
+int Control_LecturaFiltro(int n) {
+    int lectura = 0;
+    Suma = 0;
+    for (int i = 0; i < n; i++) {
+        ADC_Lectura();
+        lectura = Control_InsertBits(bites_menosS, bites_masS);
+        Suma = Suma + lectura;
+    }
+    return (Suma / n);
 }
 /*Referencia = 150
 Sensor = read_ADC()

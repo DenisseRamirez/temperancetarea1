@@ -2,8 +2,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "14 ./UART.h
 [; ;./UART.h: 14: char USART_TxS(char str[], int length);
 [v _USART_TxS `(uc ~T0 @X0 0 ef2`*uc`i ]
-"19 ./ADC.h
-[; ;./ADC.h: 19: void ADC_Init(void) ;
+"11 ./ADC.h
+[; ;./ADC.h: 11: void ADC_Init(void) ;
 [v _ADC_Init `(v ~T0 @X0 0 ef ]
 "3269 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3269:     struct {
@@ -20,43 +20,50 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3290
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 3290: extern volatile LATDbits_t LATDbits __attribute__((address(0xF8C)));
 [v _LATDbits `VS137 ~T0 @X0 0 e@3980 ]
-"18 ./ADC.h
-[; ;./ADC.h: 18: int ADC_LecturaFiltro(int n);
-[v _ADC_LecturaFiltro `(i ~T0 @X0 0 ef1`i ]
-"16
-[; ;./ADC.h: 16: void ADC_ConvertirDistancia(int Volts);
-[v _ADC_ConvertirDistancia `(v ~T0 @X0 0 ef1`i ]
+"11 ./ControlZ.h
+[; ;./ControlZ.h: 11: int Control_LecturaFiltro(int n);
+[v _Control_LecturaFiltro `(i ~T0 @X0 0 ef1`i ]
+"9
+[; ;./ControlZ.h: 9: void Control_ConvertirDistancia(int Volts);
+[v _Control_ConvertirDistancia `(v ~T0 @X0 0 ef1`i ]
 "162 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\math.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\math.h: 162: float fabsf(float);
 [v _fabsf `(f ~T0 @X0 0 ef1`f ]
-[v F3488 `(v ~T0 @X0 1 tf1`ul ]
+[v F3489 `(v ~T0 @X0 1 tf1`ul ]
 "187 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18.h
-[v __delay `JF3488 ~T0 @X0 0 e ]
+[v __delay `JF3489 ~T0 @X0 0 e ]
 [p i __delay ]
+[v F3837 `(f ~T0 @X0 1 tf2`f`f ]
+"319 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\math.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\math.h: 319: __attribute__((nonreentrant)) float powf(float, float);
+[v _powf `JF3837 ~T0 @X0 0 e ]
 "10 ./ADC.h
-[; ;./ADC.h: 10: char bites_menosS;
+[; ;./ADC.h: 10: void ADC_Lectura(void);
+[v _ADC_Lectura `(v ~T0 @X0 0 ef ]
+"12 ./ADC.h
+[; ;./ADC.h: 12: char bites_menosS;
 [v _bites_menosS `uc ~T0 @X0 1 e ]
-"11
-[; ;./ADC.h: 11: char bites_masS;
-[v _bites_masS `uc ~T0 @X0 1 e ]
-"12
-[; ;./ADC.h: 12: int Lectura;
-[v _Lectura `i ~T0 @X0 1 e ]
 "13
-[; ;./ADC.h: 13: int LecturaFiltro;
-[v _LecturaFiltro `i ~T0 @X0 1 e ]
-"14
-[; ;./ADC.h: 14: long Suma;
-[v _Suma `l ~T0 @X0 1 e ]
-"15
-[; ;./ADC.h: 15: float Distancia;
-[v _Distancia `f ~T0 @X0 1 e ]
-"9 ./ControlZ.h
-[; ;./ControlZ.h: 9: char controlZ;
+[; ;./ADC.h: 13: char bites_masS;
+[v _bites_masS `uc ~T0 @X0 1 e ]
+"12 ./ControlZ.h
+[; ;./ControlZ.h: 12: char controlZ;
 [v _controlZ `uc ~T0 @X0 1 e ]
-"10
-[; ;./ControlZ.h: 10: float error;
+"13
+[; ;./ControlZ.h: 13: float error;
 [v _error `f ~T0 @X0 1 e ]
+"14
+[; ;./ControlZ.h: 14: float Distancia;
+[v _Distancia `f ~T0 @X0 1 e ]
+"15
+[; ;./ControlZ.h: 15: int Lectura;
+[v _Lectura `i ~T0 @X0 1 e ]
+"16
+[; ;./ControlZ.h: 16: int LecturaFiltro;
+[v _LecturaFiltro `i ~T0 @X0 1 e ]
+"17
+[; ;./ControlZ.h: 17: long Suma;
+[v _Suma `l ~T0 @X0 1 e ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -619,11 +626,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 380 ]
 {
 "30
-[; ;ControlZ.c: 30:         LecturaFiltro = ADC_LecturaFiltro(50);
-[e = _LecturaFiltro ( _ADC_LecturaFiltro (1 -> 50 `i ]
+[; ;ControlZ.c: 30:         LecturaFiltro = Control_LecturaFiltro(50);
+[e = _LecturaFiltro ( _Control_LecturaFiltro (1 -> 50 `i ]
 "31
-[; ;ControlZ.c: 31:          ADC_ConvertirDistancia(LecturaFiltro);
-[e ( _ADC_ConvertirDistancia (1 _LecturaFiltro ]
+[; ;ControlZ.c: 31:          Control_ConvertirDistancia(LecturaFiltro);
+[e ( _Control_ConvertirDistancia (1 _LecturaFiltro ]
 "32
 [; ;ControlZ.c: 32:         if (Referencia > Distancia) {
 [e $ ! > -> _Referencia `f _Distancia 382  ]
@@ -747,5 +754,97 @@ Version 4.0 HI-TECH Software Intermediate Code
 "55
 [; ;ControlZ.c: 55: }
 [e :UE 369 ]
+}
+"59
+[; ;ControlZ.c: 59: void Control_ConvertirDistancia(int Volts) {
+[v _Control_ConvertirDistancia `(v ~T0 @X0 1 ef1`i ]
+{
+[e :U _Control_ConvertirDistancia ]
+[v _Volts `i ~T0 @X0 1 r1 ]
+[f ]
+"60
+[; ;ControlZ.c: 60:     Distancia = 3143 * powf(Volts,-1.0610) + .3;
+[e = _Distancia -> + -> * -> -> 3143 `i `f ( _powf (2 , -> _Volts `f -> -U .1.0610 `f `d .0.3 `f ]
+"61
+[; ;ControlZ.c: 61:     Distancia = Distancia * 10;
+[e = _Distancia * _Distancia -> -> 10 `i `f ]
+"62
+[; ;ControlZ.c: 62: }
+[e :UE 416 ]
+}
+"64
+[; ;ControlZ.c: 64: int Control_InsertBits(char Bmenos, char Bmas) {
+[v _Control_InsertBits `(i ~T0 @X0 1 ef2`uc`uc ]
+{
+[e :U _Control_InsertBits ]
+[v _Bmenos `uc ~T0 @X0 1 r1 ]
+[v _Bmas `uc ~T0 @X0 1 r2 ]
+[f ]
+"65
+[; ;ControlZ.c: 65:     Bmas &= ~(0xC);
+[e =& _Bmas -> ~ -> 12 `i `uc ]
+"66
+[; ;ControlZ.c: 66:     Lectura = Bmenos;
+[e = _Lectura -> _Bmenos `i ]
+"67
+[; ;ControlZ.c: 67:     Lectura &= ~(0xFFFFFF << 8);
+[e =& _Lectura -> ~ << -> 16777215 `l -> 8 `i `i ]
+"68
+[; ;ControlZ.c: 68:     Lectura |= ((Bmas & 0x3) << 8);
+[e =| _Lectura << & -> _Bmas `i -> 3 `i -> 8 `i ]
+"69
+[; ;ControlZ.c: 69:     return Lectura;
+[e ) _Lectura ]
+[e $UE 417  ]
+"70
+[; ;ControlZ.c: 70: }
+[e :UE 417 ]
+}
+"72
+[; ;ControlZ.c: 72: int Control_LecturaFiltro(int n) {
+[v _Control_LecturaFiltro `(i ~T0 @X0 1 ef1`i ]
+{
+[e :U _Control_LecturaFiltro ]
+[v _n `i ~T0 @X0 1 r1 ]
+[f ]
+"73
+[; ;ControlZ.c: 73:     int lectura = 0;
+[v _lectura `i ~T0 @X0 1 a ]
+[e = _lectura -> 0 `i ]
+"74
+[; ;ControlZ.c: 74:     Suma = 0;
+[e = _Suma -> -> 0 `i `l ]
+"75
+[; ;ControlZ.c: 75:     for (int i = 0; i < n; i++) {
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $U 422  ]
+[e :U 419 ]
+{
+"76
+[; ;ControlZ.c: 76:         ADC_Lectura();
+[e ( _ADC_Lectura ..  ]
+"77
+[; ;ControlZ.c: 77:         lectura = Control_InsertBits(bites_menosS, bites_masS);
+[e = _lectura ( _Control_InsertBits (2 , _bites_menosS _bites_masS ]
+"78
+[; ;ControlZ.c: 78:         Suma = Suma + lectura;
+[e = _Suma + _Suma -> _lectura `l ]
+"79
+[; ;ControlZ.c: 79:     }
+}
+[e ++ _i -> 1 `i ]
+[e :U 422 ]
+[e $ < _i _n 419  ]
+[e :U 420 ]
+}
+"80
+[; ;ControlZ.c: 80:     return (Suma / n);
+[e ) -> / _Suma -> _n `l `i ]
+[e $UE 418  ]
+"81
+[; ;ControlZ.c: 81: }
+[e :UE 418 ]
 }
 [a 1C 87 10 0 ]

@@ -242,8 +242,6 @@ size_t __ctype_get_mb_cur_max(void);
 
 char oneshotX=0;
 char oneshotY=0;
-char BanderaX=0;
-char BanderaY=0;
 void PWM_GeneratePulsos(char Oupcode,int pulsosX, int pulsosY);
 
 int PWM_OneshotX(int countX);
@@ -5955,6 +5953,8 @@ void Motor_Movimiento(char Oupcode, int Motor_CoordenadaX, int Motor_CoordenadaY
     coordenada_anteriorX = Motor_CoordenadaX;
     coordenada_anteriorY = Motor_CoordenadaY;
     PWM_GeneratePulsos(Oupcode, PasosX, PasosY);
+    PORTDbits.RD0 = 1;
+    PORTDbits.RD2 = 1;
     USART_TxS("C\n", sizeof ("C\n") - 1);
     Usart_Interface_ON('V');
     Usart_Interface_OFF('A');
