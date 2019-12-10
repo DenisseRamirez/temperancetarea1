@@ -666,6 +666,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _Coordenadas_control_fuera
 -> -> 0 `i `uc
 ]
+"31
+[; ;./serial.h: 31:     char Longitud_Coordenada=3;
+[v _Longitud_Coordenada `uc ~T0 @X0 1 e ]
+[i _Longitud_Coordenada
+-> -> 3 `i `uc
+]
 "7 ./PWM.h
 [; ;./PWM.h: 7: char oneshotX=0;
 [v _oneshotX `uc ~T0 @X0 1 e ]
@@ -1358,12 +1364,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;serial.c: 193:     char coordenadaX[3];
 [v _coordenadaX `uc ~T0 @X0 -> 3 `i a ]
 "194
-[; ;serial.c: 194:     for (int i = 0; i < 3; i++) {
+[; ;serial.c: 194:     for (int i = 0; i < Longitud_Coordenada; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 3 `i 419  ]
-[e $U 420  ]
+[e $U 422  ]
 [e :U 419 ]
 {
 "195
@@ -1373,21 +1378,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;serial.c: 196:     }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 3 `i 419  ]
+[e :U 422 ]
+[e $ < _i -> _Longitud_Coordenada `i 419  ]
 [e :U 420 ]
 }
 "197
-[; ;serial.c: 197:     for (int i = 0; i < 3; i++) {
+[; ;serial.c: 197:     for (int i = 0; i < Longitud_Coordenada; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 3 `i 422  ]
-[e $U 423  ]
-[e :U 422 ]
+[e $U 426  ]
+[e :U 423 ]
 {
 "198
 [; ;serial.c: 198:         if (!(coordenadaX[i] >= 48 && coordenadaX[i] <= 57)) {
-[e $ ! ! && >= -> *U + &U _coordenadaX * -> -> _i `ui `ux -> -> # *U &U _coordenadaX `ui `ux `i -> 48 `i <= -> *U + &U _coordenadaX * -> -> _i `ui `ux -> -> # *U &U _coordenadaX `ui `ux `i -> 57 `i 425  ]
+[e $ ! ! && >= -> *U + &U _coordenadaX * -> -> _i `ui `ux -> -> # *U &U _coordenadaX `ui `ux `i -> 48 `i <= -> *U + &U _coordenadaX * -> -> _i `ui `ux -> -> # *U &U _coordenadaX `ui `ux `i -> 57 `i 427  ]
 {
 "199
 [; ;serial.c: 199:             Coordenadas_mal = 1;
@@ -1395,13 +1400,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "200
 [; ;serial.c: 200:         }
 }
-[e :U 425 ]
+[e :U 427 ]
 "201
 [; ;serial.c: 201:     }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 3 `i 422  ]
-[e :U 423 ]
+[e :U 426 ]
+[e $ < _i -> _Longitud_Coordenada `i 423  ]
+[e :U 424 ]
 }
 "202
 [; ;serial.c: 202:     *pointerCX = atoi(coordenadaX);
@@ -1425,13 +1431,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;serial.c: 207:     char coordenadaY[3];
 [v _coordenadaY `uc ~T0 @X0 -> 3 `i a ]
 "208
-[; ;serial.c: 208:     for (int i = 0; i < 3; i++) {
+[; ;serial.c: 208:     for (int i = 0; i < Longitud_Coordenada; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 3 `i 427  ]
-[e $U 428  ]
-[e :U 427 ]
+[e $U 432  ]
+[e :U 429 ]
 {
 "209
 [; ;serial.c: 209:         coordenadaY[i] = string_coordenada[4 + i];
@@ -1440,21 +1445,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;serial.c: 210:     }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 3 `i 427  ]
-[e :U 428 ]
+[e :U 432 ]
+[e $ < _i -> _Longitud_Coordenada `i 429  ]
+[e :U 430 ]
 }
 "211
-[; ;serial.c: 211:     for (int i = 0; i < 3; i++) {
+[; ;serial.c: 211:     for (int i = 0; i < Longitud_Coordenada; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 3 `i 430  ]
-[e $U 431  ]
-[e :U 430 ]
+[e $U 436  ]
+[e :U 433 ]
 {
 "212
 [; ;serial.c: 212:         if (!(coordenadaY[i] >= 48 && coordenadaY[i] <= 57)) {
-[e $ ! ! && >= -> *U + &U _coordenadaY * -> -> _i `ui `ux -> -> # *U &U _coordenadaY `ui `ux `i -> 48 `i <= -> *U + &U _coordenadaY * -> -> _i `ui `ux -> -> # *U &U _coordenadaY `ui `ux `i -> 57 `i 433  ]
+[e $ ! ! && >= -> *U + &U _coordenadaY * -> -> _i `ui `ux -> -> # *U &U _coordenadaY `ui `ux `i -> 48 `i <= -> *U + &U _coordenadaY * -> -> _i `ui `ux -> -> # *U &U _coordenadaY `ui `ux `i -> 57 `i 437  ]
 {
 "213
 [; ;serial.c: 213:             Coordenadas_mal = 1;
@@ -1462,23 +1467,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "214
 [; ;serial.c: 214:         }
 }
-[e :U 433 ]
+[e :U 437 ]
 "215
 [; ;serial.c: 215:     }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 3 `i 430  ]
-[e :U 431 ]
+[e :U 436 ]
+[e $ < _i -> _Longitud_Coordenada `i 433  ]
+[e :U 434 ]
 }
 "216
 [; ;serial.c: 216:     *pointerCY = atoi(coordenadaY);
 [e = *U _pointerCY ( _atoi (1 -> &U _coordenadaY `*Cuc ]
 "217
 [; ;serial.c: 217:     return;
-[e $UE 426  ]
+[e $UE 428  ]
 "218
 [; ;serial.c: 218: }
-[e :UE 426 ]
+[e :UE 428 ]
 }
 "235
 [; ;serial.c: 235: void Serial_RangosCoordenadas(int C) {
@@ -1489,7 +1495,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "236
 [; ;serial.c: 236:     if (C > 300 || C < 0) {
-[e $ ! || > _C -> 300 `i < _C -> 0 `i 435  ]
+[e $ ! || > _C -> 300 `i < _C -> 0 `i 439  ]
 {
 "237
 [; ;serial.c: 237:         Coordenadas_fuera = 1;
@@ -1497,13 +1503,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "238
 [; ;serial.c: 238:     }
 }
-[e :U 435 ]
+[e :U 439 ]
 "239
 [; ;serial.c: 239:     return;
-[e $UE 434  ]
+[e $UE 438  ]
 "240
 [; ;serial.c: 240: }
-[e :UE 434 ]
+[e :UE 438 ]
 }
 "242
 [; ;serial.c: 242: void Serial_RangosControl(int C) {
@@ -1514,7 +1520,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "243
 [; ;serial.c: 243:     if (C > 170 || C < 139) {
-[e $ ! || > _C -> 170 `i < _C -> 139 `i 437  ]
+[e $ ! || > _C -> 170 `i < _C -> 139 `i 441  ]
 {
 "244
 [; ;serial.c: 244:         Coordenadas_control_fuera = 1;
@@ -1522,13 +1528,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "245
 [; ;serial.c: 245:     }
 }
-[e :U 437 ]
+[e :U 441 ]
 "246
 [; ;serial.c: 246:     return;
-[e $UE 436  ]
+[e $UE 440  ]
 "247
 [; ;serial.c: 247: }
-[e :UE 436 ]
+[e :UE 440 ]
 }
 "249
 [; ;serial.c: 249: char Seria_Decodificacion_Memoria(char direccion) {
@@ -1539,11 +1545,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "250
 [; ;serial.c: 250:     switch (direccion) {
-[e $U 440  ]
+[e $U 444  ]
 {
 "251
 [; ;serial.c: 251:         case '0':
-[e :U 441 ]
+[e :U 445 ]
 "252
 [; ;serial.c: 252:             direccion = 0x00;
 [e = _direccion -> -> 0 `i `uc ]
@@ -1552,10 +1558,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _USART_TxS (2 , :s 23C -> - -> 4 `ui -> -> 1 `i `ui `i ]
 "254
 [; ;serial.c: 254:             break;
-[e $U 439  ]
+[e $U 443  ]
 "255
 [; ;serial.c: 255:         case '1':
-[e :U 442 ]
+[e :U 446 ]
 "256
 [; ;serial.c: 256:             direccion = 0x10;
 [e = _direccion -> -> 16 `i `uc ]
@@ -1564,10 +1570,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _USART_TxS (2 , :s 24C -> - -> 4 `ui -> -> 1 `i `ui `i ]
 "258
 [; ;serial.c: 258:             break;
-[e $U 439  ]
+[e $U 443  ]
 "259
 [; ;serial.c: 259:         case '2':
-[e :U 443 ]
+[e :U 447 ]
 "260
 [; ;serial.c: 260:             direccion = 0x20;
 [e = _direccion -> -> 32 `i `uc ]
@@ -1576,10 +1582,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _USART_TxS (2 , :s 25C -> - -> 4 `ui -> -> 1 `i `ui `i ]
 "262
 [; ;serial.c: 262:             break;
-[e $U 439  ]
+[e $U 443  ]
 "263
 [; ;serial.c: 263:         case '3':
-[e :U 444 ]
+[e :U 448 ]
 "264
 [; ;serial.c: 264:             direccion = 0x30;
 [e = _direccion -> -> 48 `i `uc ]
@@ -1588,10 +1594,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _USART_TxS (2 , :s 26C -> - -> 4 `ui -> -> 1 `i `ui `i ]
 "266
 [; ;serial.c: 266:             break;
-[e $U 439  ]
+[e $U 443  ]
 "267
 [; ;serial.c: 267:         case '4':
-[e :U 445 ]
+[e :U 449 ]
 "268
 [; ;serial.c: 268:             direccion = 0x40;
 [e = _direccion -> -> 64 `i `uc ]
@@ -1600,10 +1606,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _USART_TxS (2 , :s 27C -> - -> 4 `ui -> -> 1 `i `ui `i ]
 "270
 [; ;serial.c: 270:             break;
-[e $U 439  ]
+[e $U 443  ]
 "271
 [; ;serial.c: 271:         case '5':
-[e :U 446 ]
+[e :U 450 ]
 "272
 [; ;serial.c: 272:             direccion = 0x50;
 [e = _direccion -> -> 80 `i `uc ]
@@ -1612,10 +1618,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _USART_TxS (2 , :s 28C -> - -> 4 `ui -> -> 1 `i `ui `i ]
 "274
 [; ;serial.c: 274:             break;
-[e $U 439  ]
+[e $U 443  ]
 "275
 [; ;serial.c: 275:         case '6':
-[e :U 447 ]
+[e :U 451 ]
 "276
 [; ;serial.c: 276:             direccion = 0x60;
 [e = _direccion -> -> 96 `i `uc ]
@@ -1624,10 +1630,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _USART_TxS (2 , :s 29C -> - -> 4 `ui -> -> 1 `i `ui `i ]
 "278
 [; ;serial.c: 278:             break;
-[e $U 439  ]
+[e $U 443  ]
 "279
 [; ;serial.c: 279:         case '7':
-[e :U 448 ]
+[e :U 452 ]
 "280
 [; ;serial.c: 280:             direccion = 0x70;
 [e = _direccion -> -> 112 `i `uc ]
@@ -1636,10 +1642,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _USART_TxS (2 , :s 30C -> - -> 4 `ui -> -> 1 `i `ui `i ]
 "282
 [; ;serial.c: 282:             break;
-[e $U 439  ]
+[e $U 443  ]
 "283
 [; ;serial.c: 283:         case '8':
-[e :U 449 ]
+[e :U 453 ]
 "284
 [; ;serial.c: 284:             direccion = 0x80;
 [e = _direccion -> -> 128 `i `uc ]
@@ -1648,10 +1654,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _USART_TxS (2 , :s 31C -> - -> 4 `ui -> -> 1 `i `ui `i ]
 "286
 [; ;serial.c: 286:             break;
-[e $U 439  ]
+[e $U 443  ]
 "287
 [; ;serial.c: 287:         case '9':
-[e :U 450 ]
+[e :U 454 ]
 "288
 [; ;serial.c: 288:             direccion = 0x90;
 [e = _direccion -> -> 144 `i `uc ]
@@ -1660,10 +1666,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _USART_TxS (2 , :s 32C -> - -> 4 `ui -> -> 1 `i `ui `i ]
 "290
 [; ;serial.c: 290:             break;
-[e $U 439  ]
+[e $U 443  ]
 "291
 [; ;serial.c: 291:         case 'A':
-[e :U 451 ]
+[e :U 455 ]
 "292
 [; ;serial.c: 292:             direccion = 0xA0;
 [e = _direccion -> -> 160 `i `uc ]
@@ -1672,10 +1678,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _USART_TxS (2 , :s 33C -> - -> 4 `ui -> -> 1 `i `ui `i ]
 "294
 [; ;serial.c: 294:             break;
-[e $U 439  ]
+[e $U 443  ]
 "295
 [; ;serial.c: 295:         case 'B':
-[e :U 452 ]
+[e :U 456 ]
 "296
 [; ;serial.c: 296:             direccion = 0xB0;
 [e = _direccion -> -> 176 `i `uc ]
@@ -1684,10 +1690,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _USART_TxS (2 , :s 34C -> - -> 4 `ui -> -> 1 `i `ui `i ]
 "298
 [; ;serial.c: 298:             break;
-[e $U 439  ]
+[e $U 443  ]
 "299
 [; ;serial.c: 299:         case 'C':
-[e :U 453 ]
+[e :U 457 ]
 "300
 [; ;serial.c: 300:             direccion = 0xC0;
 [e = _direccion -> -> 192 `i `uc ]
@@ -1696,10 +1702,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _USART_TxS (2 , :s 35C -> - -> 4 `ui -> -> 1 `i `ui `i ]
 "302
 [; ;serial.c: 302:             break;
-[e $U 439  ]
+[e $U 443  ]
 "303
 [; ;serial.c: 303:         case 'D':
-[e :U 454 ]
+[e :U 458 ]
 "304
 [; ;serial.c: 304:             direccion = 0xD0;
 [e = _direccion -> -> 208 `i `uc ]
@@ -1708,10 +1714,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _USART_TxS (2 , :s 36C -> - -> 4 `ui -> -> 1 `i `ui `i ]
 "306
 [; ;serial.c: 306:             break;
-[e $U 439  ]
+[e $U 443  ]
 "307
 [; ;serial.c: 307:         case 'E':
-[e :U 455 ]
+[e :U 459 ]
 "308
 [; ;serial.c: 308:             direccion = 0xE0;
 [e = _direccion -> -> 224 `i `uc ]
@@ -1720,10 +1726,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _USART_TxS (2 , :s 37C -> - -> 4 `ui -> -> 1 `i `ui `i ]
 "310
 [; ;serial.c: 310:             break;
-[e $U 439  ]
+[e $U 443  ]
 "311
 [; ;serial.c: 311:         case 'F':
-[e :U 456 ]
+[e :U 460 ]
 "312
 [; ;serial.c: 312:             direccion = 0xF0;
 [e = _direccion -> -> 240 `i `uc ]
@@ -1732,37 +1738,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _USART_TxS (2 , :s 38C -> - -> 4 `ui -> -> 1 `i `ui `i ]
 "314
 [; ;serial.c: 314:             break;
-[e $U 439  ]
+[e $U 443  ]
 "315
 [; ;serial.c: 315:     }
 }
-[e $U 439  ]
-[e :U 440 ]
-[e [\ -> _direccion `i , $ -> -> 48 `ui `i 441
- , $ -> -> 49 `ui `i 442
- , $ -> -> 50 `ui `i 443
- , $ -> -> 51 `ui `i 444
- , $ -> -> 52 `ui `i 445
- , $ -> -> 53 `ui `i 446
- , $ -> -> 54 `ui `i 447
- , $ -> -> 55 `ui `i 448
- , $ -> -> 56 `ui `i 449
- , $ -> -> 57 `ui `i 450
- , $ -> -> 65 `ui `i 451
- , $ -> -> 66 `ui `i 452
- , $ -> -> 67 `ui `i 453
- , $ -> -> 68 `ui `i 454
- , $ -> -> 69 `ui `i 455
- , $ -> -> 70 `ui `i 456
- 439 ]
-[e :U 439 ]
+[e $U 443  ]
+[e :U 444 ]
+[e [\ -> _direccion `i , $ -> -> 48 `ui `i 445
+ , $ -> -> 49 `ui `i 446
+ , $ -> -> 50 `ui `i 447
+ , $ -> -> 51 `ui `i 448
+ , $ -> -> 52 `ui `i 449
+ , $ -> -> 53 `ui `i 450
+ , $ -> -> 54 `ui `i 451
+ , $ -> -> 55 `ui `i 452
+ , $ -> -> 56 `ui `i 453
+ , $ -> -> 57 `ui `i 454
+ , $ -> -> 65 `ui `i 455
+ , $ -> -> 66 `ui `i 456
+ , $ -> -> 67 `ui `i 457
+ , $ -> -> 68 `ui `i 458
+ , $ -> -> 69 `ui `i 459
+ , $ -> -> 70 `ui `i 460
+ 443 ]
+[e :U 443 ]
 "316
 [; ;serial.c: 316:     return direccion;
 [e ) _direccion ]
-[e $UE 438  ]
+[e $UE 442  ]
 "317
 [; ;serial.c: 317: }
-[e :UE 438 ]
+[e :UE 442 ]
 }
 "319
 [; ;serial.c: 319: void Serial_Lectura_MemoriaX(char direccion, int *pointerCX) {
@@ -1779,13 +1785,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;serial.c: 321:     char direccionX;
 [v _direccionX `uc ~T0 @X0 1 a ]
 "322
-[; ;serial.c: 322:     for (int i = 0; i < 3; i++) {
+[; ;serial.c: 322:     for (int i = 0; i < Longitud_Coordenada; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 3 `i 458  ]
-[e $U 459  ]
-[e :U 458 ]
+[e $U 465  ]
+[e :U 462 ]
 {
 "323
 [; ;serial.c: 323:         direccionX = direccion + i;
@@ -1797,21 +1802,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;serial.c: 325:     }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 3 `i 458  ]
-[e :U 459 ]
+[e :U 465 ]
+[e $ < _i -> _Longitud_Coordenada `i 462  ]
+[e :U 463 ]
 }
 "326
-[; ;serial.c: 326:     for (int i = 0; i < 3; i++) {
+[; ;serial.c: 326:     for (int i = 0; i < Longitud_Coordenada; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 3 `i 461  ]
-[e $U 462  ]
-[e :U 461 ]
+[e $U 469  ]
+[e :U 466 ]
 {
 "327
 [; ;serial.c: 327:         if (!(coordenadaX[i] >= 48 && coordenadaX[i] <= 57)) {
-[e $ ! ! && >= -> *U + &U _coordenadaX * -> -> _i `ui `ux -> -> # *U &U _coordenadaX `ui `ux `i -> 48 `i <= -> *U + &U _coordenadaX * -> -> _i `ui `ux -> -> # *U &U _coordenadaX `ui `ux `i -> 57 `i 464  ]
+[e $ ! ! && >= -> *U + &U _coordenadaX * -> -> _i `ui `ux -> -> # *U &U _coordenadaX `ui `ux `i -> 48 `i <= -> *U + &U _coordenadaX * -> -> _i `ui `ux -> -> # *U &U _coordenadaX `ui `ux `i -> 57 `i 470  ]
 {
 "328
 [; ;serial.c: 328:             Coordenadas_mal = 1;
@@ -1819,13 +1824,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "329
 [; ;serial.c: 329:         }
 }
-[e :U 464 ]
+[e :U 470 ]
 "330
 [; ;serial.c: 330:     }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 3 `i 461  ]
-[e :U 462 ]
+[e :U 469 ]
+[e $ < _i -> _Longitud_Coordenada `i 466  ]
+[e :U 467 ]
 }
 "331
 [; ;serial.c: 331:     *pointerCX = atoi(coordenadaX);
@@ -1841,10 +1847,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _Serial_RangosCoordenadas (1 _CoordenadaX ]
 "335
 [; ;serial.c: 335:     return;
-[e $UE 457  ]
+[e $UE 461  ]
 "336
 [; ;serial.c: 336: }
-[e :UE 457 ]
+[e :UE 461 ]
 }
 "338
 [; ;serial.c: 338: void Serial_Lectura_MemoriaY(char direccion, int *pointerCY) {
@@ -1861,13 +1867,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;serial.c: 340:     char direccionY;
 [v _direccionY `uc ~T0 @X0 1 a ]
 "341
-[; ;serial.c: 341:     for (int i = 0; i < 3; i++) {
+[; ;serial.c: 341:     for (int i = 0; i < Longitud_Coordenada; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 3 `i 466  ]
-[e $U 467  ]
-[e :U 466 ]
+[e $U 475  ]
+[e :U 472 ]
 {
 "342
 [; ;serial.c: 342:         direccionY = direccion + i + 3;
@@ -1879,21 +1884,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;serial.c: 344:     }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 3 `i 466  ]
-[e :U 467 ]
+[e :U 475 ]
+[e $ < _i -> _Longitud_Coordenada `i 472  ]
+[e :U 473 ]
 }
 "345
-[; ;serial.c: 345:     for (int i = 0; i < 3; i++) {
+[; ;serial.c: 345:     for (int i = 0; i < Longitud_Coordenada; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 3 `i 469  ]
-[e $U 470  ]
-[e :U 469 ]
+[e $U 479  ]
+[e :U 476 ]
 {
 "346
 [; ;serial.c: 346:         if (!(coordenadaY[i] >= 48 && coordenadaY[i] <= 57)) {
-[e $ ! ! && >= -> *U + &U _coordenadaY * -> -> _i `ui `ux -> -> # *U &U _coordenadaY `ui `ux `i -> 48 `i <= -> *U + &U _coordenadaY * -> -> _i `ui `ux -> -> # *U &U _coordenadaY `ui `ux `i -> 57 `i 472  ]
+[e $ ! ! && >= -> *U + &U _coordenadaY * -> -> _i `ui `ux -> -> # *U &U _coordenadaY `ui `ux `i -> 48 `i <= -> *U + &U _coordenadaY * -> -> _i `ui `ux -> -> # *U &U _coordenadaY `ui `ux `i -> 57 `i 480  ]
 {
 "347
 [; ;serial.c: 347:             Coordenadas_mal = 1;
@@ -1901,13 +1906,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "348
 [; ;serial.c: 348:         }
 }
-[e :U 472 ]
+[e :U 480 ]
 "349
 [; ;serial.c: 349:     }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 3 `i 469  ]
-[e :U 470 ]
+[e :U 479 ]
+[e $ < _i -> _Longitud_Coordenada `i 476  ]
+[e :U 477 ]
 }
 "350
 [; ;serial.c: 350:     *pointerCY = atoi(coordenadaY);
@@ -1923,10 +1929,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _Serial_RangosCoordenadas (1 _CoordenadaY ]
 "354
 [; ;serial.c: 354:     return;
-[e $UE 465  ]
+[e $UE 471  ]
 "355
 [; ;serial.c: 355: }
-[e :UE 465 ]
+[e :UE 471 ]
 }
 "357
 [; ;serial.c: 357: void Serial_Lectura_MemoriaZ(char direccion, int *pointerCZ) {
@@ -1943,13 +1949,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;serial.c: 359:     char direccionZ;
 [v _direccionZ `uc ~T0 @X0 1 a ]
 "360
-[; ;serial.c: 360:     for (int i = 0; i < 3; i++) {
+[; ;serial.c: 360:     for (int i = 0; i < Longitud_Coordenada; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 3 `i 474  ]
-[e $U 475  ]
-[e :U 474 ]
+[e $U 485  ]
+[e :U 482 ]
 {
 "361
 [; ;serial.c: 361:         direccionZ = direccion + i + 6;
@@ -1961,21 +1966,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;serial.c: 363:     }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 3 `i 474  ]
-[e :U 475 ]
+[e :U 485 ]
+[e $ < _i -> _Longitud_Coordenada `i 482  ]
+[e :U 483 ]
 }
 "364
-[; ;serial.c: 364:     for (int i = 0; i < 3; i++) {
+[; ;serial.c: 364:     for (int i = 0; i < Longitud_Coordenada; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 3 `i 477  ]
-[e $U 478  ]
-[e :U 477 ]
+[e $U 489  ]
+[e :U 486 ]
 {
 "365
 [; ;serial.c: 365:         if (!(coordenadaZ[i] >= 48 && coordenadaZ[i] <= 57)) {
-[e $ ! ! && >= -> *U + &U _coordenadaZ * -> -> _i `ui `ux -> -> # *U &U _coordenadaZ `ui `ux `i -> 48 `i <= -> *U + &U _coordenadaZ * -> -> _i `ui `ux -> -> # *U &U _coordenadaZ `ui `ux `i -> 57 `i 480  ]
+[e $ ! ! && >= -> *U + &U _coordenadaZ * -> -> _i `ui `ux -> -> # *U &U _coordenadaZ `ui `ux `i -> 48 `i <= -> *U + &U _coordenadaZ * -> -> _i `ui `ux -> -> # *U &U _coordenadaZ `ui `ux `i -> 57 `i 490  ]
 {
 "366
 [; ;serial.c: 366:             Coordenadas_mal = 1;
@@ -1983,13 +1988,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "367
 [; ;serial.c: 367:         }
 }
-[e :U 480 ]
+[e :U 490 ]
 "368
 [; ;serial.c: 368:     }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 3 `i 477  ]
-[e :U 478 ]
+[e :U 489 ]
+[e $ < _i -> _Longitud_Coordenada `i 486  ]
+[e :U 487 ]
 }
 "369
 [; ;serial.c: 369:     *pointerCZ = atoi(coordenadaZ);
@@ -2008,10 +2014,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _Serial_RangosControl (1 _CoordenadaZ ]
 "374
 [; ;serial.c: 374:     return;
-[e $UE 473  ]
+[e $UE 481  ]
 "375
 [; ;serial.c: 375: }
-[e :UE 473 ]
+[e :UE 481 ]
 }
 "377
 [; ;serial.c: 377: void Serial_Escritura_Memoria(char direccion, char string_setpoint[]) {
@@ -2025,13 +2031,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;serial.c: 378:     char direccionFinal;
 [v _direccionFinal `uc ~T0 @X0 1 a ]
 "379
-[; ;serial.c: 379:     for (int i = 0; i < 3; i++) {
+[; ;serial.c: 379:     for (int i = 0; i < Longitud_Coordenada; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 3 `i 482  ]
-[e $U 483  ]
-[e :U 482 ]
+[e $U 495  ]
+[e :U 492 ]
 {
 "380
 [; ;serial.c: 380:         direccionFinal = direccion + i;
@@ -2043,20 +2048,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;serial.c: 382:     }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 3 `i 482  ]
-[e :U 483 ]
+[e :U 495 ]
+[e $ < _i -> _Longitud_Coordenada `i 492  ]
+[e :U 493 ]
 }
 "383
 [; ;serial.c: 383:     USART_TxS("CXS\n", sizeof ("CXS\n") - 1);
 [e ( _USART_TxS (2 , :s 42C -> - -> 5 `ui -> -> 1 `i `ui `i ]
 "384
-[; ;serial.c: 384:     for (int i = 0; i < 3; i++) {
+[; ;serial.c: 384:     for (int i = 0; i < Longitud_Coordenada; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 3 `i 485  ]
-[e $U 486  ]
-[e :U 485 ]
+[e $U 499  ]
+[e :U 496 ]
 {
 "385
 [; ;serial.c: 385:         direccionFinal = direccion + i + 3;
@@ -2068,20 +2073,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;serial.c: 387:     }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 3 `i 485  ]
-[e :U 486 ]
+[e :U 499 ]
+[e $ < _i -> _Longitud_Coordenada `i 496  ]
+[e :U 497 ]
 }
 "388
 [; ;serial.c: 388:     USART_TxS("CYS\n", sizeof ("CYS\n") - 1);
 [e ( _USART_TxS (2 , :s 43C -> - -> 5 `ui -> -> 1 `i `ui `i ]
 "389
-[; ;serial.c: 389:     for (int i = 0; i < 3; i++) {
+[; ;serial.c: 389:     for (int i = 0; i < Longitud_Coordenada; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 3 `i 488  ]
-[e $U 489  ]
-[e :U 488 ]
+[e $U 503  ]
+[e :U 500 ]
 {
 "390
 [; ;serial.c: 390:         direccionFinal = direccion + i + 6;
@@ -2093,18 +2098,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;serial.c: 392:     }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 3 `i 488  ]
-[e :U 489 ]
+[e :U 503 ]
+[e $ < _i -> _Longitud_Coordenada `i 500  ]
+[e :U 501 ]
 }
 "393
 [; ;serial.c: 393:     USART_TxS("CZS\n", sizeof ("CZS\n") - 1);
 [e ( _USART_TxS (2 , :s 44C -> - -> 5 `ui -> -> 1 `i `ui `i ]
 "394
 [; ;serial.c: 394:     return;
-[e $UE 481  ]
+[e $UE 491  ]
 "395
 [; ;serial.c: 395: }
-[e :UE 481 ]
+[e :UE 491 ]
 }
 [a 41C 67 90 0 ]
 [a 40C 67 89 0 ]

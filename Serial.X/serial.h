@@ -28,6 +28,7 @@ extern "C" {
     char Coordenadas_fuera=0;
     char Coordenadas_mal=0;
     char Coordenadas_control_fuera =0;
+    char Longitud_Coordenada=3;
 #ifdef	__cplusplus
 }
 #endif

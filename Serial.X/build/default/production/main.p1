@@ -746,6 +746,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _Coordenadas_control_fuera
 -> -> 0 `i `uc
 ]
+"31
+[; ;./serial.h: 31:     char Longitud_Coordenada=3;
+[v _Longitud_Coordenada `uc ~T0 @X0 1 e ]
+[i _Longitud_Coordenada
+-> -> 3 `i `uc
+]
 "16 ./Interrupt.h
 [; ;./Interrupt.h: 16: char BanderaX=0;
 [v _BanderaX `uc ~T0 @X0 1 e ]

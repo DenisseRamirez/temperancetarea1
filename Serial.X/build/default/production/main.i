@@ -5890,6 +5890,7 @@ void PWM_InitS(void);
     char Coordenadas_fuera=0;
     char Coordenadas_mal=0;
     char Coordenadas_control_fuera =0;
+    char Longitud_Coordenada=3;
 # 16 "main.c" 2
 
 # 1 "./Actuator.h" 1

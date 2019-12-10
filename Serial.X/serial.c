@@ -191,10 +191,10 @@ void Serial_Oupcode(void) {
 
 void Serial_DecodificacionX(char string_coordenada[], int *pointerCX) { //Convierte la coordenada en str a int
     char coordenadaX[3];
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < Longitud_Coordenada; i++) {
         coordenadaX[i] = string_coordenada[i];
     }
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < Longitud_Coordenada; i++) {
         if (!(coordenadaX[i] >= 48 && coordenadaX[i] <= 57)) {//En caso de Coordenada ingresada fuera del rango prender banderra y enviar error
             Coordenadas_mal = 1;
         }
@@ -205,10 +205,10 @@ void Serial_DecodificacionX(char string_coordenada[], int *pointerCX) { //Convie
 
 void Serial_DecodificacionY(char string_coordenada[], int *pointerCY) {//Convierte la coordenada en str a int
     char coordenadaY[3];
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < Longitud_Coordenada; i++) {
         coordenadaY[i] = string_coordenada[4 + i];
     }
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < Longitud_Coordenada; i++) {
         if (!(coordenadaY[i] >= 48 && coordenadaY[i] <= 57)) {//En caso de Coordenada ingresada fuera del rango prender banderra y enviar error
             Coordenadas_mal = 1;
         }
@@ -319,11 +319,11 @@ char Seria_Decodificacion_Memoria(char direccion) {
 void Serial_Lectura_MemoriaX(char direccion, int *pointerCX) {
     char coordenadaX[3];
     char direccionX;
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < Longitud_Coordenada; i++) {
         direccionX = direccion + i;
         coordenadaX[i] = EEPROM_Rx(direccionX); //Guardar datos de le EEPROM en string
     }
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < Longitud_Coordenada; i++) {
         if (!(coordenadaX[i] >= 48 && coordenadaX[i] <= 57)) {//En caso de Coordenada ingresada fuera del rango prender banderra y enviar error
             Coordenadas_mal = 1;
         }
@@ -338,11 +338,11 @@ void Serial_Lectura_MemoriaX(char direccion, int *pointerCX) {
 void Serial_Lectura_MemoriaY(char direccion, int *pointerCY) {
     char coordenadaY[3];
     char direccionY;
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < Longitud_Coordenada; i++) {
         direccionY = direccion + i + 3;
         coordenadaY[i] = EEPROM_Rx(direccionY); //Guardar datos de le EEPROM en string
     }
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < Longitud_Coordenada; i++) {
         if (!(coordenadaY[i] >= 48 && coordenadaY[i] <= 57)) {//En caso de Coordenada ingresada fuera del rango prender banderra y enviar error
             Coordenadas_mal = 1;
         }
@@ -357,11 +357,11 @@ void Serial_Lectura_MemoriaY(char direccion, int *pointerCY) {
 void Serial_Lectura_MemoriaZ(char direccion, int *pointerCZ) {
     char coordenadaZ[3];
     char direccionZ;
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < Longitud_Coordenada; i++) {
         direccionZ = direccion + i + 6;
         coordenadaZ[i] = EEPROM_Rx(direccionZ); //Guardar datos de le EEPROM en string
     }
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < Longitud_Coordenada; i++) {
         if (!(coordenadaZ[i] >= 48 && coordenadaZ[i] <= 57)) {//En caso de Coordenada ingresada fuera del rango prender banderra y enviar error
             Coordenadas_mal = 1;
         }
@@ -376,17 +376,17 @@ void Serial_Lectura_MemoriaZ(char direccion, int *pointerCZ) {
 
 void Serial_Escritura_Memoria(char direccion, char string_setpoint[]) {
     char direccionFinal;
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < Longitud_Coordenada; i++) {
         direccionFinal = direccion + i;
         EEPROM_Tx(direccionFinal, string_setpoint[i]);
     }
     USART_TxS("CXS\n", sizeof ("CXS\n") - 1);
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < Longitud_Coordenada; i++) {
         direccionFinal = direccion + i + 3;
         EEPROM_Tx(direccionFinal, string_setpoint[i + 4]);
     }
     USART_TxS("CYS\n", sizeof ("CYS\n") - 1);
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < Longitud_Coordenada; i++) {
         direccionFinal = direccion + i + 6;
         EEPROM_Tx(direccionFinal, string_setpoint[i + 8]);
     }
