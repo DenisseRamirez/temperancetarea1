@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.10\pic\dat\en_msgs.txt \
   -cs -h+dist/default/production\Serial.X.production.sym \
   --cmf=dist/default/production\Serial.X.production.cmf -z -Q18F4550 \
-  -oC:\Users\saenz\AppData\Local\Temp\srpk.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\saenz\AppData\Local\Temp\sle4.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Serial.X.production.map -E1 -ver=XC8 \
   --acfsm=1493 -ASTACK=01F0h-07FFh -pstack=STACK -ACODE=00h-07FFFh \
   -ACONST=00h-07FFFh -ASMALLCONST=0800h-08FFhx120 \
@@ -23,7 +23,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\saenz\AppData\Local\Temp\srpk.o \
+  C:\Users\saenz\AppData\Local\Temp\sle4.o \
   dist/default/production\Serial.X.production.o 
 
 Object code version is 3.11
@@ -36,7 +36,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\saenz\AppData\Local\Temp\srpk.o
+C:\Users\saenz\AppData\Local\Temp\sle4.o
                 init                                  E        E        4        4       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
@@ -445,8 +445,8 @@ _CMCON                                   (abs)        000FB4
 _CREN                                    (abs)        007D5C
 _Conexion_perdida                        bssBANK1     0001D7
 _Control_ConvertirDistancia              text39       005D2E
-_Control_ConvertirDistancia$3039         cstackBANK0  0000EF
-_Control_ConvertirDistancia$3040         cstackBANK0  0000F3
+_Control_ConvertirDistancia$3090         cstackBANK0  0000EF
+_Control_ConvertirDistancia$3091         cstackBANK0  0000F3
 _Control_InsertBits                      text37       006A4A
 _Control_LecturaFiltro                   text35       00608C
 _Control_Z                               text34       0045AC
@@ -551,7 +551,7 @@ _TXSTAbits                               (abs)        000FAC
 _UCFGbits                                (abs)        000F6F
 _UCONbits                                (abs)        000F6D
 _USART_Init                              text3        00638A
-_USART_Init$3038                         cstackBANK0  000072
+_USART_Init$3089                         cstackBANK0  000072
 _USART_Overflow                          text7        0065CA
 _USART_RxC                               text6        006DB6
 _USART_RxS                               text5        00613E
@@ -1236,9 +1236,9 @@ __size_ofi2___xxtofl                     (abs)        000000
 __size_ofi2_main_Home                    (abs)        000000
 __smallconst                             smallconst   000000
 _atoi                                    text18       00504E
-_atoi$2660                               cstackBANK0  00006F
-_atoi$2661                               cstackBANK0  000073
-_atoi$2662                               cstackBANK0  000071
+_atoi$2711                               cstackBANK0  00006F
+_atoi$2712                               cstackBANK0  000073
+_atoi$2713                               cstackBANK0  000071
 _bites_masS                              bssCOMRAM    000059
 _bites_menosS                            bssCOMRAM    00005A
 _bp                                      mediumconst  007F69
@@ -1256,7 +1256,7 @@ _fabsf                                   text46       006A82
 _home                                    bssCOMRAM    000056
 _isdigit                                 text20       0069D6
 _isspace                                 text19       00667A
-_isspace$2689                            cstackBANK0  000066
+_isspace$2740                            cstackBANK0  000066
 _main                                    text0        005FDA
 _main_Home                               text1        006766
 _nanf                                    text42       006CA6
@@ -1264,21 +1264,21 @@ _oneshotX                                bssCOMRAM    00005C
 _oneshotY                                bssCOMRAM    00005B
 _pasos_convertidos                       bssCOMRAM    000052
 _powf                                    text40       000012
-_powf$3041                               cstackBANK1  0001A4
-_powf$3042                               cstackBANK1  000154
-_powf$3043                               cstackBANK1  000148
-_powf$3044                               cstackBANK1  000194
-_powf$3045                               cstackBANK1  000138
-_powf$3046                               cstackBANK1  000100
-_powf$3047                               cstackBANK1  000104
-_powf$3048                               cstackBANK1  000158
-_powf$3049                               cstackBANK1  00013C
-_powf$3050                               cstackBANK1  000140
-_powf$3051                               cstackBANK1  000108
-_powf$3052                               cstackBANK1  00010C
-_powf$3053                               cstackBANK1  000110
-_powf$3054                               cstackBANK1  000114
-_powf$3055                               cstackBANK1  000118
+_powf$3092                               cstackBANK1  0001A4
+_powf$3093                               cstackBANK1  000154
+_powf$3094                               cstackBANK1  000148
+_powf$3095                               cstackBANK1  000194
+_powf$3096                               cstackBANK1  000138
+_powf$3097                               cstackBANK1  000100
+_powf$3098                               cstackBANK1  000104
+_powf$3099                               cstackBANK1  000158
+_powf$3100                               cstackBANK1  00013C
+_powf$3101                               cstackBANK1  000140
+_powf$3102                               cstackBANK1  000108
+_powf$3103                               cstackBANK1  00010C
+_powf$3104                               cstackBANK1  000110
+_powf$3105                               cstackBANK1  000114
+_powf$3106                               cstackBANK1  000118
 _scalbnf                                 text44       004AA4
 _sqrtf                                   text41       00358A
 atoi@n                                   cstackBANK0  000074
@@ -1436,7 +1436,7 @@ Total ram usage:        0 bytes
 
  *************** function _main_Home *****************
  Defined at:
-		line 48 in file "main.c"
+		line 65 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3613,7 +3613,7 @@ Total ram usage:        0 bytes
 
  *************** function _INT_isr *****************
  Defined at:
-		line 37 in file "Interrupt.c"
+		line 46 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3645,7 +3645,7 @@ Total ram usage:        1 bytes
 
  *************** function _INT2_ACTION *****************
  Defined at:
-		line 73 in file "Interrupt.c"
+		line 56 in file "Interrupt.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3675,7 +3675,7 @@ Total ram usage:        2 bytes
 
  *************** function _INT1_ACTION *****************
  Defined at:
-		line 62 in file "Interrupt.c"
+		line 45 in file "Interrupt.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -3992,7 +3992,7 @@ Total ram usage:       25 bytes
 
  *************** function _INT0_ACTION *****************
  Defined at:
-		line 56 in file "Interrupt.c"
+		line 39 in file "Interrupt.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4022,7 +4022,7 @@ Total ram usage:        0 bytes
 
  *************** function i2_main_Home *****************
  Defined at:
-		line 48 in file "main.c"
+		line 65 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -4291,9 +4291,8 @@ Interrupt.c
 		_INT1_ACTION   		CODE           	683E	0000	73
 		_INT2_ACTION   		CODE           	67F6	0000	73
 		_Int_Ext       		CODE           	6C80	0000	39
-		_INT_isr       		CODE           	0008	0000	121
 
-Interrupt.c estimated size: 329
+Interrupt.c estimated size: 208
 
 ADC.c
 		_ADC_Lectura   		CODE           	6D82	0000	27
@@ -4340,7 +4339,8 @@ C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\nanf.c estimat
 
 main.c
 		_main          		CODE           	5FDA	0000	179
+		_INT_isr       		CODE           	0008	0000	121
 		_main_Home     		CODE           	6766	0000	73
 
-main.c estimated size: 252
+main.c estimated size: 373
 

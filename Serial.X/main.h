@@ -8,6 +8,7 @@
 #endif
 
 void main_Home(void);
+void __interrupt() INT_isr (void);
 char home=0;
 
 #ifdef	__cplusplus

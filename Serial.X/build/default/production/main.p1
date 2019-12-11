@@ -73,6 +73,55 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16 ./serial.h
 [; ;./serial.h: 16:     void Serial_Oupcode(void);
 [v _Serial_Oupcode `(v ~T0 @X0 0 ef ]
+[t ~ __interrupt . k ]
+[t T37 __interrupt ]
+"8419 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8419:     struct {
+[s S353 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S353 . INT1IF INT2IF . INT1IE INT2IE . INT1IP INT2IP ]
+"8429
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8429:     struct {
+[s S354 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S354 . INT1F INT2F . INT1E INT2E . INT1P INT2P ]
+"8418
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8418: typedef union {
+[u S352 `S353 1 `S354 1 ]
+[n S352 . . . ]
+"8440
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8440: extern volatile INTCON3bits_t INTCON3bits __attribute__((address(0xFF0)));
+[v _INTCON3bits `VS352 ~T0 @X0 0 e@4080 ]
+"13 ./Interrupt.h
+[; ;./Interrupt.h: 13: void INT1_ACTION(void);
+[v _INT1_ACTION `(v ~T0 @X0 0 ef ]
+[v F3152 `(v ~T0 @X0 1 tf1`ul ]
+"187 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18.h
+[v __delay `JF3152 ~T0 @X0 0 e ]
+[p i __delay ]
+"14 ./Interrupt.h
+[; ;./Interrupt.h: 14: void INT2_ACTION(void);
+[v _INT2_ACTION `(v ~T0 @X0 0 ef ]
+"8588 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8588:     struct {
+[s S360 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S360 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"8598
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8598:     struct {
+[s S361 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S361 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"8608
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8608:     struct {
+[s S362 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S362 . . GIEL GIEH ]
+"8587
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8587: typedef union {
+[u S359 `S360 1 `S361 1 `S362 1 ]
+[n S359 . . . . ]
+"8614
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8614: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
+[v _INTCONbits `VS359 ~T0 @X0 0 e@4082 ]
+"12 ./Interrupt.h
+[; ;./Interrupt.h: 12: void INT0_ACTION(void);
+[v _INT0_ACTION `(v ~T0 @X0 0 ef ]
 "23 ./motor.h
 [; ;./motor.h: 23: void Motor_Home(void);
 [v _Motor_Home `(v ~T0 @X0 0 ef ]
@@ -605,8 +654,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8893
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h: 8893: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"11 ./main.h
-[; ;./main.h: 11: char home=0;
+"12 ./main.h
+[; ;./main.h: 12: char home=0;
 [v _home `uc ~T0 @X0 1 e ]
 [i _home
 -> -> 0 `i `uc
@@ -845,77 +894,139 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 44: }
 [e :UE 369 ]
 }
+[v $root$_INT_isr `(v ~T0 @X0 0 e ]
+"46
+[; ;main.c: 46: void __attribute__((picinterrupt(("")))) INT_isr(void) {
+[v _INT_isr `(v ~T37 @X0 1 ef ]
+{
+[e :U _INT_isr ]
+[f ]
 "48
-[; ;main.c: 48: void main_Home(void) {
+[; ;main.c: 48:     if (INTCON3bits.INT1IF == 1) {
+[e $ ! == -> . . _INTCON3bits 0 0 `i -> 1 `i 377  ]
+{
+"49
+[; ;main.c: 49:         INT1_ACTION();
+[e ( _INT1_ACTION ..  ]
+"50
+[; ;main.c: 50:         _delay((unsigned long)((10)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"51
+[; ;main.c: 51:         INTCON3bits.INT1IF = 0;
+[e = . . _INTCON3bits 0 0 -> -> 0 `i `uc ]
+"52
+[; ;main.c: 52:     }
+}
+[e :U 377 ]
+"53
+[; ;main.c: 53:     if (INTCON3bits.INT2IF == 1) {
+[e $ ! == -> . . _INTCON3bits 0 1 `i -> 1 `i 378  ]
+{
+"54
+[; ;main.c: 54:         INT2_ACTION();
+[e ( _INT2_ACTION ..  ]
+"55
+[; ;main.c: 55:         _delay((unsigned long)((10)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"56
+[; ;main.c: 56:         INTCON3bits.INT2IF = 0;
+[e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
+"57
+[; ;main.c: 57:     }
+}
+[e :U 378 ]
+"58
+[; ;main.c: 58:     if (INTCONbits.INT0IF == 1) {
+[e $ ! == -> . . _INTCONbits 0 1 `i -> 1 `i 379  ]
+{
+"59
+[; ;main.c: 59:         INT0_ACTION();
+[e ( _INT0_ACTION ..  ]
+"60
+[; ;main.c: 60:         _delay((unsigned long)((10)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"61
+[; ;main.c: 61:         INTCONbits.INT0F = 0;
+[e = . . _INTCONbits 1 1 -> -> 0 `i `uc ]
+"62
+[; ;main.c: 62:     }
+}
+[e :U 379 ]
+"63
+[; ;main.c: 63: }
+[e :UE 376 ]
+}
+"65
+[; ;main.c: 65: void main_Home(void) {
 [v _main_Home `(v ~T0 @X0 1 ef ]
 {
 [e :U _main_Home ]
 [f ]
-"49
-[; ;main.c: 49:     while (BanderaX == 0) {
-[e $U 377  ]
-[e :U 378 ]
-{
-"50
-[; ;main.c: 50:         PORTDbits.RD0 = 0;
-[e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
-"51
-[; ;main.c: 51:         PORTDbits.RD2 = 1;
-[e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
-"52
-[; ;main.c: 52:         Motor_Home();
-[e ( _Motor_Home ..  ]
-"53
-[; ;main.c: 53:     }
-}
-[e :U 377 ]
-"49
-[; ;main.c: 49:     while (BanderaX == 0) {
-[e $ == -> _BanderaX `i -> 0 `i 378  ]
-[e :U 379 ]
-"54
-[; ;main.c: 54:     while (BanderaY == 0) {
-[e $U 380  ]
-[e :U 381 ]
-{
-"55
-[; ;main.c: 55:         PORTDbits.RD0 = 1;
-[e = . . _PORTDbits 0 0 -> -> 1 `i `uc ]
-"56
-[; ;main.c: 56:         PORTDbits.RD2 = 0;
-[e = . . _PORTDbits 0 2 -> -> 0 `i `uc ]
-"57
-[; ;main.c: 57:         Motor_Home();
-[e ( _Motor_Home ..  ]
-"58
-[; ;main.c: 58:     }
-}
-[e :U 380 ]
-"54
-[; ;main.c: 54:     while (BanderaY == 0) {
-[e $ == -> _BanderaY `i -> 0 `i 381  ]
+"66
+[; ;main.c: 66:     while (BanderaX == 0) {
+[e $U 381  ]
 [e :U 382 ]
-"59
-[; ;main.c: 59:     PORTDbits.RD0 = 1;
-[e = . . _PORTDbits 0 0 -> -> 1 `i `uc ]
-"60
-[; ;main.c: 60:     PORTDbits.RD2 = 1;
+{
+"67
+[; ;main.c: 67:         PORTDbits.RD0 = 0;
+[e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
+"68
+[; ;main.c: 68:         PORTDbits.RD2 = 1;
 [e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
-"61
-[; ;main.c: 61:     T2CONbits.TMR2ON = 0;
+"69
+[; ;main.c: 69:         Motor_Home();
+[e ( _Motor_Home ..  ]
+"70
+[; ;main.c: 70:     }
+}
+[e :U 381 ]
+"66
+[; ;main.c: 66:     while (BanderaX == 0) {
+[e $ == -> _BanderaX `i -> 0 `i 382  ]
+[e :U 383 ]
+"71
+[; ;main.c: 71:     while (BanderaY == 0) {
+[e $U 384  ]
+[e :U 385 ]
+{
+"72
+[; ;main.c: 72:         PORTDbits.RD0 = 1;
+[e = . . _PORTDbits 0 0 -> -> 1 `i `uc ]
+"73
+[; ;main.c: 73:         PORTDbits.RD2 = 0;
+[e = . . _PORTDbits 0 2 -> -> 0 `i `uc ]
+"74
+[; ;main.c: 74:         Motor_Home();
+[e ( _Motor_Home ..  ]
+"75
+[; ;main.c: 75:     }
+}
+[e :U 384 ]
+"71
+[; ;main.c: 71:     while (BanderaY == 0) {
+[e $ == -> _BanderaY `i -> 0 `i 385  ]
+[e :U 386 ]
+"76
+[; ;main.c: 76:     PORTDbits.RD0 = 1;
+[e = . . _PORTDbits 0 0 -> -> 1 `i `uc ]
+"77
+[; ;main.c: 77:     PORTDbits.RD2 = 1;
+[e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
+"78
+[; ;main.c: 78:     T2CONbits.TMR2ON = 0;
 [e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
-"62
-[; ;main.c: 62:     BanderaX = 0;
+"79
+[; ;main.c: 79:     BanderaX = 0;
 [e = _BanderaX -> -> 0 `i `uc ]
-"63
-[; ;main.c: 63:     BanderaY = 0;
+"80
+[; ;main.c: 80:     BanderaY = 0;
 [e = _BanderaY -> -> 0 `i `uc ]
-"64
-[; ;main.c: 64:     return;
-[e $UE 376  ]
-"65
-[; ;main.c: 65: }
-[e :UE 376 ]
+"81
+[; ;main.c: 81:     return;
+[e $UE 380  ]
+"82
+[; ;main.c: 82: }
+[e :UE 380 ]
 }
 [a 4C 70 0 ]
 [a 2C 87 10 0 ]

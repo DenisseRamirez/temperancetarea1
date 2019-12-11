@@ -63,6 +63,7 @@ _dp_h 7F09 0 MEDIUMCONST 0
 _nanf 6CA6 0 CODE 0
 _dp_l 7F01 0 MEDIUMCONST 0
 _home 56 0 COMRAM 1
+_powf$3100 13C 0 BANK1 1
 _main 5FDA 0 CODE 0
 _atoi 504E 0 CODE 0
 _powf 12 0 CODE 0
@@ -75,19 +76,19 @@ _oneshotX 5C 0 COMRAM 1
 scalbnf@u 91 0 BANK0 1
 _CoordenadaY 1EC 0 BANK1 1
 ___fltol@f1 B8 0 BANK0 1
+_powf$3101 140 0 BANK1 1
 _oneshotY 5B 0 COMRAM 1
 __end_of_INT0_ACTION 6DF8 0 CODE 0
 ?_isspace 60 0 BANK0 1
 i2___fldiv@rem 1B 0 COMRAM 1
 __end_of___aldiv 5A1A 0 CODE 0
+_powf$3102 108 0 BANK1 1
 __size_of_USART_Overflow 0 0 ABS 0
-_powf$3050 140 0 BANK1 1
 scalbnf@x 87 0 BANK0 1
 _RCREG FAE 0 ABS 0
 __size_of_powf 0 0 ABS 0
 _TXREG FAD 0 ABS 0
 _PORTA F80 0 ABS 0
-_powf$3041 1A4 0 BANK1 1
 _TRISD F95 0 ABS 0
 _PORTB F81 0 ABS 0
 __end_of___flmul 3E76 0 CODE 0
@@ -95,6 +96,7 @@ _SPBRG FAF 0 ABS 0
 __Hirdata 0 0 CODE 0
 __Lirdata 0 0 CODE 0
 _PORTC F82 0 ABS 0
+_atoi$2711 6F 0 BANK0 1
 scalbnf@y 95 0 BANK0 1
 __HRAM 0 0 ABS 0
 _EEADR FA9 0 ABS 0
@@ -102,8 +104,8 @@ _PORTD F83 0 ABS 0
 __LRAM 1 0 ABS 0
 _T2CON FCA 0 ABS 0
 _PORTE F84 0 ABS 0
+_powf$3103 10C 0 BANK1 1
 _CMCON FB4 0 ABS 0
-_powf$3051 108 0 BANK1 1
 ttemp5 5F 0 COMRAM 1
 __end_of_Serial_DecodificacionY 5F04 0 CODE 0
 ttemp6 62 0 COMRAM 1
@@ -111,25 +113,22 @@ _bites_masS 59 0 COMRAM 1
 _GPIO_init_PORTE 6DF8 0 CODE 0
 ttemp7 66 0 COMRAM 1
 ?___flneg 60 0 BANK0 1
-_powf$3042 154 0 BANK1 1
 wtemp8 5F 0 COMRAM 1
+_atoi$2712 73 0 BANK0 1
+_powf$3104 110 0 BANK1 1
 __CFG_WDTPS$32768 0 0 ABS 0
 ?_scalbnf 87 0 BANK0 1
-_atoi$2660 6F 0 BANK0 1
 __Hconfig 30000E 0 CONFIG 0
 __Lconfig 300000 0 CONFIG 0
-_powf$3052 10C 0 BANK1 1
-_powf$3043 148 0 BANK1 1
+_atoi$2713 71 0 BANK0 1
 _CoordenadaZ 1EA 0 BANK1 1
-_atoi$2661 73 0 BANK0 1
-_powf$3053 110 0 BANK1 1
+_powf$3105 114 0 BANK1 1
 powf@i 12C 0 BANK1 1
 powf@j 1AC 0 BANK1 1
 powf@k 1A0 0 BANK1 1
 __size_of_Motor_Calcular_PasosY 0 0 ABS 0
 atoi@n 74 0 BANK0 1
 powf@n 17C 0 BANK1 1
-_powf$3044 194 0 BANK1 1
 nanf@s 60 0 BANK0 1
 ?___flsub 97 0 BANK0 1
 powf@r 14C 0 BANK1 1
@@ -139,15 +138,15 @@ nanf@u 64 0 BANK0 1
 powf@s 15C 0 BANK1 1
 _Serial_DecodificacionX 5F04 0 CODE 0
 __Lbigram 0 0 ABS 0
+_powf$3106 118 0 BANK1 1
 powf@t 1B0 0 BANK1 1
 __Hrparam 0 0 COMRAM 1
-_atoi$2662 71 0 BANK0 1
 __Lrparam 0 0 COMRAM 1
 powf@u 174 0 BANK1 1
 _Serial_DecodificacionY 5E22 0 CODE 0
 powf@v 178 0 BANK1 1
 powf@w 144 0 BANK1 1
-_powf$3054 114 0 BANK1 1
+_powf$3092 1A4 0 BANK1 1
 powf@x DC 0 BANK0 1
 ?_nanf 60 0 BANK0 1
 _Seria_Decodificacion_Memoria 483A 0 CODE 0
@@ -162,7 +161,6 @@ __Hcomram 0 0 ABS 0
 __Lcomram 0 0 ABS 0
 Usart_Interface_ON@color 60 0 BANK0 1
 ?_atoi 67 0 BANK0 1
-_powf$3045 138 0 BANK1 1
 ?_powf DC 0 BANK0 1
 __Hsfr 0 0 ABS 0
 ___flge@ff1 9F 0 BANK0 1
@@ -174,11 +172,10 @@ __Lbss 0 0 RAM 1
 ___param_bank 0 0 ABS 0
 __Hnvrram 0 0 COMRAM 1
 _errno 1CB 0 BANK1 1
-_powf$3055 118 0 BANK1 1
+_powf$3093 154 0 BANK1 1
 __Lnvrram 0 0 COMRAM 1
 _error 1C4 0 BANK1 1
 __end_of_sqrtf 3A4A 0 CODE 0
-_powf$3046 100 0 BANK1 1
 __size_ofi2_PWM_InitF 0 0 ABS 0
 int$flags 5E 0 COMRAM 1
 _ADC_Init 6C0C 0 CODE 0
@@ -186,20 +183,20 @@ ___xxtofl 4CE2 0 CODE 0
 __end_of_USART_RxC 6DCC 0 CODE 0
 __size_ofi2_PWM_InitS 0 0 ABS 0
 __end_of_USART_RxS 61EE 0 CODE 0
+_powf$3094 148 0 BANK1 1
 _Distancia 1C0 0 BANK1 1
 Serial_Lectura_MemoriaX@i_1390 80 0 BANK0 1
 __end_ofi2_PWM_OneshotX 6BE4 0 CODE 0
 __size_of_INT1_ACTION 0 0 ABS 0
 __end_ofi2_PWM_OneshotY 6BB4 0 CODE 0
-_powf$3047 104 0 BANK1 1
 ___flge@ff2 A3 0 BANK0 1
 _ADCON1 FC1 0 ABS 0
 _EECON2 FA7 0 ABS 0
+_powf$3095 194 0 BANK1 1
 Serial_Escritura_Memoria@i 6D 0 BANK0 1
 __end_of_INT1_ACTION 6886 0 CODE 0
 ?___fltol B8 0 BANK0 1
 __end_of_Actuator_Touch 699A 0 CODE 0
-_powf$3048 158 0 BANK1 1
 __size_of_scalbnf 0 0 ABS 0
 __Heeprom_data 0 0 EEDATA 0
 __end_of_Serial_Lectura_MemoriaX 590C 0 CODE 0
@@ -207,6 +204,7 @@ __Leeprom_data 0 0 EEDATA 0
 ?___flmul 6E 0 BANK0 1
 EEPROM_Tx@dato 60 0 BANK0 1
 _PIR1bits F9E 0 ABS 0
+_powf$3096 138 0 BANK1 1
 _PIR2bits FA1 0 ABS 0
 __size_of_PWM_GeneratePulsos 0 0 ABS 0
 i2_PWM_OneshotY 6B84 0 CODE 0
@@ -215,7 +213,6 @@ fabsf@F463 1BC 0 BANK1 1
 _UCFGbits F6F 0 ABS 0
 _LATBbits F8A 0 ABS 0
 _LATCbits F8B 0 ABS 0
-_powf$3049 13C 0 BANK1 1
 _LATDbits F8C 0 ABS 0
 __Hintsave_regs 0 0 BIGRAM 1
 __Lintsave_regs 0 0 BIGRAM 1
@@ -228,6 +225,7 @@ _CCPR2L FBB 0 ABS 0
 _RCONbits FD0 0 ABS 0
 _UCONbits F6D 0 ABS 0
 _EEDATA FA8 0 ABS 0
+_powf$3097 100 0 BANK1 1
 __Hbigbss 0 0 BIGRAM 1
 __Lbigbss 0 0 BIGRAM 1
 __Hintret 0 0 ABS 0
@@ -252,6 +250,7 @@ _main_Home 6766 0 CODE 0
 _ADRESH FC4 0 ABS 0
 __Lfardata 0 0 FARRAM 0
 powf@s2 18C 0 BANK1 1
+_powf$3098 104 0 BANK1 1
 powf@t2 11C 0 BANK1 1
 __pintcode 8 0 CODE 0
 powf@y1 128 0 BANK1 1
@@ -264,6 +263,7 @@ _ADRESL FC3 0 ABS 0
 USART_RxS@pointer 69 0 BANK0 1
 __CFG_EBTR0$OFF 0 0 ABS 0
 _PWM_OneshotX 6B52 0 CODE 0
+_powf$3099 158 0 BANK1 1
 i2_PWM_InitS 6D2A 0 CODE 0
 __HnvFARRAM 0 0 FARRAM 0
 __LnvFARRAM 0 0 FARRAM 0
@@ -344,9 +344,11 @@ __Lrbss 0 0 COMRAM 1
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 __end_of___fldiv 4212 0 CODE 0
+_Control_ConvertirDistancia$3091 F3 0 BANK0 1
 __CFG_CCP2MX$ON 0 0 ABS 0
 ___wmul@multiplier 60 0 BANK0 1
 __size_of_sqrtf 0 0 ABS 0
+_USART_Init$3089 72 0 BANK0 1
 ?___xxtofl 60 0 BANK0 1
 ___flmul@sign 7A 0 BANK0 1
 end_of_initialization 69C8 0 CODE 0
@@ -610,6 +612,7 @@ Motor_Calcular_PasosY@coordenada_actualY 60 0 BANK0 1
 ?_Control_LecturaFiltro 6E 0 BANK0 1
 Serial_Lectura_MemoriaZ@pointerCZ 76 0 BANK0 1
 Motor_Movimiento_Home@Motor_CoordenadaX 38 0 COMRAM 1
+_Control_ConvertirDistancia$3090 EF 0 BANK0 1
 Motor_Movimiento_Home@Motor_CoordenadaY 3A 0 COMRAM 1
 Control_LecturaFiltro@n 6E 0 BANK0 1
 _Serial_RangosControl 6916 0 CODE 0
@@ -862,7 +865,6 @@ Serial_Lectura_MemoriaX@coordenadaX 7B 0 BANK0 1
 __Htext67 0 0 ABS 0
 __Htext48 0 0 ABS 0
 __Htext29 0 0 ABS 0
-_Control_ConvertirDistancia$3039 EF 0 BANK0 1
 __Ltext67 0 0 ABS 0
 __Ltext48 0 0 ABS 0
 __Ltext29 0 0 ABS 0
@@ -872,7 +874,6 @@ __ptext38 6D82 0 CODE 0
 __ptext57 671A 0 CODE 0
 __ptext76 4212 0 CODE 0
 __CFG_BORV$3 0 0 ABS 0
-_isspace$2689 66 0 BANK0 1
 Serial_Lectura_MemoriaZ@coordenadaZ 7B 0 BANK0 1
 ___intlo_sp 0 0 STACK 2
 __Htext77 0 0 ABS 0
@@ -957,6 +958,7 @@ _Control_InsertBits 6A4A 0 CODE 0
 ?_Control_InsertBits 60 0 BANK0 1
 __size_of_atoi 0 0 ABS 0
 i2___fldiv@bexp 26 0 COMRAM 1
+_isspace$2740 66 0 BANK0 1
 __accesstop 60 0 ABS 0
 _USART_RxC 6DB6 0 CODE 0
 __size_of_Serial_DecodificacionX 0 0 ABS 0
@@ -999,13 +1001,11 @@ __end_of_two24 7F69 0 MEDIUMCONST 0
 __size_of_Control_LecturaFiltro 0 0 ABS 0
 __end_of___wmul 6C0C 0 CODE 0
 __end_of_fabsf 6AB8 0 CODE 0
-_Control_ConvertirDistancia$3040 F3 0 BANK0 1
 ___fladd@bexp 95 0 BANK0 1
 __CFG_CPD$OFF 0 0 ABS 0
 start_initialization 699A 0 CODE 0
 ___aldiv@quotient 6A 0 BANK0 1
 sqrtf@__xc8_float_word C0 0 BANK0 1
-_USART_Init$3038 72 0 BANK0 1
 __end_of_cp_l 7F79 0 MEDIUMCONST 0
 __end_of_ADC_Init 6C34 0 CODE 0
 _PWM_InitF 6CEA 0 CODE 0
@@ -1082,7 +1082,7 @@ cstackBANK1 100 1EF BANK1 100 1
 %locals
 dist/default/production\Serial.X.production.o
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4550.h
-C:\Users\saenz\AppData\Local\Temp\srpk.s
+C:\Users\saenz\AppData\Local\Temp\sle4.s
 5014 699A 0 CODE 0
 5016 699A 0 CODE 0
 5019 699A 0 CODE 0
@@ -1139,23 +1139,23 @@ main.c
 42 606E 0 CODE 0
 43 6084 0 CODE 0
 main.c
-48 6766 0 CODE 0
-49 6766 0 CODE 0
-50 676A 0 CODE 0
-51 676C 0 CODE 0
-52 676E 0 CODE 0
-49 6772 0 CODE 0
-54 6786 0 CODE 0
-55 6786 0 CODE 0
-56 6788 0 CODE 0
-57 678A 0 CODE 0
-54 678E 0 CODE 0
-59 679E 0 CODE 0
-60 67A0 0 CODE 0
-61 67A2 0 CODE 0
-62 67A4 0 CODE 0
-63 67A8 0 CODE 0
-65 67AC 0 CODE 0
+65 6766 0 CODE 0
+66 6766 0 CODE 0
+67 676A 0 CODE 0
+68 676C 0 CODE 0
+69 676E 0 CODE 0
+66 6772 0 CODE 0
+71 6786 0 CODE 0
+72 6786 0 CODE 0
+73 6788 0 CODE 0
+74 678A 0 CODE 0
+71 678E 0 CODE 0
+76 679E 0 CODE 0
+77 67A0 0 CODE 0
+78 67A2 0 CODE 0
+79 67A4 0 CODE 0
+80 67A8 0 CODE 0
+82 67AC 0 CODE 0
 Motor.c
 89 6E20 0 CODE 0
 90 6E20 0 CODE 0
@@ -2533,43 +2533,43 @@ GPIOsparcA1.c
 17 6D7C 0 CODE 0
 18 6D7E 0 CODE 0
 21 6D80 0 CODE 0
-C:\Users\saenz\AppData\Local\Temp\srpk.s
+C:\Users\saenz\AppData\Local\Temp\sle4.s
 25951 8 0 CODE 0
+main.c
+46 8 0 CODE 0
+main.c
+46 64E6 0 CODE 0
+48 64E8 0 CODE 0
+49 64F6 0 CODE 0
+50 64FA 0 CODE 0
+51 650A 0 CODE 0
+53 650C 0 CODE 0
+54 651A 0 CODE 0
+55 651E 0 CODE 0
+56 652E 0 CODE 0
+58 6530 0 CODE 0
+59 653E 0 CODE 0
+60 6542 0 CODE 0
+61 6552 0 CODE 0
+63 6554 0 CODE 0
 Interrupt.c
-37 8 0 CODE 0
+56 67F6 0 CODE 0
+57 67F6 0 CODE 0
+58 67F8 0 CODE 0
+59 67FA 0 CODE 0
+60 6812 0 CODE 0
+61 6822 0 CODE 0
+63 6838 0 CODE 0
+65 683C 0 CODE 0
 Interrupt.c
-37 64E6 0 CODE 0
-39 64E8 0 CODE 0
-40 64F6 0 CODE 0
-41 64FA 0 CODE 0
-42 650A 0 CODE 0
-44 650C 0 CODE 0
-45 651A 0 CODE 0
-46 651E 0 CODE 0
-47 652E 0 CODE 0
-49 6530 0 CODE 0
-50 653E 0 CODE 0
-51 6542 0 CODE 0
-52 6552 0 CODE 0
-54 6554 0 CODE 0
-Interrupt.c
-73 67F6 0 CODE 0
-74 67F6 0 CODE 0
-75 67F8 0 CODE 0
-76 67FA 0 CODE 0
-77 6812 0 CODE 0
-78 6822 0 CODE 0
-80 6838 0 CODE 0
-82 683C 0 CODE 0
-Interrupt.c
-62 683E 0 CODE 0
-63 683E 0 CODE 0
-64 6840 0 CODE 0
-65 6842 0 CODE 0
-66 685A 0 CODE 0
-67 686A 0 CODE 0
-69 6880 0 CODE 0
-71 6884 0 CODE 0
+45 683E 0 CODE 0
+46 683E 0 CODE 0
+47 6840 0 CODE 0
+48 6842 0 CODE 0
+49 685A 0 CODE 0
+50 686A 0 CODE 0
+52 6880 0 CODE 0
+54 6884 0 CODE 0
 Motor.c
 96 6886 0 CODE 0
 97 6888 0 CODE 0
@@ -2788,29 +2788,29 @@ C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
 182 45A0 0 CODE 0
 185 45AA 0 CODE 0
 Interrupt.c
-56 6DE2 0 CODE 0
-57 6DE2 0 CODE 0
-58 6DE6 0 CODE 0
-59 6DEE 0 CODE 0
-60 6DF6 0 CODE 0
+39 6DE2 0 CODE 0
+40 6DE2 0 CODE 0
+41 6DE6 0 CODE 0
+42 6DEE 0 CODE 0
+43 6DF6 0 CODE 0
 main.c
-48 68CE 0 CODE 0
-49 68CE 0 CODE 0
-50 68D2 0 CODE 0
-51 68D4 0 CODE 0
-52 68D6 0 CODE 0
-49 68DA 0 CODE 0
-54 68EE 0 CODE 0
-55 68EE 0 CODE 0
-56 68F0 0 CODE 0
-57 68F2 0 CODE 0
-54 68F6 0 CODE 0
-59 6906 0 CODE 0
-60 6908 0 CODE 0
-61 690A 0 CODE 0
-62 690C 0 CODE 0
-63 6910 0 CODE 0
-65 6914 0 CODE 0
+65 68CE 0 CODE 0
+66 68CE 0 CODE 0
+67 68D2 0 CODE 0
+68 68D4 0 CODE 0
+69 68D6 0 CODE 0
+66 68DA 0 CODE 0
+71 68EE 0 CODE 0
+72 68EE 0 CODE 0
+73 68F0 0 CODE 0
+74 68F2 0 CODE 0
+71 68F6 0 CODE 0
+76 6906 0 CODE 0
+77 6908 0 CODE 0
+78 690A 0 CODE 0
+79 690C 0 CODE 0
+80 6910 0 CODE 0
+82 6914 0 CODE 0
 Motor.c
 89 6E2C 0 CODE 0
 90 6E2C 0 CODE 0

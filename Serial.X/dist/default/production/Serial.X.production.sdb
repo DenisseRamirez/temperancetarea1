@@ -92,17 +92,17 @@
 [v _GPIO_init_PORTE GPIO_init_PORTE `(v  1 e 1 0 ]
 "17 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\Interrupt.c
 [v _Int_Ext Int_Ext `(v  1 e 1 0 ]
-"37
-[v _INT_isr INT_isr `IIH(v  1 e 1 0 ]
-"56
+"39
 [v _INT0_ACTION INT0_ACTION `(v  1 e 1 0 ]
-"62
+"45
 [v _INT1_ACTION INT1_ACTION `(v  1 e 1 0 ]
-"73
+"56
 [v _INT2_ACTION INT2_ACTION `(v  1 e 1 0 ]
 "22 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"48
+"46
+[v _INT_isr INT_isr `IIH(v  1 e 1 0 ]
+"65
 [v _main_Home main_Home `(v  1 e 1 0 ]
 [v i2_main_Home main_Home `(v  1 e 1 0 ]
 "19 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\Motor.c
@@ -359,7 +359,7 @@
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
 "3073
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
-[s S1841 . 1 `uc 1 LATB0 1 0 :1:0 
+[s S1943 . 1 `uc 1 LATB0 1 0 :1:0 
 `uc 1 LATB1 1 0 :1:1 
 `uc 1 LATB2 1 0 :1:2 
 `uc 1 LATB3 1 0 :1:3 
@@ -369,7 +369,7 @@
 `uc 1 LATB7 1 0 :1:7 
 ]
 "3100
-[s S1850 . 1 `uc 1 LB0 1 0 :1:0 
+[s S1952 . 1 `uc 1 LB0 1 0 :1:0 
 `uc 1 LB1 1 0 :1:1 
 `uc 1 LB2 1 0 :1:2 
 `uc 1 LB3 1 0 :1:3 
@@ -378,8 +378,8 @@
 `uc 1 LB6 1 0 :1:6 
 `uc 1 LB7 1 0 :1:7 
 ]
-[u S1859 . 1 `S1841 1 . 1 0 `S1850 1 . 1 0 ]
-[v _LATBbits LATBbits `VES1859  1 e 1 @3978 ]
+[u S1961 . 1 `S1943 1 . 1 0 `S1952 1 . 1 0 ]
+[v _LATBbits LATBbits `VES1961  1 e 1 @3978 ]
 "3185
 [v _LATC LATC `VEuc  1 e 1 @3979 ]
 [s S1576 . 1 `uc 1 LATC0 1 0 :1:0 
@@ -716,22 +716,22 @@
 [v _T2CONbits T2CONbits `VES97  1 e 1 @4042 ]
 "7298
 [v _PR2 PR2 `VEuc  1 e 1 @4043 ]
-[s S1955 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[s S2057 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "7588
-[s S1957 . 1 `uc 1 . 1 0 :1:0 
+[s S2059 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
-[s S1960 . 1 `uc 1 . 1 0 :2:0 
+[s S2062 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
-[s S1963 . 1 `uc 1 . 1 0 :3:0 
+[s S2065 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
-[s S1966 . 1 `uc 1 . 1 0 :4:0 
+[s S2068 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
-[s S1969 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S2071 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -740,10 +740,10 @@
 `uc 1 SBOREN 1 0 :1:6 
 `uc 1 IPEN 1 0 :1:7 
 ]
-[s S1978 . 1 `uc 1 . 1 0 :7:0 
+[s S2080 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_IPEN 1 0 :1:7 
 ]
-[s S1981 . 1 `uc 1 BOR 1 0 :1:0 
+[s S2083 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
@@ -751,11 +751,11 @@
 `uc 1 . 1 0 :2:5 
 `uc 1 nIPEN 1 0 :1:7 
 ]
-[u S1989 . 1 `S1955 1 . 1 0 `S1957 1 . 1 0 `S1960 1 . 1 0 `S1963 1 . 1 0 `S1966 1 . 1 0 `S1969 1 . 1 0 `S1978 1 . 1 0 `S1981 1 . 1 0 ]
-[v _RCONbits RCONbits `VES1989  1 e 1 @4048 ]
+[u S2091 . 1 `S2057 1 . 1 0 `S2059 1 . 1 0 `S2062 1 . 1 0 `S2065 1 . 1 0 `S2068 1 . 1 0 `S2071 1 . 1 0 `S2080 1 . 1 0 `S2083 1 . 1 0 ]
+[v _RCONbits RCONbits `VES2091  1 e 1 @4048 ]
 "7986
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
-[s S2060 . 1 `uc 1 INT1IF 1 0 :1:0 
+[s S1766 . 1 `uc 1 INT1IF 1 0 :1:0 
 `uc 1 INT2IF 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 INT1IE 1 0 :1:3 
@@ -765,7 +765,7 @@
 `uc 1 INT2IP 1 0 :1:7 
 ]
 "8440
-[s S2069 . 1 `uc 1 INT1F 1 0 :1:0 
+[s S1775 . 1 `uc 1 INT1F 1 0 :1:0 
 `uc 1 INT2F 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 INT1E 1 0 :1:3 
@@ -774,13 +774,13 @@
 `uc 1 INT1P 1 0 :1:6 
 `uc 1 INT2P 1 0 :1:7 
 ]
-[u S2078 . 1 `S2060 1 . 1 0 `S2069 1 . 1 0 ]
-[v _INTCON3bits INTCON3bits `VES2078  1 e 1 @4080 ]
-[s S1894 . 1 `uc 1 . 1 0 :7:0 
+[u S1784 . 1 `S1766 1 . 1 0 `S1775 1 . 1 0 ]
+[v _INTCON3bits INTCON3bits `VES1784  1 e 1 @4080 ]
+[s S1996 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
 "8532
-[s S1897 . 1 `uc 1 RBIP 1 0 :1:0 
+[s S1999 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -789,13 +789,13 @@
 `uc 1 INTEDG0 1 0 :1:6 
 `uc 1 nRBPU 1 0 :1:7 
 ]
-[s S1906 . 1 `uc 1 . 1 0 :2:0 
+[s S2008 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IP 1 0 :1:2 
 `uc 1 . 1 0 :4:3 
 `uc 1 RBPU 1 0 :1:7 
 ]
-[u S1911 . 1 `S1894 1 . 1 0 `S1897 1 . 1 0 `S1906 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES1911  1 e 1 @4081 ]
+[u S2013 . 1 `S1996 1 . 1 0 `S1999 1 . 1 0 `S2008 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES2013  1 e 1 @4081 ]
 [s S967 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
@@ -844,10 +844,10 @@
 {
 "44
 } 0
-"48
+"65
 [v _main_Home main_Home `(v  1 e 1 0 ]
 {
-"65
+"82
 } 0
 "89 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\Motor.c
 [v _Motor_Home Motor_Home `(v  1 e 1 0 ]
@@ -1210,9 +1210,9 @@
 [v powf@t_h t_h `f  1 a 4 104 ]
 [v powf@t_l t_l `f  1 a 4 52 ]
 [v powf@s_l s_l `f  1 a 4 48 ]
-[u S2663 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S2714 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "58
-[v powf@__xc8_float_word __xc8_float_word `S2663  1 a 4 184 ]
+[v powf@__xc8_float_word __xc8_float_word `S2714  1 a 4 184 ]
 "54
 [v powf@z z `f  1 a 4 180 ]
 "55
@@ -1279,9 +1279,9 @@
 "26
 [v sqrtf@t t `l  1 a 4 104 ]
 [v sqrtf@q q `l  1 a 4 100 ]
-[u S2663 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S2714 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "28
-[v sqrtf@__xc8_float_word __xc8_float_word `S2663  1 a 4 96 ]
+[v sqrtf@__xc8_float_word __xc8_float_word `S2714  1 a 4 96 ]
 "26
 [v sqrtf@i i `l  1 a 4 92 ]
 [v sqrtf@s s `l  1 a 4 88 ]
@@ -1292,9 +1292,9 @@
 "4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\nanf.c
 [v _nanf nanf `(f  1 e 4 0 ]
 {
-[u S2663 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S2714 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "6
-[v nanf@u u `S2663  1 a 4 4 ]
+[v nanf@u u `S2714  1 a 4 4 ]
 "4
 [v nanf@s s `*.25Cuc  1 p 2 0 ]
 "9
@@ -1311,9 +1311,9 @@
 {
 "7
 [v scalbnf@y y `f  1 a 4 53 ]
-[u S2663 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S2714 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "6
-[v scalbnf@u u `S2663  1 a 4 49 ]
+[v scalbnf@u u `S2714  1 a 4 49 ]
 "4
 [v scalbnf@x x `f  1 p 4 39 ]
 [v scalbnf@n n `i  1 p 2 43 ]
@@ -1322,17 +1322,17 @@
 "8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S2511 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S2562 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S2516 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S2519 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2511 1 fAsBytes 4 0 `S2516 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S2519  1 a 4 33 ]
+[s S2567 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S2570 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2562 1 fAsBytes 4 0 `S2567 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S2570  1 a 4 33 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 27 ]
-[s S2587 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S2638 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S2590 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2587 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S2590  1 a 2 37 ]
+[u S2641 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2638 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S2641  1 a 2 37 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 32 ]
 "11
@@ -1347,13 +1347,13 @@
 "4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fabsf.c
 [v _fabsf fabsf `(f  1 e 4 0 ]
 {
-[u S2663 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S2714 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "6
-[v fabsf@u u `S2663  1 a 4 4 ]
+[v fabsf@u u `S2714  1 a 4 4 ]
 "4
 [v fabsf@x x `f  1 p 4 0 ]
 "5
-[v fabsf@F463 F463 `S2663  1 s 4 F463 ]
+[v fabsf@F463 F463 `S2714  1 s 4 F463 ]
 "9
 } 0
 "10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\xxtofl.c
@@ -1496,20 +1496,20 @@
 {
 "21
 } 0
-"37 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\Interrupt.c
+"46 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\main.c
 [v _INT_isr INT_isr `IIH(v  1 e 1 0 ]
 {
-"54
+"63
 } 0
-"73
+"56 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\Interrupt.c
 [v _INT2_ACTION INT2_ACTION `(v  1 e 1 0 ]
 {
-"82
+"65
 } 0
-"62
+"45
 [v _INT1_ACTION INT1_ACTION `(v  1 e 1 0 ]
 {
-"71
+"54
 } 0
 "96 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\Motor.c
 [v _Motor_Movimiento_Home Motor_Movimiento_Home `(v  1 e 1 0 ]
@@ -1590,15 +1590,15 @@
 [v i2___fldiv@a a `d  1 p 4 18 ]
 "185
 } 0
-"56 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\Interrupt.c
+"39 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\Interrupt.c
 [v _INT0_ACTION INT0_ACTION `(v  1 e 1 0 ]
 {
-"60
+"43
 } 0
-"48 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\main.c
+"65 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\main.c
 [v i2_main_Home main_Home `(v  1 e 1 0 ]
 {
-"65
+"82
 } 0
 "89 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\Motor.c
 [v i2_Motor_Home Motor_Home `(v  1 e 1 0 ]

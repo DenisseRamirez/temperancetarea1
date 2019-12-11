@@ -34,24 +34,7 @@ void Int_Ext(void) {
     INTCON3bits.INT2IF = 0; //FLAG INT2 down
 }
 
-void __interrupt() INT_isr(void) {
 
-    if (INTCON3bits.INT1IF == 1) {
-        INT1_ACTION(); //take action 1 before action 0
-        __delay_ms(10); //debouncing
-        INTCON3bits.INT1IF = 0; //FLAG INT1 down
-    }
-    if (INTCON3bits.INT2IF == 1) {
-        INT2_ACTION(); //take action 2 before any other
-        __delay_ms(10); //debouncing
-        INTCON3bits.INT2IF = 0; //FLAG INT2 down
-    }
-    if (INTCONbits.INT0IF == 1) {
-        INT0_ACTION(); //take action 0
-        __delay_ms(10); //debouncing
-        INTCONbits.INT0F = 0; //FLAG INT0 down
-    }
-}
 
 void INT0_ACTION(void) {
     main_Home();

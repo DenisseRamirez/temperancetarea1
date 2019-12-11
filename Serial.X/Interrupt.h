@@ -7,7 +7,7 @@
 
 #endif
 
-void __interrupt() INT_isr (void);
+
 void Int_Ext(void);
 void INT0_ACTION(void);
 void INT1_ACTION(void);

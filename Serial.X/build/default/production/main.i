@@ -5770,6 +5770,7 @@ char *tempnam(const char *, const char *);
 # 1 "./main.h" 1
 # 10 "./main.h"
 void main_Home(void);
+void __attribute__((picinterrupt(("")))) INT_isr (void);
 char home=0;
 # 10 "main.c" 2
 
@@ -6016,8 +6017,7 @@ void Usart_Interface_ON(char color);
 # 19 "main.c" 2
 
 # 1 "./Interrupt.h" 1
-# 10 "./Interrupt.h"
-void __attribute__((picinterrupt(("")))) INT_isr (void);
+# 11 "./Interrupt.h"
 void Int_Ext(void);
 void INT0_ACTION(void);
 void INT1_ACTION(void);
@@ -6052,7 +6052,24 @@ void main(void) {
     while(1);
 }
 
+void __attribute__((picinterrupt(("")))) INT_isr(void) {
 
+    if (INTCON3bits.INT1IF == 1) {
+        INT1_ACTION();
+        _delay((unsigned long)((10)*(8000000/4000.0)));
+        INTCON3bits.INT1IF = 0;
+    }
+    if (INTCON3bits.INT2IF == 1) {
+        INT2_ACTION();
+        _delay((unsigned long)((10)*(8000000/4000.0)));
+        INTCON3bits.INT2IF = 0;
+    }
+    if (INTCONbits.INT0IF == 1) {
+        INT0_ACTION();
+        _delay((unsigned long)((10)*(8000000/4000.0)));
+        INTCONbits.INT0F = 0;
+    }
+}
 
 void main_Home(void) {
     while (BanderaX == 0) {
