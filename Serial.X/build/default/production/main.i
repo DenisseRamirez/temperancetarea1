@@ -7,12 +7,7 @@
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-
-
-
-
-
-
+# 11 "main.c"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5624,7 +5619,7 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 7 "main.c" 2
+# 11 "main.c" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdio.h" 3
@@ -5764,7 +5759,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 8 "main.c" 2
+# 12 "main.c" 2
 
 
 # 1 "./main.h" 1
@@ -5772,10 +5767,10 @@ char *tempnam(const char *, const char *);
 void main_Home(void);
 void __attribute__((picinterrupt(("")))) INT_isr (void);
 char home=0;
-# 10 "main.c" 2
+# 14 "main.c" 2
 
 # 1 "./configuration.h" 1
-# 11 "main.c" 2
+# 15 "main.c" 2
 
 # 1 "./ControlZ.h" 1
 
@@ -5795,7 +5790,7 @@ float Distancia;
 int Lectura;
 int LecturaFiltro;
 long Suma;
-# 12 "main.c" 2
+# 16 "main.c" 2
 
 # 1 "./UART.h" 1
 
@@ -5814,7 +5809,7 @@ void USART_RxS (char lenght, char* pointer );
 char USART_TxS(char str[], int length);
 void USART_Overflow(void) ;
 char Conexion_perdida=0;
-# 13 "main.c" 2
+# 17 "main.c" 2
 
 # 1 "./motor.h" 1
 
@@ -5841,7 +5836,7 @@ void Motor_MovimientoZ(void);
 
 void Motor_Home(void);
 void Motor_Movimiento_Home(char Oupcode,int Motor_CoordenadaX, int Motor_CoordenadaY);
-# 14 "main.c" 2
+# 18 "main.c" 2
 
 # 1 "./PWM.h" 1
 
@@ -5858,7 +5853,7 @@ int PWM_OneshotX(int countX);
 int PWM_OneshotY(int countY);
 void PWM_InitF(void);
 void PWM_InitS(void);
-# 15 "main.c" 2
+# 19 "main.c" 2
 
 # 1 "./serial.h" 1
 
@@ -5892,14 +5887,14 @@ void PWM_InitS(void);
     char Coordenadas_mal=0;
     char Coordenadas_control_fuera =0;
     char Longitud_Coordenada=3;
-# 16 "main.c" 2
+# 20 "main.c" 2
 
 # 1 "./Actuator.h" 1
 # 11 "./Actuator.h"
 void Actuator_Touch(void);
 void Actuator_Hold(void);
 void Actuator_Retract(void);
-# 17 "main.c" 2
+# 21 "main.c" 2
 
 # 1 "./GPIOsparcA1.h" 1
 
@@ -6002,7 +5997,7 @@ void GPIO_init_PORTC(void);
 void GPIO_init_PORTD(void);
 # 286 "./GPIOsparcA1.h"
 void GPIO_init_PORTE(void);
-# 18 "main.c" 2
+# 22 "main.c" 2
 
 # 1 "./User_Interface.h" 1
 
@@ -6014,7 +6009,7 @@ void GPIO_init_PORTE(void);
 
 void Usart_Interface_OFF(char color);
 void Usart_Interface_ON(char color);
-# 19 "main.c" 2
+# 23 "main.c" 2
 
 # 1 "./Interrupt.h" 1
 # 11 "./Interrupt.h"
@@ -6025,7 +6020,7 @@ void INT2_ACTION(void);
 void maain_interrrupt();
 char BanderaX=0;
 char BanderaY=0;
-# 20 "main.c" 2
+# 24 "main.c" 2
 
 
 void main(void) {

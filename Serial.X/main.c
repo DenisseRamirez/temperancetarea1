@@ -2,8 +2,12 @@
  * File:   main.c
  * Author: saenz
  *
- * Created on November 78, 2019, 11:05 PM
+ * Created on November 2019, 11:05 PM
  */
+//Fecha de Tescases y Presentacion final 12 de DICIEMBRE 
+//Sistema SPARC FINAL. SPARC 3.0
+//PROGRAM MEMORIE 87.8%
+//Sin control en eje z baja a 40%
 #include <xc.h>
 #include <stdio.h>
 #include <stdlib.h>

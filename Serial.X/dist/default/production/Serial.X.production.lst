@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.10 build 88905656 
-                                                                                               Thu Dec 12 07:59:55 2019
+                                                                                               Thu Dec 12 12:06:12 2019
 
 Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1 
      1                           	processor	18F4550
@@ -1684,7 +1684,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1670 ;;
   1671 ;; *************** function _main *****************
   1672 ;; Defined at:
-  1673 ;;		line 22 in file "main.c"
+  1673 ;;		line 26 in file "main.c"
   1674 ;; Parameters:    Size  Location     Type
   1675 ;;		None
   1676 ;; Auto vars:     Size  Location     Type
@@ -1728,34 +1728,34 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1714  005FDA                     _main:
   1715                           	opt callstack 20
   1716  005FDA                     
-  1717                           ;main.c: 23:     OSCCON = 0x72;
+  1717                           ;main.c: 27:     OSCCON = 0x72;
   1718  005FDA  0E72               	movlw	114
   1719  005FDC  6ED3               	movwf	211,c	;volatile
   1720  005FDE                     
-  1721                           ;main.c: 24:     GPIO_init_PORTA();
+  1721                           ;main.c: 28:     GPIO_init_PORTA();
   1722  005FDE  EC37  F037         	call	_GPIO_init_PORTA	;wreg free
   1723  005FE2                     
-  1724                           ;main.c: 25:     GPIO_init_PORTB();
+  1724                           ;main.c: 29:     GPIO_init_PORTB();
   1725  005FE2  EC52  F037         	call	_GPIO_init_PORTB	;wreg free
   1726  005FE6                     
-  1727                           ;main.c: 26:    GPIO_init_PORTC();
+  1727                           ;main.c: 30:    GPIO_init_PORTC();
   1728  005FE6  EC8A  F037         	call	_GPIO_init_PORTC	;wreg free
   1729  005FEA                     
-  1730                           ;main.c: 27:    GPIO_init_PORTD();
+  1730                           ;main.c: 31:    GPIO_init_PORTD();
   1731  005FEA  EC29  F037         	call	_GPIO_init_PORTD	;wreg free
   1732  005FEE                     
-  1733                           ;main.c: 28:     GPIO_init_PORTE();
+  1733                           ;main.c: 32:     GPIO_init_PORTE();
   1734  005FEE  EC80  F037         	call	_GPIO_init_PORTE	;wreg free
   1735  005FF2  908D               	bcf	141,0,c	;volatile
   1736  005FF4  988C               	bcf	140,4,c	;volatile
   1737  005FF6                     
-  1738                           ;main.c: 31:     PORTDbits.RD0 = 1;
+  1738                           ;main.c: 35:     PORTDbits.RD0 = 1;
   1739  005FF6  8083               	bsf	131,0,c	;volatile
   1740  005FF8                     
-  1741                           ;main.c: 32:     PORTDbits.RD2 = 1;
+  1741                           ;main.c: 36:     PORTDbits.RD2 = 1;
   1742  005FF8  8483               	bsf	131,2,c	;volatile
   1743  005FFA                     
-  1744                           ;main.c: 33:     USART_Init(9600);
+  1744                           ;main.c: 37:     USART_Init(9600);
   1745  005FFA  0E80               	movlw	128
   1746  005FFC  0100               	movlb	0	; () banked
   1747  005FFE  6F6E               	movwf	USART_Init@BAUD& (0+255),b
@@ -1767,10 +1767,10 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1753  00600A  6F71               	movwf	(USART_Init@BAUD+3)& (0+255),b
   1754  00600C  EC8E  F032         	call	_USART_Init	;wreg free
   1755  006010                     
-  1756                           ;main.c: 34:     Int_Ext();
+  1756                           ;main.c: 38:     Int_Ext();
   1757  006010  ECC4  F036         	call	_Int_Ext	;wreg free
   1758  006014                     
-  1759                           ;main.c: 35:     USART_TxS("WELCOME TO SPARC\n", sizeof ("WELCOME TO SPARC\n") - 1);
+  1759                           ;main.c: 39:     USART_TxS("WELCOME TO SPARC\n", sizeof ("WELCOME TO SPARC\n") - 1);
   1760  006014  0E7D               	movlw	low STR_51
   1761  006016  0100               	movlb	0	; () banked
   1762  006018  6F60               	movwf	USART_TxS@str& (0+255),b
@@ -1782,11 +1782,11 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1768  006024  6F62               	movwf	USART_TxS@length& (0+255),b
   1769  006026  EC03  F033         	call	_USART_TxS	;wreg free
   1770  00602A                     
-  1771                           ;main.c: 36:    Usart_Interface_ON('A');
+  1771                           ;main.c: 40:    Usart_Interface_ON('A');
   1772  00602A  0E41               	movlw	65
   1773  00602C  EC32  F034         	call	_Usart_Interface_ON
   1774  006030                     
-  1775                           ;main.c: 37:     USART_TxS("W\n", sizeof ("W\n") - 1);
+  1775                           ;main.c: 41:     USART_TxS("W\n", sizeof ("W\n") - 1);
   1776  006030  0EF1               	movlw	low STR_4
   1777  006032  0100               	movlb	0	; () banked
   1778  006034  6F60               	movwf	USART_TxS@str& (0+255),b
@@ -1798,14 +1798,14 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1784  006040  6F62               	movwf	USART_TxS@length& (0+255),b
   1785  006042  EC03  F033         	call	_USART_TxS	;wreg free
   1786  006046                     
-  1787                           ;main.c: 38:    main_Home();
+  1787                           ;main.c: 42:    main_Home();
   1788  006046  EC7E  F034         	call	_main_Home	;wreg free
   1789  00604A                     
-  1790                           ;main.c: 39:     Usart_Interface_OFF('A');
+  1790                           ;main.c: 43:     Usart_Interface_OFF('A');
   1791  00604A  0E41               	movlw	65
   1792  00604C  EC58  F034         	call	_Usart_Interface_OFF
   1793  006050                     
-  1794                           ;main.c: 40:     USART_TxS("C\n", sizeof ("C\n") - 1);
+  1794                           ;main.c: 44:     USART_TxS("C\n", sizeof ("C\n") - 1);
   1795  006050  0EDB               	movlw	low (STR_36+1)
   1796  006052  0100               	movlb	0	; () banked
   1797  006054  6F60               	movwf	USART_TxS@str& (0+255),b
@@ -1817,14 +1817,14 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1803  006060  6F62               	movwf	USART_TxS@length& (0+255),b
   1804  006062  EC03  F033         	call	_USART_TxS	;wreg free
   1805  006066                     
-  1806                           ;main.c: 41:      Usart_Interface_ON('V');
+  1806                           ;main.c: 45:      Usart_Interface_ON('V');
   1807  006066  0E56               	movlw	86
   1808  006068  EC32  F034         	call	_Usart_Interface_ON
   1809  00606C                     
-  1810                           ;main.c: 42:     Serial_Oupcode();
+  1810                           ;main.c: 46:     Serial_Oupcode();
   1811  00606C  EC3D  F015         	call	_Serial_Oupcode	;wreg free
   1812  006070                     
-  1813                           ;main.c: 43:     USART_TxS("F", sizeof ("F") - 1);
+  1813                           ;main.c: 47:     USART_TxS("F", sizeof ("F") - 1);
   1814  006070  0EFD               	movlw	low STR_23
   1815  006072  0100               	movlb	0	; () banked
   1816  006074  6F60               	movwf	USART_TxS@str& (0+255),b
@@ -1843,7 +1843,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1829                           
   1830 ;; *************** function _main_Home *****************
   1831 ;; Defined at:
-  1832 ;;		line 66 in file "main.c"
+  1832 ;;		line 70 in file "main.c"
   1833 ;; Parameters:    Size  Location     Type
   1834 ;;		None
   1835 ;; Auto vars:     Size  Location     Type
@@ -1877,21 +1877,21 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1863  0068FC                     _main_Home:
   1864                           	opt callstack 23
   1865  0068FC                     
-  1866                           ;main.c: 67:     while (BanderaX == 0) {
+  1866                           ;main.c: 71:     while (BanderaX == 0) {
   1867  0068FC  EF84  F034         	goto	l7437
   1868  006900                     l910:
   1869                           
-  1870                           ;main.c: 68:         PORTDbits.RD0 = 0;
+  1870                           ;main.c: 72:         PORTDbits.RD0 = 0;
   1871  006900  9083               	bcf	131,0,c	;volatile
   1872                           
-  1873                           ;main.c: 69:         PORTDbits.RD2 = 1;
+  1873                           ;main.c: 73:         PORTDbits.RD2 = 1;
   1874  006902  8483               	bsf	131,2,c	;volatile
   1875  006904                     
-  1876                           ;main.c: 70:         Motor_Home();
+  1876                           ;main.c: 74:         Motor_Home();
   1877  006904  EC94  F037         	call	_Motor_Home	;wreg free
   1878  006908                     l7437:
   1879                           
-  1880                           ;main.c: 67:     while (BanderaX == 0) {
+  1880                           ;main.c: 71:     while (BanderaX == 0) {
   1881  006908  5056               	movf	_BanderaX^0,w,c
   1882  00690A  B4D8               	btfsc	status,2,c
   1883  00690C  EF8A  F034         	goto	u6911
@@ -1902,17 +1902,17 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1888  006918  EF92  F034         	goto	l7441
   1889  00691C                     l913:
   1890                           
-  1891                           ;main.c: 73:         PORTDbits.RD0 = 1;
+  1891                           ;main.c: 77:         PORTDbits.RD0 = 1;
   1892  00691C  8083               	bsf	131,0,c	;volatile
   1893                           
-  1894                           ;main.c: 74:         PORTDbits.RD2 = 0;
+  1894                           ;main.c: 78:         PORTDbits.RD2 = 0;
   1895  00691E  9483               	bcf	131,2,c	;volatile
   1896  006920                     
-  1897                           ;main.c: 75:         Motor_Home();
+  1897                           ;main.c: 79:         Motor_Home();
   1898  006920  EC94  F037         	call	_Motor_Home	;wreg free
   1899  006924                     l7441:
   1900                           
-  1901                           ;main.c: 72:     while (BanderaY == 0) {
+  1901                           ;main.c: 76:     while (BanderaY == 0) {
   1902  006924  5055               	movf	_BanderaY^0,w,c
   1903  006926  B4D8               	btfsc	status,2,c
   1904  006928  EF98  F034         	goto	u6921
@@ -1921,20 +1921,20 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1907  006930  EF8E  F034         	goto	l913
   1908  006934                     u6920:
   1909  006934                     
-  1910                           ;main.c: 77:     PORTDbits.RD0 = 1;
+  1910                           ;main.c: 81:     PORTDbits.RD0 = 1;
   1911  006934  8083               	bsf	131,0,c	;volatile
   1912                           
-  1913                           ;main.c: 78:     PORTDbits.RD2 = 1;
+  1913                           ;main.c: 82:     PORTDbits.RD2 = 1;
   1914  006936  8483               	bsf	131,2,c	;volatile
   1915                           
-  1916                           ;main.c: 79:     T2CONbits.TMR2ON = 0;
+  1916                           ;main.c: 83:     T2CONbits.TMR2ON = 0;
   1917  006938  94CA               	bcf	202,2,c	;volatile
   1918  00693A                     
-  1919                           ;main.c: 80:     BanderaX = 0;
+  1919                           ;main.c: 84:     BanderaX = 0;
   1920  00693A  0E00               	movlw	0
   1921  00693C  6E56               	movwf	_BanderaX^0,c
   1922                           
-  1923                           ;main.c: 81:     BanderaY = 0;
+  1923                           ;main.c: 85:     BanderaY = 0;
   1924  00693E  0E00               	movlw	0
   1925  006940  6E55               	movwf	_BanderaY^0,c
   1926  006942  0012               	return		;funcret
@@ -17159,7 +17159,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
  17121                           
  17122 ;; *************** function _INT_isr *****************
  17123 ;; Defined at:
- 17124 ;;		line 47 in file "main.c"
+ 17124 ;;		line 51 in file "main.c"
  17125 ;; Parameters:    Size  Location     Type
  17126 ;;		None
  17127 ;; Auto vars:     Size  Location     Type
@@ -17206,7 +17206,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
  17168                           	opt callstack 20
  17169  006678  0006               	pop		; remove dummy address from shadow register refresh
  17170  00667A                     
- 17171                           ;main.c: 49:     if (INTCON3bits.INT1IF == 1) {
+ 17171                           ;main.c: 53:     if (INTCON3bits.INT1IF == 1) {
  17172  00667A  A0F0               	btfss	240,0,c	;volatile
  17173  00667C  EF42  F033         	goto	i2u695_41
  17174  006680  EF44  F033         	goto	i2u695_40
@@ -17214,10 +17214,10 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
  17176  006684  EF4F  F033         	goto	i2l7527
  17177  006688                     i2u695_40:
  17178  006688                     
- 17179                           ;main.c: 50:         INT1_ACTION();
+ 17179                           ;main.c: 54:         INT1_ACTION();
  17180  006688  ECEA  F034         	call	_INT1_ACTION	;wreg free
  17181  00668C                     
- 17182                           ;main.c: 51:         _delay((unsigned long)((10)*(8000000/4000.0)));
+ 17182                           ;main.c: 55:         _delay((unsigned long)((10)*(8000000/4000.0)));
  17183  00668C  0E1A               	movlw	26
  17184  00668E  6E3F               	movwf	??_INT_isr^0,c
  17185  006690  0EF8               	movlw	248
@@ -17228,11 +17228,11 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
  17190  006698  D7FC               	bra	i2u714_47
  17191  00669A  D000               	nop2	
  17192  00669C                     
- 17193                           ;main.c: 52:         INTCON3bits.INT1IF = 0;
+ 17193                           ;main.c: 56:         INTCON3bits.INT1IF = 0;
  17194  00669C  90F0               	bcf	240,0,c	;volatile
  17195  00669E                     i2l7527:
  17196                           
- 17197                           ;main.c: 54:     if (INTCON3bits.INT2IF == 1) {
+ 17197                           ;main.c: 58:     if (INTCON3bits.INT2IF == 1) {
  17198  00669E  A2F0               	btfss	240,1,c	;volatile
  17199  0066A0  EF54  F033         	goto	i2u696_41
  17200  0066A4  EF56  F033         	goto	i2u696_40
@@ -17240,10 +17240,10 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
  17202  0066A8  EF61  F033         	goto	i2l7535
  17203  0066AC                     i2u696_40:
  17204  0066AC                     
- 17205                           ;main.c: 55:         INT2_ACTION();
+ 17205                           ;main.c: 59:         INT2_ACTION();
  17206  0066AC  ECC6  F034         	call	_INT2_ACTION	;wreg free
  17207  0066B0                     
- 17208                           ;main.c: 56:         _delay((unsigned long)((10)*(8000000/4000.0)));
+ 17208                           ;main.c: 60:         _delay((unsigned long)((10)*(8000000/4000.0)));
  17209  0066B0  0E1A               	movlw	26
  17210  0066B2  6E3F               	movwf	??_INT_isr^0,c
  17211  0066B4  0EF8               	movlw	248
@@ -17254,11 +17254,11 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
  17216  0066BC  D7FC               	bra	i2u715_47
  17217  0066BE  D000               	nop2	
  17218  0066C0                     
- 17219                           ;main.c: 57:         INTCON3bits.INT2IF = 0;
+ 17219                           ;main.c: 61:         INTCON3bits.INT2IF = 0;
  17220  0066C0  92F0               	bcf	240,1,c	;volatile
  17221  0066C2                     i2l7535:
  17222                           
- 17223                           ;main.c: 59:     if (INTCONbits.INT0IF == 1) {
+ 17223                           ;main.c: 63:     if (INTCONbits.INT0IF == 1) {
  17224  0066C2  A2F2               	btfss	242,1,c	;volatile
  17225  0066C4  EF66  F033         	goto	i2u697_41
  17226  0066C8  EF68  F033         	goto	i2u697_40
@@ -17266,10 +17266,10 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
  17228  0066CC  EF73  F033         	goto	i2l906
  17229  0066D0                     i2u697_40:
  17230  0066D0                     
- 17231                           ;main.c: 60:         INT0_ACTION();
+ 17231                           ;main.c: 64:         INT0_ACTION();
  17232  0066D0  EC75  F037         	call	_INT0_ACTION	;wreg free
  17233  0066D4                     
- 17234                           ;main.c: 61:         _delay((unsigned long)((10)*(8000000/4000.0)));
+ 17234                           ;main.c: 65:         _delay((unsigned long)((10)*(8000000/4000.0)));
  17235  0066D4  0E1A               	movlw	26
  17236  0066D6  6E3F               	movwf	??_INT_isr^0,c
  17237  0066D8  0EF8               	movlw	248
@@ -17280,7 +17280,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
  17242  0066E0  D7FC               	bra	i2u716_47
  17243  0066E2  D000               	nop2	
  17244  0066E4                     
- 17245                           ;main.c: 62:         INTCONbits.INT0F = 0;
+ 17245                           ;main.c: 66:         INTCONbits.INT0F = 0;
  17246  0066E4  92F2               	bcf	242,1,c	;volatile
  17247  0066E6                     i2l906:
  17248  0066E6  925E               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
@@ -19025,7 +19025,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
  18987                           
  18988 ;; *************** function i2_main_Home *****************
  18989 ;; Defined at:
- 18990 ;;		line 66 in file "main.c"
+ 18990 ;;		line 70 in file "main.c"
  18991 ;; Parameters:    Size  Location     Type
  18992 ;;		None
  18993 ;; Auto vars:     Size  Location     Type
@@ -19059,21 +19059,21 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
  19021  006A64                     i2_main_Home:
  19022                           	opt callstack 20
  19023  006A64                     
- 19024                           ;main.c: 67:     while (BanderaX == 0) {
+ 19024                           ;main.c: 71:     while (BanderaX == 0) {
  19025  006A64  EF38  F035         	goto	i2l7079
  19026  006A68                     i2l910:
  19027                           
- 19028                           ;main.c: 68:         PORTDbits.RD0 = 0;
+ 19028                           ;main.c: 72:         PORTDbits.RD0 = 0;
  19029  006A68  9083               	bcf	131,0,c	;volatile
  19030                           
- 19031                           ;main.c: 69:         PORTDbits.RD2 = 1;
+ 19031                           ;main.c: 73:         PORTDbits.RD2 = 1;
  19032  006A6A  8483               	bsf	131,2,c	;volatile
  19033  006A6C                     
- 19034                           ;main.c: 70:         Motor_Home();
+ 19034                           ;main.c: 74:         Motor_Home();
  19035  006A6C  EC9A  F037         	call	i2_Motor_Home	;wreg free
  19036  006A70                     i2l7079:
  19037                           
- 19038                           ;main.c: 67:     while (BanderaX == 0) {
+ 19038                           ;main.c: 71:     while (BanderaX == 0) {
  19039  006A70  5056               	movf	_BanderaX^0,w,c
  19040  006A72  B4D8               	btfsc	status,2,c
  19041  006A74  EF3E  F035         	goto	i2u676_41
@@ -19084,17 +19084,17 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
  19046  006A80  EF46  F035         	goto	i2l7083
  19047  006A84                     i2l913:
  19048                           
- 19049                           ;main.c: 73:         PORTDbits.RD0 = 1;
+ 19049                           ;main.c: 77:         PORTDbits.RD0 = 1;
  19050  006A84  8083               	bsf	131,0,c	;volatile
  19051                           
- 19052                           ;main.c: 74:         PORTDbits.RD2 = 0;
+ 19052                           ;main.c: 78:         PORTDbits.RD2 = 0;
  19053  006A86  9483               	bcf	131,2,c	;volatile
  19054  006A88                     
- 19055                           ;main.c: 75:         Motor_Home();
+ 19055                           ;main.c: 79:         Motor_Home();
  19056  006A88  EC9A  F037         	call	i2_Motor_Home	;wreg free
  19057  006A8C                     i2l7083:
  19058                           
- 19059                           ;main.c: 72:     while (BanderaY == 0) {
+ 19059                           ;main.c: 76:     while (BanderaY == 0) {
  19060  006A8C  5055               	movf	_BanderaY^0,w,c
  19061  006A8E  B4D8               	btfsc	status,2,c
  19062  006A90  EF4C  F035         	goto	i2u677_41
@@ -19103,20 +19103,20 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
  19065  006A98  EF42  F035         	goto	i2l913
  19066  006A9C                     i2u677_40:
  19067  006A9C                     
- 19068                           ;main.c: 77:     PORTDbits.RD0 = 1;
+ 19068                           ;main.c: 81:     PORTDbits.RD0 = 1;
  19069  006A9C  8083               	bsf	131,0,c	;volatile
  19070                           
- 19071                           ;main.c: 78:     PORTDbits.RD2 = 1;
+ 19071                           ;main.c: 82:     PORTDbits.RD2 = 1;
  19072  006A9E  8483               	bsf	131,2,c	;volatile
  19073                           
- 19074                           ;main.c: 79:     T2CONbits.TMR2ON = 0;
+ 19074                           ;main.c: 83:     T2CONbits.TMR2ON = 0;
  19075  006AA0  94CA               	bcf	202,2,c	;volatile
  19076  006AA2                     
- 19077                           ;main.c: 80:     BanderaX = 0;
+ 19077                           ;main.c: 84:     BanderaX = 0;
  19078  006AA2  0E00               	movlw	0
  19079  006AA4  6E56               	movwf	_BanderaX^0,c
  19080                           
- 19081                           ;main.c: 81:     BanderaY = 0;
+ 19081                           ;main.c: 85:     BanderaY = 0;
  19082  006AA6  0E00               	movlw	0
  19083  006AA8  6E55               	movwf	_BanderaY^0,c
  19084  006AAA  0012               	return		;funcret
@@ -20178,7 +20178,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.10 build 88905656 
-Symbol Table                                                                                   Thu Dec 12 07:59:55 2019
+Symbol Table                                                                                   Thu Dec 12 12:06:12 2019
 
               PWM_GeneratePulsos@Oupcode 0067                             i2_Motor_Home 6F34  
                                       _C 01C8                    _Motor_Calcular_PasosX 63A0  

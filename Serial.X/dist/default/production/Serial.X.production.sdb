@@ -98,11 +98,11 @@
 [v _INT1_ACTION INT1_ACTION `(v  1 e 1 0 ]
 "56
 [v _INT2_ACTION INT2_ACTION `(v  1 e 1 0 ]
-"22 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\main.c
+"26 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"47
+"51
 [v _INT_isr INT_isr `IIH(v  1 e 1 0 ]
-"66
+"70
 [v _main_Home main_Home `(v  1 e 1 0 ]
 [v i2_main_Home main_Home `(v  1 e 1 0 ]
 "19 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\Motor.c
@@ -833,15 +833,15 @@
 [v _dp_h dp_h `C[2]f  1 s 8 dp_h ]
 "21
 [v _dp_l dp_l `C[2]f  1 s 8 dp_l ]
-"22 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\main.c
+"26 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"45
+"49
 } 0
-"66
+"70
 [v _main_Home main_Home `(v  1 e 1 0 ]
 {
-"83
+"87
 } 0
 "90 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\Motor.c
 [v _Motor_Home Motor_Home `(v  1 e 1 0 ]
@@ -1490,10 +1490,10 @@
 {
 "21
 } 0
-"47 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\main.c
+"51 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\main.c
 [v _INT_isr INT_isr `IIH(v  1 e 1 0 ]
 {
-"64
+"68
 } 0
 "56 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\Interrupt.c
 [v _INT2_ACTION INT2_ACTION `(v  1 e 1 0 ]
@@ -1589,10 +1589,10 @@
 {
 "43
 } 0
-"66 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\main.c
+"70 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\main.c
 [v i2_main_Home main_Home `(v  1 e 1 0 ]
 {
-"83
+"87
 } 0
 "90 C:\Users\saenz\OneDrive\Escritorio\Tec\Semestre_i\temperancetarea1.git\trunk\Serial.X\Motor.c
 [v i2_Motor_Home Motor_Home `(v  1 e 1 0 ]
