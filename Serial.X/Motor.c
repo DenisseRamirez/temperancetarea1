@@ -41,11 +41,11 @@ void Motor_Movimiento(char Oupcode, int Motor_CoordenadaX, int Motor_CoordenadaY
 void Motor_Calcular_PasosX(int coordenada_actualX) {
     if (coordenada_actualX < coordenada_anteriorX) {
 
-        DIRECCION_X = 1;
+        DIRECCION_X = 0;
         DeltaX = coordenada_anteriorX - coordenada_actualX;
     } else if (coordenada_actualX > coordenada_anteriorX) {
 
-        DIRECCION_X = 0;
+        DIRECCION_X = 1;
         DeltaX = coordenada_actualX - coordenada_anteriorX;
     } else if (coordenada_actualX == coordenada_anteriorX) {
         DeltaX = 0;
@@ -55,11 +55,11 @@ void Motor_Calcular_PasosX(int coordenada_actualX) {
 void Motor_Calcular_PasosY(int coordenada_actualY) {
     if (coordenada_actualY < coordenada_anteriorY) {
 
-        DIRECCION_Y = 1;
+        DIRECCION_Y = 0;
         DeltaY = coordenada_anteriorY - coordenada_actualY;
     } else if (coordenada_actualY > coordenada_anteriorY) {
 
-        DIRECCION_Y = 0;
+        DIRECCION_Y = 1;
         DeltaY = coordenada_actualY - coordenada_anteriorY;
     } else if (coordenada_actualY == coordenada_anteriorY) {
         DeltaY = 0;
@@ -87,16 +87,16 @@ void Motor_MovimientoZ(void) {
 }
 
 void Motor_Home(void) {
-    DIRECCION_X = 1;
-    DIRECCION_Y = 1;
-    PWM_InitS();
+    DIRECCION_X = 0;
+    DIRECCION_Y = 0;
+    PWM_InitF();
     T2CONbits.TMR2ON = 1;
 }
 
 void Motor_Movimiento_Home(char Oupcode, int Motor_CoordenadaX, int Motor_CoordenadaY) {
     T2CONbits.TMR2ON = 0;
-    DIRECCION_X = 0;
-    DIRECCION_Y = 0;
+    DIRECCION_X = 1;
+    DIRECCION_Y = 1;
     PasosX = Motor_Conversion(Motor_CoordenadaX);
     PasosY = Motor_Conversion(Motor_CoordenadaY);
     PWM_GeneratePulsos(Oupcode, PasosX, PasosY);

@@ -3,4 +3,5 @@ Actuator.c  \
 GPIOsparcA1.h  \
 configuration.h  \
 UART.h  \
-User_Interface.h 
+User_Interface.h  \
+main.h 

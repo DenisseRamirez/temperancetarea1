@@ -5894,29 +5894,69 @@ void Usart_Interface_OFF(char color);
 void Usart_Interface_ON(char color);
 # 13 "Actuator.c" 2
 
+# 1 "./main.h" 1
+# 10 "./main.h"
+void main_Home(void);
+void __attribute__((picinterrupt(("")))) INT_isr (void);
+char home=0;
+# 14 "Actuator.c" 2
+
 
 
 
 
 void Actuator_Touch(void) {
-    do { LATCbits.LATC0 = 0; } while(0);
+    INTCONbits.INT0IE = 0;
+    INTCON3bits.INT1IE = 0;
+    INTCON3bits.INT2IE = 0;
+    INTCONbits.GIE = 0;
+    do { LATEbits.LATE0 = 1; } while(0);
     _delay((unsigned long)((100)*(8000000/4000.0)));
-    do { LATCbits.LATC0 = 1; } while(0);
+    do { LATEbits.LATE0 = 0; } while(0);
     USART_TxS("C\n", sizeof ("C\n") - 1);
     Usart_Interface_ON('V');
     Usart_Interface_OFF('A');
+    _delay((unsigned long)((100)*(8000000/4000.0)));
+    _delay((unsigned long)((100)*(8000000/4000.0)));
+    _delay((unsigned long)((100)*(8000000/4000.0)));
+    INTCONbits.INT0IE = 1;
+    INTCON3bits.INT1IE = 1;
+    INTCON3bits.INT2IE = 1;
+    INTCONbits.GIE = 1;
 }
 
 void Actuator_Retract(void) {
-    do { LATCbits.LATC0 = 1; } while(0);
+    INTCONbits.INT0IE = 0;
+    INTCON3bits.INT1IE = 0;
+    INTCON3bits.INT2IE = 0;
+    INTCONbits.GIE = 0;
+    do { LATEbits.LATE0 = 0; } while(0);
     USART_TxS("C\n", sizeof ("C\n") - 1);
     Usart_Interface_ON('V');
     Usart_Interface_OFF('A');
+    _delay((unsigned long)((100)*(8000000/4000.0)));
+    _delay((unsigned long)((100)*(8000000/4000.0)));
+    _delay((unsigned long)((100)*(8000000/4000.0)));
+        INTCONbits.INT0IE = 1;
+    INTCON3bits.INT1IE = 1;
+    INTCON3bits.INT2IE = 1;
+    INTCONbits.GIE = 1;
 }
 
 void Actuator_Hold(void) {
-    do { LATCbits.LATC0 = 0; } while(0);
+    INTCONbits.INT0IE = 0;
+    INTCON3bits.INT1IE = 0;
+    INTCON3bits.INT2IE = 0;
+    INTCONbits.GIE = 0;
+    do { LATEbits.LATE0 = 1; } while(0);
     USART_TxS("C\n", sizeof ("C\n") - 1);
     Usart_Interface_ON('V');
     Usart_Interface_OFF('A');
+    _delay((unsigned long)((100)*(8000000/4000.0)));
+    _delay((unsigned long)((100)*(8000000/4000.0)));
+    _delay((unsigned long)((100)*(8000000/4000.0)));
+        INTCONbits.INT0IE = 1;
+    INTCON3bits.INT1IE = 1;
+    INTCON3bits.INT2IE = 1;
+    INTCONbits.GIE = 1;
 }

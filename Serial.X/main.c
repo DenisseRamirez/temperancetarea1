@@ -26,6 +26,7 @@ void main(void) {
    GPIO_init_PORTC();
    GPIO_init_PORTD();
     GPIO_init_PORTE();
+    ACTUADOR_SetHigh();
     ENABLE_Z_SetLow();
     ENABLE_X = 1;
     ENABLE_Y = 1;
