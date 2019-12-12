@@ -6066,6 +6066,17 @@ void Usart_Interface_OFF(char color);
 void Usart_Interface_ON(char color);
 # 22 "serial.c" 2
 
+# 1 "./Interrupt.h" 1
+# 11 "./Interrupt.h"
+void Int_Ext(void);
+void INT0_ACTION(void);
+void INT1_ACTION(void);
+void INT2_ACTION(void);
+void maain_interrrupt();
+char BanderaX=0;
+char BanderaY=0;
+# 23 "serial.c" 2
+
 
 void Serial_Oupcode(void) {
     char instruction_counter = 0;
@@ -6151,6 +6162,7 @@ void Serial_Oupcode(void) {
                 Usart_Interface_OFF('V');
                 Usart_Interface_ON('A');
                 Actuator_Retract();
+
                 break;
             case 'O':
                 USART_TxS("W\n", sizeof ("W\n") - 1);
@@ -6177,8 +6189,8 @@ void Serial_Oupcode(void) {
                     if (Coordenadas_control_fuera == 1) {
                         Coordenadas_control_fuera = 0;
                         USART_TxS("A\n", sizeof ("A\n") - 1);
-                        Usart_Interface_ON('V');
-                        Usart_Interface_OFF('A');
+                        Usart_Interface_ON('A');
+                        Usart_Interface_OFF('V');
                         _delay((unsigned long)((200)*(8000000/4000.0)));
                         while (PORTAbits.RA5 == 0) {
                             Motor_MovimientoZ();
@@ -6191,7 +6203,7 @@ void Serial_Oupcode(void) {
                         _delay((unsigned long)((200)*(8000000/4000.0)));
                         Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
                     } else {
-                        Control_Z(CoordenadaZ);
+                       Control_Z(CoordenadaZ);
                         _delay((unsigned long)((200)*(8000000/4000.0)));
                         Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
                     }
@@ -6207,8 +6219,8 @@ void Serial_Oupcode(void) {
                     break;
                 } else {
                     USART_TxS("W\n", sizeof ("W\n") - 1);
-                    Usart_Interface_OFF('V');
-                    Usart_Interface_ON('A');
+                    Usart_Interface_OFF('A');
+                    Usart_Interface_ON('V');
                     Direccion_Memoria = Seria_Decodificacion_Memoria(Direccion_Memoria);
                     Serial_Escritura_Memoria(Direccion_Memoria, coordenada_setpoint);
                 }
@@ -6262,7 +6274,7 @@ void Serial_DecodificacionY(char string_coordenada[], int *pointerCY) {
     *pointerCY = atoi(coordenadaY);
     return;
 }
-# 235 "serial.c"
+# 237 "serial.c"
 void Serial_RangosCoordenadas(int C) {
     if (C > 300 || C < 0) {
         Coordenadas_fuera = 1;

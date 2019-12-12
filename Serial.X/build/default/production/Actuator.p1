@@ -636,138 +636,102 @@ Version 4.0 HI-TECH Software Intermediate Code
 "32
 [; ;Actuator.c: 32:     _delay((unsigned long)((100)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"33
-[; ;Actuator.c: 33:     INTCONbits.INT0IE = 1;
-[e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
 "34
-[; ;Actuator.c: 34:     INTCON3bits.INT1IE = 1;
-[e = . . _INTCON3bits 0 3 -> -> 1 `i `uc ]
-"35
-[; ;Actuator.c: 35:     INTCON3bits.INT2IE = 1;
-[e = . . _INTCON3bits 0 4 -> -> 1 `i `uc ]
-"36
-[; ;Actuator.c: 36:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"37
-[; ;Actuator.c: 37: }
+[; ;Actuator.c: 34: }
 [e :UE 369 ]
 }
-"39
-[; ;Actuator.c: 39: void Actuator_Retract(void) {
+"36
+[; ;Actuator.c: 36: void Actuator_Retract(void) {
 [v _Actuator_Retract `(v ~T0 @X0 1 ef ]
 {
 [e :U _Actuator_Retract ]
 [f ]
-"40
-[; ;Actuator.c: 40:     INTCONbits.INT0IE = 0;
+"37
+[; ;Actuator.c: 37:     INTCONbits.INT0IE = 0;
 [e = . . _INTCONbits 0 4 -> -> 0 `i `uc ]
-"41
-[; ;Actuator.c: 41:     INTCON3bits.INT1IE = 0;
+"38
+[; ;Actuator.c: 38:     INTCON3bits.INT1IE = 0;
 [e = . . _INTCON3bits 0 3 -> -> 0 `i `uc ]
-"42
-[; ;Actuator.c: 42:     INTCON3bits.INT2IE = 0;
+"39
+[; ;Actuator.c: 39:     INTCON3bits.INT2IE = 0;
 [e = . . _INTCON3bits 0 4 -> -> 0 `i `uc ]
-"43
-[; ;Actuator.c: 43:     INTCONbits.GIE = 0;
+"40
+[; ;Actuator.c: 40:     INTCONbits.GIE = 0;
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-"44
-[; ;Actuator.c: 44:     do { LATEbits.LATE0 = 0; } while(0);
+"41
+[; ;Actuator.c: 41:     do { LATEbits.LATE0 = 0; } while(0);
 [e :U 379 ]
 {
 [e = . . _LATEbits 0 0 -> -> 0 `i `uc ]
 }
 [e :U 378 ]
-"45
-[; ;Actuator.c: 45:     USART_TxS("C\n", sizeof ("C\n") - 1);
+"42
+[; ;Actuator.c: 42:     USART_TxS("C\n", sizeof ("C\n") - 1);
 [e ( _USART_TxS (2 , :s 2C -> - -> 3 `ui -> -> 1 `i `ui `i ]
-"46
-[; ;Actuator.c: 46:     Usart_Interface_ON('V');
+"43
+[; ;Actuator.c: 43:     Usart_Interface_ON('V');
 [e ( _Usart_Interface_ON (1 -> -> 86 `ui `uc ]
-"47
-[; ;Actuator.c: 47:     Usart_Interface_OFF('A');
+"44
+[; ;Actuator.c: 44:     Usart_Interface_OFF('A');
 [e ( _Usart_Interface_OFF (1 -> -> 65 `ui `uc ]
+"45
+[; ;Actuator.c: 45:     _delay((unsigned long)((100)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"46
+[; ;Actuator.c: 46:     _delay((unsigned long)((100)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"47
+[; ;Actuator.c: 47:     _delay((unsigned long)((100)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "48
-[; ;Actuator.c: 48:     _delay((unsigned long)((100)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"49
-[; ;Actuator.c: 49:     _delay((unsigned long)((100)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"50
-[; ;Actuator.c: 50:     _delay((unsigned long)((100)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"51
-[; ;Actuator.c: 51:         INTCONbits.INT0IE = 1;
-[e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
-"52
-[; ;Actuator.c: 52:     INTCON3bits.INT1IE = 1;
-[e = . . _INTCON3bits 0 3 -> -> 1 `i `uc ]
-"53
-[; ;Actuator.c: 53:     INTCON3bits.INT2IE = 1;
-[e = . . _INTCON3bits 0 4 -> -> 1 `i `uc ]
-"54
-[; ;Actuator.c: 54:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"55
-[; ;Actuator.c: 55: }
+[; ;Actuator.c: 48: }
 [e :UE 376 ]
 }
-"57
-[; ;Actuator.c: 57: void Actuator_Hold(void) {
+"50
+[; ;Actuator.c: 50: void Actuator_Hold(void) {
 [v _Actuator_Hold `(v ~T0 @X0 1 ef ]
 {
 [e :U _Actuator_Hold ]
 [f ]
-"58
-[; ;Actuator.c: 58:     INTCONbits.INT0IE = 0;
+"51
+[; ;Actuator.c: 51:     INTCONbits.INT0IE = 0;
 [e = . . _INTCONbits 0 4 -> -> 0 `i `uc ]
-"59
-[; ;Actuator.c: 59:     INTCON3bits.INT1IE = 0;
+"52
+[; ;Actuator.c: 52:     INTCON3bits.INT1IE = 0;
 [e = . . _INTCON3bits 0 3 -> -> 0 `i `uc ]
-"60
-[; ;Actuator.c: 60:     INTCON3bits.INT2IE = 0;
+"53
+[; ;Actuator.c: 53:     INTCON3bits.INT2IE = 0;
 [e = . . _INTCON3bits 0 4 -> -> 0 `i `uc ]
-"61
-[; ;Actuator.c: 61:     INTCONbits.GIE = 0;
+"54
+[; ;Actuator.c: 54:     INTCONbits.GIE = 0;
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-"62
-[; ;Actuator.c: 62:     do { LATEbits.LATE0 = 1; } while(0);
+"55
+[; ;Actuator.c: 55:     do { LATEbits.LATE0 = 1; } while(0);
 [e :U 383 ]
 {
 [e = . . _LATEbits 0 0 -> -> 1 `i `uc ]
 }
 [e :U 382 ]
-"63
-[; ;Actuator.c: 63:     USART_TxS("C\n", sizeof ("C\n") - 1);
+"56
+[; ;Actuator.c: 56:     USART_TxS("C\n", sizeof ("C\n") - 1);
 [e ( _USART_TxS (2 , :s 3C -> - -> 3 `ui -> -> 1 `i `ui `i ]
-"64
-[; ;Actuator.c: 64:     Usart_Interface_ON('V');
+"57
+[; ;Actuator.c: 57:     Usart_Interface_ON('V');
 [e ( _Usart_Interface_ON (1 -> -> 86 `ui `uc ]
-"65
-[; ;Actuator.c: 65:     Usart_Interface_OFF('A');
+"58
+[; ;Actuator.c: 58:     Usart_Interface_OFF('A');
 [e ( _Usart_Interface_OFF (1 -> -> 65 `ui `uc ]
-"66
-[; ;Actuator.c: 66:     _delay((unsigned long)((100)*(8000000/4000.0)));
+"59
+[; ;Actuator.c: 59:     _delay((unsigned long)((100)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"67
-[; ;Actuator.c: 67:     _delay((unsigned long)((100)*(8000000/4000.0)));
+"60
+[; ;Actuator.c: 60:     _delay((unsigned long)((100)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"68
-[; ;Actuator.c: 68:     _delay((unsigned long)((100)*(8000000/4000.0)));
+"61
+[; ;Actuator.c: 61:     _delay((unsigned long)((100)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"69
-[; ;Actuator.c: 69:         INTCONbits.INT0IE = 1;
-[e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
-"70
-[; ;Actuator.c: 70:     INTCON3bits.INT1IE = 1;
-[e = . . _INTCON3bits 0 3 -> -> 1 `i `uc ]
-"71
-[; ;Actuator.c: 71:     INTCON3bits.INT2IE = 1;
-[e = . . _INTCON3bits 0 4 -> -> 1 `i `uc ]
-"72
-[; ;Actuator.c: 72:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"73
-[; ;Actuator.c: 73: }
+"63
+[; ;Actuator.c: 63: }
 [e :UE 380 ]
 }
 [a 1C 67 10 0 ]

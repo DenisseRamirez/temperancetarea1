@@ -5919,10 +5919,7 @@ void Actuator_Touch(void) {
     _delay((unsigned long)((100)*(8000000/4000.0)));
     _delay((unsigned long)((100)*(8000000/4000.0)));
     _delay((unsigned long)((100)*(8000000/4000.0)));
-    INTCONbits.INT0IE = 1;
-    INTCON3bits.INT1IE = 1;
-    INTCON3bits.INT2IE = 1;
-    INTCONbits.GIE = 1;
+
 }
 
 void Actuator_Retract(void) {
@@ -5937,10 +5934,6 @@ void Actuator_Retract(void) {
     _delay((unsigned long)((100)*(8000000/4000.0)));
     _delay((unsigned long)((100)*(8000000/4000.0)));
     _delay((unsigned long)((100)*(8000000/4000.0)));
-        INTCONbits.INT0IE = 1;
-    INTCON3bits.INT1IE = 1;
-    INTCON3bits.INT2IE = 1;
-    INTCONbits.GIE = 1;
 }
 
 void Actuator_Hold(void) {
@@ -5955,8 +5948,5 @@ void Actuator_Hold(void) {
     _delay((unsigned long)((100)*(8000000/4000.0)));
     _delay((unsigned long)((100)*(8000000/4000.0)));
     _delay((unsigned long)((100)*(8000000/4000.0)));
-        INTCONbits.INT0IE = 1;
-    INTCON3bits.INT1IE = 1;
-    INTCON3bits.INT2IE = 1;
-    INTCONbits.GIE = 1;
+
 }

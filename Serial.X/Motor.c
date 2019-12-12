@@ -67,12 +67,13 @@ void Motor_Calcular_PasosY(int coordenada_actualY) {
 }
 
 void Motor_MovimientoZ(void) {
-    if (BOTON_UP_GetValue() == 1) { //Aqui se va a comprobar el estado del boton en dado caso
+    while (BOTON_UP_GetValue() == 1) { //Aqui se va a comprobar el estado del boton en dado caso
 
         ENABLE_Z_SetHigh();
         INPUT_A_SetHigh();
         INPUT_B_SetLow();
-    } else if (BOTON_DOWN_GetValue() == 1) { //Aqui se va a comprobar el estado del boton en dado caso
+    }
+    while(BOTON_DOWN_GetValue() == 1) { //Aqui se va a comprobar el estado del boton en dado caso
 
         ENABLE_Z_SetHigh();
         INPUT_A_SetLow();

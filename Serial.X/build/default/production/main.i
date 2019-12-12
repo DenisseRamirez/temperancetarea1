@@ -6035,7 +6035,7 @@ void main(void) {
    GPIO_init_PORTC();
    GPIO_init_PORTD();
     GPIO_init_PORTE();
-    do { LATEbits.LATE0 = 1; } while(0);
+    do { LATEbits.LATE0 = 0; } while(0);
     do { LATDbits.LATD4 = 0; } while(0);
     PORTDbits.RD0 = 1;
     PORTDbits.RD2 = 1;

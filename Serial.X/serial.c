@@ -20,6 +20,7 @@
 #include "GPIOsparcA1.h"
 #include "ControlZ.h"
 #include "User_Interface.h"
+#include "Interrupt.h"
 
 void Serial_Oupcode(void) {
     char instruction_counter = 0;
@@ -105,6 +106,7 @@ void Serial_Oupcode(void) {
                 Usart_Interface_OFF('V');
                 Usart_Interface_ON('A');
                 Actuator_Retract();
+
                 break;
             case 'O':
                 USART_TxS("W\n", sizeof ("W\n") - 1);
@@ -131,8 +133,8 @@ void Serial_Oupcode(void) {
                     if (Coordenadas_control_fuera == 1) {
                         Coordenadas_control_fuera = 0;
                         USART_TxS("A\n", sizeof ("A\n") - 1);
-                        Usart_Interface_ON('V');
-                        Usart_Interface_OFF('A');
+                        Usart_Interface_ON('A');
+                        Usart_Interface_OFF('V');
                         __delay_ms(200);
                         while (BOTON_OK_GetValue() == 0) {
                             Motor_MovimientoZ();
@@ -145,7 +147,7 @@ void Serial_Oupcode(void) {
                         __delay_ms(200);
                         Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
                     } else {
-                        Control_Z(CoordenadaZ);
+                       Control_Z(CoordenadaZ);
                         __delay_ms(200);
                         Motor_Movimiento(Oupcode, CoordenadaX, CoordenadaY);
                     }
@@ -161,8 +163,8 @@ void Serial_Oupcode(void) {
                     break;
                 } else {
                     USART_TxS("W\n", sizeof ("W\n") - 1);
-                    Usart_Interface_OFF('V');
-                    Usart_Interface_ON('A');
+                    Usart_Interface_OFF('A');
+                    Usart_Interface_ON('V');
                     Direccion_Memoria = Seria_Decodificacion_Memoria(Direccion_Memoria);
                     Serial_Escritura_Memoria(Direccion_Memoria, coordenada_setpoint);
                 }

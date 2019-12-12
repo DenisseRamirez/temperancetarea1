@@ -30,10 +30,7 @@ void Actuator_Touch(void) {
     __delay_ms(100);
     __delay_ms(100);
     __delay_ms(100);
-    INTCONbits.INT0IE = 1; //Enable external RB0 interrupt
-    INTCON3bits.INT1IE = 1; //Enable external RB1 interrupt
-    INTCON3bits.INT2IE = 1; //Enable external RB2 interrupt
-    INTCONbits.GIE = 1;
+
 }
 
 void Actuator_Retract(void) {
@@ -48,10 +45,6 @@ void Actuator_Retract(void) {
     __delay_ms(100);
     __delay_ms(100);
     __delay_ms(100);
-        INTCONbits.INT0IE = 1; //Enable external RB0 interrupt
-    INTCON3bits.INT1IE = 1; //Enable external RB1 interrupt
-    INTCON3bits.INT2IE = 1; //Enable external RB2 interrupt
-    INTCONbits.GIE = 1;
 }
 
 void Actuator_Hold(void) {
@@ -66,9 +59,6 @@ void Actuator_Hold(void) {
     __delay_ms(100);
     __delay_ms(100);
     __delay_ms(100);
-        INTCONbits.INT0IE = 1; //Enable external RB0 interrupt
-    INTCON3bits.INT1IE = 1; //Enable external RB1 interrupt
-    INTCON3bits.INT2IE = 1; //Enable external RB2 interrupt
-    INTCONbits.GIE = 1;
+
 }
 

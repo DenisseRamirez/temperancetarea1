@@ -47,7 +47,7 @@ void INT1_ACTION(void) {
     ENABLE_Y = 1;
     __delay_ms(100);
     if (BanderaX == 0) {
-        Motor_Movimiento_Home('S', 10, 0);
+        Motor_Movimiento_Home('S', 20, 0);
     }
     BanderaX = 1;
     return;
@@ -58,7 +58,7 @@ void INT2_ACTION(void) {
     ENABLE_Y = 1;
     __delay_ms(100);
     if (BanderaY == 0) {
-        Motor_Movimiento_Home('S', 0, 10);
+        Motor_Movimiento_Home('S', 0, 20);
     }
     BanderaY = 1;
     return;

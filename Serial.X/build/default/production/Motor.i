@@ -5990,12 +5990,13 @@ void Motor_Calcular_PasosY(int coordenada_actualY) {
 }
 
 void Motor_MovimientoZ(void) {
-    if (PORTCbits.RC4 == 1) {
+    while (PORTCbits.RC4 == 1) {
 
         do { LATDbits.LATD4 = 1; } while(0);
         do { LATDbits.LATD5 = 1; } while(0);
         do { LATDbits.LATD6 = 0; } while(0);
-    } else if (PORTCbits.RC5 == 1) {
+    }
+    while(PORTCbits.RC5 == 1) {
 
         do { LATDbits.LATD4 = 1; } while(0);
         do { LATDbits.LATD5 = 0; } while(0);

@@ -854,10 +854,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 28:     GPIO_init_PORTE();
 [e ( _GPIO_init_PORTE ..  ]
 "29
-[; ;main.c: 29:     do { LATEbits.LATE0 = 1; } while(0);
+[; ;main.c: 29:     do { LATEbits.LATE0 = 0; } while(0);
 [e :U 372 ]
 {
-[e = . . _LATEbits 0 0 -> -> 1 `i `uc ]
+[e = . . _LATEbits 0 0 -> -> 0 `i `uc ]
 }
 [e :U 371 ]
 "30
