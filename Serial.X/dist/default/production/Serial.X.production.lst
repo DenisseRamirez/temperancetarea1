@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.10 build 88905656 
-                                                                                               Thu Dec 12 07:09:27 2019
+                                                                                               Thu Dec 12 07:59:55 2019
 
 Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1 
      1                           	processor	18F4550
@@ -17354,14 +17354,14 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
  17316  0069B4  EFE7  F034         	goto	i2l7467
  17317  0069B8                     i2u694_40:
  17318  0069B8                     
- 17319                           ;Interrupt.c: 61:         Motor_Movimiento_Home('S', 0, 20);
+ 17319                           ;Interrupt.c: 61:         Motor_Movimiento_Home('S', 0, 15);
  17320  0069B8  0E00               	movlw	0
  17321  0069BA  6E39               	movwf	(Motor_Movimiento_Home@Motor_CoordenadaX+1)^0,c
  17322  0069BC  0E00               	movlw	0
  17323  0069BE  6E38               	movwf	Motor_Movimiento_Home@Motor_CoordenadaX^0,c
  17324  0069C0  0E00               	movlw	0
  17325  0069C2  6E3B               	movwf	(Motor_Movimiento_Home@Motor_CoordenadaY+1)^0,c
- 17326  0069C4  0E14               	movlw	20
+ 17326  0069C4  0E0F               	movlw	15
  17327  0069C6  6E3A               	movwf	Motor_Movimiento_Home@Motor_CoordenadaY^0,c
  17328  0069C8  0E53               	movlw	83
  17329  0069CA  EC0E  F035         	call	_Motor_Movimiento_Home
@@ -17440,10 +17440,10 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
  17402  0069FC  EF0B  F035         	goto	i2l7455
  17403  006A00                     i2u693_40:
  17404  006A00                     
- 17405                           ;Interrupt.c: 50:         Motor_Movimiento_Home('S', 20, 0);
+ 17405                           ;Interrupt.c: 50:         Motor_Movimiento_Home('S', 15, 0);
  17406  006A00  0E00               	movlw	0
  17407  006A02  6E39               	movwf	(Motor_Movimiento_Home@Motor_CoordenadaX+1)^0,c
- 17408  006A04  0E14               	movlw	20
+ 17408  006A04  0E0F               	movlw	15
  17409  006A06  6E38               	movwf	Motor_Movimiento_Home@Motor_CoordenadaX^0,c
  17410  006A08  0E00               	movlw	0
  17411  006A0A  6E3B               	movwf	(Motor_Movimiento_Home@Motor_CoordenadaY+1)^0,c
@@ -20178,7 +20178,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.10 build 88905656 
-Symbol Table                                                                                   Thu Dec 12 07:09:27 2019
+Symbol Table                                                                                   Thu Dec 12 07:59:55 2019
 
               PWM_GeneratePulsos@Oupcode 0067                             i2_Motor_Home 6F34  
                                       _C 01C8                    _Motor_Calcular_PasosX 63A0  
